@@ -3,6 +3,7 @@ let promptConfigs = {};
 let selectedProvider = 'gemini';
 let assembledResults = [];
 let selectedPromptIndex = -1;
+let selectedVariantIndex = 0;
 let uploadedImageBase64 = null; // base64 data URI of uploaded product image
 
 const CATEGORY_LABELS = {
@@ -249,6 +250,7 @@ async function handleAssemble() {
 
         assembledResults = data.results || [];
         selectedPromptIndex = assembledResults.length > 0 ? 0 : -1;
+        selectedVariantIndex = 0;
         renderPromptResults();
         updateNicheDisplay();
 
@@ -274,26 +276,44 @@ function renderPromptResults() {
         return;
     }
 
-    container.innerHTML = assembledResults.map((r, i) => `
-    <div class="prompt-card ${i === selectedPromptIndex ? 'selected' : ''}" data-index="${i}">
-      <div class="prompt-card-header" onclick="window.__selectPrompt(${i})">
+    container.innerHTML = assembledResults.map((r, catIdx) => {
+        const allPrompts = r.allPrompts || [{ index: 0, label: 'Default', prompt: r.prompt }];
+        const variantCards = allPrompts.map((v, vIdx) => {
+            const isSelected = catIdx === selectedPromptIndex && vIdx === selectedVariantIndex;
+            const truncated = v.prompt.length > 180 ? v.prompt.substring(0, 180) + '…' : v.prompt;
+            return `
+            <div class="variant-card ${isSelected ? 'selected' : ''}" 
+                 data-cat="${catIdx}" data-var="${vIdx}"
+                 onclick="window.__selectVariant(${catIdx}, ${vIdx})">
+              <div class="variant-header">
+                <span class="variant-label">${escapeHtml(v.label)}</span>
+                <div class="variant-actions">
+                  <button class="btn-tiny" onclick="event.stopPropagation(); window.__copyVariant(${catIdx}, ${vIdx})" title="Copy">📋</button>
+                  <button class="btn-tiny" onclick="event.stopPropagation(); window.__generateVariant(${catIdx}, ${vIdx})" title="Generate">🚀</button>
+                </div>
+              </div>
+              <pre class="variant-preview">${escapeHtml(truncated)}</pre>
+              ${isSelected ? `<pre class="variant-full">${escapeHtml(v.prompt)}</pre>` : ''}
+            </div>`;
+        }).join('');
+
+        return `
+    <div class="prompt-card" data-catindex="${catIdx}">
+      <div class="prompt-card-header">
         <span class="prompt-card-title">
           ${CATEGORY_LABELS[r.category] || r.category}
         </span>
         <div class="prompt-card-meta">
           <span class="niche-badge detected">${r.niche}</span>
           <span class="niche-badge">${r.platform}</span>
+          <span class="badge">${allPrompts.length} variants</span>
         </div>
       </div>
-      <div class="prompt-card-body">
-        <pre class="prompt-text">${escapeHtml(r.prompt)}</pre>
+      <div class="variants-grid">
+        ${variantCards}
       </div>
-      <div class="prompt-card-actions">
-        <button class="btn-small" onclick="window.__copyPrompt(${i})">📋 Copy</button>
-        <button class="btn-small" onclick="window.__sendSingle(${i})">🚀 Generate</button>
-      </div>
-    </div>
-  `).join('');
+    </div>`;
+    }).join('');
 }
 
 function updateNicheDisplay() {
@@ -313,8 +333,11 @@ function updateNicheDisplay() {
 // ── Generate (Image/Video) ──────────────────────────────────────────
 async function handleGenerate() {
     if (!assembledResults.length) return;
-    const idx = selectedPromptIndex >= 0 ? selectedPromptIndex : 0;
-    const prompt = assembledResults[idx]?.prompt;
+    const catIdx = selectedPromptIndex >= 0 ? selectedPromptIndex : 0;
+    const result = assembledResults[catIdx];
+    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
+    const varIdx = selectedVariantIndex >= 0 ? selectedVariantIndex : 0;
+    const prompt = allPrompts[varIdx]?.prompt || result?.prompt;
     if (!prompt) return;
     await sendToAI(prompt);
 }
@@ -366,7 +389,7 @@ function renderMediaResult(data) {
         const src = `data:${data.mimeType || 'image/png'};base64,${data.data}`;
         responseArea.innerHTML = `
       <div class="media-result">
-        <img src="${src}" alt="Generated image" class="generated-image" />
+        <img src="${src}" alt="Generated image" class="generated-image" onclick="window.__openLightbox(this.src)" style="cursor:pointer" title="Click to view fullscreen" />
         <div class="media-actions">
           <button class="btn-small" onclick="window.__downloadMedia('${src}', 'generated-image.png')">💾 Download</button>
           <span class="media-info">${data.provider} · ${data.model}</span>
@@ -394,11 +417,34 @@ function renderMediaResult(data) {
 }
 
 // ── Global Helpers ──────────────────────────────────────────────────
+window.__selectVariant = (catIdx, varIdx) => {
+    selectedPromptIndex = catIdx;
+    selectedVariantIndex = varIdx;
+    renderPromptResults();
+};
+
+window.__copyVariant = (catIdx, varIdx) => {
+    const result = assembledResults[catIdx];
+    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
+    const text = allPrompts[varIdx]?.prompt || '';
+    navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
+};
+
+window.__generateVariant = async (catIdx, varIdx) => {
+    selectedPromptIndex = catIdx;
+    selectedVariantIndex = varIdx;
+    renderPromptResults();
+    const result = assembledResults[catIdx];
+    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
+    const prompt = allPrompts[varIdx]?.prompt;
+    if (prompt) await sendToAI(prompt);
+};
+
+// Legacy handlers (backward compat)
 window.__selectPrompt = (index) => {
     selectedPromptIndex = index;
-    document.querySelectorAll('.prompt-card').forEach((card, i) => {
-        card.classList.toggle('selected', i === index);
-    });
+    selectedVariantIndex = 0;
+    renderPromptResults();
 };
 
 window.__copyPrompt = (index) => {
@@ -408,9 +454,8 @@ window.__copyPrompt = (index) => {
 
 window.__sendSingle = async (index) => {
     selectedPromptIndex = index;
-    document.querySelectorAll('.prompt-card').forEach((card, i) => {
-        card.classList.toggle('selected', i === index);
-    });
+    selectedVariantIndex = 0;
+    renderPromptResults();
     const prompt = assembledResults[index]?.prompt;
     if (prompt) await sendToAI(prompt);
 };
@@ -421,6 +466,33 @@ window.__downloadMedia = (dataUrl, filename) => {
     a.download = filename;
     a.click();
 };
+
+/* ── Fullscreen Lightbox ────────────────────── */
+(function initLightbox() {
+    const overlay = document.createElement('div');
+    overlay.id = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <button id="lightbox-close" aria-label="Close">✕</button>
+      <img id="lightbox-img" src="" alt="Preview" />
+      <button id="lightbox-download">💾 Download</button>
+    `;
+    document.body.appendChild(overlay);
+
+    const img = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const dlBtn = document.getElementById('lightbox-download');
+
+    function closeLightbox() { overlay.classList.remove('active'); }
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLightbox(); });
+    closeBtn.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    dlBtn.addEventListener('click', () => { window.__downloadMedia(img.src, 'generated-image.png'); });
+
+    window.__openLightbox = (src) => {
+        img.src = src;
+        overlay.classList.add('active');
+    };
+})();
 
 function escapeHtml(str) {
     const div = document.createElement('div');

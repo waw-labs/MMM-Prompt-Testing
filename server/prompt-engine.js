@@ -421,6 +421,98 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
 }
 
 /**
+ * assembleAllPrompts — Returns ALL prompt variants for the resolved niche (not just one random pick).
+ * Each variant is fully enriched with platform direction, visual direction, photography tech, and anti-artifact.
+ * Returns an array of { index, label, prompt } objects.
+ */
+export function assembleAllPrompts(config, nicheKey, platform, contentType, title, description, category) {
+    if (!config) return [{ index: 0, label: 'Default', prompt: `Design a professional social media visual for ${title}. ${description}.` }];
+
+    const niche = config.niches?.[nicheKey] || config.niches?.general;
+    if (!niche) return [{ index: 0, label: 'Default', prompt: `Design a professional social media visual for ${title}. ${description}.` }];
+
+    // Determine which prompt array to use based on content type
+    let rawPrompts = [];
+    switch (contentType) {
+        case 'video':
+            rawPrompts = (niche.video_prompts?.length > 0 ? niche.video_prompts : [niche.video_prompt || '']).filter(Boolean);
+            break;
+        case 'carousel':
+            rawPrompts = [niche.carousel_prompt].filter(Boolean);
+            break;
+        case 'caption':
+            rawPrompts = (niche.caption_templates?.length > 0 ? niche.caption_templates : []).filter(Boolean);
+            // For captions, return early without enrichment
+            return rawPrompts.map((p, i) => ({
+                index: i,
+                label: `Caption ${i + 1}`,
+                prompt: renderTemplate(p, title, description),
+            }));
+        default: // image
+            rawPrompts = (niche.master_prompts?.length > 0 ? niche.master_prompts : [niche.master_prompt || '']).filter(Boolean);
+            break;
+    }
+
+    if (rawPrompts.length === 0) {
+        rawPrompts = (niche.master_prompts?.length > 0 ? niche.master_prompts : [niche.master_prompt || '']).filter(Boolean);
+    }
+
+    // Build enrichment blocks (same for all variants)
+    const platformKey = normalizePlatform(platform);
+    const cfgKey = platformConfigKey(platform);
+    const mediaType = contentType === 'video' ? 'video' : (contentType === 'carousel' ? 'carousel' : 'image');
+    const aspectRatio = PLATFORM_ASPECT_RATIOS[platformKey]?.[mediaType] || '1:1 square (1080×1080px)';
+
+    let formatBlock = `\n\nFORMAT & DIMENSIONS:\n- Aspect ratio: ${aspectRatio}\n- Design MUST fill the entire canvas — no letterboxing or empty margins`;
+
+    const styleDirective = PLATFORM_STYLE_DIRECTIVES[platformKey] || '';
+    if (styleDirective) formatBlock += `\n\n${styleDirective}`;
+
+    let platformBlock = '';
+    const adaptation = niche.platform_adaptation?.[platformKey] || niche.platform_adaptation?.[cfgKey];
+    if (adaptation) platformBlock += `\n\nPLATFORM-SPECIFIC DIRECTION:\n${adaptation}`;
+
+    const platformConfig = config.platforms?.[platformKey] || config.platforms?.[cfgKey];
+    if (platformConfig) {
+        if (platformConfig.best_ad_frameworks?.length > 0)
+            platformBlock += `\n\nCONTENT FRAMEWORK: ${platformConfig.best_ad_frameworks.join(' or ')}`;
+        platformBlock += `\n\nPLATFORM CREATIVE RULES:\n${platformConfig.creative_rules || ''}`;
+    }
+
+    let visualBlock = '\n\nVISUAL DIRECTION:\n';
+    visualBlock += `- Lighting: ${niche.visual_direction?.lighting || 'standard'}\n`;
+    visualBlock += `- Color palette: ${(niche.visual_direction?.colors || []).join(', ')}\n`;
+    visualBlock += `- Product rule: ${niche.product_rule || ''}`;
+
+    const photoStyle = selectPhotoStyle(niche, contentType);
+    const techBlock = PHOTOGRAPHY_TECHNICAL[photoStyle] || '';
+    const catInstruction = categoryInstruction(category);
+    const qualityBlock = ANTI_ARTIFACT;
+
+    const enrichmentSuffix = formatBlock + platformBlock + visualBlock +
+        (techBlock ? '\n\n' + techBlock : '') + catInstruction + qualityBlock;
+
+    // Label extraction: try to pull a short label from the prompt text
+    function extractLabel(prompt, index) {
+        // Try to extract the ad type from the prompt (e.g., "BEFORE/AFTER TRANSFORMATION AD", "SOCIAL PROOF AD")
+        const match = prompt.match(/(?:Design\s+(?:a|an)\s+)([A-Z][A-Z\s/\-]+(?:AD|STYLE|FORMAT|MOMENT|HERO|KIT|SPOTLIGHT|ROUTINE|STACK|PROOF|URGENCY|SALE|DROP|COMPARISON|REVIEW|BUNDLE|RESULT|EDGE|OUTCOME|TRUST))/i);
+        if (match) return match[1].trim().replace(/\s+AD$/i, '').replace(/\s+/g, ' ');
+        // Fallback
+        const typeLabels = { video: 'Video', carousel: 'Carousel', caption: 'Caption' };
+        return `${typeLabels[contentType] || 'Prompt'} ${index + 1}`;
+    }
+
+    return rawPrompts.map((raw, i) => {
+        const rendered = renderTemplate(raw, title, description);
+        return {
+            index: i,
+            label: extractLabel(raw, i),
+            prompt: rendered + enrichmentSuffix,
+        };
+    });
+}
+
+/**
  * getNicheKeys returns all niche keys from a prompt config.
  */
 export function getNicheKeys(config) {

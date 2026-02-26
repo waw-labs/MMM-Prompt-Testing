@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
-import { assemblePrompt, getNicheKeys, normalizePlatform } from './prompt-engine.js';
+import { assemblePrompt, assembleAllPrompts, getNicheKeys, normalizePlatform } from './prompt-engine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -82,6 +82,7 @@ app.post('/api/assemble', async (req, res) => {
             }
 
             const prompt = assemblePrompt(config, resolvedNiche, platform, contentType, title, description, category);
+            const allPrompts = assembleAllPrompts(config, resolvedNiche, platform, contentType, title, description, category);
 
             results.push({
                 category,
@@ -89,6 +90,7 @@ app.post('/api/assemble', async (req, res) => {
                 platform: normalizePlatform(platform),
                 contentType,
                 prompt,
+                allPrompts,
             });
         }
 

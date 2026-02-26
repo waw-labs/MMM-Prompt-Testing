@@ -2,22 +2,43 @@
     "schema_version": "2.1.0",
     "globals": {
         "core_frameworks": [
-            "SOCIAL_PROOF",
-            "CUSTOMER_VOICE",
-            "STAR_RATING",
-            "BEFORE_AFTER",
-            "QUOTE_CARD"
+            "QUOTE_CARD — Clean customer quote with attribution, photo placeholder, and star rating for trust",
+            "BEFORE_AFTER — Split transformation visual showing clear results with customer testimony",
+            "STAR_RATING — Bold aggregate rating display with review count and highlighted customer quote",
+            "UGC_SCREENSHOT — Authentic-feeling social media screenshot of real customer review or comment",
+            "VIDEO_REVIEW_STILL — Thumbnail-style frame from a customer video review with quote overlay",
+            "EXPERT_ENDORSEMENT — Professional recommendation from industry expert, influencer, or authority",
+            "MULTI_REVIEW — Compilation of multiple short reviews creating overwhelming social proof wall",
+            "RESULT_STAT — Data-driven testimonial featuring specific metrics, percentages, and outcome stats"
         ]
     },
     "platforms": {
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "UGC_SCREENSHOT",
+                "BEFORE_AFTER",
+                "VIDEO_REVIEW_STILL"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Real customer review showcase with authentic feel. Text overlay style reviews. Screenshot-aesthetic testimonials. Before/after reveals. Quick quote flashes. Genuine unpolished energy. Full-screen 9:16 vertical."
+        },
         "meta": {
             "accepted_content_types": [
                 "image",
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "SOCIAL_PROOF",
-                "STAR_RATING"
+                "QUOTE_CARD",
+                "STAR_RATING",
+                "RESULT_STAT"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -25,7 +46,40 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Trust-building review card. Star rating visual. Customer quote prominent. Clean professional design."
+            "creative_rules": "Trust-building review card with star rating prominent. Customer quote as headline. Professional design with authentic voice. Social proof numbers visible. Shop Now CTA integration. 4:5 portrait for maximum feed visibility."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "VIDEO_REVIEW_STILL",
+                "MULTI_REVIEW",
+                "STAR_RATING"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Review compilation thumbnail quality. Star rating visual dominant. Customer face placeholder for video reviews. Bold quote text overlay. Click-worthy testimonial design. 16:9 landscape."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "QUOTE_CARD",
+                "BEFORE_AFTER",
+                "RESULT_STAT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Elegant testimonial quote card. Before/after transformation pin. Aspirational result showcase. Save-worthy customer story. Clean typography with brand colors. 2:3 vertical pin."
         },
         "instagram": {
             "accepted_content_types": [
@@ -33,8 +87,9 @@
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "SOCIAL_PROOF",
-                "CUSTOMER_VOICE"
+                "QUOTE_CARD",
+                "UGC_SCREENSHOT",
+                "BEFORE_AFTER"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -42,23 +97,7 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Aesthetic testimonial card. Quote highlight. Brand-consistent colors. Trust elements."
-        },
-        "tiktok": {
-            "accepted_content_types": [
-                "image",
-                "video"
-            ],
-            "best_ad_frameworks": [
-                "CUSTOMER_VOICE",
-                "BEFORE_AFTER"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "9:16"
-                ]
-            },
-            "creative_rules": "Real customer review showcase. Authentic feel. Quote text overlay."
+            "creative_rules": "Aesthetic testimonial card that fits the feed. Quote highlight with brand-consistent design. UGC-style screenshot reviews. Before/after transformation carousels. Trust elements visible. 4:5 portrait."
         },
         "facebook": {
             "accepted_content_types": [
@@ -66,50 +105,26 @@
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "SOCIAL_PROOF",
-                "STAR_RATING"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "1:1"
-                ]
-            },
-            "creative_rules": "Trust-building review. Star rating. Share-worthy testimonial."
-        },
-        "youtube": {
-            "accepted_content_types": [
-                "image"
-            ],
-            "best_ad_frameworks": [
-                "SOCIAL_PROOF"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "16:9"
-                ]
-            },
-            "creative_rules": "Review compilation thumbnail. Star rating visual."
-        },
-        "pinterest": {
-            "accepted_content_types": [
-                "image"
-            ],
-            "best_ad_frameworks": [
+                "STAR_RATING",
+                "MULTI_REVIEW",
                 "QUOTE_CARD"
             ],
             "format_rules": {
                 "aspect_ratios": [
-                    "2:3"
+                    "1:1",
+                    "4:5"
                 ]
             },
-            "creative_rules": "Inspirational quote card. Clean elegant testimonial."
+            "creative_rules": "Trust-building review design. Star rating compilation. Share-worthy customer stories. Community-driven social proof. Verified purchase badges. 4:5 portrait or 1:1 square."
         },
         "x": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "SOCIAL_PROOF"
+                "UGC_SCREENSHOT",
+                "RESULT_STAT",
+                "STAR_RATING"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -117,72 +132,737 @@
                     "1:1"
                 ]
             },
-            "creative_rules": "Screenshot-style review. Proof-based social proof."
+            "creative_rules": "Screenshot-style real review. Data-driven result stat. Proof-based social proof visual. Bold quote with attribution. Sharp professional design. 16:9 landscape."
         }
     },
     "niches": {
+        "beauty_skincare": {
+            "core_emotion": "transformation_proof",
+            "visual_direction": {
+                "lighting": "bright clean beauty lighting, soft glowing, f/2.8 for skin quality",
+                "colors": [
+                    "soft blush",
+                    "clean white",
+                    "gold star",
+                    "rose gold",
+                    "cream"
+                ],
+                "scenarios": [
+                    "before/after skin result",
+                    "quote card with glow",
+                    "star rating beauty card",
+                    "UGC selfie review",
+                    "expert dermatologist endorse",
+                    "multi-review wall",
+                    "result stat graphic",
+                    "video review still"
+                ]
+            },
+            "master_prompts": [
+                "Design a BEAUTY QUOTE CARD for {{ .Title }}. Elegant blush and cream background. Large decorative quote marks. Customer quote: 'My skin has never looked this good. {{ .Description }}. Game changer.' 5-star rating below quote. Customer initials 'S.M.' and 'Verified Purchase' badge. Product small at bottom corner. Clean elegant testimonial card.",
+                "Design a BEFORE/AFTER BEAUTY TESTIMONIAL for {{ .Title }}. Split design: 'BEFORE' (dull skin placeholder) vs 'AFTER 30 DAYS' (glowing skin placeholder). Customer quote overlay: 'I cannot believe the difference. {{ .Description }}.' 5-star rating. Product between the two halves. 'See Real Results — Shop Now' CTA.",
+                "Design a STAR RATING BEAUTY CARD for {{ .Title }}. Clean white background. Giant gold '4.9' with 5-star visual. 'Based on 12,000+ Reviews'. Three highlighted mini-quotes from different customers about {{ .Description }}. Product hero at bottom. 'Join 12K+ Happy Customers' CTA.",
+                "Design a UGC SCREENSHOT REVIEW for {{ .Title }}. Social media post screenshot aesthetic. Customer selfie placeholder with glowing skin. Caption: 'Okay {{ .Title }} is literally magic. {{ .Description }}. 10/10.' Heart and comment icons. Authentic social media feel. 'See Why It Is Trending — Shop Now' CTA.",
+                "Design an EXPERT ENDORSEMENT CARD for {{ .Title }}. Professional clean design. 'RECOMMENDED BY DERMATOLOGISTS'. Expert headshot placeholder with credentials. Quote: 'The formulation of {{ .Title }} is exceptional. {{ .Description }}.' Professional endorsement badge. 'Doctor Recommended' seal.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. Grid of 6 mini review cards on clean background. Each card: customer initial, star rating, one-line quote about {{ .Description }}. 'THOUSANDS LOVE IT' headline. Product center. 'Read All Reviews — Shop Now' CTA.",
+                "Design a RESULT STAT TESTIMONIAL for {{ .Title }}. Bold stat: '94% SAW VISIBLE IMPROVEMENT IN 14 DAYS'. Clean background with elegant design. Supporting quote: 'The results speak for themselves. {{ .Description }}.' Clinical study badge. '30-Day Money-Back Guarantee' trust element.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture style with play button overlay. Customer face placeholder with product. Quote bubble: 'Best skincare purchase I have ever made. {{ .Description }}.' Star rating. 'Watch Real Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Before/after beauty reveal for {{ .Title }}. Skin transformation sequence. Customer quote text overlays. Star rating animation. Product. CTA. {{ .Description }}.",
+                "Review compilation video for {{ .Title }}. Multiple customer quotes scrolling. Star ratings popping in. Social proof stats counter. Product hero. {{ .Description }}.",
+                "UGC-style review for {{ .Title }}. Customer selfie video feel. Product in hand. Genuine reaction. Text quote overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Beauty testimonial carousel for {{ .Title }}. Slide 1: 'Real Results from Real People' headline with star rating. Slide 2: Before/after transformation. Slide 3: Customer quote card. Slide 4: Expert endorsement. Slide 5: Stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "The results speak for themselves. {{ .Title }}. {{ .Description }}. See real reviews.",
+                "94% saw improvement in 14 days. {{ .Title }}. {{ .Description }}. Join them.",
+                "Do not take our word for it. 12,000+ 5-star reviews. {{ .Title }}. {{ .Description }}.",
+                "Dermatologist recommended. {{ .Title }}. {{ .Description }}. Real science, real results.",
+                "Before and after {{ .Title }}. {{ .Description }}. The glow is real."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC selfie review style. Before/after reveal. Authentic unfiltered feel. Quote flash. 9:16.",
+                "meta": "Elegant review card. Star rating prominent. Before/after. Expert endorse. Shop CTA. 4:5.",
+                "pinterest": "Beautiful before/after pin. Quote card. Transformation proof. Save-worthy. 2:3.",
+                "instagram": "Aesthetic testimonial card. UGC screenshot style. Before/after carousel. 4:5.",
+                "facebook": "Trust-building review. Star rating compilation. Share-worthy transformation. 4:5.",
+                "youtube": "Review compilation thumbnail. Star rating dominant. Before/after. 16:9.",
+                "x": "Screenshot review. Bold stat. Proof-based social proof. 16:9."
+            },
+            "product_rule": "customer voice center stage, star ratings visible, before/after proof, trust badges, authentic feel"
+        },
+        "home_organization": {
+            "core_emotion": "relief_and_satisfaction",
+            "visual_direction": {
+                "lighting": "bright clean natural, organized feel, f/5.6",
+                "colors": [
+                    "warm white",
+                    "sage green",
+                    "soft grey",
+                    "natural wood",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "before/after space",
+                    "quote card",
+                    "star rating",
+                    "UGC photo review",
+                    "expert organizer endorse",
+                    "multi-review",
+                    "result stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a HOME ORGANIZATION QUOTE CARD for {{ .Title }}. Clean white background with sage accents. Customer quote: 'Finally, my [space] is actually organized. {{ .Description }}. Life changing product.' 5-star rating. Customer initials. 'Verified Buyer' badge. Product at bottom.",
+                "Design a BEFORE/AFTER ORGANIZATION TESTIMONIAL for {{ .Title }}. Split: 'BEFORE' (cluttered space placeholder) vs 'AFTER' (beautifully organized). Quote: 'I cannot believe this is the same closet. {{ .Description }}.' 5-star rating. 'Transform Your Space — Shop Now' CTA.",
+                "Design a STAR RATING CARD for {{ .Title }}. Clean design. Large '4.8' with 5 gold stars. '8,500+ Happy Homes'. Three mini customer quotes about {{ .Description }}. Product featured. 'Join the Organized Life' CTA.",
+                "Design a UGC PHOTO REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer photo of organized space placeholder. Caption: '{{ .Title }} completely transformed my pantry. {{ .Description }}. 5 stars!!' Authentic social feel.",
+                "Design an EXPERT ORGANIZER ENDORSEMENT for {{ .Title }}. 'RECOMMENDED BY PROFESSIONAL ORGANIZERS'. Expert photo placeholder with title. Quote: '{{ .Title }} is the solution I recommend to all my clients. {{ .Description }}.' Professional endorsement badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 mini review cards. Each: customer initial, stars, one-line quote about {{ .Description }}. 'ORGANIZED HOMES LOVE US' headline. Product center. 'Read Reviews' CTA.",
+                "Design a RESULT STAT TESTIMONIAL for {{ .Title }}. Bold: '97% SAID IT SAVED THEM 2+ HOURS PER WEEK'. Customer quote: 'My mornings are so much easier now. {{ .Description }}.' Satisfaction guarantee badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer showing organized space placeholder. Quote: 'Best purchase for my home. {{ .Description }}.' Star rating. 'Watch Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Before/after organization reveal for {{ .Title }}. Space transformation sequence. Customer quote text. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple customer home showcases. Star ratings. Social proof counter. {{ .Description }}.",
+                "UGC home tour review for {{ .Title }}. Customer showing organized space. Genuine reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Home testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Before/after. Slide 3: Customer quote. Slide 4: Expert endorsement. Slide 5: Stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "From chaos to calm. {{ .Title }}. {{ .Description }}. See the transformations.",
+                "97% saved 2+ hours per week. {{ .Title }}. {{ .Description }}. Join them.",
+                "8,500+ organized homes cannot be wrong. {{ .Title }}. {{ .Description }}.",
+                "Professional organizers recommend {{ .Title }}. {{ .Description }}. Expert approved.",
+                "Before and after {{ .Title }}. {{ .Description }}. The difference is real."
+            ],
+            "platform_adaptation": {
+                "tiktok": "Before/after space reveal. UGC photo tour. Authentic energy. Quote overlay. 9:16.",
+                "meta": "Clean review card. Star rating. Before/after. Expert endorse. Shop CTA. 4:5.",
+                "pinterest": "Before/after organization pin. Quote card. Transformation inspo. Save-worthy. 2:3.",
+                "instagram": "Clean testimonial card. UGC screenshot. Before/after carousel. 4:5.",
+                "facebook": "Trust-building review. Star compilation. Shareable transformation. 4:5.",
+                "youtube": "Review compilation thumbnail. Before/after. Star rating. 16:9.",
+                "x": "Screenshot review. Result stat. Organized proof. 16:9."
+            },
+            "product_rule": "customer voice center stage, before/after space transformations, star ratings, organized aesthetic"
+        },
+        "fitness": {
+            "core_emotion": "transformation_and_power",
+            "visual_direction": {
+                "lighting": "dramatic high-energy, bold contrast, f/4",
+                "colors": [
+                    "bold black",
+                    "electric red",
+                    "neon green",
+                    "white",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "body transformation",
+                    "quote card",
+                    "star rating",
+                    "UGC gym selfie",
+                    "trainer endorsement",
+                    "multi-review",
+                    "result stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a FITNESS QUOTE CARD for {{ .Title }}. Bold dark background with electric accents. Customer quote: 'This changed my entire fitness game. {{ .Description }}. Worth every penny.' 5-star rating. Customer initials. 'Verified Athlete' badge. Product at bottom.",
+                "Design a BEFORE/AFTER FITNESS TESTIMONIAL for {{ .Title }}. Split: 'DAY 1' (before silhouette placeholder) vs '90 DAYS LATER' (fit silhouette). Quote: 'Down 30lbs and stronger than ever. {{ .Description }}.' Stars. 'Start Your Transformation — Shop Now' CTA.",
+                "Design a STAR RATING FITNESS CARD for {{ .Title }}. Dark bold design. Giant '4.9' with gold stars. '15,000+ Athletes Trust It'. Three power quotes about {{ .Description }}. Product featured. 'Join the Movement' CTA.",
+                "Design a UGC GYM SELFIE REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer gym mirror selfie placeholder with product. Caption: '{{ .Title }} is the real deal. {{ .Description }}. Absolute must-have.' Authentic social media feel.",
+                "Design a TRAINER ENDORSEMENT CARD for {{ .Title }}. 'RECOMMENDED BY CERTIFIED TRAINERS'. Trainer photo placeholder with certifications. Quote: 'I recommend {{ .Title }} to all my clients. {{ .Description }}.' Professional badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 bold mini review cards on dark background. Each: customer initial, stars, one-line power quote about {{ .Description }}. 'THE COMMUNITY SPEAKS' headline. 'Read All Reviews' CTA.",
+                "Design a RESULT STAT TESTIMONIAL for {{ .Title }}. Bold: '89% REPORTED INCREASED PERFORMANCE IN 30 DAYS'. Quote: 'My lifts went up, my recovery improved. {{ .Description }}.' Performance study badge. Bold CTA.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer in gym placeholder with product. Quote bubble: 'Best fitness investment. {{ .Description }}.' Stars. 'Watch Transformations' CTA."
+            ],
+            "video_prompts": [
+                "Transformation reveal for {{ .Title }}. Before/after body sequence. Customer quote texts. Star rating animation. Product. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple athlete quotes scrolling. Star ratings. Community social proof counter. {{ .Description }}.",
+                "UGC gym review for {{ .Title }}. Customer workout clip feel. Product showcase. Text quote overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Fitness testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Before/after transformation. Slide 3: Athlete quote. Slide 4: Trainer endorsement. Slide 5: Stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "The transformation is real. {{ .Title }}. {{ .Description }}. See the proof.",
+                "89% saw performance gains in 30 days. {{ .Title }}. {{ .Description }}.",
+                "15,000+ athletes cannot be wrong. {{ .Title }}. {{ .Description }}.",
+                "Trainer recommended. {{ .Title }}. {{ .Description }}. The pros trust it.",
+                "Before and after {{ .Title }}. {{ .Description }}. Results guaranteed."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC gym selfie review. Transformation reveal. Authentic energy. Quote flash. 9:16.",
+                "meta": "Bold review card. Star rating. Transformation. Trainer endorse. Shop CTA. 4:5.",
+                "pinterest": "Transformation before/after pin. Quote card. Save-worthy fitness proof. 2:3.",
+                "instagram": "Bold testimonial card. UGC gym style. Before/after carousel. 4:5.",
+                "facebook": "Trust-building review. Star compilation. Shareable transformation. 4:5.",
+                "youtube": "Transformation compilation thumbnail. Star rating dominant. 16:9.",
+                "x": "Bold result stat. Screenshot review. Performance proof. 16:9."
+            },
+            "product_rule": "customer transformation center stage, before/after proof, star ratings, athletic energy"
+        },
+        "tech_gadgets": {
+            "core_emotion": "innovation_proof",
+            "visual_direction": {
+                "lighting": "clean minimal studio, tech-blue glow, f/4",
+                "colors": [
+                    "clean white",
+                    "slate grey",
+                    "electric blue",
+                    "deep black",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "unboxing review",
+                    "quote card",
+                    "star rating",
+                    "UGC desk setup",
+                    "tech expert endorse",
+                    "multi-review",
+                    "performance stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a TECH QUOTE CARD for {{ .Title }}. Minimal clean design on white. Customer quote: 'This is the best tech purchase I have made all year. {{ .Description }}. Incredible build quality.' 5-star rating. 'Verified Purchase' badge. Product at bottom.",
+                "Design a TECH BEFORE/AFTER TESTIMONIAL for {{ .Title }}. Split: 'OLD SETUP' (outdated setup placeholder) vs 'WITH {{ .Title }}' (sleek upgrade). Quote: 'Night and day difference. {{ .Description }}.' Stars. 'Upgrade Your Tech — Shop Now' CTA.",
+                "Design a STAR RATING TECH CARD for {{ .Title }}. Clean minimal design. Large '4.8' with gold stars. '10,000+ Tech Enthusiasts'. Three technical quotes about {{ .Description }}. Product hero. 'See What Techies Say' CTA.",
+                "Design a UGC DESK SETUP REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer desk setup photo placeholder featuring product. Caption: '{{ .Title }} just leveled up my workspace. {{ .Description }}. 10/10.' Authentic tech community feel.",
+                "Design a TECH EXPERT ENDORSEMENT for {{ .Title }}. 'EDITOR PICK — TOP RATED'. Tech reviewer headshot placeholder. Quote: '{{ .Title }} sets a new standard. {{ .Description }}.' Publication badge. Award seal.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 clean mini review cards. Each: customer initial, stars, one-line technical quote about {{ .Description }}. 'WHAT THE COMMUNITY SAYS' headline. 'Read All Reviews' CTA.",
+                "Design a PERFORMANCE STAT TESTIMONIAL for {{ .Title }}. Bold: '92% RATED IT BEST IN CLASS'. Performance benchmark graphic. Quote: 'Outperforms everything else I have tried. {{ .Description }}.' Award badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Tech reviewer with product placeholder. Quote: 'Absolutely worth every penny. {{ .Description }}.' Stars. 'Watch Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Unboxing and review for {{ .Title }}. Product reveal. Feature showcase. Customer quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple tech enthusiast quotes. Star ratings scrolling. Editor pick reveal. {{ .Description }}.",
+                "UGC desk setup review for {{ .Title }}. Customer showing setup. Product highlight. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Tech testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Editor pick endorse. Slide 3: Customer quote. Slide 4: Performance stat. Slide 5: Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Best in class. {{ .Title }}. {{ .Description }}. See the reviews.",
+                "92% rated it top pick. {{ .Title }}. {{ .Description }}. The data speaks.",
+                "10,000+ tech enthusiasts approve. {{ .Title }}. {{ .Description }}.",
+                "Editor pick and award winner. {{ .Title }}. {{ .Description }}.",
+                "Unboxing reaction: mind blown. {{ .Title }}. {{ .Description }}."
+            ],
+            "platform_adaptation": {
+                "tiktok": "Unboxing reaction. Desk setup showcase. Authentic tech energy. Quote overlay. 9:16.",
+                "meta": "Clean review card. Star rating. Expert endorsement. Performance stat. Shop CTA. 4:5.",
+                "pinterest": "Tech review quote pin. Setup inspiration. Performance data. Save-worthy. 2:3.",
+                "instagram": "Minimal testimonial card. UGC screenshot. Unboxing reveal carousel. 4:5.",
+                "facebook": "Trust-building tech review. Star compilation. Editor pick. Shareable. 4:5.",
+                "youtube": "Review compilation thumbnail. Expert endorsement. Star rating dominant. 16:9.",
+                "x": "Screenshot review. Performance stat. Tech proof. 16:9."
+            },
+            "product_rule": "customer voice center stage, performance data proof, star ratings, clean tech aesthetic, expert endorsements"
+        },
+        "pets": {
+            "core_emotion": "love_and_trust",
+            "visual_direction": {
+                "lighting": "warm bright natural, golden warmth, f/2.8",
+                "colors": [
+                    "warm brown",
+                    "cream",
+                    "golden",
+                    "terracotta",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "happy pet photo review",
+                    "quote card",
+                    "star rating",
+                    "UGC pet photo",
+                    "vet endorsement",
+                    "multi-review",
+                    "result stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a PET OWNER QUOTE CARD for {{ .Title }}. Warm cream background with paw print accents. Customer quote: 'My dog absolutely loves {{ .Title }}. {{ .Description }}. Best product we have tried.' 5-star rating. Customer initials. 'Verified Pet Parent' badge. Product at bottom.",
+                "Design a BEFORE/AFTER PET TESTIMONIAL for {{ .Title }}. Split: 'BEFORE' (dull coat/anxious pet placeholder) vs 'AFTER 4 WEEKS' (shiny coat/happy pet). Quote: 'The transformation in my pet is incredible. {{ .Description }}.' Stars. 'Try It For Your Pet' CTA.",
+                "Design a STAR RATING PET CARD for {{ .Title }}. Warm design. Large '4.9' with gold stars and paw prints. '9,000+ Happy Pets'. Three heartwarming quotes about {{ .Description }}. Product. 'See Why Pets Love It' CTA.",
+                "Design a UGC PET PHOTO REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer pet photo placeholder with product. Caption: '{{ .Title }} is the only brand my cat will eat. {{ .Description }}. Obsessed!' Authentic pet community feel.",
+                "Design a VET ENDORSEMENT CARD for {{ .Title }}. 'VETERINARIAN RECOMMENDED'. Vet headshot placeholder with DVM credential. Quote: '{{ .Title }} meets the highest nutritional standards. {{ .Description }}.' Professional vet badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 warm mini review cards. Each: customer initial, stars, paw icon, one-line quote about {{ .Description }}. 'PET PARENTS AGREE' headline. 'Read All Reviews' CTA.",
+                "Design a RESULT STAT TESTIMONIAL for {{ .Title }}. Bold: '96% OF PETS SHOWED IMPROVED ENERGY AND COAT HEALTH'. Quote: 'My senior dog is acting like a puppy again. {{ .Description }}.' Vet-certified badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Pet owner with happy pet placeholder. Quote: 'Best thing I have ever bought for my dog. {{ .Description }}.' Stars. 'Watch Happy Pets' CTA."
+            ],
+            "video_prompts": [
+                "Pet transformation reveal for {{ .Title }}. Before/after pet health. Owner quote texts. Star rating. Heartwarming CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple pet parent quotes. Happy pet clips placeholder. Star ratings. {{ .Description }}.",
+                "UGC pet review for {{ .Title }}. Owner showing happy pet with product. Genuine reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Pet testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Before/after pet health. Slide 3: Owner quote. Slide 4: Vet endorsement. Slide 5: Stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Happy pets, happy proof. {{ .Title }}. {{ .Description }}. See the reviews.",
+                "96% of pets showed improvement. {{ .Title }}. {{ .Description }}.",
+                "9,000+ pet parents trust {{ .Title }}. {{ .Description }}.",
+                "Vet recommended. {{ .Title }}. {{ .Description }}. The experts agree.",
+                "Before and after {{ .Title }}. {{ .Description }}. The tail wags say it all."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC pet reaction video. Happy pet reveal. Authentic feel. Quote overlay. 9:16.",
+                "meta": "Warm review card. Star rating. Pet transformation. Vet endorse. Shop CTA. 4:5.",
+                "pinterest": "Pet before/after pin. Heartwarming quote card. Save-worthy. 2:3.",
+                "instagram": "Warm testimonial card. UGC pet photo. Before/after carousel. 4:5.",
+                "facebook": "Trust-building pet review. Star compilation. Shareable. 4:5.",
+                "youtube": "Pet review compilation. Vet endorsement. Star rating. 16:9.",
+                "x": "Vet endorsement. Result stat. Heartwarming proof. 16:9."
+            },
+            "product_rule": "pet parent voice center stage, vet endorsements, star ratings, happy pet proof, warm aesthetic"
+        },
+        "fashion_apparel": {
+            "core_emotion": "style_validation",
+            "visual_direction": {
+                "lighting": "clean editorial lighting, fashion studio, f/4",
+                "colors": [
+                    "noir black",
+                    "cream white",
+                    "gold star",
+                    "dusty rose",
+                    "camel"
+                ],
+                "scenarios": [
+                    "outfit review",
+                    "quote card",
+                    "star rating",
+                    "UGC mirror selfie",
+                    "stylist endorsement",
+                    "multi-review",
+                    "quality stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a FASHION QUOTE CARD for {{ .Title }}. Clean editorial design on cream background. Customer quote: 'The quality is insane for the price. {{ .Description }}. Already ordered two more.' 5-star rating. Customer initials. 'Verified Buyer' badge. Product tag at bottom.",
+                "Design a BEFORE/AFTER STYLE TESTIMONIAL for {{ .Title }}. Split: 'LOOKING FOR THE PERFECT [ITEM]' vs 'FOUND IT'. Style upgrade showcase. Quote: 'This completes every outfit. {{ .Description }}.' Stars. 'Elevate Your Style — Shop Now' CTA.",
+                "Design a STAR RATING FASHION CARD for {{ .Title }}. Editorial clean design. Large '4.8' with gold stars. '20,000+ Style-Obsessed Customers'. Three fashion quotes about {{ .Description }}. Product hero. 'See Why It Sells Out' CTA.",
+                "Design a UGC MIRROR SELFIE REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer mirror selfie placeholder wearing product. Caption: '{{ .Title }} fits like a dream. {{ .Description }}. Obsessed.' Authentic fashion community feel.",
+                "Design a STYLIST ENDORSEMENT CARD for {{ .Title }}. 'STYLIST APPROVED'. Stylist headshot placeholder. Quote: '{{ .Title }} is the piece every wardrobe needs. {{ .Description }}.' Fashion editor badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 elegant mini review cards. Each: customer initial, stars, one-line style quote about {{ .Description }}. 'STYLE LOVERS RAVE' headline. 'Read Reviews' CTA.",
+                "Design a QUALITY STAT TESTIMONIAL for {{ .Title }}. Bold: '95% SAID THE QUALITY EXCEEDED EXPECTATIONS'. Quote: 'Feels ten times the price. {{ .Description }}.' Material quality badge. '30-Day Returns' trust element.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer try-on placeholder. Quote: 'The fit is perfect. {{ .Description }}.' Stars. 'Watch Try-On Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Try-on review for {{ .Title }}. Outfit styling sequence. Customer quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple customer outfit showcases. Star ratings scrolling. Style stats. {{ .Description }}.",
+                "UGC mirror selfie review for {{ .Title }}. Customer showing fit. Genuine reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Fashion testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Style showcase. Slide 3: Customer quote. Slide 4: Stylist endorsement. Slide 5: Quality stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "The reviews are in. {{ .Title }}. {{ .Description }}. See why it sells out.",
+                "95% said quality exceeded expectations. {{ .Title }}. {{ .Description }}.",
+                "20,000+ style lovers approve. {{ .Title }}. {{ .Description }}.",
+                "Stylist approved. {{ .Title }}. {{ .Description }}. The pros love it.",
+                "Fits like a dream. {{ .Title }}. {{ .Description }}. See try-on reviews."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC try-on haul. Mirror selfie review. Authentic style energy. Quote overlay. 9:16.",
+                "meta": "Editorial review card. Star rating. Stylist endorse. Quality stat. Shop CTA. 4:5.",
+                "pinterest": "Style quote card. Try-on pin. Fashion review. Save-worthy. 2:3.",
+                "instagram": "Fashion testimonial card. UGC selfie. Try-on carousel. 4:5.",
+                "facebook": "Trust-building fashion review. Star compilation. Shareable. 4:5.",
+                "youtube": "Try-on compilation thumbnail. Stylist pick. Star rating. 16:9.",
+                "x": "Screenshot review. Quality stat. Fashion proof. 16:9."
+            },
+            "product_rule": "customer style voice center stage, try-on proof, star ratings, editorial aesthetic, quality emphasis"
+        },
+        "food_beverage": {
+            "core_emotion": "flavor_validation",
+            "visual_direction": {
+                "lighting": "warm appetizing, golden hour, f/4",
+                "colors": [
+                    "rich brown",
+                    "warm cream",
+                    "fresh green",
+                    "appetizing red",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "food photo review",
+                    "quote card",
+                    "star rating",
+                    "UGC meal photo",
+                    "chef endorsement",
+                    "multi-review",
+                    "taste stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a FOOD REVIEW QUOTE CARD for {{ .Title }}. Warm appetizing background. Customer quote: 'Best [food/drink] I have ever had. {{ .Description }}. My family is obsessed.' 5-star rating. Customer initials. 'Verified Order' badge. Product at bottom.",
+                "Design a BEFORE/AFTER FOOD TESTIMONIAL for {{ .Title }}. Split: 'SEARCHING FOR THE PERFECT [ITEM]' vs 'FOUND IT'. Food presentation showcase. Quote: 'Nothing else compares. {{ .Description }}.' Stars. 'Taste the Difference — Order Now' CTA.",
+                "Design a STAR RATING FOOD CARD for {{ .Title }}. Warm design. Large '4.9' with gold stars. '25,000+ Foodies Love It'. Three flavor quotes about {{ .Description }}. Product hero. 'See Why People Keep Coming Back' CTA.",
+                "Design a UGC MEAL PHOTO REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer meal photo placeholder. Caption: '{{ .Title }} is my new addiction. {{ .Description }}. Literally cannot stop ordering.' Authentic foodie community feel.",
+                "Design a CHEF ENDORSEMENT CARD for {{ .Title }}. 'CHEF RECOMMENDED'. Chef headshot placeholder with credentials. Quote: '{{ .Title }} uses premium ingredients. {{ .Description }}.' Culinary award badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 warm mini review cards. Each: customer initial, stars, one-line taste quote about {{ .Description }}. 'FOODIES AGREE' headline. 'Read Reviews' CTA.",
+                "Design a TASTE STAT TESTIMONIAL for {{ .Title }}. Bold: '98% WOULD RECOMMEND TO A FRIEND'. Quote: 'Everyone I share this with becomes a customer. {{ .Description }}.' Satisfaction guarantee badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer enjoying food/drink placeholder. Quote: 'The best thing I have tasted this year. {{ .Description }}.' Stars. 'Watch Taste Tests' CTA."
+            ],
+            "video_prompts": [
+                "Taste test reveal for {{ .Title }}. First bite/sip reaction. Customer quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple foodie quotes. Dish close-ups. Star ratings scrolling. {{ .Description }}.",
+                "UGC meal review for {{ .Title }}. Customer showing meal. Genuine taste reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Food testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Dish showcase. Slide 3: Customer quote. Slide 4: Chef endorsement. Slide 5: Taste stat + Order CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Flavor that speaks for itself. {{ .Title }}. {{ .Description }}. See the reviews.",
+                "98% would recommend. {{ .Title }}. {{ .Description }}. Taste why.",
+                "25,000+ foodies approve. {{ .Title }}. {{ .Description }}.",
+                "Chef approved. {{ .Title }}. {{ .Description }}. Premium quality.",
+                "First taste reaction: absolutely incredible. {{ .Title }}. {{ .Description }}."
+            ],
+            "platform_adaptation": {
+                "tiktok": "Taste test reaction. UGC food review. Authentic foodie energy. Quote overlay. 9:16.",
+                "meta": "Warm review card. Star rating. Chef endorse. Appetizing design. Order CTA. 4:5.",
+                "pinterest": "Food review pin. Appetizing quote card. Taste-worthy. Save-worthy. 2:3.",
+                "instagram": "Appetizing testimonial card. UGC meal photo. Review carousel. 4:5.",
+                "facebook": "Trust-building food review. Star compilation. Shareable. 4:5.",
+                "youtube": "Taste test compilation thumbnail. Chef endorsement. Star rating. 16:9.",
+                "x": "Screenshot food review. Taste stat. Foodie proof. 16:9."
+            },
+            "product_rule": "customer taste voice center stage, star ratings, appetizing aesthetic, chef endorsements"
+        },
+        "health_wellness": {
+            "core_emotion": "relief_and_vitality",
+            "visual_direction": {
+                "lighting": "bright clean calming, natural, f/4",
+                "colors": [
+                    "sage green",
+                    "white",
+                    "soft blue",
+                    "warm sand",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "wellness journey",
+                    "quote card",
+                    "star rating",
+                    "UGC lifestyle",
+                    "doctor endorsement",
+                    "multi-review",
+                    "health stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a WELLNESS QUOTE CARD for {{ .Title }}. Clean calming background with sage accents. Customer quote: 'I finally feel like myself again. {{ .Description }}. Thank you for giving me my energy back.' 5-star rating. Customer initials. 'Verified User' badge.",
+                "Design a BEFORE/AFTER WELLNESS TESTIMONIAL for {{ .Title }}. Split: 'STRUGGLING WITH [ISSUE]' vs 'AFTER 60 DAYS'. Wellness journey visual. Quote: 'This changed everything for me. {{ .Description }}.' Stars. 'Start Your Wellness Journey' CTA.",
+                "Design a STAR RATING WELLNESS CARD for {{ .Title }}. Clean calming design. Large '4.9' with gold stars. '18,000+ Wellness Journeys'. Three health quotes about {{ .Description }}. Product. 'Join the Wellness Community' CTA.",
+                "Design a UGC LIFESTYLE REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer lifestyle photo placeholder with product. Caption: '{{ .Title }} is part of my daily routine now. {{ .Description }}. Cannot live without it.' Authentic wellness community feel.",
+                "Design a DOCTOR ENDORSEMENT CARD for {{ .Title }}. 'PHYSICIAN RECOMMENDED'. Doctor headshot placeholder with MD credential. Quote: '{{ .Title }} contains clinically studied ingredients. {{ .Description }}.' Medical endorsement badge. 'Doctor Trusted' seal.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 clean mini review cards. Each: customer initial, stars, one-line wellness quote about {{ .Description }}. 'WELLNESS COMMUNITY SPEAKS' headline. 'Read Reviews' CTA.",
+                "Design a HEALTH STAT TESTIMONIAL for {{ .Title }}. Bold: '91% REPORTED IMPROVED ENERGY IN 21 DAYS'. Quote: 'I wake up actually wanting to get out of bed now. {{ .Description }}.' Clinical study badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer in healthy lifestyle setting placeholder. Quote: 'Game changer for my health. {{ .Description }}.' Stars. 'Watch Real Stories' CTA."
+            ],
+            "video_prompts": [
+                "Wellness journey for {{ .Title }}. Before/after energy and mood. Customer quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple wellness quotes scrolling. Calming visuals. Star ratings. {{ .Description }}.",
+                "UGC wellness review for {{ .Title }}. Daily routine showcase. Product integration. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Wellness testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Wellness journey. Slide 3: Customer quote. Slide 4: Doctor endorsement. Slide 5: Health stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Feeling alive again. {{ .Title }}. {{ .Description }}. Real stories.",
+                "91% reported improved energy. {{ .Title }}. {{ .Description }}.",
+                "18,000+ wellness journeys start with {{ .Title }}. {{ .Description }}.",
+                "Physician recommended. {{ .Title }}. {{ .Description }}. Doctor trusted.",
+                "My daily wellness essential. {{ .Title }}. {{ .Description }}. Join the community."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC wellness routine. Health journey reveal. Authentic feel. Quote overlay. 9:16.",
+                "meta": "Clean review card. Star rating. Doctor endorse. Wellness stat. Shop CTA. 4:5.",
+                "pinterest": "Wellness journey pin. Calming quote card. Health inspiration. Save-worthy. 2:3.",
+                "instagram": "Calming testimonial card. UGC lifestyle. Wellness carousel. 4:5.",
+                "facebook": "Trust-building wellness review. Star compilation. Doctor endorsed. 4:5.",
+                "youtube": "Wellness story compilation. Doctor endorsement. Star rating. 16:9.",
+                "x": "Health stat. Doctor endorsement. Wellness proof. 16:9."
+            },
+            "product_rule": "customer wellness voice center stage, doctor endorsements, star ratings, calming trust aesthetic"
+        },
+        "baby_kids": {
+            "core_emotion": "parental_trust",
+            "visual_direction": {
+                "lighting": "soft warm diffused, gentle, f/4",
+                "colors": [
+                    "soft pastel blue",
+                    "gentle pink",
+                    "warm cream",
+                    "mint green",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "parent quote",
+                    "safety review",
+                    "star rating",
+                    "UGC family photo",
+                    "pediatrician endorse",
+                    "multi-review",
+                    "safety stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design a PARENT QUOTE CARD for {{ .Title }}. Soft pastel background. Customer quote: 'My baby loves {{ .Title }} and I trust it completely. {{ .Description }}. Every parent needs this.' 5-star rating. 'Verified Parent' badge. Product at bottom.",
+                "Design a BEFORE/AFTER BABY TESTIMONIAL for {{ .Title }}. Split: 'THE PROBLEM' (fussy baby/parent struggle placeholder) vs 'AFTER {{ .Title }}' (happy baby/parent). Quote: 'This solved everything. {{ .Description }}.' Stars. 'Give Your Baby the Best' CTA.",
+                "Design a STAR RATING BABY CARD for {{ .Title }}. Gentle pastel design. Large '4.9' with gold stars. '12,000+ Families Trust Us'. Three parenting quotes about {{ .Description }}. Product. 'Join the Family' CTA.",
+                "Design a UGC FAMILY PHOTO REVIEW for {{ .Title }}. Social post screenshot aesthetic. Family photo placeholder with happy baby using product. Caption: '{{ .Title }} is a lifesaver. {{ .Description }}. Best purchase for our baby.' Authentic parent community feel.",
+                "Design a PEDIATRICIAN ENDORSEMENT for {{ .Title }}. 'PEDIATRICIAN RECOMMENDED'. Doctor headshot placeholder. Quote: '{{ .Title }} meets the highest safety standards. {{ .Description }}.' Pediatrician seal. Safety certification badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 gentle mini review cards. Each: parent initial, stars, one-line quote about {{ .Description }}. 'PARENTS LOVE IT' headline. 'Read Reviews' CTA.",
+                "Design a SAFETY STAT TESTIMONIAL for {{ .Title }}. Bold: '99% OF PARENTS RATED IT SAFE AND EFFECTIVE'. Quote: 'Finally something I can trust for my baby. {{ .Description }}.' Safety tested badge. Pediatrician approved seal.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Parent with happy baby placeholder. Quote: 'Changed our daily routine completely. {{ .Description }}.' Stars. 'Watch Parent Stories' CTA."
+            ],
+            "video_prompts": [
+                "Parent journey for {{ .Title }}. Before/after baby happiness. Quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple parent quotes. Happy baby moments. Star ratings. {{ .Description }}.",
+                "UGC family review for {{ .Title }}. Parent showing baby with product. Genuine reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Baby testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Happy baby moment. Slide 3: Parent quote. Slide 4: Pediatrician endorsement. Slide 5: Safety stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Parents trust {{ .Title }}. {{ .Description }}. See real family stories.",
+                "99% of parents rated it safe. {{ .Title }}. {{ .Description }}.",
+                "12,000+ families trust {{ .Title }}. {{ .Description }}.",
+                "Pediatrician recommended. {{ .Title }}. {{ .Description }}. Safety first.",
+                "A lifesaver for parents. {{ .Title }}. {{ .Description }}. Join the family."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC family moment. Baby reaction video. Authentic parent feel. Quote overlay. 9:16.",
+                "meta": "Soft review card. Star rating. Pediatrician endorse. Safety stat. Shop CTA. 4:5.",
+                "pinterest": "Parent quote pin. Gentle design. Safety endorsed. Save-worthy. 2:3.",
+                "instagram": "Gentle testimonial card. UGC family photo. Parent review carousel. 4:5.",
+                "facebook": "Trust-building parent review. Star compilation. Pediatrician endorsed. 4:5.",
+                "youtube": "Parent story compilation. Pediatrician endorsement. Star rating. 16:9.",
+                "x": "Safety stat. Pediatrician endorsement. Parent trust proof. 16:9."
+            },
+            "product_rule": "parent voice center stage, pediatrician endorsements, safety proof, gentle pastel aesthetic"
+        },
+        "automotive": {
+            "core_emotion": "performance_validation",
+            "visual_direction": {
+                "lighting": "dramatic studio, metallic sheen, f/4",
+                "colors": [
+                    "carbon black",
+                    "chrome silver",
+                    "racing red",
+                    "gunmetal",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "performance review",
+                    "quote card",
+                    "star rating",
+                    "UGC car photo",
+                    "mechanic endorsement",
+                    "multi-review",
+                    "durability stat",
+                    "video review"
+                ]
+            },
+            "master_prompts": [
+                "Design an AUTO ENTHUSIAST QUOTE CARD for {{ .Title }}. Bold dark background with metallic accents. Customer quote: 'Best upgrade I have done. {{ .Description }}. Performance is night and day.' 5-star rating. 'Verified Buyer' badge. Product at bottom.",
+                "Design a BEFORE/AFTER AUTO TESTIMONIAL for {{ .Title }}. Split: 'STOCK' (basic setup placeholder) vs 'WITH {{ .Title }}' (upgraded performance). Quote: 'The difference is unbelievable. {{ .Description }}.' Stars. 'Upgrade Now' CTA.",
+                "Design a STAR RATING AUTO CARD for {{ .Title }}. Bold dark design. Large '4.8' with gold stars. '7,500+ Gearheads Trust It'. Three performance quotes about {{ .Description }}. Product. 'See Why Enthusiasts Choose It' CTA.",
+                "Design a UGC CAR PHOTO REVIEW for {{ .Title }}. Social post screenshot aesthetic. Customer car photo placeholder with product installed. Caption: '{{ .Title }} transformed my ride. {{ .Description }}. Absolute must-have.' Car community feel.",
+                "Design a MECHANIC ENDORSEMENT CARD for {{ .Title }}. 'ASE CERTIFIED MECHANIC APPROVED'. Mechanic headshot placeholder with certification. Quote: '{{ .Title }} is the part I trust. {{ .Description }}.' Professional certification badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 bold mini review cards on dark background. Each: customer initial, stars, one-line performance quote about {{ .Description }}. 'THE GARAGE SPEAKS' headline. 'Read Reviews' CTA.",
+                "Design a DURABILITY STAT TESTIMONIAL for {{ .Title }}. Bold: '93% REPORTED IMPROVED PERFORMANCE AND DURABILITY'. Quote: 'Still going strong after 50K miles. {{ .Description }}.' Lifetime warranty badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button. Customer with car and product placeholder. Quote: 'Best mod money can buy. {{ .Description }}.' Stars. 'Watch Install Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Performance test for {{ .Title }}. Before/after results. Customer quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multiple gearhead quotes. Car showcase clips. Star ratings. {{ .Description }}.",
+                "UGC install review for {{ .Title }}. Customer showing install and result. Genuine reaction. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Auto testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Performance comparison. Slide 3: Enthusiast quote. Slide 4: Mechanic endorsement. Slide 5: Durability stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Performance proven. {{ .Title }}. {{ .Description }}. See the reviews.",
+                "93% reported improved performance. {{ .Title }}. {{ .Description }}.",
+                "7,500+ gearheads trust {{ .Title }}. {{ .Description }}.",
+                "ASE certified mechanic approved. {{ .Title }}. {{ .Description }}.",
+                "50K miles and still going strong. {{ .Title }}. {{ .Description }}. Built to last."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC install reveal. Performance test. Authentic car energy. Quote overlay. 9:16.",
+                "meta": "Bold review card. Star rating. Mechanic endorse. Performance stat. Shop CTA. 4:5.",
+                "pinterest": "Auto review pin. Performance comparison. Bold design. Save-worthy. 2:3.",
+                "instagram": "Bold testimonial card. UGC car photo. Performance carousel. 4:5.",
+                "facebook": "Trust-building auto review. Star compilation. Mechanic endorsed. 4:5.",
+                "youtube": "Performance test compilation. Mechanic endorsement. Star rating. 16:9.",
+                "x": "Durability stat. Mechanic endorsement. Performance proof. 16:9."
+            },
+            "product_rule": "enthusiast voice center stage, mechanic endorsements, performance proof, bold dark aesthetic"
+        },
+        "education_learning": {
+            "core_emotion": "growth_and_credibility",
+            "visual_direction": {
+                "lighting": "bright clean professional, even, f/4",
+                "colors": [
+                    "deep navy",
+                    "white",
+                    "accent gold",
+                    "teal",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "student quote",
+                    "star rating",
+                    "UGC screenshot",
+                    "instructor endorse",
+                    "multi-review",
+                    "outcome stat",
+                    "video review",
+                    "career result"
+                ]
+            },
+            "master_prompts": [
+                "Design a STUDENT QUOTE CARD for {{ .Title }}. Professional navy and white. Quote: 'This course changed my career. {{ .Description }}. Best investment I ever made.' 5-star rating. 'Verified Graduate' badge.",
+                "Design a BEFORE/AFTER CAREER TESTIMONIAL for {{ .Title }}. Split: 'BEFORE: Stuck in a dead-end job' vs 'AFTER: Landed my dream role'. Quote: '{{ .Description }}.' Stars. 'Start Your Journey' CTA.",
+                "Design a STAR RATING EDUCATION CARD for {{ .Title }}. Large '4.9' with stars. '5,000+ Graduates'. Three career-change quotes about {{ .Description }}. 'Enroll Today' CTA.",
+                "Design a UGC SCREENSHOT REVIEW for {{ .Title }}. LinkedIn post screenshot aesthetic. Student sharing career update. '{{ .Title }} gave me the skills. {{ .Description }}.' Authentic professional feel.",
+                "Design an INSTRUCTOR ENDORSEMENT for {{ .Title }}. 'INDUSTRY EXPERT TAUGHT'. Instructor headshot placeholder. Quote: '{{ .Title }} covers real-world skills. {{ .Description }}.' Credential badges.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 professional mini cards. Each: student initial, stars, career quote about {{ .Description }}. 'GRADUATES SPEAK' headline.",
+                "Design an OUTCOME STAT TESTIMONIAL for {{ .Title }}. Bold: '87% LANDED A NEW ROLE WITHIN 6 MONTHS'. Quote: 'The ROI is incredible. {{ .Description }}.' Employment guarantee badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame with play button. Graduate placeholder. Quote: 'Worth every penny. {{ .Description }}.' Stars. 'Watch Success Stories' CTA."
+            ],
+            "video_prompts": [
+                "Graduate success story for {{ .Title }}. Career transformation. Quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Student quotes scrolling. Career outcomes. Stars. {{ .Description }}.",
+                "UGC LinkedIn-style review for {{ .Title }}. Professional update. Course mention. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Education testimonial carousel for {{ .Title }}. Slide 1: Star rating. Slide 2: Career transformation. Slide 3: Student quote. Slide 4: Instructor endorse. Slide 5: Outcome stat + Enroll CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Career changed. {{ .Title }}. {{ .Description }}. See graduate stories.",
+                "87% landed new roles. {{ .Title }}. {{ .Description }}.",
+                "5,000+ graduates recommend {{ .Title }}. {{ .Description }}.",
+                "Industry expert taught. {{ .Title }}. {{ .Description }}.",
+                "Best investment in my career. {{ .Title }}. {{ .Description }}."
+            ],
+            "platform_adaptation": {
+                "tiktok": "Career transformation reveal. Student success. Quote overlay. 9:16.",
+                "meta": "Professional review card. Star rating. Outcome stat. Enroll CTA. 4:5.",
+                "pinterest": "Career quote pin. Professional design. Save-worthy. 2:3.",
+                "instagram": "Professional testimonial card. Career carousel. 4:5.",
+                "facebook": "Trust-building education review. Star compilation. 4:5.",
+                "youtube": "Success story compilation. Instructor endorsement. 16:9.",
+                "x": "Outcome stat. Graduate endorsement. Career proof. 16:9."
+            },
+            "product_rule": "student voice, career outcomes, star ratings, professional credibility"
+        },
+        "supplements": {
+            "core_emotion": "performance_proof",
+            "visual_direction": {
+                "lighting": "clean bright clinical, precise, f/4",
+                "colors": [
+                    "deep green",
+                    "white",
+                    "black",
+                    "gold",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "athlete review",
+                    "star rating",
+                    "UGC gym photo",
+                    "doctor endorse",
+                    "multi-review",
+                    "clinical stat",
+                    "video review",
+                    "lab result"
+                ]
+            },
+            "master_prompts": [
+                "Design a SUPPLEMENT QUOTE CARD for {{ .Title }}. Bold clean design. Quote: 'Recovery is faster, energy is higher. {{ .Description }}. This formula works.' 5-star rating. 'Verified Athlete' badge.",
+                "Design a BEFORE/AFTER SUPPLEMENT TESTIMONIAL for {{ .Title }}. Split: 'BEFORE: Low energy, slow recovery' vs 'AFTER 30 DAYS'. Quote: 'The difference is measurable. {{ .Description }}.' Stars. 'Try It Risk-Free' CTA.",
+                "Design a STAR RATING SUPPLEMENT CARD for {{ .Title }}. Large '4.8' with stars. '20,000+ Athletes Trust It'. Three performance quotes about {{ .Description }}. 'Join the Movement' CTA.",
+                "Design a UGC GYM REVIEW for {{ .Title }}. Social post screenshot. Athlete with product placeholder. '{{ .Title }} is the only stack I trust. {{ .Description }}. Science-backed.' Authentic community feel.",
+                "Design a DOCTOR ENDORSEMENT for {{ .Title }}. 'PHYSICIAN FORMULATED'. Doctor headshot placeholder with MD. Quote: '{{ .Title }} uses clinically dosed ingredients. {{ .Description }}.' Clinical badge.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. 6 bold mini cards. Each: athlete initial, stars, performance quote about {{ .Description }}. 'THE COMMUNITY SPEAKS' headline.",
+                "Design a CLINICAL STAT TESTIMONIAL for {{ .Title }}. Bold: '94% REPORTED IMPROVED RECOVERY IN 14 DAYS'. Quote: 'Backed by science, proven by athletes. {{ .Description }}.' Third-party tested badge.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame with play button. Athlete with product placeholder. Quote: 'Best supplement I have used. {{ .Description }}.' Stars. 'Watch Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Performance test for {{ .Title }}. Before/after results. Quote texts. Star rating. CTA. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Athlete quotes. Performance stats. Stars. {{ .Description }}.",
+                "UGC supplement review for {{ .Title }}. Athlete showing stack. Results. Text overlay. {{ .Description }}."
+            ],
+            "carousel_prompt": "Supplement testimonial carousel for {{ .Title }}. Slide 1: Star rating. Slide 2: Performance comparison. Slide 3: Athlete quote. Slide 4: Doctor endorse. Slide 5: Clinical stat + Shop CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Science-backed results. {{ .Title }}. {{ .Description }}. See the proof.",
+                "94% improved recovery. {{ .Title }}. {{ .Description }}.",
+                "20,000+ athletes trust {{ .Title }}. {{ .Description }}.",
+                "Physician formulated. {{ .Title }}. {{ .Description }}.",
+                "Third-party tested. {{ .Title }}. {{ .Description }}. Pure and proven."
+            ],
+            "platform_adaptation": {
+                "tiktok": "UGC gym review. Performance results. Authentic energy. Quote overlay. 9:16.",
+                "meta": "Bold review card. Star rating. Doctor endorse. Clinical stat. Shop CTA. 4:5.",
+                "pinterest": "Supplement review pin. Clinical data. Performance proof. 2:3.",
+                "instagram": "Bold testimonial card. UGC gym photo. Performance carousel. 4:5.",
+                "facebook": "Trust-building supplement review. Doctor endorsed. Stars. 4:5.",
+                "youtube": "Performance compilation. Doctor endorsement. Star rating. 16:9.",
+                "x": "Clinical stat. Doctor endorsement. Performance proof. 16:9."
+            },
+            "product_rule": "athlete voice, doctor endorsements, clinical data, star ratings, performance proof"
+        },
         "general": {
             "core_emotion": "trust_and_credibility",
             "visual_direction": {
-                "lighting": "clean professional",
+                "lighting": "clean professional studio, balanced, f/4",
                 "colors": [
                     "warm white",
                     "gold star accent",
-                    "brand-appropriate"
+                    "brand-appropriate",
+                    "soft grey",
+                    "navy"
                 ],
                 "scenarios": [
                     "customer quote card",
                     "star rating graphic",
                     "before/after result",
-                    "review compilation"
+                    "UGC screenshot",
+                    "expert endorsement",
+                    "review compilation",
+                    "result stat",
+                    "video review thumbnail"
                 ]
             },
-            "master_prompt": "Design a professional testimonial card for {{ .Title }}. Clean background with brand-appropriate colors. Large quote marks framing a customer testimonial about {{ .Description }}. 5-star rating visual element. Customer name or initials (placeholder). Clean modern typography. Professional review/testimonial card quality. Trust-building design.",
-            "video_prompt": "Testimonial showcase for {{ .Title }}. Customer quote text reveals. Star rating animation. Multiple review highlights. Trust-building feel. {{ .Description }}.",
-            "carousel_prompt": "Testimonial compilation carousel for {{ .Title }}. Each slide: different customer quote about {{ .Description }} with star rating and customer initials. Consistent clean design across all slides. Trust-building collection.",
+            "master_prompts": [
+                "Design a CUSTOMER QUOTE CARD for {{ .Title }}. Clean professional background. Large decorative quote marks. Customer quote about {{ .Description }}. 5-star rating. Customer initials and 'Verified Purchase' badge. Product small at bottom. Trust-building design.",
+                "Design a BEFORE/AFTER TESTIMONIAL for {{ .Title }}. Split design: 'BEFORE' placeholder vs 'AFTER' result. Customer quote: 'The difference is incredible. {{ .Description }}.' 5-star rating. 'See Real Results — Shop Now' CTA.",
+                "Design a STAR RATING CARD for {{ .Title }}. Giant gold '4.8' with 5-star visual. 'Based on 10,000+ Reviews'. Three highlighted customer quotes about {{ .Description }}. Product hero. 'Join Happy Customers' CTA.",
+                "Design a UGC SCREENSHOT REVIEW for {{ .Title }}. Social media post screenshot aesthetic. Customer photo placeholder with product. Authentic caption about {{ .Description }}. Heart and comment icons. 'See Why It Is Trending' CTA.",
+                "Design an EXPERT ENDORSEMENT CARD for {{ .Title }}. 'EXPERT RECOMMENDED'. Professional headshot placeholder with credentials. Quote about {{ .Description }}. Endorsement badge and trust seal.",
+                "Design a MULTI-REVIEW WALL for {{ .Title }}. Grid of 6 mini review cards. Each: customer initial, star rating, one-line quote about {{ .Description }}. 'CUSTOMERS LOVE IT' headline. 'Read All Reviews' CTA.",
+                "Design a RESULT STAT TESTIMONIAL for {{ .Title }}. Bold stat: '95% SATISFACTION RATE'. Supporting customer quote about {{ .Description }}. Satisfaction guarantee badge. '30-Day Money-Back' trust element.",
+                "Design a VIDEO REVIEW THUMBNAIL for {{ .Title }}. Frame-capture with play button overlay. Customer with product placeholder. Quote bubble about {{ .Description }}. Star rating. 'Watch Real Reviews' CTA."
+            ],
+            "video_prompts": [
+                "Testimonial showcase for {{ .Title }}. Customer quote reveals. Star rating animation. Multiple reviews. CTA. {{ .Description }}.",
+                "Before/after reveal for {{ .Title }}. Transformation sequence. Quote text. Star rating. Product. {{ .Description }}.",
+                "Review compilation for {{ .Title }}. Multi-customer quotes scrolling. Star ratings. Social proof counter. {{ .Description }}."
+            ],
+            "carousel_prompt": "Testimonial carousel for {{ .Title }}. Slide 1: Star rating headline. Slide 2: Before/after or result. Slide 3: Customer quote card. Slide 4: Expert endorsement. Slide 5: Stat + Shop CTA. {{ .Description }}.",
             "caption_templates": [
-                "Don't take our word for it ⭐⭐⭐⭐⭐ {{ .Title }}",
-                "Real customers. Real results. {{ .Title }}. {{ .Description }}",
-                "Here's what people are saying about {{ .Title }} 👇"
+                "Do not take our word for it. {{ .Title }}. {{ .Description }}. See real reviews.",
+                "95% satisfaction rate. {{ .Title }}. {{ .Description }}. Join them.",
+                "10,000+ happy customers. {{ .Title }}. {{ .Description }}.",
+                "Expert recommended. {{ .Title }}. {{ .Description }}. Trusted by professionals.",
+                "Real customers. Real results. {{ .Title }}. {{ .Description }}."
             ],
             "platform_adaptation": {
-                "meta": "Clean review card. Star rating prominent. Trust-building.",
-                "instagram": "Aesthetic quote card. Brand-consistent.",
-                "tiktok": "Real review showcase. Authentic feel.",
-                "facebook": "Trust-building review. Shareable.",
-                "x": "Proof-based social proof visual."
+                "tiktok": "UGC authentic review. Real customer feel. Quote overlay. Before/after. 9:16.",
+                "meta": "Clean review card. Star rating prominent. Expert endorse. Shop CTA. 4:5.",
+                "pinterest": "Elegant quote card. Before/after pin. Result proof. Save-worthy. 2:3.",
+                "instagram": "Aesthetic testimonial card. UGC screenshot. Review carousel. 4:5.",
+                "facebook": "Trust-building review. Star compilation. Share-worthy social proof. 4:5.",
+                "youtube": "Review compilation thumbnail. Star rating dominant. Expert pick. 16:9.",
+                "x": "Screenshot review. Result stat. Proof-based social proof. 16:9."
             },
-            "product_rule": "customer voice center stage, star ratings visible, trust-building design"
-        },
-        "beauty_skincare": {
-            "core_emotion": "transformation_proof",
-            "visual_direction": {
-                "lighting": "bright clean",
-                "colors": [
-                    "soft pink",
-                    "white",
-                    "gold star"
-                ],
-                "scenarios": [
-                    "before/after result",
-                    "quote card with skin photo",
-                    "rating compilation"
-                ]
-            },
-            "master_prompt": "Design a beauty testimonial card for {{ .Title }}. Soft clean background. Customer quote about transformation results from {{ .Description }}. Before/after result visual element. 5-star rating. Clean elegant typography. Trust-building beauty review quality.",
-            "video_prompt": "Beauty testimonial for {{ .Title }}. Before/after reveal. Customer quote text. Star rating. Transformation story. {{ .Description }}.",
-            "carousel_prompt": "Beauty results compilation for {{ .Title }}. Slide 1: Bold 'Real Results' headline. Slides 2-4: Individual customer testimonials with before/after and quotes about {{ .Description }}. Clean elegant design.",
-            "caption_templates": [
-                "The results speak for themselves ✨ {{ .Title }}",
-                "Before & after {{ .Title }}. {{ .Description }} ⭐⭐⭐⭐⭐",
-                "Real people. Real glow. {{ .Title }}. {{ .Description }}"
-            ],
-            "platform_adaptation": {
-                "meta": "Before/after with quote. Star rating.",
-                "instagram": "Elegant transformation card.",
-                "tiktok": "Before/after reveal with review text."
-            },
-            "product_rule": "transformation proof, customer voice, before/after elements"
+            "product_rule": "customer voice center stage, star ratings visible, trust badges, authentic feel, professional design"
         }
     }
 }
