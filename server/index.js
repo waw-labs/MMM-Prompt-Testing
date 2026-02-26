@@ -103,26 +103,28 @@ app.post('/api/assemble', async (req, res) => {
 
 // ── POST /api/generate ──────────────────────────────────────────────────
 // Sends a prompt to an AI provider for IMAGE or VIDEO generation.
-// Body: { prompt, provider ('gemini'|'openai'), model, contentType ('image'|'video'), referenceImage? }
+// Body: { prompt, provider ('gemini'|'openai'), model, contentType ('image'|'video'), referenceImage?, referenceImages? }
 app.post('/api/generate', async (req, res) => {
     try {
-        const { prompt, provider, model, contentType, referenceImage } = req.body;
+        const { prompt, provider, model, contentType, referenceImage, referenceImages } = req.body;
         if (!prompt) return res.status(400).json({ error: 'prompt is required' });
+        // Normalize: use referenceImages array if present, otherwise wrap single
+        const refImages = referenceImages || (referenceImage ? [referenceImage] : []);
 
         let result;
         const isVideo = contentType === 'video';
 
         if (provider === 'openai') {
             if (isVideo) {
-                result = await generateVideoOpenAI(prompt, model, referenceImage);
+                result = await generateVideoOpenAI(prompt, model, refImages[0] || null);
             } else {
-                result = await generateImageOpenAI(prompt, model, referenceImage);
+                result = await generateImageOpenAI(prompt, model, refImages[0] || null);
             }
         } else {
             if (isVideo) {
-                result = await generateVideoGemini(prompt, model, referenceImage);
+                result = await generateVideoGemini(prompt, model, refImages[0] || null);
             } else {
-                result = await generateImageGemini(prompt, model, referenceImage);
+                result = await generateImageGemini(prompt, model, refImages);
             }
         }
 
@@ -245,7 +247,7 @@ Available niches: ${nicheKeys.join(', ')}`;
 }
 
 // ── Gemini Image Generation ─────────────────────────────────────────────
-async function generateImageGemini(prompt, model, referenceImage) {
+async function generateImageGemini(prompt, model, referenceImages) {
     const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
     if (!apiKey) throw new Error('GEMINI_API_KEY or GOOGLE_API_KEY not set');
 
@@ -253,28 +255,31 @@ async function generateImageGemini(prompt, model, referenceImage) {
     const ai = new GoogleGenAI({ apiKey });
 
     const selectedModel = model || 'imagen-4.0-generate-001';
+    // Normalize referenceImages
+    const refImages = Array.isArray(referenceImages) ? referenceImages : (referenceImages ? [referenceImages] : []);
 
-    // Native Gemini image gen models (gemini-2.5-flash-image) use generateContent
-    // These support multimodal input — pass the product image directly
+    // Native Gemini image gen models (gemini-*) use generateContent
+    // These support multimodal input — pass product images directly
     if (selectedModel.startsWith('gemini-')) {
         const parts = [];
 
-        // If we have a reference product image, pass it directly to the model
-        if (referenceImage) {
-            const match = referenceImage.match(/^data:(image\/[^;]+);base64,(.+)$/);
-            if (match) {
-                parts.push({
-                    inlineData: {
-                        mimeType: match[1],
-                        data: match[2],
-                    },
-                });
-                parts.push({
-                    text: `CRITICAL INSTRUCTION: The image above is the EXACT product that MUST appear in the generated image. You MUST reproduce this product with 100% visual fidelity — same colors, shape, logos, text, materials, and proportions. The product must be the central, clearly visible subject. Do NOT invent or substitute a different product.\n\n${prompt}`,
-                });
-            } else {
-                parts.push({ text: prompt });
-            }
+        // Pass all reference images as inline data
+        if (refImages.length > 0) {
+            refImages.forEach((img, idx) => {
+                const match = img.match(/^data:(image\/[^;]+);base64,(.+)$/);
+                if (match) {
+                    parts.push({
+                        inlineData: {
+                            mimeType: match[1],
+                            data: match[2],
+                        },
+                    });
+                }
+            });
+            const multiRef = refImages.length > 1
+                ? `CRITICAL INSTRUCTION: The ${refImages.length} images above are reference images. You MUST use ALL of them as visual references to create a cohesive final image. Reproduce each product/element with 100% visual fidelity — same colors, shapes, logos, text, materials. Combine them naturally.\n\n${prompt}`
+                : `CRITICAL INSTRUCTION: The image above is the EXACT product that MUST appear in the generated image. You MUST reproduce this product with 100% visual fidelity — same colors, shape, logos, text, materials, and proportions. The product must be the central, clearly visible subject. Do NOT invent or substitute a different product.\n\n${prompt}`;
+            parts.push({ text: multiRef });
         } else {
             parts.push({ text: prompt });
         }

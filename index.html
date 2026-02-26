@@ -49,14 +49,16 @@
         <div class="control-group">
           <label class="control-label">Product Image</label>
           <div class="upload-zone" id="uploadZone">
-            <input type="file" id="imageInput" accept="image/*" hidden />
+            <input type="file" id="imageInput" accept="image/*" multiple hidden />
             <div class="upload-placeholder" id="uploadPlaceholder">
               <span class="upload-icon">📸</span>
-              <span>Drop image or click to browse</span>
+              <span>Drop images or click to browse (up to 14)</span>
             </div>
-            <div class="upload-preview" id="uploadPreview" style="display:none;">
-              <img id="previewImg" alt="Product" />
-              <button class="upload-remove" id="removeImage" title="Remove">✕</button>
+            <div class="upload-preview-grid" id="uploadPreviewGrid" style="display:none;"></div>
+            <div class="upload-actions" id="uploadActions" style="display:none;">
+              <span class="upload-count" id="uploadCount"></span>
+              <button class="upload-add" id="addMoreImages" title="Add more">＋ Add</button>
+              <button class="upload-remove-all" id="removeAllImages" title="Remove all">✕ Clear</button>
             </div>
           </div>
         </div>

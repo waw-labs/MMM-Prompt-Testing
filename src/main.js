@@ -4,19 +4,15 @@ let selectedProvider = 'gemini';
 let assembledResults = [];
 let selectedPromptIndex = -1;
 let selectedVariantIndex = 0;
-let uploadedImageBase64 = null; // base64 data URI of uploaded product image
+let uploadedImages = []; // array of base64 data URIs of uploaded product images
 
 const CATEGORY_LABELS = {
     ads: 'Ads',
     social_posts: 'Social Posts',
-    product_photo: 'Product Photo',
     branding: 'Branding',
-    memes: 'Memes',
-    educational: 'Educational',
     event: 'Event',
     testimonial: 'Testimonial',
     stories: 'Stories',
-    email: 'Email',
     thumbnails: 'Thumbnails',
 };
 
@@ -26,6 +22,7 @@ const MODELS = {
     gemini: {
         image: [
             { value: 'imagen-4.0-generate-001', label: 'Imagen 4.0', supportsImageRef: false },
+            { value: 'gemini-3.1-flash-image-preview', label: 'Nano Banana 2 (4K, 14 refs)', supportsImageRef: true },
             { value: 'gemini-2.5-flash-image', label: 'Gemini 2.5 Flash Image', supportsImageRef: true },
         ],
         video: [
@@ -114,73 +111,127 @@ function setupEventListeners() {
     document.getElementById('generateBtn').addEventListener('click', handleGenerate);
 }
 
-// ── Image Upload ────────────────────────────────────────────────────
+// ── Image Upload (Multi-Image) ──────────────────────────────────────
 function setupImageUpload() {
     const zone = document.getElementById('uploadZone');
     const input = document.getElementById('imageInput');
     const placeholder = document.getElementById('uploadPlaceholder');
-    const preview = document.getElementById('uploadPreview');
-    const previewImg = document.getElementById('previewImg');
-    const removeBtn = document.getElementById('removeImage');
+    const grid = document.getElementById('uploadPreviewGrid');
+    const actions = document.getElementById('uploadActions');
+    const countEl = document.getElementById('uploadCount');
+    const addBtn = document.getElementById('addMoreImages');
+    const clearBtn = document.getElementById('removeAllImages');
 
-    // Click to browse
+    // Click to browse (only on placeholder)
     zone.addEventListener('click', (e) => {
-        if (e.target === removeBtn || e.target.closest('.upload-remove')) return;
+        if (e.target.closest('.upload-actions') || e.target.closest('.img-remove-btn') || e.target.closest('.upload-preview-grid')) return;
         input.click();
     });
 
-    // File selected
+    // Add more button
+    addBtn.addEventListener('click', (e) => { e.stopPropagation(); input.click(); });
+
+    // File selected (multiple)
     input.addEventListener('change', () => {
-        if (input.files?.[0]) handleImageFile(input.files[0]);
+        if (input.files?.length) handleImageFiles(Array.from(input.files));
+        input.value = ''; // reset so same files can be re-added
     });
 
-    // Drag & drop
+    // Drag & drop (multiple)
     zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
     zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
     zone.addEventListener('drop', (e) => {
         e.preventDefault();
         zone.classList.remove('dragover');
-        const file = e.dataTransfer.files?.[0];
-        if (file && file.type.startsWith('image/')) handleImageFile(file);
+        const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+        if (files.length) handleImageFiles(files);
     });
 
-    // Remove
-    removeBtn.addEventListener('click', (e) => {
+    // Clear all
+    clearBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        uploadedImageBase64 = null;
-        input.value = '';
-        placeholder.style.display = '';
-        preview.style.display = 'none';
-        updateModelOptions(); // re-evaluate model selection
+        uploadedImages = [];
+        refreshPreviewGrid();
+        updateModelOptions();
     });
 
-    function handleImageFile(file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-            uploadedImageBase64 = reader.result; // data:image/...;base64,...
-            previewImg.src = uploadedImageBase64;
-            placeholder.style.display = 'none';
-            preview.style.display = '';
-            updateModelOptions(); // auto-select image-capable model
-        };
-        reader.readAsDataURL(file);
+    function handleImageFiles(files) {
+        const remaining = 14 - uploadedImages.length;
+        const toAdd = files.slice(0, remaining);
+        let loaded = 0;
+        toAdd.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                uploadedImages.push(reader.result);
+                loaded++;
+                if (loaded === toAdd.length) {
+                    refreshPreviewGrid();
+                    updateModelOptions();
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+        if (remaining <= 0) showToast('Maximum 14 reference images reached');
     }
+
+    function refreshPreviewGrid() {
+        if (uploadedImages.length === 0) {
+            grid.style.display = 'none';
+            actions.style.display = 'none';
+            placeholder.style.display = '';
+            return;
+        }
+        placeholder.style.display = 'none';
+        grid.style.display = 'grid';
+        actions.style.display = 'flex';
+        countEl.textContent = `${uploadedImages.length} image${uploadedImages.length > 1 ? 's' : ''}`;
+        grid.innerHTML = uploadedImages.map((src, i) => `
+            <div class="preview-thumb">
+                <img src="${src}" alt="Ref ${i + 1}" />
+                <button class="img-remove-btn" data-idx="${i}" title="Remove">✕</button>
+            </div>
+        `).join('');
+        grid.querySelectorAll('.img-remove-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                uploadedImages.splice(parseInt(btn.dataset.idx), 1);
+                refreshPreviewGrid();
+                updateModelOptions();
+            });
+        });
+    }
+    // expose for external use
+    window.__refreshImageGrid = refreshPreviewGrid;
 }
 
 function updateModelOptions() {
     const select = document.getElementById('modelSelect');
     const contentType = document.getElementById('contentTypeSelect').value;
     const mediaType = (contentType === 'video') ? 'video' : 'image';
-    const hasImage = !!uploadedImageBase64;
+    const hasImage = uploadedImages.length > 0;
+    const multiImage = uploadedImages.length > 1;
 
     let models = MODELS[selectedProvider]?.[mediaType] || [];
 
     if (hasImage) {
-        // Check if current provider has any image-capable model for this media type
+        // Multi-image (>1) → force Nano Banana 2 only
+        if (multiImage) {
+            selectedProvider = 'gemini';
+            document.querySelectorAll('.toggle-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.provider === 'gemini');
+            });
+            const nb2 = MODELS.gemini[mediaType]?.find(m => m.value === 'gemini-3.1-flash-image-preview');
+            if (nb2) {
+                select.innerHTML = `<option value="${nb2.value}" selected>${nb2.label} ⭐ (multi-ref)</option>`;
+                showToast(`${uploadedImages.length} images → Nano Banana 2 (supports up to 14 refs)`);
+                return;
+            }
+        }
+
+        // Single image → show all image-capable models
         const capable = models.filter(m => m.supportsImageRef);
 
         if (capable.length > 0) {
-            // Show all models but auto-select the image-capable one
             select.innerHTML = models.map(m => {
                 const recommended = m.supportsImageRef ? ' ⭐ (uses your image)' : '';
                 return `<option value="${m.value}"${m.supportsImageRef ? ' selected' : ''}>${m.label}${recommended}</option>`;
@@ -194,7 +245,6 @@ function updateModelOptions() {
         const otherCapable = otherModels.filter(m => m.supportsImageRef);
 
         if (otherCapable.length > 0) {
-            // Auto-switch provider
             selectedProvider = otherProvider;
             document.querySelectorAll('.toggle-btn').forEach(b => {
                 b.classList.toggle('active', b.dataset.provider === otherProvider);
@@ -237,7 +287,8 @@ async function handleAssemble() {
 
     try {
         const payload = { categories, platform, contentType, title, description };
-        if (uploadedImageBase64) payload.image = uploadedImageBase64;
+        if (uploadedImages.length > 0) payload.image = uploadedImages[0];
+        if (uploadedImages.length > 1) payload.images = uploadedImages;
 
         const resp = await fetch('/api/assemble', {
             method: 'POST',
@@ -362,7 +413,8 @@ async function sendToAI(prompt) {
             model,
             contentType: contentType === 'video' ? 'video' : 'image',
         };
-        if (uploadedImageBase64) payload.referenceImage = uploadedImageBase64;
+        if (uploadedImages.length === 1) payload.referenceImage = uploadedImages[0];
+        if (uploadedImages.length > 1) payload.referenceImages = uploadedImages;
 
         const resp = await fetch('/api/generate', {
             method: 'POST',

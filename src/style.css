@@ -291,8 +291,10 @@ body {
   transition: border-color 0.2s, background 0.2s;
   min-height: 70px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
 }
 
 .upload-zone:hover,
@@ -315,38 +317,93 @@ body {
   font-size: 1.4rem;
 }
 
-.upload-preview {
+/* Multi-image preview grid */
+.upload-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 6px;
+  width: 100%;
+}
+
+.preview-thumb {
   position: relative;
-  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
 }
 
-.upload-preview img {
+.preview-thumb img {
   width: 100%;
-  max-height: 140px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
+  height: 100%;
+  object-fit: cover;
 }
 
-.upload-remove {
+.img-remove-btn {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 22px;
-  height: 22px;
+  top: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: none;
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.55rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
 }
 
-.upload-remove:hover {
+.preview-thumb:hover .img-remove-btn {
+  opacity: 1;
+}
+
+.img-remove-btn:hover {
   background: var(--red);
+}
+
+/* Upload actions bar */
+.upload-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding-top: 0.3rem;
+}
+
+.upload-count {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  flex: 1;
+}
+
+.upload-add,
+.upload-remove-all {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+  font-weight: 500;
+}
+
+.upload-add:hover {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+}
+
+.upload-remove-all:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--red);
+  color: var(--red);
 }
 
 /* ── Niche Display ───────────────────────────────────────────────────── */
