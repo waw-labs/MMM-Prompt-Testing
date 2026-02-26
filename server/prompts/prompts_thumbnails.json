@@ -1,0 +1,217 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "CLICKBAIT",
+            "CURIOSITY_GAP",
+            "BOLD_STATEMENT",
+            "COMPARISON",
+            "REACTION"
+        ]
+    },
+    "platforms": {
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "CLICKBAIT",
+                "CURIOSITY_GAP",
+                "REACTION"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Maximum click-through. Bold text with 3-4 words max. Expressive face or dramatic visual. High contrast. 1280x720 optimized."
+        },
+        "meta": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BOLD_STATEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Blog preview card. Clean headline design. Engaging cover image."
+        },
+        "instagram": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BOLD_STATEMENT",
+                "CURIOSITY_GAP"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Reel cover or post cover. Bold topic text. Engaging visual hook."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "CURIOSITY_GAP",
+                "REACTION"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Video cover frame. Bold hook text."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BOLD_STATEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Blog cover pin. Compelling topic visual. Save-worthy design."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BOLD_STATEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Blog share image. Article preview card. Engaging topic visual."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BOLD_STATEMENT",
+                "COMPARISON"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Twitter card image. Thread header. Bold topic visual."
+        }
+    },
+    "niches": {
+        "general": {
+            "core_emotion": "curiosity_and_clicks",
+            "visual_direction": {
+                "lighting": "high contrast bold",
+                "colors": [
+                    "bold primary",
+                    "high contrast",
+                    "yellow accent",
+                    "red accent"
+                ],
+                "scenarios": [
+                    "youtube thumbnail",
+                    "blog cover image",
+                    "podcast cover art",
+                    "article header"
+                ]
+            },
+            "master_prompt": "Design a high-CTR thumbnail or cover image for {{ .Title }}. Bold high-contrast design. Large attention-grabbing text with 3-5 words maximum about {{ .Description }}. Dramatic visual element — expressive face, surprising comparison, or bold graphic. High contrast colors (red/yellow accents on dark or light background). This must make someone CLICK. YouTube thumbnail or blog cover quality. 16:9 format. Maximum visual impact.",
+            "video_prompt": "Animated thumbnail for {{ .Title }}. Bold text reveal. Dramatic visual transition. Maximum click appeal. {{ .Description }}.",
+            "carousel_prompt": "Content cover series for {{ .Title }}. Each slide: bold thumbnail-style design for different topics related to {{ .Description }}. High-contrast. Clickable. 3-5 word headlines per slide.",
+            "caption_templates": [
+                "New video: {{ .Title }} 🔥 {{ .Description }}",
+                "This one is worth the click 👆 {{ .Title }}",
+                "{{ .Title }} — you need to see this 👇 {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "youtube": "16:9 maximum CTR thumbnail. Bold 3-word text. Dramatic visual.",
+                "meta": "Blog preview card. Clean engaging headline.",
+                "instagram": "Reel cover. Bold topic text.",
+                "pinterest": "Blog cover pin. Compelling visual.",
+                "x": "Thread header image. Bold statement.",
+                "tiktok": "Video cover frame. Hook text."
+            },
+            "product_rule": "maximum click-through, bold minimal text, dramatic visual impact"
+        },
+        "tech_gadgets": {
+            "core_emotion": "shock_and_curiosity_value",
+            "visual_direction": {
+                "lighting": "dramatic high contrast",
+                "colors": [
+                    "electric blue",
+                    "red",
+                    "black"
+                ],
+                "scenarios": [
+                    "tech reveal thumbnail",
+                    "vs comparison",
+                    "shocking stat"
+                ]
+            },
+            "master_prompt": "Design a tech YouTube thumbnail for {{ .Title }}. Dramatic high-contrast design. Bold text like 'GAME CHANGER' or 'vs' comparison format. Striking tech visual about {{ .Description }}. Red and blue accent colors on dark background. Expressive reaction or dramatic product reveal. Maximum click-through. 16:9.",
+            "video_prompt": "Tech thumbnail animation for {{ .Title }}. Dramatic reveal. Bold comparison text. High contrast. {{ .Description }}.",
+            "carousel_prompt": "Tech video cover series for {{ .Title }}. Each slide: bold thumbnail for different tech comparison or review topic about {{ .Description }}.",
+            "caption_templates": [
+                "This changes everything 🤯 {{ .Title }}",
+                "{{ .Title }} vs everything else 👀 {{ .Description }}",
+                "You're not ready for this {{ .Title }} review 🔥"
+            ],
+            "platform_adaptation": {
+                "youtube": "Dramatic tech reveal thumbnail. VS format.",
+                "instagram": "Tech reel cover. Bold reveal text.",
+                "x": "Thread header. Hot tech take."
+            },
+            "product_rule": "maximum clicks, dramatic reveals, comparison formats"
+        },
+        "food_beverage": {
+            "core_emotion": "craving_inducing",
+            "visual_direction": {
+                "lighting": "warm dramatic",
+                "colors": [
+                    "warm tones",
+                    "red",
+                    "golden"
+                ],
+                "scenarios": [
+                    "recipe thumbnail",
+                    "food reveal",
+                    "taste test comparison"
+                ]
+            },
+            "master_prompt": "Design a food content thumbnail for {{ .Title }}. Appetizing dramatic visual. Bold text with 3-5 words about {{ .Description }}. Food beauty shot with steam or drip effect. Warm color palette. Maximum appetite appeal and click-through. 16:9 or recipe cover format.",
+            "video_prompt": "Food thumbnail animation for {{ .Title }}. Appetizing reveal. Bold recipe text. Warm dramatic lighting. {{ .Description }}.",
+            "carousel_prompt": "Recipe cover series for {{ .Title }}. Each slide: appetizing thumbnail for different recipe related to {{ .Description }}. Bold text. Warm tones.",
+            "caption_templates": [
+                "You NEED to try this {{ .Title }} recipe 🤤",
+                "{{ .Title }} that broke the internet 🔥 {{ .Description }}",
+                "Wait for it... {{ .Title }} 😍"
+            ],
+            "platform_adaptation": {
+                "youtube": "Appetizing recipe thumbnail. Bold text.",
+                "pinterest": "Recipe pin cover. Warm aesthetic.",
+                "instagram": "Reel cover. Food beauty shot."
+            },
+            "product_rule": "maximum appetite appeal, bold minimal text, warm dramatic"
+        }
+    }
+}

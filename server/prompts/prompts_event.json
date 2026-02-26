@@ -1,0 +1,194 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "URGENCY",
+            "COUNTDOWN",
+            "ANNOUNCEMENT",
+            "SEASONAL",
+            "LAUNCH"
+        ]
+    },
+    "platforms": {
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "video",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "URGENCY",
+                "ANNOUNCEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Bold event announcement. Date and time prominent. Urgency design elements. CTA to register or attend."
+        },
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "ANNOUNCEMENT",
+                "COUNTDOWN"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5",
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Eye-catching event graphic. Date/time bold. Consistent brand aesthetics. Swipe for details."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "URGENCY",
+                "COUNTDOWN"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Exciting event teaser. Countdown energy. Bold text reveals."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "ANNOUNCEMENT",
+                "URGENCY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Event banner quality. Share-worthy announcement. RSVP CTA."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "ANNOUNCEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Event banner or countdown thumbnail."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "SEASONAL"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Seasonal event pin. Aspirational event visual."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "ANNOUNCEMENT",
+                "URGENCY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Bold announcement graphic. Date prominent. Event details clear."
+        }
+    },
+    "niches": {
+        "general": {
+            "core_emotion": "excitement_and_urgency",
+            "visual_direction": {
+                "lighting": "bold vibrant",
+                "colors": [
+                    "vibrant gradients",
+                    "gold",
+                    "electric blue",
+                    "hot pink"
+                ],
+                "scenarios": [
+                    "event banner",
+                    "countdown graphic",
+                    "launch announcement",
+                    "sale banner",
+                    "seasonal promo"
+                ]
+            },
+            "master_prompt": "Design a bold event promotion graphic for {{ .Title }}. Vibrant eye-catching background with gradient or bold colors. Large bold event headline text. Date, time, and location details clearly displayed. {{ .Description }}. Urgency or excitement design elements (countdown, stars, confetti, or bold shapes). Clear CTA like 'Register Now', 'Save the Date', 'Don't Miss Out'. Professional event marketing quality.",
+            "video_prompt": "Event promo video for {{ .Title }}. Exciting reveal. Bold date/time text animations. Urgency countdown. CTA at end. {{ .Description }}.",
+            "carousel_prompt": "Event details carousel for {{ .Title }}. Slide 1: Bold event announcement with date. Slide 2: What to expect / speakers / lineup. Slide 3: Venue or platform details. Slide 4: Registration CTA. {{ .Description }}. Consistent vibrant design.",
+            "caption_templates": [
+                "🗓️ Mark your calendar — {{ .Title }} is coming! {{ .Description }}",
+                "🔥 Don't miss {{ .Title }}. Limited spots available. {{ .Description }}",
+                "🎉 Announcing {{ .Title }}! Save the date 👇 {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "meta": "Bold announcement banner. Date prominent. Register CTA.",
+                "instagram": "Eye-catching event card. Swipe for details.",
+                "tiktok": "Exciting teaser reveal. Countdown energy.",
+                "facebook": "Event banner. RSVP CTA. Shareable.",
+                "youtube": "Event banner or countdown thumbnail.",
+                "x": "Bold announcement. Date and details."
+            },
+            "product_rule": "event details front and center, urgency elements, bold design"
+        },
+        "fashion_apparel": {
+            "core_emotion": "exclusivity_and_hype",
+            "visual_direction": {
+                "lighting": "dramatic bold",
+                "colors": [
+                    "black",
+                    "gold",
+                    "neon"
+                ],
+                "scenarios": [
+                    "product launch",
+                    "flash sale",
+                    "collection drop"
+                ]
+            },
+            "master_prompt": "Design a bold fashion event or launch graphic for {{ .Title }}. Dramatic design with bold typography. Collection drop or flash sale announcement. Date and time prominent. {{ .Description }}. Exclusive feel with limited time urgency. Bold CTA. Fashion campaign quality.",
+            "video_prompt": "Fashion launch teaser for {{ .Title }}. Dramatic reveal. Bold date text. Exclusive feel. CTA. {{ .Description }}.",
+            "carousel_prompt": "Fashion launch carousel for {{ .Title }}. Slide 1: Bold drop announcement. Slide 2: Preview teaser. Slide 3: Date and time. Slide 4: CTA to shop. {{ .Description }}.",
+            "caption_templates": [
+                "🖤 {{ .Title }} drops soon. {{ .Description }}",
+                "The wait is almost over. {{ .Title }} ⏰",
+                "Mark your calendars 📅 {{ .Title }}. {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "meta": "Bold launch banner. Exclusive urgency.",
+                "instagram": "Hype campaign card. Drop date.",
+                "tiktok": "Dramatic reveal teaser."
+            },
+            "product_rule": "event/launch excitement, date prominent, exclusive feel"
+        }
+    }
+}

@@ -1,0 +1,185 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "BRAND_STORY",
+            "VISUAL_IDENTITY",
+            "MOOD_BOARD",
+            "LOGO_CONTEXT"
+        ]
+    },
+    "platforms": {
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "BRAND_STORY",
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Cohesive brand aesthetic. Logo integration. Consistent color palette."
+        },
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "VISUAL_IDENTITY",
+                "MOOD_BOARD"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Feed-cohesive branding. Aesthetic consistency. Brand personality visual."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "MOOD_BOARD",
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Aspirational brand mood board. Color palette showcase. Save-worthy brand aesthetic."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BRAND_STORY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Brand personality showcase. Behind-the-brand feel."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Channel branding. Banner or thumbnail branding."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BRAND_STORY",
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Brand profile visual. Cover photo quality. Trust-building brand design."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Clean brand header. Professional identity visual."
+        }
+    },
+    "niches": {
+        "beauty_skincare": {
+            "core_emotion": "elegance_and_trust",
+            "visual_direction": {
+                "lighting": "soft elegant studio",
+                "colors": [
+                    "brand colors",
+                    "rose gold",
+                    "cream"
+                ],
+                "scenarios": [
+                    "logo on product mockup",
+                    "brand color palette",
+                    "packaging design"
+                ]
+            },
+            "master_prompt": "Design a brand identity visual for {{ .Title }}. Elegant brand mood board or logo mockup. Show the brand's visual identity: logo placement on clean surface, brand color palette swatches, typography sample, packaging mockup. {{ .Description }}. Premium beauty brand aesthetic. Cohesive and sophisticated. No product photography — this is about the BRAND itself.",
+            "video_prompt": "Brand identity reveal for {{ .Title }}. Logo animation. Color palette reveal. Packaging mockup. Brand story visual. {{ .Description }}.",
+            "carousel_prompt": "Brand identity system for {{ .Title }}. Slide 1: Logo on clean background. Slide 2: Brand color palette with hex codes. Slide 3: Typography showcase. Slide 4: Packaging mockup. {{ .Description }}. Cohesive brand guidelines aesthetic.",
+            "caption_templates": [
+                "Introducing {{ .Title }} — our brand identity.",
+                "The colors, the feel, the essence of {{ .Title }}.",
+                "Brand guidelines for {{ .Title }}. {{ .Description }}."
+            ],
+            "platform_adaptation": {
+                "meta": "Clean logo showcase. Brand story visual.",
+                "instagram": "Cohesive feed branding. Color palette aesthetic.",
+                "pinterest": "Brand mood board. Inspiration pin."
+            },
+            "product_rule": "brand identity focus, logo and colors, not product shots"
+        },
+        "general": {
+            "core_emotion": "identity_and_professionalism",
+            "visual_direction": {
+                "lighting": "clean professional",
+                "colors": [
+                    "brand-specific",
+                    "complementary tones"
+                ],
+                "scenarios": [
+                    "logo mockup",
+                    "brand mood board",
+                    "stationery mockup",
+                    "color palette"
+                ]
+            },
+            "master_prompt": "Design a professional brand identity visual for {{ .Title }}. Show the brand's visual system: logo on clean background, brand color palette, typography samples, stationery mockup (business card, letterhead), or packaging mockup. {{ .Description }}. This is a brand guidelines visualization. Clean, professional, cohesive. Use brand colors consistently throughout.",
+            "video_prompt": "Brand identity presentation for {{ .Title }}. Logo reveal. Color palette. Stationery mockups. Brand guidelines flow. {{ .Description }}.",
+            "carousel_prompt": "Brand identity system for {{ .Title }}. Slide 1: Primary logo on white. Slide 2: Logo on dark background (reversed). Slide 3: Color palette with swatches. Slide 4: Stationery or packaging mockup. {{ .Description }}. Professional brand guidelines.",
+            "caption_templates": [
+                "Meet {{ .Title }} — our visual identity.",
+                "Every detail matters. {{ .Title }} brand system.",
+                "The look and feel of {{ .Title }}. {{ .Description }}."
+            ],
+            "platform_adaptation": {
+                "meta": "Professional logo showcase. Brand system preview.",
+                "instagram": "Cohesive brand grid. Identity aesthetic.",
+                "pinterest": "Brand mood board pin. Inspiration board.",
+                "youtube": "Channel branding visual. Banner design.",
+                "facebook": "Brand cover photo. Professional identity.",
+                "x": "Clean brand header visual."
+            },
+            "product_rule": "brand system visualization, not product photography"
+        }
+    }
+}

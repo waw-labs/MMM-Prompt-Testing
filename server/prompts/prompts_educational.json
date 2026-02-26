@@ -1,0 +1,193 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "INFOGRAPHIC",
+            "GUIDE",
+            "CHECKLIST",
+            "TIMELINE",
+            "COMPARISON"
+        ]
+    },
+    "platforms": {
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "GUIDE",
+                "CHECKLIST"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Save-worthy educational card. Clean numbered steps. Bold topic headline. Consistent color palette."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "INFOGRAPHIC",
+                "CHECKLIST"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Vertical infographic. Step-by-step guide. Clear hierarchy. Save and pin-worthy."
+        },
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "GUIDE",
+                "INFOGRAPHIC"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Educational value post. Clean data visualization. Shareable insight."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "GUIDE",
+                "CHECKLIST"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Quick educational card. Bold numbered tips. Fast-paced learning."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "INFOGRAPHIC"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Data visualization. Educational thumbnail. Process diagram."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "GUIDE",
+                "COMPARISON"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Share-worthy educational graphic. Discussion-sparking data."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "INFOGRAPHIC",
+                "COMPARISON"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Data insight graphic. Thread-starting infographic."
+        }
+    },
+    "niches": {
+        "beauty_skincare": {
+            "core_emotion": "knowledge_and_clarity",
+            "visual_direction": {
+                "lighting": "bright clean",
+                "colors": [
+                    "soft purple",
+                    "white",
+                    "mint"
+                ],
+                "scenarios": [
+                    "ingredient guide",
+                    "routine steps",
+                    "myth vs fact"
+                ]
+            },
+            "master_prompt": "Design a clean educational infographic about {{ .Title }}. Clear numbered steps or sections explaining {{ .Description }}. Bold title headline at top. Minimal vector icons for each point. Consistent color scheme. Clean sans-serif typography. Professional infographic quality. This is an EDUCATIONAL visual that teaches, not sells.",
+            "video_prompt": "Educational video about {{ .Title }}. Step-by-step explainer with text overlays. Clean visuals. Each point numbered. {{ .Description }}.",
+            "carousel_prompt": "Educational carousel about {{ .Title }}. Slide 1: Bold topic headline. Slide 2-5: One key point per slide with icon and explanation. Last slide: Summary or save prompt. {{ .Description }}. Clean consistent design.",
+            "caption_templates": [
+                "Everything you need to know about {{ .Title }} 📚 {{ .Description }}",
+                "Save this guide 📌 {{ .Title }} explained simply",
+                "Myth vs Fact: {{ .Title }} 👇 {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "instagram": "Save-worthy tip card. Clean numbered design.",
+                "pinterest": "Vertical infographic. Step checklist.",
+                "meta": "Shareable educational graphic.",
+                "tiktok": "Quick tip card format."
+            },
+            "product_rule": "pure education, no product selling, infographic quality"
+        },
+        "general": {
+            "core_emotion": "clarity_and_understanding",
+            "visual_direction": {
+                "lighting": "bright clean",
+                "colors": [
+                    "blue",
+                    "white",
+                    "accent yellow"
+                ],
+                "scenarios": [
+                    "numbered list",
+                    "flowchart",
+                    "comparison chart",
+                    "timeline",
+                    "checklist"
+                ]
+            },
+            "master_prompt": "Design a professional educational infographic about {{ .Title }}. Clean structured layout with clear hierarchy. Bold headline at top. Numbered sections or steps explaining {{ .Description }}. Minimal vector icons beside each point. Clean consistent color palette. Professional sans-serif typography. Clear data visualization. This must be EDUCATIONAL — teaching information clearly. Think premium educational content like Harvard Business Review or National Geographic infographic quality.",
+            "video_prompt": "Educational explainer for {{ .Title }}. Structured step-by-step format. Clean text animations. Data visualization. {{ .Description }}.",
+            "carousel_prompt": "Educational deep-dive carousel about {{ .Title }}. Slide 1: Compelling topic headline. Slide 2-6: One insight per slide with supporting visual. Last slide: Key takeaway summary. {{ .Description }}. Consistent clean design.",
+            "caption_templates": [
+                "{{ .Title }} explained in one infographic 📊 {{ .Description }}",
+                "Save this — you'll reference it later 📌 {{ .Title }}",
+                "5 things you didn't know about {{ .Title }} 👇 {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "instagram": "Save-worthy education card. Clean steps.",
+                "pinterest": "Vertical infographic checklist.",
+                "meta": "Shareable educational insight.",
+                "tiktok": "Quick fact card.",
+                "x": "Data insight thread-starter.",
+                "youtube": "Educational thumbnail or process diagram."
+            },
+            "product_rule": "pure education and information, clear hierarchy, no selling"
+        }
+    }
+}

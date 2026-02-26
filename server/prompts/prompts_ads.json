@@ -1,0 +1,913 @@
+{
+  "schema_version": "2.1.0",
+  "globals": {
+    "core_frameworks": [
+      "AIDA",
+      "PAS",
+      "BAB",
+      "UGC",
+      "STORY",
+      "SOCIAL_PROOF",
+      "DIRECT_RESPONSE",
+      "COMPARISON",
+      "DEMO"
+    ]
+  },
+  "platforms": {
+    "tiktok": {
+      "accepted_content_types": [
+        "video",
+        "image"
+      ],
+      "best_ad_frameworks": [
+        "UGC",
+        "PAS",
+        "STORY",
+        "DEMO"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "9:16"
+        ],
+        "hook_under_seconds": 2,
+        "pacing": "fast_first_3_seconds",
+        "caption_style": "short_curiosity_driven",
+        "cta_style": [
+          "soft",
+          "comment_trigger",
+          "link_in_bio"
+        ]
+      },
+      "creative_rules": "Natural imperfect lighting. Handheld POV selfie camera. High contrast warm tones. Real-life usage over studio perfection. Product visible within first 3 seconds. Ad must feel native to TikTok, not overly polished."
+    },
+    "meta": {
+      "accepted_content_types": [
+        "image",
+        "video",
+        "carousel"
+      ],
+      "best_ad_frameworks": [
+        "AIDA",
+        "PAS",
+        "SOCIAL_PROOF",
+        "COMPARISON"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "1:1",
+          "4:5",
+          "9:16"
+        ],
+        "hook_under_seconds": 3,
+        "pacing": "clear_product_first_frame",
+        "caption_style": "benefit_then_proof_then_cta",
+        "cta_style": [
+          "shop_now",
+          "learn_more"
+        ]
+      },
+      "creative_rules": "Bright clear high-quality lighting. Stable product-focused layout. Brand-aligned color palette. Clean background with product hero shot. Bold benefit headline text. Shop Now CTA button visible."
+    },
+    "youtube": {
+      "accepted_content_types": [
+        "video",
+        "image"
+      ],
+      "best_ad_frameworks": [
+        "AIDA",
+        "BAB",
+        "STORY",
+        "DEMO"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "16:9",
+          "9:16"
+        ],
+        "hook_under_seconds": 5,
+        "retention_priority": true
+      },
+      "creative_rules": "Balanced professional lighting. Review walkthrough camera style. Neutral background with strong product contrast. Demo-focused scenario. Clear headline text overlay."
+    },
+    "pinterest": {
+      "accepted_content_types": [
+        "image",
+        "carousel"
+      ],
+      "best_ad_frameworks": [
+        "GUIDE",
+        "CHECKLIST",
+        "AIDA"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "2:3"
+        ],
+        "text_overlay_recommended": true,
+        "caption_style": "seo_rich",
+        "cta_style": [
+          "save",
+          "pin"
+        ]
+      },
+      "creative_rules": "Airy soft diffused lighting. Flat-lay or editorial layout. Neutral aesthetic tones. Text overlay with benefit headline. Clean organized product presentation."
+    },
+    "instagram": {
+      "accepted_content_types": [
+        "image",
+        "video",
+        "carousel"
+      ],
+      "best_ad_frameworks": [
+        "AIDA",
+        "UGC",
+        "SOCIAL_PROOF",
+        "STORY"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "1:1",
+          "4:5",
+          "9:16"
+        ],
+        "hook_under_seconds": 3,
+        "caption_style": "engaging_storytelling",
+        "cta_style": [
+          "shop_now",
+          "swipe_up",
+          "link_in_bio"
+        ]
+      },
+      "creative_rules": "Bright vibrant lighting. Mix of polished and authentic styles. Cohesive color palette. Bold headline text overlay. Product as hero element. CTA button or text visible."
+    },
+    "facebook": {
+      "accepted_content_types": [
+        "image",
+        "video",
+        "carousel"
+      ],
+      "best_ad_frameworks": [
+        "PAS",
+        "SOCIAL_PROOF",
+        "COMPARISON",
+        "DIRECT_RESPONSE"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "1:1",
+          "4:5"
+        ],
+        "hook_under_seconds": 3,
+        "caption_style": "benefit_driven_clear",
+        "cta_style": [
+          "shop_now",
+          "learn_more",
+          "sign_up"
+        ]
+      },
+      "creative_rules": "Clear well-lit product presentation. Clean composed layout. Trust-building headline text. Problem-solution ad format. Shop Now CTA. Product clearly visible and identifiable."
+    },
+    "x": {
+      "accepted_content_types": [
+        "image",
+        "video"
+      ],
+      "best_ad_frameworks": [
+        "DIRECT_RESPONSE",
+        "STORY",
+        "SOCIAL_PROOF"
+      ],
+      "format_rules": {
+        "aspect_ratios": [
+          "16:9",
+          "1:1"
+        ],
+        "tone": "sharp_contrarian_proof_based"
+      },
+      "creative_rules": "Clear sharp lighting. Simple real layout. High contrast. Bold statement headline. Proof or comparison format. Clean product presentation."
+    }
+  },
+  "niches": {
+    "home_organization": {
+      "core_emotion": "relief_and_control",
+      "visual_direction": {
+        "lighting": "bright clean even lighting",
+        "colors": [
+          "beige",
+          "white",
+          "light wood",
+          "sage green"
+        ],
+        "scenarios": [
+          "before-after split",
+          "organized product display",
+          "clean minimal layout"
+        ]
+      },
+      "master_prompt": "Design a social media ad for {{ .Title }}. Clean minimal background in soft beige or white. Product displayed prominently at center. Bold headline text at top: a compelling benefit statement about {{ .Description }}. Before/after visual element showing transformation. Clean organized layout. Shop Now CTA at bottom. Professional ad design quality.",
+      "video_prompt": "Product ad video for {{ .Title }}. Quick before/after transformation. Clean background. Text overlays showing benefits. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Multi-slide ad carousel for {{ .Title }}. Slide 1: Bold headline with product hero shot on clean background. Slide 2: key benefit with supporting visual. Slide 3: before vs after comparison. Slide 4: CTA with product and price. {{ .Description }}. Clean minimal design throughout.",
+      "caption_templates": [
+        "{{ .Title }} — the organization upgrade you need. {{ .Description }}. Shop now.",
+        "Before vs After with {{ .Title }}. The transformation speaks for itself.",
+        "Still living in chaos? {{ .Title }} fixes that. {{ .Description }}. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Native-feel before/after split. Bold text overlay. Swipe or tap CTA.",
+        "meta": "Clean white background. Split before/after. Bold benefit headline. Shop Now button.",
+        "pinterest": "Flat-lay overhead checklist layout. {{ .Title }} as featured product. Soft tones.",
+        "instagram": "Aesthetic transformation ad. Bold headline text. Product hero shot. CTA button.",
+        "youtube": "Product demo thumbnail with bold text overlay and before/after preview."
+      },
+      "product_rule": "product centered on clean background, never cluttered, ad layout not photo"
+    },
+    "beauty_skincare": {
+      "core_emotion": "confidence_and_glow",
+      "visual_direction": {
+        "lighting": "bright soft even beauty lighting",
+        "colors": [
+          "cream",
+          "pastel pink",
+          "rose gold",
+          "soft white"
+        ],
+        "scenarios": [
+          "product on clean surface",
+          "texture close-up with text",
+          "benefit-focused layout"
+        ]
+      },
+      "master_prompt": "Design a social media ad for {{ .Title }}. Clean soft pink or cream background. Product displayed elegantly at center with subtle shadow. Bold headline text at top with compelling beauty benefit about {{ .Description }}. Ingredient or benefit callout badges. Clean modern ad typography. CTA button at bottom saying Shop Now. Premium beauty brand ad quality.",
+      "video_prompt": "Beauty product ad for {{ .Title }}. Product reveal on clean surface. Text overlays showing key benefits. Close-up of texture. Before/after skin result. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Beauty ad carousel for {{ .Title }}. Slide 1: Product hero shot with bold headline on soft background. Slide 2: ingredient/benefit highlight with icons. Slide 3: texture or application close-up. Slide 4: CTA with price or offer. {{ .Description }}. Consistent pastel brand aesthetic.",
+      "caption_templates": [
+        "The glow-up starts with {{ .Title }}. {{ .Description }}. Shop now.",
+        "Your skin deserves {{ .Title }}. See the difference for yourself.",
+        "POV: you found the skincare that actually delivers. {{ .Title }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Product on clean surface. Quick benefit text overlays. Authentic feel. Link in bio CTA.",
+        "meta": "Clean product hero on pastel background. Benefit headline. Ingredient badges. Shop Now CTA.",
+        "pinterest": "Aesthetic product flat-lay. Wellness routine layout. Benefit text overlay.",
+        "instagram": "Pastel brand aesthetic. Bold benefit headline. Product center. CTA.",
+        "youtube": "Thumbnail with product, bold result text, and before/after element."
+      },
+      "product_rule": "product elegantly displayed on clean surface, benefit text clearly readable"
+    },
+    "fitness": {
+      "core_emotion": "power_and_transformation",
+      "visual_direction": {
+        "lighting": "high contrast clean lighting",
+        "colors": [
+          "black",
+          "red",
+          "steel grey",
+          "neon accent"
+        ],
+        "scenarios": [
+          "product on dark background",
+          "performance stat callouts",
+          "transformation comparison"
+        ]
+      },
+      "master_prompt": "Design a bold social media ad for {{ .Title }}. Dark or black background for contrast. Product prominently displayed with strong lighting. Bold impactful headline text about {{ .Description }}. Performance stats or benefit badges. Strong CTA button like Get Yours or Shop Now. Athletic bold typography. High-contrast professional fitness ad design.",
+      "video_prompt": "Fitness product ad for {{ .Title }}. Product showcase on dark background. Bold benefit text overlays. Performance stats animation. Strong CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Fitness ad carousel for {{ .Title }}. Slide 1: Product on dark background with bold headline. Slide 2: performance benefits with stats. Slide 3: comparison vs alternatives. Slide 4: strong CTA with offer. {{ .Description }}. Bold dark aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — built for results. {{ .Description }}. No excuses. Shop now.",
+        "The gear that separates good from great. {{ .Title }}.",
+        "Level up your training with {{ .Title }}. {{ .Description }}. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Dark background product reveal. Bold stat overlays. Strong CTA text.",
+        "meta": "Product on dark surface. Bold performance headline. Stat badges. Shop Now.",
+        "instagram": "High-contrast bold design. Product hero. Performance benefit text. CTA.",
+        "youtube": "Bold thumbnail with product, performance stat, and result text.",
+        "pinterest": "Workout routine layout with {{ .Title }} featured. Performance callouts."
+      },
+      "product_rule": "product displayed with high contrast on dark background, bold ad typography"
+    },
+    "tech_gadgets": {
+      "core_emotion": "innovation_and_smart_choice",
+      "visual_direction": {
+        "lighting": "clean studio lighting with subtle highlights",
+        "colors": [
+          "dark grey",
+          "blue accent",
+          "black",
+          "silver"
+        ],
+        "scenarios": [
+          "product on dark surface",
+          "feature callout badges",
+          "spec comparison layout"
+        ]
+      },
+      "master_prompt": "Design a sleek social media ad for {{ .Title }}. Dark matte background. Product displayed at center with clean reflections. Bold headline text highlighting key innovation of {{ .Description }}. Feature callout badges or spec highlights around product. Modern tech brand typography. CTA button at bottom. Premium tech ad design like Apple or Samsung ads.",
+      "video_prompt": "Tech product ad for {{ .Title }}. Product on dark surface with subtle glow. Feature callout animations. Spec highlights. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Tech product carousel for {{ .Title }}. Slide 1: Hero shot on dark background with bold headline. Slide 2: key feature close-up with spec text. Slide 3: multi-use scenarios. Slide 4: pricing or offer CTA. {{ .Description }}. Dark premium tech aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — the smart upgrade. {{ .Description }}. Available now.",
+        "Meet {{ .Title }}. The tech that changes everything.",
+        "Still using outdated gear? {{ .Title }} is here. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick product reveal on dark surface. Feature highlight text overlays. Link CTA.",
+        "meta": "Hero shot on dark background. Three feature callout badges. Bold headline. Shop Now.",
+        "pinterest": "Clean desk setup layout with {{ .Title }} centered. Feature spec callouts.",
+        "instagram": "Premium dark aesthetic. Feature highlight text. Product hero. CTA.",
+        "youtube": "Thumbnail with product macro detail and bold feature headline."
+      },
+      "product_rule": "product sharp and prominent on dark surface, feature text clearly readable"
+    },
+    "pets": {
+      "core_emotion": "love_and_care",
+      "visual_direction": {
+        "lighting": "bright warm even lighting",
+        "colors": [
+          "warm brown",
+          "soft green",
+          "cream",
+          "golden"
+        ],
+        "scenarios": [
+          "product on clean surface",
+          "happy pet with product",
+          "benefit comparison"
+        ]
+      },
+      "master_prompt": "Design a heartwarming social media ad for {{ .Title }}. Warm clean background in cream or soft tone. Product displayed prominently. Bold headline text about caring for your pet with {{ .Description }}. Happy pet imagery near product. Benefit callout icons. Heart or paw design elements. CTA button at bottom. Professional pet brand ad quality.",
+      "video_prompt": "Pet product ad for {{ .Title }}. Product on warm background. Pet interaction clip. Benefit text overlays. Happy outcome. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Pet care ad carousel for {{ .Title }}. Slide 1: Product with bold caring headline on warm background. Slide 2: pet problem it solves. Slide 3: happy pet result. Slide 4: CTA with product. {{ .Description }}. Warm inviting design.",
+      "caption_templates": [
+        "Your pet deserves {{ .Title }}. {{ .Description }}. Shop now.",
+        "The tail wags say it all. {{ .Title }} is a game changer.",
+        "Best purchase for your furry friend. {{ .Title }}. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Cute pet with product. Bold benefit text. Heart emoji design. Link CTA.",
+        "meta": "Product hero with pet imagery. Caring headline. Benefit badges. Shop Now CTA.",
+        "pinterest": "Pet care routine board. Warm aesthetic. Product featured with benefit text.",
+        "instagram": "Warm heartfelt design. Bold headline. Product with pet element. CTA.",
+        "youtube": "Thumbnail with happy pet, product, and bold benefit headline."
+      },
+      "product_rule": "product clearly visible, warm inviting design, pet imagery as supporting element"
+    },
+    "fashion_apparel": {
+      "core_emotion": "self_expression_and_style",
+      "visual_direction": {
+        "lighting": "bright clean fashion lighting",
+        "colors": [
+          "neutral tones",
+          "black and white",
+          "seasonal palette"
+        ],
+        "scenarios": [
+          "product flat-lay on clean surface",
+          "styled product display",
+          "color variant showcase"
+        ]
+      },
+      "master_prompt": "Design a fashion social media ad for {{ .Title }}. Clean minimal background. Product displayed flat-lay or on mannequin form. Bold fashion headline text about {{ .Description }}. Available color swatches shown. Size or variant options indicated. Brand logo placement at bottom. Shop Now CTA. Modern fashion e-commerce ad quality like Zara or H&M ads.",
+      "video_prompt": "Fashion product ad for {{ .Title }}. Product showcase on clean background. Color options reveal. Styling suggestion text. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Fashion ad carousel for {{ .Title }}. Slide 1: Product hero with bold headline on clean background. Slide 2: detail texture close-up. Slide 3: color variants available. Slide 4: CTA with price. {{ .Description }}. Clean fashion brand aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — the piece your wardrobe is missing. {{ .Description }}. Shop now.",
+        "New drop: {{ .Title }}. Available in multiple colors. Link in bio.",
+        "Styled {{ .Title }} three ways. Which is your favorite? {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick style showcase. Color variants reveal. Bold text overlay. Link CTA.",
+        "meta": "Clean product on white background. Bold headline. Color swatches. Shop Now CTA.",
+        "pinterest": "Outfit flat-lay. Styled product display. Color options. Clean aesthetic.",
+        "instagram": "Fashion brand aesthetic. Product hero. Style headline. Color options. CTA.",
+        "youtube": "Thumbnail with product styled, bold text overlay, and color options."
+      },
+      "product_rule": "product on clean background with color variants shown, fashion brand feel"
+    },
+    "food_beverage": {
+      "core_emotion": "craving_and_satisfaction",
+      "visual_direction": {
+        "lighting": "warm bright food lighting",
+        "colors": [
+          "rich warm tones",
+          "natural greens",
+          "appetizing reds and oranges"
+        ],
+        "scenarios": [
+          "product on clean surface",
+          "ingredient callouts",
+          "taste benefit headline"
+        ]
+      },
+      "master_prompt": "Design a mouth-watering social media ad for {{ .Title }}. Clean warm-toned background. Product package or food beautifully displayed at center. Bold appetizing headline text about {{ .Description }}. Ingredient or flavor callout badges. Nutritional benefit highlights. CTA button at bottom. Professional food brand ad quality like premium grocery or snack brand ads.",
+      "video_prompt": "Food product ad for {{ .Title }}. Product showcase. Ingredient reveal. Taste benefit text overlays. Appetizing close-ups. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Food brand carousel for {{ .Title }}. Slide 1: Product hero with bold headline on warm background. Slide 2: ingredient highlights. Slide 3: nutrition or benefit callouts. Slide 4: CTA with offer. {{ .Description }}. Warm appetizing brand design.",
+      "caption_templates": [
+        "{{ .Title }} — taste the difference. {{ .Description }}. Order now.",
+        "Your new favorite. {{ .Title }} is here. Stop scrolling and start tasting.",
+        "Made with {{ .Title }} and it's restaurant quality. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick taste test format. Bold flavor text. Appetizing close-up. Link CTA.",
+        "meta": "Product on warm background. Benefit headline. Ingredient badges. Order Now CTA.",
+        "pinterest": "Recipe card format. {{ .Title }} as featured product. Clean appetizing layout.",
+        "instagram": "Warm food brand aesthetic. Bold headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product, appetizing imagery, and bold taste headline."
+      },
+      "product_rule": "product packaging or food displayed appetizingly on clean surface, benefit text clear"
+    },
+    "health_wellness": {
+      "core_emotion": "vitality_and_self_care",
+      "visual_direction": {
+        "lighting": "bright clean natural lighting",
+        "colors": [
+          "green",
+          "white",
+          "earth tones",
+          "soft blue"
+        ],
+        "scenarios": [
+          "product on clean white surface",
+          "ingredient transparency",
+          "health benefit badges"
+        ]
+      },
+      "master_prompt": "Design a clean wellness social media ad for {{ .Title }}. Bright white or soft green background. Product displayed cleanly at center. Bold headline text about health benefit of {{ .Description }}. Ingredient or dosage callout badges. Trust elements like certifications or stats. CTA button at bottom. Professional health supplement ad quality.",
+      "video_prompt": "Wellness product ad for {{ .Title }}. Product on clean surface. Ingredient highlight text. Benefit stat overlays. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Wellness carousel for {{ .Title }}. Slide 1: Product hero with bold health headline on clean background. Slide 2: ingredient transparency. Slide 3: benefit stats or testimonial. Slide 4: CTA with offer. {{ .Description }}. Clean wellness brand design.",
+      "caption_templates": [
+        "{{ .Title }} — invest in your health. {{ .Description }}. Shop now.",
+        "Small daily habit, massive results. {{ .Title }}.",
+        "Your body deserves {{ .Title }}. {{ .Description }}. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick benefit reveal. Ingredient text overlays. Authentic wellness feel. Link CTA.",
+        "meta": "Clean product on white. Trust headline. Ingredient badges. Shop Now CTA.",
+        "pinterest": "Wellness routine board. Clean bright aesthetic. Benefit callouts.",
+        "instagram": "Clean wellness design. Bold benefit headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product, health stat, and bold benefit headline."
+      },
+      "product_rule": "product displayed cleanly, health claims clear and readable, trust elements visible"
+    },
+    "baby_kids": {
+      "core_emotion": "protection_and_joy",
+      "visual_direction": {
+        "lighting": "soft warm gentle lighting",
+        "colors": [
+          "pastel blue",
+          "soft yellow",
+          "mint",
+          "cream"
+        ],
+        "scenarios": [
+          "product on soft pastel background",
+          "safety badges",
+          "gentle nurturing layout"
+        ]
+      },
+      "master_prompt": "Design a gentle nurturing social media ad for {{ .Title }}. Soft pastel background in blue, yellow, or cream. Product displayed safely and invitingly at center. Bold but gentle headline text about {{ .Description }}. Safety or quality certification badges. Stars or gentle design elements. CTA button at bottom. Professional baby brand ad quality.",
+      "video_prompt": "Baby product ad for {{ .Title }}. Product on soft pastel background. Safety feature text overlays. Gentle music feel. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Baby brand carousel for {{ .Title }}. Slide 1: Product hero with caring headline on pastel background. Slide 2: safety features. Slide 3: happy usage scenario. Slide 4: CTA with trust elements. {{ .Description }}. Soft nurturing design.",
+      "caption_templates": [
+        "Only the best for your little one. {{ .Title }}. {{ .Description }}.",
+        "Parent-approved. {{ .Title }} is safety tested and loved.",
+        "{{ .Title }} — because they deserve the best. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Adorable product reveal. Safety feature text. Gentle feel. Link CTA.",
+        "meta": "Product on pastel background. Safety headline. Trust badges. Shop Now CTA.",
+        "pinterest": "Nursery setup layout. {{ .Title }} featured. Gentle pastel aesthetic.",
+        "instagram": "Soft pastel design. Caring headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product, safety callout, and caring headline."
+      },
+      "product_rule": "product displayed safely on gentle pastel background, trust elements prominent"
+    },
+    "automotive": {
+      "core_emotion": "pride_and_performance",
+      "visual_direction": {
+        "lighting": "dramatic clean lighting",
+        "colors": [
+          "deep black",
+          "chrome",
+          "red accent",
+          "carbon grey"
+        ],
+        "scenarios": [
+          "product on dark surface",
+          "performance specs",
+          "before-after comparison"
+        ]
+      },
+      "master_prompt": "Design a bold automotive social media ad for {{ .Title }}. Dark black or carbon background. Product displayed with dramatic clean lighting. Bold impactful headline about {{ .Description }}. Performance spec callout badges. Compatibility or fitment info. CTA button. Premium automotive aftermarket ad quality.",
+      "video_prompt": "Auto product ad for {{ .Title }}. Product on dark surface. Feature spec text overlays. Before/after comparison. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Automotive carousel for {{ .Title }}. Slide 1: Product hero on dark background with bold headline. Slide 2: specs and compatibility. Slide 3: before/after installed view. Slide 4: CTA with pricing. {{ .Description }}. Dark premium design.",
+      "caption_templates": [
+        "{{ .Title }} — the upgrade your ride deserves. {{ .Description }}. Shop now.",
+        "Before and after {{ .Title }}. The difference is clear.",
+        "{{ .Title }} installed. Performance unlocked. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick install before/after. Bold spec text. Dark aesthetic. Link CTA.",
+        "meta": "Product on dark background. Bold performance headline. Spec badges. Shop Now.",
+        "instagram": "Dark premium design. Bold headline. Product hero. Performance stats. CTA.",
+        "youtube": "Thumbnail with product, bold performance text, and before/after element.",
+        "pinterest": "Garage setup layout. Product featured with spec callouts."
+      },
+      "product_rule": "product on dark background with performance specs clearly readable"
+    },
+    "travel_outdoor": {
+      "core_emotion": "freedom_and_adventure",
+      "visual_direction": {
+        "lighting": "bright natural outdoor lighting",
+        "colors": [
+          "earth tones",
+          "sky blue",
+          "forest green",
+          "sunset orange"
+        ],
+        "scenarios": [
+          "product on natural backdrop",
+          "durability badges",
+          "adventure-ready layout"
+        ]
+      },
+      "master_prompt": "Design an adventure-themed social media ad for {{ .Title }}. Clean background with subtle outdoor color tones. Product displayed prominently at center. Bold adventurous headline about {{ .Description }}. Durability or feature callout badges. Weather or adventure-proof indicators. CTA button. Professional outdoor gear brand ad quality.",
+      "video_prompt": "Outdoor gear ad for {{ .Title }}. Product showcase with adventure context. Durability feature text. Environment test clips. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Outdoor gear carousel for {{ .Title }}. Slide 1: Product hero with adventure headline. Slide 2: durability features. Slide 3: multi-environment usage. Slide 4: CTA with offer. {{ .Description }}. Earthy outdoor brand design.",
+      "caption_templates": [
+        "{{ .Title }} — adventure-tested and approved. {{ .Description }}. Shop now.",
+        "The one piece of gear you need. {{ .Title }}. Built for the wild.",
+        "Pack {{ .Title }}. Adventure awaits. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick durability demo. Bold adventure text. Earthy tones. Link CTA.",
+        "meta": "Product hero with outdoor color backdrop. Durability headline. Feature badges. Shop Now.",
+        "pinterest": "Packing list layout. {{ .Title }} as essential item. Adventure aesthetic.",
+        "instagram": "Bold adventure design. Durability headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product in outdoor context and bold durability headline."
+      },
+      "product_rule": "product prominently displayed with adventure context, feature badges visible"
+    },
+    "jewelry_watches": {
+      "core_emotion": "elegance_and_identity",
+      "visual_direction": {
+        "lighting": "soft studio lighting with subtle sparkle",
+        "colors": [
+          "gold",
+          "deep burgundy",
+          "black velvet",
+          "midnight blue"
+        ],
+        "scenarios": [
+          "product on dark velvet surface",
+          "detail macro",
+          "luxury brand layout"
+        ]
+      },
+      "master_prompt": "Design a luxury social media ad for {{ .Title }}. Rich dark background in black or deep navy. Product displayed elegantly with subtle sparkle and reflections. Refined headline text about {{ .Description }}. Available variants or color options shown as swatches. Understated elegant CTA. Brand logo placement. Premium jewelry ad quality like Cartier or Tiffany ads.",
+      "video_prompt": "Luxury product ad for {{ .Title }}. Slow reveal on dark surface. Light catching details. Elegant text overlays. Premium CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Luxury carousel for {{ .Title }}. Slide 1: Hero shot on dark surface with elegant headline. Slide 2: craftsmanship detail macro. Slide 3: styling or wearing context. Slide 4: refined CTA. {{ .Description }}. Dark luxury aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — a statement of who you are. {{ .Description }}.",
+        "Craftsmanship meets elegance. {{ .Title }}. Discover yours.",
+        "Some things are worth the investment. {{ .Title }}. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Elegant product reveal on dark surface. Subtle sparkle. Refined CTA text.",
+        "meta": "Product on dark velvet. Elegant headline. Variant options. Refined Shop Now CTA.",
+        "pinterest": "Jewelry styling layout. Accessory pairing board. Dark elegant aesthetic.",
+        "instagram": "Dark luxury design. Elegant headline. Product with sparkle. CTA.",
+        "youtube": "Thumbnail with product on dark surface and elegant headline text."
+      },
+      "product_rule": "product displayed on premium dark surface, luxury brand feel, never cluttered"
+    },
+    "home_decor": {
+      "core_emotion": "beauty_and_belonging",
+      "visual_direction": {
+        "lighting": "warm ambient lighting",
+        "colors": [
+          "warm neutrals",
+          "terracotta",
+          "olive",
+          "cream"
+        ],
+        "scenarios": [
+          "product on styled surface",
+          "room context preview",
+          "before-after room"
+        ]
+      },
+      "master_prompt": "Design a stylish home decor social media ad for {{ .Title }}. Warm neutral background. Product displayed beautifully at center. Bold headline about how {{ .Description }} transforms your space. Room context element or styled setting preview. Dimension or variant info. CTA button. Interior design brand ad quality.",
+      "video_prompt": "Home decor ad for {{ .Title }}. Product on styled surface. Room transformation preview. Style tip text overlays. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Home decor carousel for {{ .Title }}. Slide 1: Product hero with style headline on warm background. Slide 2: room context preview. Slide 3: dimensions or variants. Slide 4: CTA with offer. {{ .Description }}. Warm interior design aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — the piece that completes the room. {{ .Description }}. Shop now.",
+        "One piece changed the entire space. {{ .Title }}.",
+        "Home upgrade unlocked. {{ .Title }}. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Room transformation reveal. Before/after. Style tip text. Link CTA.",
+        "meta": "Product on warm background. Transformation headline. Design tip badges. Shop Now.",
+        "pinterest": "Room styling board. {{ .Title }} as featured piece. Interior design aesthetic.",
+        "instagram": "Warm interior design aesthetic. Style headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product in room context and bold transformation headline."
+      },
+      "product_rule": "product on warm clean background, interior design feel, style context elements"
+    },
+    "kitchen_cooking": {
+      "core_emotion": "mastery_and_nourishment",
+      "visual_direction": {
+        "lighting": "bright warm kitchen lighting",
+        "colors": [
+          "warm white",
+          "natural wood",
+          "stainless steel",
+          "herb green"
+        ],
+        "scenarios": [
+          "product on clean counter",
+          "feature callouts",
+          "result food preview"
+        ]
+      },
+      "master_prompt": "Design a kitchen product social media ad for {{ .Title }}. Bright clean background in white or warm wood tones. Product displayed at center on clean surface. Bold headline about cooking benefit of {{ .Description }}. Feature or material callout badges. Food result preview element. CTA button. Professional kitchenware brand ad quality.",
+      "video_prompt": "Kitchen product ad for {{ .Title }}. Product on clean surface. Feature demonstration. Cooking result preview. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Kitchen carousel for {{ .Title }}. Slide 1: Product hero with bold headline on clean background. Slide 2: feature and material details. Slide 3: cooking in action. Slide 4: CTA. {{ .Description }}. Clean kitchen brand design.",
+      "caption_templates": [
+        "{{ .Title }} — upgrade your kitchen. {{ .Description }}. Shop now.",
+        "Cook like a chef with {{ .Title }}. The tool that makes the difference.",
+        "{{ .Title }} changed how I cook. {{ .Description }}. Get yours."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick cooking demo with product. Bold benefit text. Appetizing result. Link CTA.",
+        "meta": "Product on clean surface. Cooking benefit headline. Feature badges. Shop Now CTA.",
+        "pinterest": "Recipe card format with {{ .Title }} featured. Clean bright aesthetic.",
+        "instagram": "Bright kitchen aesthetic. Bold headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product and bold cooking benefit headline."
+      },
+      "product_rule": "product on clean kitchen surface, feature callouts clear, food result as supporting element"
+    },
+    "gaming": {
+      "core_emotion": "immersion_and_dominance",
+      "visual_direction": {
+        "lighting": "dark with RGB accent glow",
+        "colors": [
+          "neon purple",
+          "electric blue",
+          "black",
+          "hot pink"
+        ],
+        "scenarios": [
+          "product on dark surface with glow",
+          "performance spec badges",
+          "setup showcase"
+        ]
+      },
+      "master_prompt": "Design a bold gaming social media ad for {{ .Title }}. Dark black background with subtle RGB color accents. Product displayed at center with neon glow highlights. Bold gaming-style headline text about {{ .Description }}. Performance spec callout badges. Compatibility icons. CTA button. Esports and gaming brand ad quality like Razer or SteelSeries ads.",
+      "video_prompt": "Gaming gear ad for {{ .Title }}. Dark background with RGB reveal. Feature spec animations. Performance demonstration. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Gaming gear carousel for {{ .Title }}. Slide 1: Product with RGB glow on dark background and bold headline. Slide 2: performance specs. Slide 3: setup integration. Slide 4: CTA. {{ .Description }}. Dark neon gaming aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — level up your setup. {{ .Description }}. GG. Shop now.",
+        "The gear that separates casuals from pros. {{ .Title }}.",
+        "My setup upgrade: {{ .Title }}. {{ .Description }}. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Dark RGB product reveal. Bold spec text overlays. Gaming energy. Link CTA.",
+        "meta": "Product on dark background with neon accents. Performance headline. Spec badges. Shop Now.",
+        "instagram": "Dark neon aesthetic. Bold headline. Product with RGB glow. CTA.",
+        "youtube": "Thumbnail with product, RGB glow, and bold performance headline.",
+        "pinterest": "Gaming desk setup layout. {{ .Title }} featured. Dark aesthetic."
+      },
+      "product_rule": "product on dark background with neon accents, performance specs visible"
+    },
+    "cleaning_household": {
+      "core_emotion": "satisfaction_and_freshness",
+      "visual_direction": {
+        "lighting": "bright clean even lighting",
+        "colors": [
+          "fresh white",
+          "clean blue",
+          "bright green"
+        ],
+        "scenarios": [
+          "product centered on clean background",
+          "before-after split",
+          "result comparison"
+        ]
+      },
+      "master_prompt": "Design a satisfying social media ad for {{ .Title }}. Bright clean white or blue-tinted background. Product displayed at center. Bold headline about cleaning power of {{ .Description }}. Dramatic before/after split comparison element. Effectiveness badges or stats. CTA button. Professional household brand ad quality.",
+      "video_prompt": "Cleaning product ad for {{ .Title }}. Before/after demonstration. Product application. Sparkling result reveal. Benefit text overlays. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Cleaning ad carousel for {{ .Title }}. Slide 1: Product with bold headline on bright background. Slide 2: before dirty state. Slide 3: after clean result. Slide 4: CTA. {{ .Description }}. Clean bright brand design.",
+      "caption_templates": [
+        "{{ .Title }} — the before/after is insane. {{ .Description }}. Shop now.",
+        "I thought this stain was permanent. Then I tried {{ .Title }}.",
+        "{{ .Title }} makes everything sparkle. {{ .Description }}. Get yours."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Satisfying before/after split. Bold result text. Clean sounds. Link CTA.",
+        "meta": "Product hero on bright background. Transformation headline. Before/after. Shop Now CTA.",
+        "pinterest": "Cleaning hacks layout with {{ .Title }} as hero product.",
+        "instagram": "Bright clean aesthetic. Bold headline. Before/after element. CTA.",
+        "youtube": "Thumbnail with before/after split and bold cleaning result headline."
+      },
+      "product_rule": "product on clean bright background, before/after transformation visible"
+    },
+    "luxury_premium": {
+      "core_emotion": "exclusivity_and_status",
+      "visual_direction": {
+        "lighting": "dramatic single-source elegant lighting",
+        "colors": [
+          "deep black",
+          "gold",
+          "champagne",
+          "rich navy"
+        ],
+        "scenarios": [
+          "product on dark premium surface",
+          "detail craftsmanship",
+          "exclusivity messaging"
+        ]
+      },
+      "master_prompt": "Design an ultra-premium social media ad for {{ .Title }}. Rich dark background in black or deep navy. Product displayed with dramatic elegant lighting and gold accent elements. Refined headline text about {{ .Description }}. Craftsmanship or exclusivity callout. Limited edition or premium quality indicators. Elegant CTA. Luxury brand campaign quality. This must say: premium, exclusive, worth it.",
+      "video_prompt": "Luxury product ad for {{ .Title }}. Slow dramatic reveal on dark surface. Gold accent lighting. Craftsmanship detail close-ups. Refined CTA. {{ .Description }}.",
+      "carousel_prompt": "Luxury carousel for {{ .Title }}. Slide 1: Dramatic hero on dark background with refined headline. Slide 2: craftsmanship macro detail. Slide 3: premium lifestyle context. Slide 4: elegant CTA. {{ .Description }}. Dark luxurious aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — because you've earned it. {{ .Description }}.",
+        "Premium quality. Timeless design. {{ .Title }}.",
+        "{{ .Title }}. Luxury isn't about price. It's about quality. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Premium unboxing reveal. Dark moody lighting. Gold accents. Refined CTA text.",
+        "meta": "Product on dark background with gold accents. Exclusivity headline. Elegant Shop Now.",
+        "pinterest": "Luxury lifestyle board. {{ .Title }} featured elegantly. Dark premium aesthetic.",
+        "instagram": "Dark rich design. Refined headline. Product with gold accents. Elegant CTA.",
+        "youtube": "Thumbnail with product on dark surface and refined premium headline."
+      },
+      "product_rule": "product exudes premium quality on dark surface, gold accents, luxury feel"
+    },
+    "office_stationery": {
+      "core_emotion": "focus_and_productivity",
+      "visual_direction": {
+        "lighting": "bright clean desk lighting",
+        "colors": [
+          "warm white",
+          "light grey",
+          "natural wood",
+          "matte black"
+        ],
+        "scenarios": [
+          "product on clean desk surface",
+          "productivity benefit headline",
+          "organized layout"
+        ]
+      },
+      "master_prompt": "Design a clean productivity social media ad for {{ .Title }}. Bright white or light grey background. Product displayed neatly at center on clean surface. Bold headline about productivity benefit of {{ .Description }}. Feature callout badges. Organized minimalist ad layout. CTA button. Professional office brand ad quality.",
+      "video_prompt": "Office product ad for {{ .Title }}. Product on clean desk. Feature highlight text. Organization demonstration. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Productivity carousel for {{ .Title }}. Slide 1: Product hero with bold headline on clean background. Slide 2: features and benefits. Slide 3: desk setup integration. Slide 4: CTA. {{ .Description }}. Clean minimal design.",
+      "caption_templates": [
+        "{{ .Title }} — work smarter. {{ .Description }}. Shop now.",
+        "The desk upgrade that actually improves productivity. {{ .Title }}.",
+        "Minimalism meets functionality. {{ .Title }}. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Satisfying desk organization. Bold productivity text. Clean aesthetic. Link CTA.",
+        "meta": "Product on clean surface. Productivity headline. Feature badges. Shop Now CTA.",
+        "pinterest": "Desk setup board. {{ .Title }} as featured tool. Minimalist aesthetic.",
+        "instagram": "Clean minimal design. Productivity headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product on clean desk and bold productivity headline."
+      },
+      "product_rule": "product on clean organized surface, productivity benefit text clear"
+    },
+    "garden_outdoor_living": {
+      "core_emotion": "growth_and_tranquility",
+      "visual_direction": {
+        "lighting": "bright natural garden lighting",
+        "colors": [
+          "green",
+          "earth brown",
+          "terracotta",
+          "soft sunlight"
+        ],
+        "scenarios": [
+          "product on natural surface",
+          "growth result preview",
+          "garden context"
+        ]
+      },
+      "master_prompt": "Design a fresh garden social media ad for {{ .Title }}. Natural green-tinted or earthy background. Product displayed at center on clean surface. Bold headline about garden benefit of {{ .Description }}. Growth result or season indicator. Feature callout badges. CTA button. Professional garden brand ad quality.",
+      "video_prompt": "Garden product ad for {{ .Title }}. Product on natural surface. Growth result timelapse. Benefit text overlays. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Garden carousel for {{ .Title }}. Slide 1: Product hero with green headline. Slide 2: how to use guide. Slide 3: growth result preview. Slide 4: CTA. {{ .Description }}. Natural green aesthetic.",
+      "caption_templates": [
+        "{{ .Title }} — watch your garden thrive. {{ .Description }}. Shop now.",
+        "Green thumb or not, {{ .Title }} makes every garden grow.",
+        "The secret to a perfect garden? {{ .Title }}. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Garden transformation timelapse. Bold growth text. Nature sounds. Link CTA.",
+        "meta": "Product on earthy background. Growth headline. Seasonal badges. Shop Now CTA.",
+        "pinterest": "Garden planning board. {{ .Title }} as essential item. Green aesthetic.",
+        "instagram": "Natural green design. Growth headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product and bold garden result headline."
+      },
+      "product_rule": "product on natural surface, green and earthy brand feel, growth result element"
+    },
+    "sports_recreation": {
+      "core_emotion": "thrill_and_achievement",
+      "visual_direction": {
+        "lighting": "bright dynamic lighting",
+        "colors": [
+          "team colors",
+          "field green",
+          "sky blue",
+          "energy orange"
+        ],
+        "scenarios": [
+          "product on clean background",
+          "performance stat badges",
+          "action context element"
+        ]
+      },
+      "master_prompt": "Design a dynamic sports social media ad for {{ .Title }}. Clean energetic background. Product displayed prominently at center. Bold impactful headline about performance benefit of {{ .Description }}. Performance stat callout badges. Durability or quality indicators. CTA button. Professional sports brand ad quality like Nike or Under Armour ads.",
+      "video_prompt": "Sports gear ad for {{ .Title }}. Product showcase. Performance stat animations. Action context. Strong CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Sports carousel for {{ .Title }}. Slide 1: Product hero with bold headline. Slide 2: performance features. Slide 3: athlete or action context. Slide 4: CTA. {{ .Description }}. Dynamic sports brand design.",
+      "caption_templates": [
+        "{{ .Title }} — perform when it matters. {{ .Description }}. Shop now.",
+        "The gear that separates winners. {{ .Title }}.",
+        "{{ .Title }}. Built for athletes who don't settle. {{ .Description }}."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Dynamic product reveal. Bold performance text. High energy. Link CTA.",
+        "meta": "Product hero on clean background. Performance headline. Stat badges. Shop Now CTA.",
+        "pinterest": "Training routine board with {{ .Title }} as essential gear.",
+        "instagram": "Dynamic sports design. Bold headline. Product hero. Performance stats. CTA.",
+        "youtube": "Thumbnail with product and bold performance stat headline."
+      },
+      "product_rule": "product prominently displayed, performance stats visible, sports brand energy"
+    },
+    "education_learning": {
+      "core_emotion": "empowerment_and_curiosity",
+      "visual_direction": {
+        "lighting": "bright focused clean lighting",
+        "colors": [
+          "navy blue",
+          "warm white",
+          "accent yellow"
+        ],
+        "scenarios": [
+          "product on clean surface",
+          "learning benefit headline",
+          "progress indicators"
+        ]
+      },
+      "master_prompt": "Design an empowering social media ad for {{ .Title }}. Clean bright background in white or soft blue. Product or course displayed at center. Bold headline about learning benefit of {{ .Description }}. Progress or success stat callouts. Enrollment or access CTA button. Professional edtech brand ad quality.",
+      "video_prompt": "Education product ad for {{ .Title }}. Product showcase on clean background. Learning benefit text. Progress stats. Enrollment CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Education carousel for {{ .Title }}. Slide 1: Bold learning headline with product hero. Slide 2: curriculum or feature overview. Slide 3: success stats or testimonial. Slide 4: enrollment CTA. {{ .Description }}. Clean professional design.",
+      "caption_templates": [
+        "{{ .Title }} — invest in yourself. {{ .Description }}. Start now.",
+        "Your future self will thank you for {{ .Title }}.",
+        "Learn smarter with {{ .Title }}. {{ .Description }}. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick benefit reveal. Learning stat text. Progress indicator. Link CTA.",
+        "meta": "Product on clean background. Learning headline. Success stats. Enroll Now CTA.",
+        "pinterest": "Learning resource board. {{ .Title }} as featured tool.",
+        "instagram": "Clean professional design. Learning headline. Product hero. CTA.",
+        "youtube": "Thumbnail with product and bold learning outcome headline."
+      },
+      "product_rule": "product on clean background, learning benefit headline dominant, trust elements"
+    },
+    "general": {
+      "core_emotion": "desire_and_value",
+      "visual_direction": {
+        "lighting": "clean professional studio lighting",
+        "colors": [
+          "neutral",
+          "brand-appropriate",
+          "high contrast"
+        ],
+        "scenarios": [
+          "product hero on clean background",
+          "benefit headline",
+          "CTA with offer"
+        ]
+      },
+      "master_prompt": "Design a professional social media advertisement for {{ .Title }}. Clean solid-color background (white, light grey, or brand-appropriate tone). Product displayed as hero element prominently at center. Bold attention-grabbing headline text about {{ .Description }}. Key benefit callout badges around product. Clean professional typography. CTA button at bottom saying Shop Now. This must look like a real paid social media ad, NOT a photograph.",
+      "video_prompt": "Product ad for {{ .Title }}. Product showcase on clean background. Benefit text overlays. Feature highlights. CTA at end. {{ .Description }}.",
+      "carousel_prompt": "Product showcase carousel for {{ .Title }}. Slide 1: Hero shot with bold headline on clean background. Slide 2: key feature highlight. Slide 3: benefit or social proof. Slide 4: CTA with offer. {{ .Description }}. Professional clean ad design.",
+      "caption_templates": [
+        "{{ .Title }} — see why everyone is switching. {{ .Description }}. Shop now.",
+        "No gimmicks. Just results. {{ .Title }}. {{ .Description }}.",
+        "Meet {{ .Title }}. The product that actually delivers. Link in bio."
+      ],
+      "platform_adaptation": {
+        "tiktok": "Quick product reveal. Bold benefit text. Authentic energy. Link CTA.",
+        "meta": "Clean hero shot on solid background. Bold headline. Benefit badges. Shop Now CTA.",
+        "pinterest": "Product styling board. Clean aesthetic. Benefit callouts.",
+        "instagram": "Clean brand design. Bold headline. Product hero. CTA button.",
+        "youtube": "Thumbnail with product hero and bold benefit headline."
+      },
+      "product_rule": "product as hero element on clean background, ad design not photograph"
+    }
+  }
+}

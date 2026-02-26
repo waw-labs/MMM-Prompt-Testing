@@ -1,0 +1,188 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "SOCIAL_PROOF",
+            "CUSTOMER_VOICE",
+            "STAR_RATING",
+            "BEFORE_AFTER",
+            "QUOTE_CARD"
+        ]
+    },
+    "platforms": {
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "SOCIAL_PROOF",
+                "STAR_RATING"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Trust-building review card. Star rating visual. Customer quote prominent. Clean professional design."
+        },
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "SOCIAL_PROOF",
+                "CUSTOMER_VOICE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1",
+                    "4:5"
+                ]
+            },
+            "creative_rules": "Aesthetic testimonial card. Quote highlight. Brand-consistent colors. Trust elements."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "CUSTOMER_VOICE",
+                "BEFORE_AFTER"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Real customer review showcase. Authentic feel. Quote text overlay."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "SOCIAL_PROOF",
+                "STAR_RATING"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Trust-building review. Star rating. Share-worthy testimonial."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "SOCIAL_PROOF"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Review compilation thumbnail. Star rating visual."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "QUOTE_CARD"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Inspirational quote card. Clean elegant testimonial."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "SOCIAL_PROOF"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "Screenshot-style review. Proof-based social proof."
+        }
+    },
+    "niches": {
+        "general": {
+            "core_emotion": "trust_and_credibility",
+            "visual_direction": {
+                "lighting": "clean professional",
+                "colors": [
+                    "warm white",
+                    "gold star accent",
+                    "brand-appropriate"
+                ],
+                "scenarios": [
+                    "customer quote card",
+                    "star rating graphic",
+                    "before/after result",
+                    "review compilation"
+                ]
+            },
+            "master_prompt": "Design a professional testimonial card for {{ .Title }}. Clean background with brand-appropriate colors. Large quote marks framing a customer testimonial about {{ .Description }}. 5-star rating visual element. Customer name or initials (placeholder). Clean modern typography. Professional review/testimonial card quality. Trust-building design.",
+            "video_prompt": "Testimonial showcase for {{ .Title }}. Customer quote text reveals. Star rating animation. Multiple review highlights. Trust-building feel. {{ .Description }}.",
+            "carousel_prompt": "Testimonial compilation carousel for {{ .Title }}. Each slide: different customer quote about {{ .Description }} with star rating and customer initials. Consistent clean design across all slides. Trust-building collection.",
+            "caption_templates": [
+                "Don't take our word for it ⭐⭐⭐⭐⭐ {{ .Title }}",
+                "Real customers. Real results. {{ .Title }}. {{ .Description }}",
+                "Here's what people are saying about {{ .Title }} 👇"
+            ],
+            "platform_adaptation": {
+                "meta": "Clean review card. Star rating prominent. Trust-building.",
+                "instagram": "Aesthetic quote card. Brand-consistent.",
+                "tiktok": "Real review showcase. Authentic feel.",
+                "facebook": "Trust-building review. Shareable.",
+                "x": "Proof-based social proof visual."
+            },
+            "product_rule": "customer voice center stage, star ratings visible, trust-building design"
+        },
+        "beauty_skincare": {
+            "core_emotion": "transformation_proof",
+            "visual_direction": {
+                "lighting": "bright clean",
+                "colors": [
+                    "soft pink",
+                    "white",
+                    "gold star"
+                ],
+                "scenarios": [
+                    "before/after result",
+                    "quote card with skin photo",
+                    "rating compilation"
+                ]
+            },
+            "master_prompt": "Design a beauty testimonial card for {{ .Title }}. Soft clean background. Customer quote about transformation results from {{ .Description }}. Before/after result visual element. 5-star rating. Clean elegant typography. Trust-building beauty review quality.",
+            "video_prompt": "Beauty testimonial for {{ .Title }}. Before/after reveal. Customer quote text. Star rating. Transformation story. {{ .Description }}.",
+            "carousel_prompt": "Beauty results compilation for {{ .Title }}. Slide 1: Bold 'Real Results' headline. Slides 2-4: Individual customer testimonials with before/after and quotes about {{ .Description }}. Clean elegant design.",
+            "caption_templates": [
+                "The results speak for themselves ✨ {{ .Title }}",
+                "Before & after {{ .Title }}. {{ .Description }} ⭐⭐⭐⭐⭐",
+                "Real people. Real glow. {{ .Title }}. {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "meta": "Before/after with quote. Star rating.",
+                "instagram": "Elegant transformation card.",
+                "tiktok": "Before/after reveal with review text."
+            },
+            "product_rule": "transformation proof, customer voice, before/after elements"
+        }
+    }
+}

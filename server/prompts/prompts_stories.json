@@ -1,0 +1,185 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "HOOK",
+            "BTS",
+            "QUICK_UPDATE",
+            "POLL",
+            "SWIPE_UP"
+        ]
+    },
+    "platforms": {
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "HOOK",
+                "BTS",
+                "POLL"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Full-screen vertical. Quick engaging hook. Tap-through design. Poll or question sticker aesthetic."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "HOOK",
+                "BTS"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Native story feel. Quick cut energy. Bold text hooks. Authentic behind-the-scenes."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "QUICK_UPDATE",
+                "POLL"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Quick story update. Poll or question format. Casual engaging tone."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "BTS",
+                "QUICK_UPDATE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "YouTube Shorts format. Quick vertical content. Hook in first second."
+        },
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "HOOK",
+                "QUICK_UPDATE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Full-screen story. Quick engaging format. Swipe-up action."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "QUICK_UPDATE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Idea pin format. Quick visual story."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "QUICK_UPDATE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Quick fleet-style update."
+        }
+    },
+    "niches": {
+        "general": {
+            "core_emotion": "immediacy_and_authenticity",
+            "visual_direction": {
+                "lighting": "natural casual handheld feel",
+                "colors": [
+                    "vibrant",
+                    "bold text on gradient",
+                    "trending color palette"
+                ],
+                "scenarios": [
+                    "behind-the-scenes peek",
+                    "quick update announcement",
+                    "this or that poll",
+                    "swipe to reveal"
+                ]
+            },
+            "master_prompt": "Design a full-screen vertical story or reel graphic for {{ .Title }}. 9:16 vertical format. Bold hook text at top third. Quick engaging visual about {{ .Description }}. Casual authentic feel — not overly polished. Interactive element like poll option, question, or swipe prompt. Trending gradient or bold color background. Bold sans-serif text. Story/Reel native aesthetic.",
+            "video_prompt": "Vertical story/reel for {{ .Title }}. Quick hook in first 2 seconds. Behind-the-scenes or quick reveal format. Bold text overlays. Casual authentic energy. {{ .Description }}.",
+            "carousel_prompt": "Story sequence for {{ .Title }}. Each slide: full-screen vertical with bold text progressing a quick story about {{ .Description }}. Tap-through narrative. Engaging hook → build → reveal → CTA.",
+            "caption_templates": [
+                "Quick story time 👇 {{ .Title }}",
+                "BTS of {{ .Title }} ✨ {{ .Description }}",
+                "This or that? 🤔 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "instagram": "Story sticker aesthetic. Poll/question element. Casual.",
+                "tiktok": "Native reel energy. Bold hook text. Fast.",
+                "facebook": "Quick story update. Casual engaging.",
+                "youtube": "Shorts format. Hook first second."
+            },
+            "product_rule": "vertical 9:16, casual authentic, story-native feel"
+        },
+        "beauty_skincare": {
+            "core_emotion": "behind_the_scenes",
+            "visual_direction": {
+                "lighting": "natural selfie lighting",
+                "colors": [
+                    "pink gradient",
+                    "soft glow"
+                ],
+                "scenarios": [
+                    "routine BTS",
+                    "product reveal story",
+                    "this or that beauty"
+                ]
+            },
+            "master_prompt": "Design a vertical beauty story/reel graphic for {{ .Title }}. Full-screen 9:16. Bold hook text about {{ .Description }}. Behind-the-scenes beauty routine feel. Casual authentic design. Poll element like 'Morning or Night routine?' Interactive story aesthetic.",
+            "video_prompt": "Beauty story/reel for {{ .Title }}. Quick routine reveal. Product showcase. Bold text hooks. Casual BTS energy. {{ .Description }}.",
+            "carousel_prompt": "Beauty story sequence for {{ .Title }}. Tap-through routine reveal about {{ .Description }}. Each frame: bold text + beauty visual. Casual aesthetic.",
+            "caption_templates": [
+                "My {{ .Title }} routine revealed ✨",
+                "BTS: How I use {{ .Title }} 💕 {{ .Description }}",
+                "Help me pick 🤔 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "instagram": "Beauty story sticker feel. Poll element.",
+                "tiktok": "Native GRWM energy. Quick cuts."
+            },
+            "product_rule": "vertical story format, casual authentic, interactive feel"
+        }
+    }
+}

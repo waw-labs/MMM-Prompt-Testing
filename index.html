@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMM Prompt Tester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">MMM Prompt Tester</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="status-indicator" id="statusGemini">
+          <span class="status-dot"></span> Gemini
+        </div>
+        <div class="status-indicator" id="statusOpenAI">
+          <span class="status-dot"></span> OpenAI
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="main-grid">
+      <!-- Left Panel: Controls -->
+      <aside class="panel panel-controls">
+        <h2 class="panel-title">Configuration</h2>
+
+        <!-- Categories (checkboxes) -->
+        <div class="control-group">
+          <label class="control-label">Prompt Categories</label>
+          <div class="checkbox-grid" id="categoryCheckboxes"></div>
+        </div>
+
+        <!-- Product Image Upload -->
+        <div class="control-group">
+          <label class="control-label">Product Image</label>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="imageInput" accept="image/*" hidden />
+            <div class="upload-placeholder" id="uploadPlaceholder">
+              <span class="upload-icon">📸</span>
+              <span>Drop image or click to browse</span>
+            </div>
+            <div class="upload-preview" id="uploadPreview" style="display:none;">
+              <img id="previewImg" alt="Product" />
+              <button class="upload-remove" id="removeImage" title="Remove">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Platform -->
+        <div class="control-group">
+          <label class="control-label" for="platformSelect">Platform</label>
+          <select id="platformSelect" class="select-input">
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="x">X (Twitter)</option>
+          </select>
+        </div>
+
+        <!-- Content Type -->
+        <div class="control-group">
+          <label class="control-label" for="contentTypeSelect">Content Type</label>
+          <select id="contentTypeSelect" class="select-input">
+            <option value="image">Image</option>
+            <option value="video">Video</option>
+            <option value="carousel">Carousel</option>
+            <option value="caption">Caption</option>
+          </select>
+        </div>
+
+        <!-- Title -->
+        <div class="control-group">
+          <label class="control-label" for="titleInput">Product Title</label>
+          <input type="text" id="titleInput" class="text-input" placeholder="e.g. Ultra Glow Serum" />
+        </div>
+
+        <!-- Description -->
+        <div class="control-group">
+          <label class="control-label" for="descriptionInput">Product Description</label>
+          <textarea id="descriptionInput" class="text-input textarea" rows="4"
+            placeholder="e.g. A hydrating vitamin C serum that brightens skin in 7 days"></textarea>
+        </div>
+
+        <!-- Detected Niche -->
+        <div class="control-group">
+          <label class="control-label">Detected Niche</label>
+          <div class="niche-display" id="nicheDisplay">
+            <span class="niche-badge">—</span>
+          </div>
+        </div>
+
+        <!-- Assemble Button -->
+        <button class="btn btn-primary" id="assembleBtn">
+          <span class="btn-icon">🔧</span> Assemble Prompts
+        </button>
+      </aside>
+
+      <!-- Center Panel: Prompt Preview -->
+      <section class="panel panel-preview">
+        <div class="panel-header">
+          <h2 class="panel-title">Assembled Prompts</h2>
+          <span class="badge" id="promptCount">0 prompts</span>
+        </div>
+        <div class="prompt-results" id="promptResults">
+          <div class="empty-state">
+            <div class="empty-icon">📝</div>
+            <p>Select categories and click <strong>Assemble Prompts</strong> to preview</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: AI Generation -->
+      <aside class="panel panel-generation">
+        <h2 class="panel-title">AI Generation</h2>
+
+        <!-- Provider -->
+        <div class="control-group">
+          <label class="control-label">Provider</label>
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-provider="gemini">Gemini</button>
+            <button class="toggle-btn" data-provider="openai">OpenAI</button>
+          </div>
+        </div>
+
+        <!-- Model -->
+        <div class="control-group">
+          <label class="control-label" for="modelSelect">Model</label>
+          <select id="modelSelect" class="select-input"></select>
+        </div>
+
+        <!-- Send Button -->
+        <button class="btn btn-accent" id="generateBtn" disabled>
+          <span class="btn-icon">🚀</span> Send to AI
+        </button>
+
+        <!-- Response -->
+        <div class="control-group" style="flex:1; display:flex; flex-direction:column;">
+          <label class="control-label">AI Response</label>
+          <div class="response-area" id="responseArea">
+            <div class="empty-state small">
+              <p>Assemble prompts first, then send to AI</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

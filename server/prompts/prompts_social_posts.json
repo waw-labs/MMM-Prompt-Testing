@@ -1,0 +1,734 @@
+{
+    "schema_version": "2.1.0",
+    "globals": {
+        "core_frameworks": [
+            "ENGAGEMENT",
+            "STORYTELLING",
+            "UGC",
+            "TRENDING",
+            "COMMUNITY",
+            "VALUE_FIRST",
+            "EDUCATE",
+            "INSPIRE"
+        ]
+    },
+    "platforms": {
+        "tiktok": {
+            "accepted_content_types": [
+                "video",
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "TRENDING",
+                "UGC",
+                "STORYTELLING"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ],
+                "pacing": "fast_native"
+            },
+            "creative_rules": "9:16 vertical ONLY. Lo-fi UGC authentic feel — NOT polished. Bold Impact font text overlays. Leave top 15% and bottom 20% clear for TikTok UI. Casual conversational tone. Raw unfiltered aesthetic. NO corporate design. Feels like a friend filmed this on their phone."
+        },
+        "meta": {
+            "accepted_content_types": [
+                "image",
+                "video",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "ENGAGEMENT",
+                "VALUE_FIRST",
+                "COMMUNITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "4:5",
+                    "1:1",
+                    "9:16"
+                ]
+            },
+            "creative_rules": "4:5 portrait preferred for maximum mobile visibility. Scroll-stopping visual with bold sans-serif typography. Leave 15% bottom margin safe zone. Brand-consistent colors. NO Shop Now buttons. Design for saves, shares, and comment tags."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "video",
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "STORYTELLING",
+                "EDUCATE",
+                "ENGAGEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "9:16"
+                ]
+            },
+            "creative_rules": "16:9 landscape for community posts. High contrast colors that pop at small sizes. Bold condensed typography (3-6 words max). Clean uncluttered composition. Discussion-sparking visual. NO sales language."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "VALUE_FIRST",
+                "EDUCATE",
+                "INSPIRE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ],
+                "text_overlay_recommended": true
+            },
+            "creative_rules": "2:3 vertical tall pin format. Aspirational vision-board aesthetic. Clean text overlay with serif or elegant sans-serif fonts. Step-by-step guides and numbered lists perform best. Soft muted tones or bold high-contrast. Think inspiration discovery — save-worthy."
+        },
+        "instagram": {
+            "accepted_content_types": [
+                "image",
+                "video",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "UGC",
+                "STORYTELLING",
+                "ENGAGEMENT",
+                "INSPIRE"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "4:5",
+                    "1:1",
+                    "9:16"
+                ]
+            },
+            "creative_rules": "4:5 portrait for feed posts. Feed-cohesive curated aesthetic. Bold sans-serif typography (Inter/Montserrat style). Pastel-to-bold gradients trending 2025. Personality forward. NO CTA buttons. Think save-worthy — content people bookmark."
+        },
+        "facebook": {
+            "accepted_content_types": [
+                "image",
+                "video",
+                "carousel"
+            ],
+            "best_ad_frameworks": [
+                "COMMUNITY",
+                "VALUE_FIRST",
+                "ENGAGEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "4:5",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "4:5 portrait for mobile news feed. Community-first shareable design. Clear readable text at smaller preview sizes. Warm approachable tone. Design for shares and comment tags. Avoid overly Gen-Z aesthetics — broader demographic."
+        },
+        "x": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "ENGAGEMENT",
+                "TRENDING"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9",
+                    "1:1"
+                ]
+            },
+            "creative_rules": "16:9 landscape for maximum tweet preview. High-contrast bold opinionated design. Minimal text — one sharp statement. Dark mode friendly. Meme-adjacent aesthetic. Think quote-tweet bait — retweet-worthy."
+        }
+    },
+    "niches": {
+        "home_organization": {
+            "core_emotion": "satisfaction_and_calm",
+            "visual_direction": {
+                "lighting": "bright clean even lighting, soft diffused window light, f/4 aperture",
+                "colors": [
+                    "beige",
+                    "white",
+                    "light wood",
+                    "sage green",
+                    "warm cream"
+                ],
+                "scenarios": [
+                    "before-after transformation",
+                    "satisfying organized space",
+                    "tip card",
+                    "challenge graphic",
+                    "routine checklist",
+                    "drawer reveal",
+                    "pantry goals"
+                ]
+            },
+            "master_prompts": [
+                "Design a SATISFYING BEFORE/AFTER split-screen social post for {{ .Title }}. Left half: chaotic messy space photographed in flat unflattering light. Right half: perfectly organized with product, shot with soft diffused window light at f/4, shallow depth of field. Bold headline: 'The Transformation Is Real 😮‍💨'. Clean modern sans-serif typography. {{ .Description }}. NO CTA. Scroll-stopping transformation content.",
+                "Design a '5 ORGANIZATION HACKS YOU NEED' numbered tip card for {{ .Title }}. Clean numbered list 1-5 with minimal line icons per tip. Modern sans-serif bold typography (Inter/Montserrat style). Each hack is an actionable tip about {{ .Description }}. Soft beige-to-white gradient background. Generous whitespace. NO CTA. Save-worthy educational infographic.",
+                "Design a 'SPOT THE DIFFERENCE' interactive engagement post for {{ .Title }}. Two nearly identical organized spaces side by side — one has 3 subtle differences. Shot with bright even studio lighting. Bold headline: 'Can You Find All 3? 👀'. Clean modern design. {{ .Description }}. NO CTA. Comment-driving engagement.",
+                "Design a 'MY MORNING ROUTINE' visual timeline post for {{ .Title }}. Clock icons with timestamps (6:00 AM → 7:30 AM). Step-by-step routine incorporating {{ .Description }}. Soft sage green and cream palette. Clean modern layout. NO CTA. Save-worthy routine content.",
+                "Design a '7-DAY DECLUTTER CHALLENGE' calendar grid post for {{ .Title }}. Bold headline with 🗓️ emoji. Day 1-7 mini tasks listed with checkbox icons. Modern geometric design. {{ .Description }}. NO CTA. Community challenge content that drives participation.",
+                "Design a 'DRAWER REVEAL ✨' overhead flat-lay post for {{ .Title }}. Bird's-eye view of a perfectly organized drawer, shot at f/8 for edge-to-edge sharpness. Diffused overhead lighting. Everything aligned and labeled. {{ .Description }}. Minimal text overlay. NO CTA. Satisfying visual content.",
+                "Design a 'WHAT I STOPPED BUYING' minimalism insight post for {{ .Title }}. Grid of 4-6 items with ❌ marks. Bold contrarian headline. Clean white background. {{ .Description }}. NO CTA. Discussion-sparking controversial content.",
+                "Design a 'ORGANIZE LIKE A PRO' comparison post for {{ .Title }}. Left: ❌ 'How most people do it'. Right: ✅ 'The pro method'. Clear visual difference. {{ .Description }}. Bold labels. NO CTA. Shareable tip content."
+            ],
+            "video_prompts": [
+                "Satisfying before/after organization transformation video for {{ .Title }}. Start with messy chaos. Quick cut to perfectly organized space. Bold text: 'Wait for it... 😮‍💨'. {{ .Description }}. NO CTA.",
+                "Quick 30-second organization hack video for {{ .Title }}. POV hands-on style organizing step by step. Text overlay tips at each step. ASMR satisfying feel. {{ .Description }}. NO CTA.",
+                "Stop-motion organization video for {{ .Title }}. Items flying into perfect organized positions. Playful energy. Bold text overlays. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Engagement carousel for {{ .Title }}. Slide 1: Bold hook question. Slides 2-4: actionable tips with icons. Last slide: save-worthy summary. Clean modern design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "This {{ .Title }} hack changed my entire space 😮‍💨 save this for later",
+                "POV: you finally organized that one drawer and now you open it 47 times a day just to look at it 🙌 {{ .Title }}",
+                "Tag someone whose space NEEDS this intervention 👀 {{ .Title }}",
+                "I can't believe I lived without this organization method 🤯 {{ .Title }} {{ .Description }}",
+                "Day 1 of the 7-day declutter challenge — who's in? 🙋 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Satisfying before/after. Lo-fi phone-filmed aesthetic. Bold text overlay. Native feel.",
+                "instagram": "Aesthetic feed-worthy transformation card. Beige/sage palette. Bold modern typography. 4:5 portrait.",
+                "facebook": "Shareable transformation. Community challenge format. Warm approachable.",
+                "pinterest": "Organization checklist pin. 2:3 vertical. Step-by-step guide. Save-worthy.",
+                "x": "Hot take on organization trends. One bold statement. 16:9 landscape."
+            },
+            "product_rule": "product shown naturally in organized scene, transformation is the hero, no selling"
+        },
+        "beauty_skincare": {
+            "core_emotion": "aspiration_and_community",
+            "visual_direction": {
+                "lighting": "bright soft beauty lighting, ring light catch light in eyes, f/2.8 for product glow",
+                "colors": [
+                    "cream",
+                    "pastel pink",
+                    "rose gold",
+                    "soft white",
+                    "blush"
+                ],
+                "scenarios": [
+                    "routine breakdown",
+                    "ingredient spotlight",
+                    "myth vs fact",
+                    "texture close-up",
+                    "skincare quiz",
+                    "shelfie",
+                    "glass skin tutorial"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'SKINCARE MYTH VS FACT' split-design post for {{ .Title }}. Left side: ❌ MYTH with red tint. Right side: ✅ FACT with green tint. Bold contrasting sans-serif text. Common skincare misconception about {{ .Description }} debunked with scientific reasoning. Soft pastel pink background. NO CTA. Save-worthy education.",
+                "Design a 'YOUR AM/PM ROUTINE' visual guide for {{ .Title }}. Split into Morning ☀️ and Night 🌙. Step-by-step skincare order (cleanser → toner → serum → moisturizer → SPF). {{ .Description }} highlighted at its step. Clean icons per step. Cream/blush gradient background. NO CTA. Screenshot-worthy routine guide.",
+                "Design a 'WHAT YOUR SKIN IS TELLING YOU' face map post for {{ .Title }}. Illustrated face outline with labeled zones (forehead, cheeks, chin, T-zone). Each zone: skin concern + tip. {{ .Description }} featured as solution. Clean minimalist aesthetic. NO CTA. Viral educational content.",
+                "Design a 'INGREDIENT SPOTLIGHT 🔬' deep-dive card for {{ .Title }}. Large ingredient name in bold serif typography. Molecular structure silhouette in background. Benefits listed with ✓ checkmarks. How-to-use section. {{ .Description }}. Soft clean background. NO CTA. Save-worthy ingredient education.",
+                "Design a 'TEXTURE CHECK ✨' satisfying macro close-up post for {{ .Title }}. Beautiful macro photography of product texture — creamy swirl, dewy serum drop, or gel spread. Shot at f/2.8 with ring light for glow. Minimal text: texture name + one key benefit. {{ .Description }}. NO CTA. Aesthetic scroll-stopper.",
+                "Design a 'SKINCARE ORDER MATTERS' numbered infographic for {{ .Title }}. Steps 1-6 showing correct application order with clean product silhouette icons. Bold modern typography. {{ .Description }} highlighted at its step. Soft gradient background. NO CTA. Save-worthy guide.",
+                "Design a 'STOP DOING THIS TO YOUR SKIN ❌' warning-style post for {{ .Title }}. Bold red headline. 3-4 common mistakes listed with explanations. {{ .Description }}. Clean professional layout with warning icons. NO CTA. Controversial save-worthy skincare content.",
+                "Design a 'GLASS SKIN IN 4 STEPS' aspirational post for {{ .Title }}. Dewy glass-skin texture as background image (shot with soft beauty lighting, catchlight reflections). 4 minimal steps overlaid. {{ .Description }}. Elegant serif + sans-serif typography mix. NO CTA. Aspirational viral content."
+            ],
+            "video_prompts": [
+                "Quick GRWM skincare routine video for {{ .Title }}. POV application. Satisfying product textures captured with macro lens. Text overlay naming each step. {{ .Description }}. NO CTA.",
+                "Skincare myth-busting video for {{ .Title }}. Bold text: 'STOP doing this to your skin ❌'. Quick reveal of correct approach with before/after. {{ .Description }}. NO CTA.",
+                "Satisfying skincare shelfie tour video for {{ .Title }}. Aesthetic product arrangement. Each product labeled with purpose. ASMR unwrapping sounds. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Skincare education carousel for {{ .Title }}. Slide 1: Bold myth or hook question. Slides 2-4: facts with sources. Last slide: routine summary. Soft pink aesthetic. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Your dermatologist is BEGGING you to stop doing this 😭 {{ .Title }} {{ .Description }}",
+                "The skincare step 90% of people skip (and it shows) 👇 {{ .Title }}",
+                "Save this routine — your future skin will thank you ✨ {{ .Title }}",
+                "POV: your skin after trying {{ .Title }} for 2 weeks {{ .Description }} 😍",
+                "Myth: you need 10 steps. Fact: you need the RIGHT steps 💅 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick beauty hack. Selfie-POV application. Bold text hooks. Lo-fi authentic. 9:16.",
+                "instagram": "Pastel aesthetic feed card. Clean modern typography. 4:5 portrait. Save-worthy.",
+                "facebook": "Skincare question poll. Community discussion. Approachable educational.",
+                "pinterest": "Skincare routine pin. Step-by-step guide. 2:3 vertical. Soft aesthetic.",
+                "x": "Contrarian skincare hot take. One bold claim. 16:9."
+            },
+            "product_rule": "product shown naturally in routine context, community-first education, no selling"
+        },
+        "fitness": {
+            "core_emotion": "motivation_and_community",
+            "visual_direction": {
+                "lighting": "high contrast dramatic side lighting, hard shadows, f/2.8 for muscle definition",
+                "colors": [
+                    "black",
+                    "neon red",
+                    "steel grey",
+                    "electric blue accent"
+                ],
+                "scenarios": [
+                    "workout tip card",
+                    "this vs that exercise",
+                    "challenge graphic",
+                    "motivation quote",
+                    "form check guide",
+                    "gym meme",
+                    "progress tracker"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'DO THIS ✅ NOT THAT ❌' exercise form comparison for {{ .Title }}. Split layout: left shows incorrect form with red overlay, right shows correct form with green overlay. Clear body position arrows. Bold Impact-style typography. {{ .Description }}. Dark background with neon accents. NO CTA. Save-worthy form guide.",
+                "Design a 'WORKOUT OF THE DAY 🔥' social card for {{ .Title }}. Bold 'WOD' or 'Today's Burn' headline. 5-6 exercises listed with reps × sets in bold numbers. Timer icon. Rest periods noted. {{ .Description }}. Dark matte background with electric blue accent lines. NO CTA. Screenshot-worthy workout.",
+                "Design a '30-DAY CHALLENGE' calendar grid for {{ .Title }}. 5×6 grid, Day 1-30 with progressive exercises. Difficulty color coding (green → yellow → red). Bold challenge title. {{ .Description }}. Dark premium background with neon accent. NO CTA. Community challenge.",
+                "Design a 'GYM STARTER PACK 😂' meme grid for {{ .Title }}. 2×3 grid of relatable gym items/moments with humorous captions. Bold meme-style text. {{ .Description }} featured naturally. NO CTA. Shareable gym humor.",
+                "Design a powerful MOTIVATIONAL QUOTE card for {{ .Title }}. One impactful fitness quote in large bold compressed typography. Dark textured background (concrete/metal). Subtle light streak. {{ .Description }}. NO CTA. Share-worthy motivation.",
+                "Design a 'THESE 3 EXERCISES REPLACE EVERYTHING' revelation post for {{ .Title }}. Bold controversial headline. 3 exercises with muscle group targets. Clean anatomical illustration style. {{ .Description }}. Dark high-contrast design. NO CTA. Discussion bait.",
+                "Design a 'PROGRESSIVE OVERLOAD EXPLAINED' infographic for {{ .Title }}. Clean graph/chart showing progression over weeks. Bold data visualization. Key principles listed. {{ .Description }}. Dark background with neon data points. NO CTA. Education content.",
+                "Design a 'REST DAY CHECKLIST ✓' recovery-focused post for {{ .Title }}. 6-8 recovery activities with checkbox icons. Bold headline. {{ .Description }}. Calmer dark blue/grey palette. NO CTA. Save-worthy recovery guide."
+            ],
+            "video_prompts": [
+                "Quick exercise form tutorial for {{ .Title }}. Side-by-side: wrong ❌ vs right ✅. Bold text labels. Dramatic gym lighting. {{ .Description }}. NO CTA.",
+                "60-second full workout video for {{ .Title }}. Quick transitions. Rep counts on screen. Energetic pace. Dark gym aesthetic. {{ .Description }}. NO CTA.",
+                "Gym fail vs win reaction-style video for {{ .Title }}. Relatable funny moments. Bold text reactions overlaid. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Fitness education carousel for {{ .Title }}. Slide 1: Bold contrarian hook. Slides 2-4: scientific workout tips. Last slide: workout summary. Dark premium design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "This one exercise replaced my entire {{ .Title }} routine 💪 {{ .Description }}",
+                "Stop doing this ❌ Start doing this ✅ — your gains will thank you {{ .Title }}",
+                "Day 1 of the 30-day {{ .Title }} challenge — who's joining? 🔥",
+                "Tag your gym buddy who needs a reality check 💪 {{ .Title }}",
+                "Unpopular opinion: {{ .Title }} is killing your gains. Here's why 👇"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick form tip. Phone-filmed gym POV. Bold motivational text. Raw energy. 9:16.",
+                "instagram": "Bold dark aesthetic card. Neon accent typography. 4:5 portrait. Save-worthy.",
+                "facebook": "Community challenge post. Workout plan share. Discussion-sparking.",
+                "pinterest": "Workout routine pin. Exercise guide. 2:3 vertical. Clean layout.",
+                "x": "Contrarian fitness hot take. Bold one-liner. 16:9."
+            },
+            "product_rule": "community motivation first, product as supporting tool, no selling"
+        },
+        "tech_gadgets": {
+            "core_emotion": "curiosity_and_discovery",
+            "visual_direction": {
+                "lighting": "clean studio lighting with subtle rim highlights, f/2.8 for tech product isolation",
+                "colors": [
+                    "dark charcoal",
+                    "electric blue accent",
+                    "matte black",
+                    "silver",
+                    "deep purple"
+                ],
+                "scenarios": [
+                    "hidden feature reveal",
+                    "this vs that comparison",
+                    "setup showcase",
+                    "spec breakdown",
+                    "tech fact card",
+                    "teardown",
+                    "evolution timeline"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'HIDDEN FEATURE YOU DIDN'T KNOW 🤯' revelation post for {{ .Title }}. Bold shocking headline in compressed sans-serif. Feature illustration or screenshot mockup. Step-by-step mini guide (3 steps). {{ .Description }}. Dark premium background with electric blue glow accent. NO CTA. Shareable tech knowledge.",
+                "Design a 'THIS VS THAT' side-by-side tech comparison for {{ .Title }}. Clean split layout. Bold spec labels with actual numbers. Clear winner indicator with reasoning. {{ .Description }}. Matte dark background with silver divider. NO CTA. Discussion-driving comparison.",
+                "Design a 'SETUP TOUR 🖥️' bird's-eye desk showcase for {{ .Title }}. Overhead flat-lay shot at f/8. Clean labeled callout lines for each item (monitor, keyboard, etc). {{ .Description }} highlighted. Dark modern aesthetic. NO CTA. Aspirational setup goals.",
+                "Design a 'SPECS THAT ACTUALLY MATTER ✅ vs OVERRATED ❌' opinionated post for {{ .Title }}. 4-5 specs with honest verdicts. Bold typography. {{ .Description }}. Dark tech aesthetic with accent color coding. NO CTA. Comment-driving opinions.",
+                "Design a 'TECH EVOLUTION TIMELINE' post for {{ .Title }}. Horizontal timeline showing product evolution over years. Key milestones with year markers. {{ .Description }}. Clean dark design with bright accent nodes. NO CTA. Shareable tech history.",
+                "Design a 'BATTERY LIFE TEST RESULTS 🔋' data visualization for {{ .Title }}. Bar chart or comparison graphic. Bold numbers. Real-world test scenarios labeled. {{ .Description }}. Dark background with green battery accent. NO CTA. Save-worthy benchmark.",
+                "Design a '5 SETTINGS YOU SHOULD CHANGE RIGHT NOW' tip card for {{ .Title }}. Numbered 1-5 with setting icons. One-line explanation per tip. {{ .Description }}. Dark premium background with blue accents. NO CTA. Actionable save-worthy content.",
+                "Design a 'UNPOPULAR TECH OPINION' hot-take post for {{ .Title }}. One bold controversial statement in huge typography. Minimal dark design. {{ .Description }}. NO CTA. Maximum comment engagement bait."
+            ],
+            "video_prompts": [
+                "Quick hidden feature reveal video for {{ .Title }}. Screen recording or close-up. Bold text: 'Wait it can do THIS?! 🤯'. Step-by-step demo. {{ .Description }}. NO CTA.",
+                "Speed comparison video for {{ .Title }}. Side-by-side performance test. Timer on screen. Bold winner reveal with numbers. {{ .Description }}. NO CTA.",
+                "Tech unboxing first-impressions video for {{ .Title }}. Quick feature walkthrough. Bold text reactions. Authentic feel. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Tech insight carousel for {{ .Title }}. Slide 1: Curiosity hook. Slides 2-4: detailed comparisons or tips. Last slide: verdict. Dark premium design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "You've been using {{ .Title }} WRONG this whole time 🤯 {{ .Description }}",
+                "The one {{ .Title }} setting nobody talks about but changes everything 💡",
+                "Unpopular opinion: {{ .Title }} is the most overrated tech of 2025 👀",
+                "Save this {{ .Title }} setup guide — you'll need it 📌 {{ .Description }}",
+                "{{ .Title }} vs the competition — here's what ACTUALLY matters 👇"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick tech reveal. Screen recording style. Bold reaction text. Lo-fi authentic. 9:16.",
+                "instagram": "Dark premium tech card. Electric blue accents. Modern typography. 4:5 portrait.",
+                "facebook": "Discussion-sparking comparison. Spec breakdown. Community debate format.",
+                "pinterest": "Tech tip guide pin. Setup showcase. 2:3 vertical. Clean labeled layout.",
+                "x": "Hot tech take. Contrarian opinion. Bold minimal design. 16:9."
+            },
+            "product_rule": "curiosity and knowledge first, product as subject of exploration, no selling"
+        },
+        "pets": {
+            "core_emotion": "love_and_connection",
+            "visual_direction": {
+                "lighting": "bright warm natural lighting, golden hour warmth, f/2.8 for soft pet portraits",
+                "colors": [
+                    "warm brown",
+                    "soft green",
+                    "cream",
+                    "golden",
+                    "terracotta"
+                ],
+                "scenarios": [
+                    "pet tip card",
+                    "relatable pet parent moment",
+                    "breed fact",
+                    "pet quiz",
+                    "do and dont guide",
+                    "pet bingo",
+                    "caption this"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'SIGNS YOUR PET IS TELLING YOU SOMETHING' educational post for {{ .Title }}. 4-5 body language signals with cute illustrated icons. Bold labels: what each sign means. {{ .Description }}. Warm cream background with golden accents. NO CTA. Save-worthy pet education.",
+                "Design a 'PET PARENT BINGO 🐾' interactive grid post for {{ .Title }}. 5×5 bingo grid with relatable moments ('Talks to pet in baby voice', 'Has more pet photos than selfies'). Bold fun playful typography. {{ .Description }}. Warm pastel design. NO CTA. Tag-and-share engagement.",
+                "Design a 'DO ✅ DON'T ❌' pet care guide for {{ .Title }}. Clean two-column layout. 4-5 items each with icons. Bold clear readable text. {{ .Description }}. Warm clean background. NO CTA. Save-worthy safety content.",
+                "Design a 'BREED FACT FILE 🐾' educational card for {{ .Title }}. Breed name in bold. Fun personality traits, exercise needs, quirky facts. Cute breed silhouette illustration. {{ .Description }}. Warm pastel card design. NO CTA. Save-worthy breed guide.",
+                "Design a 'CAPTION THIS 📸' engagement post for {{ .Title }}. Adorable pet with funny expression in warm golden-hour lighting (shot at f/2.8, shallow DOF). Bold headline: 'Best caption wins 👇'. {{ .Description }} shown naturally. NO CTA. Maximum comment engagement.",
+                "Design a 'THINGS YOUR VET WISHES YOU KNEW' authority post for {{ .Title }}. 5 professional tips in numbered list. Clean medical-authority design with stethoscope icon. {{ .Description }}. Warm but professional palette. NO CTA. Trust-building education.",
+                "Design a 'PET PERSONALITY QUIZ' interactive post for {{ .Title }}. 'Is your pet a…' with 4 personality types and descriptions. Fun illustrated icons per type. {{ .Description }}. Warm playful design. NO CTA. Comment-driving quiz content.",
+                "Design a 'MONTHLY PET CARE CHECKLIST' practical post for {{ .Title }}. Checkbox items for grooming, vet visits, dental care, exercise. Bold headline with paw print icon. {{ .Description }}. Clean organized layout. NO CTA. Save-worthy reference."
+            ],
+            "video_prompts": [
+                "Cute pet reaction video for {{ .Title }}. Pet trying something for first time. Adorable authentic reactions. Bold text overlays. Warm natural lighting. {{ .Description }}. NO CTA.",
+                "Quick pet care tip video for {{ .Title }}. Informational vet-style format. Bold text facts overlaid. Warm friendly tone. {{ .Description }}. NO CTA.",
+                "Pet parent day-in-the-life video for {{ .Title }}. Relatable morning routine with pet. Humorous text reactions. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Pet education carousel for {{ .Title }}. Slide 1: Cute hook image. Slides 2-4: care tips with illustrations. Last slide: save-worthy summary. Warm palette. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Your pet is trying to tell you this and you're ignoring it 🐾 {{ .Title }}",
+                "Tag a pet parent who does ALL of these 😂 {{ .Title }}",
+                "The vet tip that changed everything for us 💛 {{ .Title }} {{ .Description }}",
+                "My pet's face when I come home 3 minutes late 😭 {{ .Title }}",
+                "Raise your hand if your pet runs your entire life 🙋 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Cute pet moment. Phone-filmed authentic. Heart emoji overlays. 9:16.",
+                "instagram": "Warm heartfelt card. Golden tones. Bold pet tip headline. 4:5 portrait.",
+                "facebook": "Relatable pet parent question. Community sharing. Tag-a-friend format.",
+                "pinterest": "Pet care checklist pin. Step-by-step guide. 2:3 vertical. Save-worthy.",
+                "x": "Funny pet hot take. One relatable statement. 16:9."
+            },
+            "product_rule": "pet content and love first, product as natural part of care, no selling"
+        },
+        "fashion_apparel": {
+            "core_emotion": "self_expression_and_inspiration",
+            "visual_direction": {
+                "lighting": "bright clean fashion lighting, editorial quality, f/2.8 for outfit isolation",
+                "colors": [
+                    "neutral tones",
+                    "black and white",
+                    "seasonal palette",
+                    "warm camel",
+                    "crisp white"
+                ],
+                "scenarios": [
+                    "outfit formula",
+                    "style quiz",
+                    "trend alert",
+                    "capsule wardrobe",
+                    "what to wear guide",
+                    "style mistake fix",
+                    "wardrobe essentials"
+                ]
+            },
+            "master_prompts": [
+                "Design an 'OUTFIT FORMULA' equation-style post for {{ .Title }}. Visual equation: Item A + Item B + Accessory = Complete Look. Clean flat-lay photography style (overhead, f/8, even lighting). Bold modern labels. {{ .Description }}. Minimal neutral background. NO CTA. Save-worthy outfit blueprint.",
+                "Design a 'WHAT TO WEAR TO...' 4-occasion guide for {{ .Title }}. Grid: Brunch, Office, Date Night, Casual — each with mini outfit suggestion. Clean illustrations or flat-lay style. Bold labels. {{ .Description }}. Neutral clean layout. NO CTA. Save-worthy style guide.",
+                "Design a 'STYLE MISTAKE ❌ VS STYLE FIX ✅' comparison for {{ .Title }}. Left: common error. Right: elevated version. Clear visual transformation. Bold labels. {{ .Description }}. Clean editorial photography style. NO CTA. Educational style content.",
+                "Design a '5 WAYS TO STYLE 1 PIECE' versatility post for {{ .Title }}. Grid of 5 different outfit configurations using one hero item. Numbered 1-5 with occasion labels. {{ .Description }}. Clean fashion editorial aesthetic. NO CTA. Versatility showcase.",
+                "Design a 'CAPSULE WARDROBE ESSENTIALS ✓' checklist for {{ .Title }}. 8-10 essential items with clean checkbox format. {{ .Description }} highlighted. Modern elegant sans-serif typography. Neutral linen-texture background. NO CTA. Save-worthy wardrobe planning.",
+                "Design a 'TREND ALERT 🔥' seasonal trend post for {{ .Title }}. Bold trend name headline. 3 ways to incorporate it with visual examples. {{ .Description }}. Clean modern editorial design. NO CTA. Shareable trend content.",
+                "Design a 'COLOR MATCHING GUIDE' educational post for {{ .Title }}. Color wheel or palette swatches showing complementary combos. Bold labels per combination. {{ .Description }}. Clean minimal design. NO CTA. Save-worthy color theory for fashion.",
+                "Design a 'DRESS FOR YOUR BODY TYPE' inclusive guide for {{ .Title }}. 4 body type silhouettes with flattering style tips. Bold friendly labels. {{ .Description }}. Inclusive warm design. NO CTA. Save-worthy personalized style."
+            ],
+            "video_prompts": [
+                "Quick outfit transition video for {{ .Title }}. Casual to dressed up. Bold text labeling each look. Fashion editorial lighting. {{ .Description }}. NO CTA.",
+                "Style hack video for {{ .Title }}. One trick that elevates any outfit instantly. Before/after reveal. {{ .Description }}. NO CTA.",
+                "GRWM outfit building video for {{ .Title }}. Layering pieces one by one. Each item labeled on screen. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Style inspiration carousel for {{ .Title }}. Slide 1: Bold hook. Slides 2-4: outfit ideas per occasion. Last slide: styling rule. Clean fashion aesthetic. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "{{ .Title }} styled 3 ways — which is your vibe? Drop a number 👇",
+                "The outfit formula that NEVER fails 📌 {{ .Title }}",
+                "Save this for your next outfit emergency 🚨 {{ .Title }}",
+                "This trend is everywhere and here's how to actually pull it off {{ .Title }}",
+                "Unpopular opinion: {{ .Title }} is the most underrated style piece 👀"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick OOTD transition. Phone-filmed mirror selfie style. Bold text. 9:16.",
+                "instagram": "Fashion editorial card. Neutral aesthetic. Bold modern typography. 4:5 portrait.",
+                "facebook": "Style question poll. Community outfit voting. Approachable.",
+                "pinterest": "Outfit flat-lay pin. Capsule wardrobe guide. 2:3 vertical. Styled layout.",
+                "x": "Fashion hot take. Bold one-liner opinion. 16:9."
+            },
+            "product_rule": "style inspiration first, product in outfit context, no selling"
+        },
+        "food_beverage": {
+            "core_emotion": "sharing_and_joy",
+            "visual_direction": {
+                "lighting": "warm bright food lighting, overhead soft diffused, f/2.8 for food isolation with bokeh",
+                "colors": [
+                    "rich warm tones",
+                    "natural greens",
+                    "appetizing reds and oranges",
+                    "golden brown",
+                    "fresh white"
+                ],
+                "scenarios": [
+                    "recipe card",
+                    "taste test reaction",
+                    "food hack",
+                    "ingredient swap",
+                    "meal prep grid",
+                    "rate this plate",
+                    "what I eat in a day"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'RECIPE IN 5 STEPS' visual card for {{ .Title }}. Numbered 1-5 with mini step icons. Bold recipe title in modern serif typography. Clean appetizing layout. {{ .Description }}. Warm-toned background (linen texture). NO CTA. Save-worthy recipe content.",
+                "Design a 'HEALTHY SWAP' before/after comparison for {{ .Title }}. Split: 'Instead of THIS ❌' vs 'Try THIS ✅'. Bold calorie/macro comparison numbers. {{ .Description }}. Clean modern design with food photography style (warm lighting, f/2.8). NO CTA. Save-worthy nutrition tip.",
+                "Design a 'MEAL PREP GRID 🥗' organized layout for {{ .Title }}. 2×3 or 3×3 grid of prepped meals in containers. Each labeled with meal name and macros. Bold 'This Week's Prep' headline. {{ .Description }}. Bright warm overhead lighting. NO CTA. Save-worthy meal planning.",
+                "Design a 'RATE THIS PLATE 1-10' engagement post for {{ .Title }}. Beautiful plated food photographed at 45° angle with warm side lighting, shallow DOF at f/2.8. Bold rating prompt headline. {{ .Description }}. Warm appetizing tones. NO CTA. Comment-driving engagement.",
+                "Design a 'WHAT I EAT IN A DAY ☀️🌙' visual diary for {{ .Title }}. 4 meals: Breakfast, Lunch, Snack, Dinner with clock icons. Each meal labeled and illustrated. {{ .Description }}. Clean warm modern layout. NO CTA. Save-worthy daily guide.",
+                "Design a '3-INGREDIENT HACK' simplicity post for {{ .Title }}. Three large ingredient images with + signs between them = final dish. Bold simple headline. {{ .Description }}. Clean white background with warm food photography. NO CTA. Viral simplicity content.",
+                "Design a 'INGREDIENT SPOTLIGHT 🔬' nutrition card for {{ .Title }}. Hero ingredient large. 4-5 health benefits with icons. Best ways to consume it. {{ .Description }}. Clean warm aesthetic with green accent. NO CTA. Educational food content.",
+                "Design a 'FRIDGE RESTOCK ✨' satisfying organization post for {{ .Title }}. Overhead view of perfectly organized fridge, everything labeled. Shot at f/8, bright even lighting. {{ .Description }}. Minimal text. NO CTA. Satisfying visual content."
+            ],
+            "video_prompts": [
+                "30-second recipe video for {{ .Title }}. Overhead cooking hands. Bold text per step. Satisfying plating and final shot. Warm food lighting. {{ .Description }}. NO CTA.",
+                "Taste test reaction video for {{ .Title }}. First bite authentic reaction. Bold emoji text rating. Appetizing close-ups at f/2.8. {{ .Description }}. NO CTA.",
+                "Kitchen hack video for {{ .Title }}. One surprising trick. Bold 'wait for it' text. Before/after result. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Recipe carousel for {{ .Title }}. Slide 1: Appetizing hero shot. Slides 2-5: step-by-step with photos. Last slide: final plated dish. Warm food photography. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "This 3-ingredient {{ .Title }} hack is going VIRAL and I see why 🍽️",
+                "POV: you just discovered your new favorite {{ .Title }} recipe 😍 {{ .Description }}",
+                "Rate this plate 1-10 and be honest 👇 {{ .Title }}",
+                "Save this for meal prep Sunday 📌 {{ .Title }} {{ .Description }}",
+                "The kitchen hack that changed everything about {{ .Title }} 🤯"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick recipe hack. Overhead filming. Bold step text. Satisfying plating. 9:16.",
+                "instagram": "Aesthetic food card. Warm tones. Modern serif typography. 4:5 portrait.",
+                "facebook": "Recipe share. Community cooking discussion. Rate this plate format.",
+                "pinterest": "Recipe card pin. Step-by-step guide. 2:3 vertical. Warm photography.",
+                "x": "Food hot take or rating. Bold opinion. 16:9."
+            },
+            "product_rule": "recipe and community focus, product as ingredient or tool, no selling"
+        },
+        "health_wellness": {
+            "core_emotion": "empowerment_and_self_care",
+            "visual_direction": {
+                "lighting": "bright clean natural lighting, soft morning light, f/4 for calm clarity",
+                "colors": [
+                    "sage green",
+                    "white",
+                    "earth tones",
+                    "soft blue",
+                    "warm sand"
+                ],
+                "scenarios": [
+                    "wellness tip card",
+                    "morning routine",
+                    "myth busting",
+                    "habit tracker",
+                    "mindfulness prompt",
+                    "self-care bingo",
+                    "supplement guide"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'DAILY HABIT TRACKER' interactive post for {{ .Title }}. 7-day tracker grid with habit checkboxes. Bold headline: 'Track Your Progress 📊'. {{ .Description }}. Clean sage green and white design. NO CTA. Screenshot-and-use content.",
+                "Design a 'HEALTH MYTH VS FACT' split-design post for {{ .Title }}. ❌ Myth on left (red tint) vs ✅ Fact on right (green tint). Bold text with source citation. {{ .Description }}. Clean modern design. NO CTA. Educational viral content.",
+                "Design a 'MORNING WELLNESS ROUTINE ☀️' timeline post for {{ .Title }}. 5-6 steps: 6:00 AM → 7:30 AM with clock icons. Each step gets a wellness icon. {{ .Description }}. Soft calming sage/blue gradient. NO CTA. Save-worthy routine guide.",
+                "Design a '3 SIGNS YOU NEED TO...' attention post for {{ .Title }}. Bold warning-style headline. 3 symptoms listed with body awareness icons. Solution using {{ .Description }}. Clean white background. NO CTA. Health awareness content.",
+                "Design a 'SELF-CARE BINGO 🧘' interactive grid for {{ .Title }}. 4×4 bingo grid with achievable wellness activities. Fun but real items. {{ .Description }} in one square. Calming pastel design. NO CTA. Interactive shareable content.",
+                "Design a 'BREATHE WITH ME 🧘' calming exercise post for {{ .Title }}. Visual breathing guide: Inhale 4s → Hold 4s → Exhale 6s. Animated-feel concentric circles. Calming gradient background. {{ .Description }}. NO CTA. Peaceful save-worthy content.",
+                "Design a 'SCIENCE SAYS' evidence-based tip post for {{ .Title }}. Bold study finding headline. Key stat or percentage highlighted large. Brief explanation. {{ .Description }}. Clean clinical-but-warm design. NO CTA. Authority-building education.",
+                "Design a 'NIGHTTIME WIND-DOWN ROUTINE 🌙' step-by-step post for {{ .Title }}. 5 evening wellness steps with moon/star icons. {{ .Description }}. Dark calming blue-to-indigo gradient. NO CTA. Save-worthy sleep hygiene guide."
+            ],
+            "video_prompts": [
+                "Quick wellness tip video for {{ .Title }}. Calm morning setting. Bold text overlay benefit. Soft natural light. {{ .Description }}. NO CTA.",
+                "Breathing exercise guided video for {{ .Title }}. Visual inhale/exhale cues. Calming background. Minimal text. {{ .Description }}. NO CTA.",
+                "Myth-busting wellness video for {{ .Title }}. Bold 'WRONG ❌' text on common belief. Quick science-based correction. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Wellness education carousel for {{ .Title }}. Slide 1: Bold hook question. Slides 2-4: evidence-based tips. Last slide: daily checklist. Calming green palette. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "{{ .Title }} — science says this daily habit changes everything 🌿",
+                "Your wellness routine is missing this and it shows 👇 {{ .Title }}",
+                "3 signs your body is literally begging for {{ .Title }} 🚨",
+                "Self-care isn't selfish. Start with {{ .Title }} today 💚 {{ .Description }}",
+                "The morning habit that 73% of successful people swear by ☀️ {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick wellness hack. Calm authentic feel. Bold benefit text. 9:16.",
+                "instagram": "Clean wellness aesthetic. Sage green palette. Modern typography. 4:5 portrait.",
+                "facebook": "Health discussion post. Community wellness check-in. Approachable.",
+                "pinterest": "Wellness routine pin. Self-care checklist. 2:3 vertical. Calming.",
+                "x": "Contrarian health take. One bold science fact. 16:9."
+            },
+            "product_rule": "wellness education first, product as natural tool, no selling"
+        },
+        "baby_kids": {
+            "core_emotion": "community_and_support",
+            "visual_direction": {
+                "lighting": "soft warm gentle lighting, natural window light, f/2.8 for dreamy warmth",
+                "colors": [
+                    "pastel blue",
+                    "soft yellow",
+                    "mint",
+                    "cream",
+                    "blush pink"
+                ],
+                "scenarios": [
+                    "parenting hack",
+                    "milestone chart",
+                    "relatable parent moment",
+                    "safety checklist",
+                    "developmental tip",
+                    "tantrum guide",
+                    "new parent survival"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'MILESTONE CHART 👶' age-tracker post for {{ .Title }}. Age-based developmental milestones (0-12 months). Cute simple icons per milestone. Bold age labels. {{ .Description }}. Soft pastel watercolor background. NO CTA. Save-worthy parenting reference.",
+                "Design a 'PARENTING HACK THAT SAVED MY LIFE 🙌' relatable post for {{ .Title }}. Bold headline with parent-exhaustion emoji. One golden tip featured large. Before/after parenting struggle comic. {{ .Description }}. Warm pastel background. NO CTA. Shareable parenting wisdom.",
+                "Design a 'BABY SAFETY CHECKLIST ✓' room-by-room guide for {{ .Title }}. Checkbox items organized by room (nursery, kitchen, bathroom). Bold clear icons. {{ .Description }}. Clean pastel blue/mint design. NO CTA. Save-worthy safety reference.",
+                "Design a 'THINGS NOBODY TELLS NEW PARENTS 😅' honest list post for {{ .Title }}. 5 real truths with humor and empathy. Emoji accents. {{ .Description }}. Warm soft design. NO CTA. Relatable tag-a-friend content.",
+                "Design a 'TANTRUM SURVIVAL KIT 😅' practical/humorous guide for {{ .Title }}. 5 quick techniques with fun illustrated icons. Bold relatable headline. {{ .Description }}. Cheerful pastel design. NO CTA. Save-worthy parenting tool.",
+                "Design a 'AGE-APPROPRIATE ACTIVITIES' guide for {{ .Title }}. Grid of activities sorted by age range. Cute icons per activity. {{ .Description }}. Soft colorful pastel design. NO CTA. Save-worthy activity reference.",
+                "Design a 'PACK THE DIAPER BAG' checklist post for {{ .Title }}. Essential items illustrated with checkboxes. Bold 'Never Forget Again' headline. {{ .Description }}. Clean mint and cream layout. NO CTA. Practical save-worthy content.",
+                "Design a 'SLEEP SCHEDULE BY AGE' reference card for {{ .Title }}. Age ranges with nap and bedtime hours. Moon and sun icons. {{ .Description }}. Calming blue/lavender night palette. NO CTA. Save-worthy sleep guide."
+            ],
+            "video_prompts": [
+                "Relatable parenting moment video for {{ .Title }}. Authentic tired-parent humor. Bold text reactions. Warm home lighting. {{ .Description }}. NO CTA.",
+                "Quick parenting hack demo for {{ .Title }}. One brilliant trick. Before/after with baby. Bold step labels. {{ .Description }}. NO CTA.",
+                "What they don't tell you about parenthood video for {{ .Title }}. Honest montage. Text overlay truths. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Parenting tips carousel for {{ .Title }}. Slide 1: Relatable hook. Slides 2-4: age-appropriate tips. Last slide: encouragement. Soft pastel design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "Every new parent needs to know this about {{ .Title }} 👶 {{ .Description }}",
+                "The parenting hack that saved my sanity at 3 AM 😅 {{ .Title }}",
+                "Tag a parent who will FEEL this 💛 {{ .Title }}",
+                "Nobody warned me about this phase and honestly I wasn't ready 😂 {{ .Title }}",
+                "Save this {{ .Title }} milestone chart — you'll check it weekly 📌"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Relatable parenting moment. Authentic tired-parent POV. Bold text. 9:16.",
+                "instagram": "Soft pastel card. Warm gentle typography. 4:5 portrait. Save-worthy.",
+                "facebook": "Parent community support post. Discussion and tips sharing.",
+                "pinterest": "Parenting checklist pin. Milestone chart. 2:3 vertical. Pastel aesthetic.",
+                "x": "Honest parenting hot take. Relatable one-liner. 16:9."
+            },
+            "product_rule": "parent community first, product as helpful tool, no selling"
+        },
+        "automotive": {
+            "core_emotion": "pride_and_knowledge",
+            "visual_direction": {
+                "lighting": "dramatic clean studio lighting, hard rim lights for metallic sheen, f/4 for car detail",
+                "colors": [
+                    "deep black",
+                    "chrome silver",
+                    "racing red accent",
+                    "carbon grey",
+                    "midnight blue"
+                ],
+                "scenarios": [
+                    "maintenance tip card",
+                    "car fact card",
+                    "this vs that",
+                    "tool guide",
+                    "care schedule",
+                    "sound diagnosis",
+                    "before you buy checklist"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'CAR MAINTENANCE SCHEDULE' visual timeline for {{ .Title }}. Oil change intervals, tire rotation, brake check — mileage markers. Bold icons per service. {{ .Description }}. Dark premium carbon-texture background. NO CTA. Save-worthy car care reference.",
+                "Design a 'FACT MOST DRIVERS DON'T KNOW 🤯' revelation post for {{ .Title }}. Bold shocking headline in compressed Impact font. One surprising car fact featured large. {{ .Description }}. Dark high-contrast design with chrome accent. NO CTA. Shareable car knowledge.",
+                "Design a 'ESSENTIAL TOOL KIT' grid post for {{ .Title }}. 3×3 grid of essential tools. Bold labeled icons. {{ .Description }}. Dark industrial steel aesthetic. NO CTA. Save-worthy garage reference.",
+                "Design a 'BEFORE YOU BUY USED ✓' inspection checklist for {{ .Title }}. 8 checkpoint items with inspection icons. Bold professional layout. {{ .Description }}. Dark premium design with warning-yellow accents. NO CTA. Buyer's guide.",
+                "Design a 'STRANGE SOUND DIAGNOSIS 🔊' guide post for {{ .Title }}. 4-5 common car sounds with onomatopoeia text (SCREECH, RATTLE, CLICK). What each means. Bold diagnostic labels. {{ .Description }}. Dark design with red warning accents. NO CTA. Shareable diagnostic guide.",
+                "Design a 'OIL TYPES EXPLAINED' educational post for {{ .Title }}. Chart comparing 5W-30, 10W-40, etc. When to use each. Bold labels. {{ .Description }}. Dark technical design. NO CTA. Save-worthy reference card.",
+                "Design a 'DETAILING BEFORE/AFTER' transformation post for {{ .Title }}. Split-screen: dull paint vs showroom shine. Shot with dramatic rim lighting showing metallic reflections. {{ .Description }}. Bold transformation headline. NO CTA. Satisfying content.",
+                "Design a 'WINTER CAR KIT CHECKLIST ❄️' seasonal prep post for {{ .Title }}. Essential items listed with icons. Bold seasonal headline. {{ .Description }}. Dark design with ice-blue accents. NO CTA. Seasonal save-worthy content."
+            ],
+            "video_prompts": [
+                "Quick car maintenance tip video for {{ .Title }}. Hands-on demo in garage. Bold step text overlays. {{ .Description }}. NO CTA.",
+                "Car sound diagnosis video for {{ .Title }}. Actual sound effect + explanation. Bold text: 'If your car sounds like THIS...' {{ .Description }}. NO CTA.",
+                "Satisfying detailing transformation video for {{ .Title }}. Before/after reveal. ASMR cleaning sounds. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Auto care carousel for {{ .Title }}. Slide 1: Bold car fact hook. Slides 2-4: maintenance tips. Last slide: service schedule. Dark premium design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "{{ .Title }} tip every driver should know but most don't 🔧",
+                "If your car makes THIS sound, stop driving immediately 🚨 {{ .Title }}",
+                "Save this {{ .Title }} maintenance schedule 📌 your car will thank you",
+                "Before and after {{ .Title }} — the difference is UNREAL 🤯",
+                "Your mechanic doesn't want you to know this 👀 {{ .Title }} {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick garage tip. Authentic hands-on filming. Bold text. 9:16.",
+                "instagram": "Dark premium card. Chrome/red accents. Bold condensed typography. 4:5 portrait.",
+                "facebook": "Car enthusiast discussion post. Tip sharing. Community debate.",
+                "pinterest": "Car maintenance checklist pin. Service guide. 2:3 vertical.",
+                "youtube": "Community post car fact. Discussion-sparking. 16:9.",
+                "x": "Contrarian car opinion. Bold hot take. 16:9."
+            },
+            "product_rule": "enthusiast knowledge first, product as practical tool, no selling"
+        },
+        "general": {
+            "core_emotion": "engagement_and_value",
+            "visual_direction": {
+                "lighting": "clean professional studio lighting, even and balanced, f/4 for clarity",
+                "colors": [
+                    "neutral charcoal",
+                    "brand-appropriate accent",
+                    "high contrast black and white"
+                ],
+                "scenarios": [
+                    "tip card",
+                    "question graphic",
+                    "poll visual",
+                    "quote card",
+                    "list post",
+                    "did you know",
+                    "this or that",
+                    "starter pack",
+                    "pros vs cons"
+                ]
+            },
+            "master_prompts": [
+                "Design a 'DID YOU KNOW? 🤯' fact card for {{ .Title }}. Large bold fact as headline in modern compressed typography. Supporting stat or detail below. Clean geometric background with brand accent color. {{ .Description }}. NO CTA. Shareable knowledge content.",
+                "Design a 'THIS OR THAT? 🤔' poll-style engagement post for {{ .Title }}. Clean split design with two bold options. Clear labels with VS divider. Interactive feel. {{ .Description }}. Modern design. NO CTA. Maximum comment engagement.",
+                "Design a 'TOP 5' numbered list post for {{ .Title }}. Bold numbers 1-5 with concise tip text. Clean line icons per item. {{ .Description }}. Modern clean background with accent color accents. NO CTA. Save-worthy list content.",
+                "Design a POWERFUL QUOTE CARD for {{ .Title }}. One bold statement in large modern serif × sans-serif typography combination. Minimal design with maximum visual impact. {{ .Description }}. Clean gradient or textured background. NO CTA. Share-worthy inspiration.",
+                "Design a 'PROS ✅ VS CONS ❌' honest comparison post for {{ .Title }}. Two-column layout. 3-4 items each. Balanced honest tone. {{ .Description }}. Clean modern split design with color coding. NO CTA. Trust-building honest content.",
+                "Design a 'STARTER PACK 😂' meme-style grid for {{ .Title }}. 2×3 grid of items that define a type of person or situation. Bold humorous labels. {{ .Description }}. Clean fun design. NO CTA. Viral relatable humor.",
+                "Design a 'THE TRUTH ABOUT...' myth-busting post for {{ .Title }}. Bold contrarian headline. 3 myths debunked with facts. {{ .Description }}. Clean professional design. NO CTA. Discussion-driving honest content.",
+                "Design a 'SAVE THIS FOR LATER 📌' ultimate resource post for {{ .Title }}. 6-8 actionable tips in clean numbered grid. Bold headline. {{ .Description }}. Modern design with accent colors. NO CTA. Maximum saves engagement."
+            ],
+            "video_prompts": [
+                "Quick tip reveal video for {{ .Title }}. Bold text hook: 'You're doing this WRONG'. Quick correction reveal with confidence. {{ .Description }}. NO CTA.",
+                "Reaction-style review video for {{ .Title }}. Testing or reviewing something. Bold text reactions. Authentic non-scripted feel. {{ .Description }}. NO CTA.",
+                "Side-by-side comparison video for {{ .Title }}. Live test. Bold winner text with proof. Quick punchy format. {{ .Description }}. NO CTA."
+            ],
+            "carousel_prompt": "Engagement carousel for {{ .Title }}. Slide 1: Bold hook or question. Slides 2-4: insights with data. Last slide: actionable takeaway. Clean modern design. NO CTA. {{ .Description }}.",
+            "caption_templates": [
+                "This changes EVERYTHING about {{ .Title }} 💡 {{ .Description }}",
+                "Save this — you'll need it when it's too late 📌 {{ .Title }}",
+                "Nobody's talking about this {{ .Title }} truth 👇 {{ .Description }}",
+                "Agree or disagree? This is a hill I'll die on 👇 {{ .Title }}",
+                "Tag someone who NEEDS to see this 🔥 {{ .Title }}",
+                "This or that? Drop your answer and explain WHY 👇 {{ .Title }}"
+            ],
+            "platform_adaptation": {
+                "tiktok": "Quick value bomb. Bold shocking text hook. Raw authentic style. 9:16.",
+                "instagram": "Clean feed aesthetic. Modern typography. Brand accent colors. 4:5 portrait.",
+                "facebook": "Discussion-sparking post. Community poll or question. Shareable.",
+                "pinterest": "Save-worthy tip pin. Numbered list. 2:3 vertical. Clean.",
+                "x": "Hot take or bold insight. Minimal design. Retweet-worthy. 16:9."
+            },
+            "product_rule": "value and engagement first, product as supporting element, no selling"
+        }
+    }
+}
