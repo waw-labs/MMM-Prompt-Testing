@@ -57,7 +57,7 @@ const PLATFORM_STYLE_DIRECTIVES = {
 - Feed-cohesive design that fits a curated aesthetic grid
 - 4:5 portrait maximizes screen real estate on mobile
 - Bold sans-serif typography (Inter, Neue Haas, Montserrat style)
-- Leave 15% bottom margin safe zone for caption overlay
+- Clean full-bleed design — do NOT add any Instagram UI, icons, navigation bars, or status bars
 - Pastel-to-bold gradient backgrounds trending in 2025
 - Chunky carousel-friendly modular design if applicable
 - Think "save-worthy" — content people bookmark for later`,
@@ -74,8 +74,7 @@ const PLATFORM_STYLE_DIRECTIVES = {
 - Full-screen 9:16 vertical — use EVERY pixel of screen
 - Lo-fi authentic UGC feel — NOT polished corporate design
 - Bold Impact/compressed font text overlays with slight rotation
-- Leave top 15% and bottom 20% clear for TikTok UI elements
-- Trending visual language: screen recordings, selfie-POV, text-over-video stills
+- CRITICAL: Do NOT render any TikTok UI elements — no navigation bar, no Home/Friends/Profile buttons, no status bar, no hearts, no share icons, no comments. Generate ONLY the creative content itself as a clean standalone image.
 - Raw, unfiltered aesthetic beats professional production
 - Think "I stopped scrolling for this" energy`,
 
@@ -147,7 +146,8 @@ QUALITY REQUIREMENTS — AVOID THESE COMMON AI FAILURES:
 - NO watermarks, stock photo badges, or artificial borders
 - NO oversaturated neon colors unless explicitly requested
 - NO cluttered compositions — maintain clear visual hierarchy
-- NO generic clip-art style — everything must feel premium and intentional`;
+- NO generic clip-art style — everything must feel premium and intentional
+- CRITICAL: Do NOT add any social media app UI overlays, navigation bars, status bars, home buttons, like/share/comment icons, profile icons, or any platform interface elements. Generate ONLY the raw creative content as a clean standalone image. No phone frames, no app screenshots, no simulated social media interfaces.`;
 
 /**
  * Replace Go template variables {{ .Title }} and {{ .Description }} with actual values.
