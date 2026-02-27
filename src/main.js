@@ -21,9 +21,9 @@ const CATEGORY_LABELS = {
 const MODELS = {
     gemini: {
         image: [
-            { value: 'imagen-4.0-generate-001', label: 'Imagen 4.0', supportsImageRef: false },
-            { value: 'gemini-3.1-flash-image-preview', label: 'Nano Banana 2 (4K, 14 refs)', supportsImageRef: true },
-            { value: 'gemini-2.5-flash-image', label: 'Gemini 2.5 Flash Image', supportsImageRef: true },
+            { value: 'imagen-4.0-generate-001', label: 'Imagen 4.0', supportsImageRef: false, supportsMultiRef: false },
+            { value: 'gemini-3.1-flash-image-preview', label: 'Nano Banana 2 (4K, 14 refs)', supportsImageRef: true, supportsMultiRef: true },
+            { value: 'gemini-2.5-flash-image', label: 'Gemini 2.5 Flash Image', supportsImageRef: true, supportsMultiRef: false },
         ],
         video: [
             { value: 'veo-3.1-generate-preview', label: 'Veo 3.1', supportsImageRef: false },
@@ -32,8 +32,10 @@ const MODELS = {
     },
     openai: {
         image: [
-            { value: 'gpt-image-1', label: 'GPT Image 1', supportsImageRef: true },
-            { value: 'dall-e-3', label: 'DALL-E 3', supportsImageRef: false },
+            { value: 'gpt-image-1.5', label: 'GPT Image 1.5 (multi-ref, region-aware)', supportsImageRef: true, supportsMultiRef: true },
+            { value: 'gpt-image-1', label: 'GPT Image 1 (4K)', supportsImageRef: true, supportsMultiRef: false },
+            { value: 'gpt-image-1-mini', label: 'GPT Image 1 Mini', supportsImageRef: true, supportsMultiRef: false },
+            { value: 'dall-e-3', label: 'DALL-E 3', supportsImageRef: false, supportsMultiRef: false },
         ],
         video: [
             { value: 'sora-2', label: 'Sora 2', supportsImageRef: false },
@@ -214,16 +216,35 @@ function updateModelOptions() {
     let models = MODELS[selectedProvider]?.[mediaType] || [];
 
     if (hasImage) {
-        // Multi-image (>1) → force Nano Banana 2 only
+        // Multi-image (>1) → show only multi-ref capable models from all providers
         if (multiImage) {
-            selectedProvider = 'gemini';
-            document.querySelectorAll('.toggle-btn').forEach(b => {
-                b.classList.toggle('active', b.dataset.provider === 'gemini');
-            });
-            const nb2 = MODELS.gemini[mediaType]?.find(m => m.value === 'gemini-3.1-flash-image-preview');
-            if (nb2) {
-                select.innerHTML = `<option value="${nb2.value}" selected>${nb2.label} ⭐ (multi-ref)</option>`;
-                showToast(`${uploadedImages.length} images → Nano Banana 2 (supports up to 14 refs)`);
+            const allMultiRef = [];
+            for (const [prov, provModels] of Object.entries(MODELS)) {
+                const capable = (provModels[mediaType] || []).filter(m => m.supportsMultiRef);
+                capable.forEach(m => allMultiRef.push({ ...m, provider: prov }));
+            }
+            if (allMultiRef.length > 0) {
+                select.innerHTML = allMultiRef.map(m => {
+                    const provLabel = m.provider === 'gemini' ? '🔵' : '🟢';
+                    return `<option value="${m.value}" data-provider="${m.provider}">${provLabel} ${m.label} ⭐</option>`;
+                }).join('');
+                // Auto-select provider of first option
+                const first = allMultiRef[0];
+                selectedProvider = first.provider;
+                document.querySelectorAll('.toggle-btn').forEach(b => {
+                    b.classList.toggle('active', b.dataset.provider === first.provider);
+                });
+                // Sync provider when model changes
+                select.onchange = () => {
+                    const opt = select.selectedOptions[0];
+                    if (opt?.dataset?.provider) {
+                        selectedProvider = opt.dataset.provider;
+                        document.querySelectorAll('.toggle-btn').forEach(b => {
+                            b.classList.toggle('active', b.dataset.provider === opt.dataset.provider);
+                        });
+                    }
+                };
+                showToast(`${uploadedImages.length} images → showing multi-ref models only`);
                 return;
             }
         }
@@ -407,11 +428,13 @@ async function sendToAI(prompt) {
     </div>`;
 
     try {
+        const platform = document.getElementById('platformSelect')?.value || 'instagram';
         const payload = {
             prompt,
             provider: selectedProvider,
             model,
             contentType: contentType === 'video' ? 'video' : 'image',
+            platform,
         };
         if (uploadedImages.length === 1) payload.referenceImage = uploadedImages[0];
         if (uploadedImages.length > 1) payload.referenceImages = uploadedImages;

@@ -106,10 +106,20 @@ app.post('/api/assemble', async (req, res) => {
 // Body: { prompt, provider ('gemini'|'openai'), model, contentType ('image'|'video'), referenceImage?, referenceImages? }
 app.post('/api/generate', async (req, res) => {
     try {
-        const { prompt, provider, model, contentType, referenceImage, referenceImages } = req.body;
+        const { prompt, provider, model, contentType, referenceImage, referenceImages, platform } = req.body;
         if (!prompt) return res.status(400).json({ error: 'prompt is required' });
         // Normalize: use referenceImages array if present, otherwise wrap single
         const refImages = referenceImages || (referenceImage ? [referenceImage] : []);
+        // Map platform to image size for OpenAI
+        const sizeMap = {
+            tiktok: '1024x1536',      // 2:3 portrait (closest to 9:16)
+            instagram: '1024x1536',   // 4:5 portrait
+            facebook: '1024x1536',    // 4:5 portrait
+            pinterest: '1024x1536',   // 2:3 tall pin
+            youtube: '1536x1024',     // 16:9 landscape
+            x: '1536x1024',           // 16:9 landscape
+        };
+        const imageSize = sizeMap[platform] || '1024x1024';
 
         let result;
         const isVideo = contentType === 'video';
@@ -118,7 +128,7 @@ app.post('/api/generate', async (req, res) => {
             if (isVideo) {
                 result = await generateVideoOpenAI(prompt, model, refImages[0] || null);
             } else {
-                result = await generateImageOpenAI(prompt, model, refImages[0] || null);
+                result = await generateImageOpenAI(prompt, model, refImages, imageSize);
             }
         } else {
             if (isVideo) {
@@ -385,73 +395,92 @@ async function generateVideoGemini(prompt, model, referenceImage) {
 }
 
 // ── OpenAI Image Generation ─────────────────────────────────────────────
-async function generateImageOpenAI(prompt, model, referenceImage) {
+async function generateImageOpenAI(prompt, model, referenceImages, imageSize = '1024x1024') {
     const apiKey = process.env.OPENAI_KEY;
     if (!apiKey) throw new Error('OPENAI_KEY not set');
 
     const selectedModel = model || 'gpt-image-1';
+    // Normalize referenceImages
+    const refImages = Array.isArray(referenceImages) ? referenceImages : (referenceImages ? [referenceImages] : []);
 
-    // gpt-image-1 supports image input via the images/edits endpoint
-    if (selectedModel !== 'dall-e-3' && referenceImage) {
-        const match = referenceImage.match(/^data:(image\/[^;]+);base64,(.+)$/);
-        if (match) {
-            console.log('[generateImageOpenAI] Using edits API with product reference image');
+    // gpt-image-1.5 / gpt-image-1 / gpt-image-1-mini support image input
+    if (selectedModel !== 'dall-e-3' && refImages.length > 0) {
+        console.log(`[generateImageOpenAI] ${refImages.length} ref image(s) with model ${selectedModel}`);
 
-            // Convert base64 to a Blob for multipart upload
-            const imageBuffer = Buffer.from(match[2], 'base64');
-            const ext = match[1].includes('png') ? 'png' : 'png';
-
-            // Use FormData for multipart upload
-            const { FormData, Blob } = await import('node-fetch');
-            // Node 18+ has global FormData and Blob
-            const formData = new globalThis.FormData();
-            const blob = new globalThis.Blob([imageBuffer], { type: match[1] });
-            formData.append('image', blob, `product.${ext}`);
-            formData.append('prompt', `CRITICAL: The uploaded image shows the EXACT product that MUST appear in the generated image with 100% fidelity. Keep the product identical — same colors, shape, logos, text, materials. Place it prominently as the central subject.\n\n${prompt}`);
-            formData.append('model', selectedModel);
-            formData.append('n', '1');
-            formData.append('size', '1024x1024');
-            formData.append('quality', 'high');
-
-            const resp = await fetch('https://api.openai.com/v1/images/edits', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                },
-                body: formData,
-            });
-
-            if (!resp.ok) {
-                const body = await resp.text();
-                throw new Error(`OpenAI Image Edits API error ${resp.status}: ${body}`);
+        // Build content parts: images first, then text prompt
+        // Responses API types: input_image, input_text, input_file
+        const contentParts = [];
+        refImages.forEach((img, idx) => {
+            const match = img.match(/^data:(image\/[^;]+);base64,(.+)$/);
+            if (match) {
+                contentParts.push({
+                    type: 'input_image',
+                    image_url: img,
+                });
+                console.log(`[generateImageOpenAI] Added ref image ${idx + 1}/${refImages.length} (${match[1]})`);
             }
+        });
 
-            const data = await resp.json();
-            if (data.data?.[0]?.b64_json) {
-                return {
-                    type: 'image',
-                    mimeType: 'image/png',
-                    data: data.data[0].b64_json,
-                };
+        const instructionText = refImages.length > 1
+            ? `CRITICAL: I have provided ${refImages.length} reference images above. You MUST use ALL ${refImages.length} images as visual references. Each image contains a product/element that MUST appear in the final generated image with 100% visual fidelity — preserve exact colors, shapes, logos, text, materials, and proportions from EVERY reference image. Combine all elements naturally into one cohesive composition.\n\n${prompt}`
+            : `CRITICAL: The uploaded image shows the EXACT product that MUST appear in the generated image with 100% fidelity. Keep the product identical — same colors, shape, logos, text, materials. Place it prominently as the central subject.\n\n${prompt}`;
+        contentParts.push({ type: 'input_text', text: instructionText });
+
+        console.log(`[generateImageOpenAI] Sending ${contentParts.length} content parts (${contentParts.filter(p => p.type === 'input_image').length} images + text)`);
+
+        // Image-specific models (gpt-image-*) must be accessed through a chat model
+        // via the Responses API with image_generation tool
+        const chatModel = 'gpt-4o';
+        console.log(`[generateImageOpenAI] Using chat model '${chatModel}' with image_generation tool (requested: ${selectedModel})`);
+
+        // Use the Responses API for multi-modal image generation
+        const resp = await fetch('https://api.openai.com/v1/responses', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: chatModel,
+                input: [{
+                    role: 'user',
+                    content: contentParts,
+                }],
+                tools: [{ type: 'image_generation', quality: 'high', size: imageSize }],
+            }),
+        });
+
+        if (!resp.ok) {
+            const body = await resp.text();
+            console.error(`[generateImageOpenAI] Responses API error ${resp.status}:`, body);
+            // Fallback to edits API with single image
+            if (refImages[0]) {
+                return await generateImageOpenAIEdits(prompt, selectedModel, refImages[0], apiKey);
             }
-            // If b64_json not returned, try URL
-            if (data.data?.[0]?.url) {
-                const imgResp = await fetch(data.data[0].url);
-                const arrBuf = await imgResp.arrayBuffer();
-                return {
-                    type: 'image',
-                    mimeType: 'image/png',
-                    data: Buffer.from(arrBuf).toString('base64'),
-                };
-            }
-            throw new Error('No image returned from OpenAI edits API');
+            throw new Error(`OpenAI Responses API error ${resp.status}: ${body}`);
         }
+
+        const data = await resp.json();
+        console.log('[generateImageOpenAI] Response output types:', data.output?.map(o => o.type));
+        // Extract generated image from response output
+        if (data.output) {
+            for (const item of data.output) {
+                if (item.type === 'image_generation_call' && item.result) {
+                    return {
+                        type: 'image',
+                        mimeType: 'image/png',
+                        data: item.result,
+                    };
+                }
+            }
+        }
+        throw new Error('No image returned from OpenAI Responses API');
     }
 
     // DALL-E 3 or fallback: text-only generation with product description injected
     let enrichedPrompt = prompt;
-    if (referenceImage) {
-        const productDesc = await describeProductFromImage(referenceImage);
+    if (refImages.length > 0) {
+        const productDesc = await describeProductFromImage(refImages[0]);
         enrichedPrompt = buildProductInjection(productDesc) + prompt;
         console.log('[generateImageOpenAI] Enriched prompt with product description for DALL-E 3');
     }
@@ -460,7 +489,7 @@ async function generateImageOpenAI(prompt, model, referenceImage) {
         model: selectedModel,
         prompt: enrichedPrompt,
         n: 1,
-        size: '1024x1024',
+        size: imageSize,
     };
 
     // DALL-E 3 uses response_format, gpt-image-1 uses output_format
@@ -496,6 +525,38 @@ async function generateImageOpenAI(prompt, model, referenceImage) {
     }
 
     throw new Error('No image returned from OpenAI');
+}
+
+// Fallback: single-image edit via legacy edits API
+async function generateImageOpenAIEdits(prompt, model, referenceImage, apiKey) {
+    const match = referenceImage.match(/^data:(image\/[^;]+);base64,(.+)$/);
+    if (!match) throw new Error('Invalid reference image format');
+    console.log('[generateImageOpenAIEdits] Fallback to edits API');
+    const imageBuffer = Buffer.from(match[2], 'base64');
+    const formData = new globalThis.FormData();
+    const blob = new globalThis.Blob([imageBuffer], { type: match[1] });
+    formData.append('image', blob, 'product.png');
+    formData.append('prompt', `CRITICAL: The uploaded image shows the EXACT product. Keep it identical.\n\n${prompt}`);
+    formData.append('model', model);
+    formData.append('n', '1');
+    formData.append('size', '1024x1024');
+    formData.append('quality', 'high');
+    const resp = await fetch('https://api.openai.com/v1/images/edits', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${apiKey}` },
+        body: formData,
+    });
+    if (!resp.ok) {
+        const body = await resp.text();
+        throw new Error(`OpenAI Edits API fallback error ${resp.status}: ${body}`);
+    }
+    const data = await resp.json();
+    if (data.data?.[0]?.b64_json) return { type: 'image', mimeType: 'image/png', data: data.data[0].b64_json };
+    if (data.data?.[0]?.url) {
+        const imgResp = await fetch(data.data[0].url);
+        return { type: 'image', mimeType: 'image/png', data: Buffer.from(await imgResp.arrayBuffer()).toString('base64') };
+    }
+    throw new Error('No image from OpenAI edits fallback');
 }
 
 // ── OpenAI Video Generation (Sora) ──────────────────────────────────────
