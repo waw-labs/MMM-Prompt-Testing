@@ -951,3 +951,206 @@ body {
     border-bottom: 1px solid var(--border);
   }
 }
+
+/* ── Business Profile ──────────────────────────────────────────────── */
+.business-profile-section {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.section-header .control-label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.collapse-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.collapse-toggle:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.business-body {
+  margin-top: 10px;
+}
+
+.business-url-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.business-url-row .text-input {
+  flex: 1;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.business-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.business-loading .spinner.small {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+}
+
+.business-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.biz-field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.biz-field-row label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.biz-field-row .text-input.small {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.biz-summary-card {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  color: white;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.biz-summary-card p {
+  margin: 0;
+}
+
+.biz-type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.biz-price-tag {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1px 8px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.biz-summary-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.biz-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+  padding: 4px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.biz-products {
+  margin-top: 6px;
+}
+
+.biz-products label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.biz-product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.biz-tag {
+  background: var(--bg-hover);
+  color: var(--text);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.toggle-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.toggle-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}

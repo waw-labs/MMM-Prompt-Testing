@@ -5,6 +5,7 @@ let assembledResults = [];
 let selectedPromptIndex = -1;
 let selectedVariantIndex = 0;
 let uploadedImages = []; // array of base64 data URIs of uploaded product images
+let businessProfile = null; // scraped business profile object
 
 const CATEGORY_LABELS = {
     ads: 'Ads',
@@ -111,6 +112,155 @@ function setupEventListeners() {
 
     // Generate
     document.getElementById('generateBtn').addEventListener('click', handleGenerate);
+
+    // Business profile
+    setupBusinessProfile();
+}
+
+// ── Business Profile ────────────────────────────────────────────────
+function setupBusinessProfile() {
+    const collapseBtn = document.getElementById('businessCollapseBtn');
+    const body = document.getElementById('businessBody');
+    const header = document.getElementById('businessToggleHeader');
+
+    // Toggle collapse
+    const toggleBody = () => {
+        const isOpen = body.style.display !== 'none';
+        body.style.display = isOpen ? 'none' : 'block';
+        collapseBtn.textContent = isOpen ? '▶' : '▼';
+    };
+    collapseBtn.addEventListener('click', toggleBody);
+    header.addEventListener('click', (e) => {
+        if (e.target !== collapseBtn) toggleBody();
+    });
+
+    // Analyze button
+    document.getElementById('analyzeBtn').addEventListener('click', analyzeWebsite);
+
+    // Enter key on URL input
+    document.getElementById('businessUrl').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') analyzeWebsite();
+    });
+}
+
+async function analyzeWebsite() {
+    const url = document.getElementById('businessUrl').value.trim();
+    if (!url) {
+        showToast('Enter a website URL');
+        return;
+    }
+
+    const loading = document.getElementById('businessLoading');
+    const fields = document.getElementById('businessFields');
+    const toggle = document.getElementById('businessModeToggle');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    loading.style.display = 'flex';
+    fields.style.display = 'none';
+    toggle.style.display = 'none';
+    analyzeBtn.disabled = true;
+    analyzeBtn.textContent = '⏳ Analyzing...';
+
+    try {
+        const resp = await fetch('/api/scrape-business', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url }),
+        });
+
+        const data = await resp.json();
+        if (data.error) throw new Error(data.error);
+
+        businessProfile = data.businessProfile;
+        const isProduct = businessProfile.pageType === 'product';
+
+        // Auto-expand the business section
+        document.getElementById('businessBody').style.display = 'block';
+        document.getElementById('businessCollapseBtn').textContent = '▼';
+
+        // Populate info fields
+        document.getElementById('bizName').value = businessProfile.name || '';
+        document.getElementById('bizIndustry').value = (businessProfile.industry || '').replace(/_/g, ' ');
+        document.getElementById('bizUsp').value = businessProfile.usp || '';
+        document.getElementById('bizAudience').value = businessProfile.targetAudience || '';
+        document.getElementById('bizTone').value = businessProfile.brandTone || '';
+
+        // Summary card with logo
+        const summaryEl = document.getElementById('bizSummary');
+        const typeIcon = isProduct ? '🛍️' : '🏢';
+        const typeLabel = isProduct ? 'Product Page' : 'Business Page';
+        const priceTag = isProduct && businessProfile.productPrice
+            ? `<span class="biz-price-tag">$${businessProfile.productPrice}</span>` : '';
+        const logoImg = businessProfile.logoBase64
+            ? `<img src="${businessProfile.logoBase64}" alt="Logo" class="biz-logo" />` : '';
+        summaryEl.innerHTML = `
+            <div class="biz-summary-with-logo">
+                ${logoImg}
+                <div>
+                    <div class="biz-type-badge">${typeIcon} ${typeLabel} ${priceTag}</div>
+                    <p>${businessProfile.summary || ''}</p>
+                </div>
+            </div>`;
+
+        // Products/services tags
+        const productsEl = document.getElementById('bizProducts');
+        const products = businessProfile.products || [];
+        if (products.length > 0) {
+            productsEl.innerHTML = `
+                <label>${isProduct ? 'Product' : 'Products/Services'}</label>
+                <div class="biz-product-tags">
+                    ${products.map(p => `<span class="biz-tag">${p}</span>`).join('')}
+                </div>`;
+        } else {
+            productsEl.innerHTML = '';
+        }
+
+        // ── Inject images into the upload zone ──
+        if (isProduct && businessProfile.productImagesBase64?.length > 0) {
+            // Product page: inject product images
+            uploadedImages = [...businessProfile.productImagesBase64];
+            if (window.__refreshImageGrid) window.__refreshImageGrid();
+            updateModelOptions();
+        } else if (businessProfile.logoBase64 && uploadedImages.length === 0) {
+            // Business page: inject logo
+            uploadedImages = [businessProfile.logoBase64];
+            if (window.__refreshImageGrid) window.__refreshImageGrid();
+            updateModelOptions();
+        }
+
+        // ── Auto-fill title & description ──
+        if (isProduct) {
+            // Product: use product-specific fields
+            document.getElementById('titleInput').value = businessProfile.productTitle || businessProfile.name || '';
+            document.getElementById('descriptionInput').value = businessProfile.productDescription || businessProfile.summary || '';
+        } else {
+            // Business: use business name/summary if fields are empty
+            if (!document.getElementById('titleInput').value.trim()) {
+                document.getElementById('titleInput').value = businessProfile.name || '';
+            }
+            if (!document.getElementById('descriptionInput').value.trim()) {
+                document.getElementById('descriptionInput').value = businessProfile.summary || '';
+            }
+        }
+
+        fields.style.display = 'block';
+        toggle.style.display = 'flex';
+
+        // Toast summary
+        const imgCount = isProduct ? (businessProfile.productImagesBase64?.length || 0) : 0;
+        const extras = [];
+        if (businessProfile.logoBase64) extras.push('📎 Logo');
+        if (imgCount > 0) extras.push(`🖼️ ${imgCount} product images`);
+        const extrasStr = extras.length ? ` | ${extras.join(' · ')}` : '';
+        showToast(`✅ ${businessProfile.name}${extrasStr}`);
+    } catch (err) {
+        console.error('[analyze]', err);
+        showToast('Analysis failed: ' + err.message);
+    } finally {
+        loading.style.display = 'none';
+        analyzeBtn.disabled = false;
+        analyzeBtn.textContent = '🔍 Analyze';
+    }
 }
 
 // ── Image Upload (Multi-Image) ──────────────────────────────────────
@@ -298,8 +448,12 @@ async function handleAssemble() {
         showToast('Select at least one category');
         return;
     }
-    if (!title) {
-        showToast('Enter a product title');
+
+    const isBusinessMode = businessProfile && document.getElementById('useBusinessMode')?.checked;
+
+    // Business mode: skip title requirement, use AI-generated prompts
+    if (!isBusinessMode && !title) {
+        showToast('Enter a product title or analyze a business URL');
         return;
     }
 
@@ -307,17 +461,36 @@ async function handleAssemble() {
     setBtnLoading(btn, true);
 
     try {
+        // Build the base payload — same endpoint for both modes
         const payload = { categories, platform, contentType, title, description };
         if (uploadedImages.length > 0) payload.image = uploadedImages[0];
         if (uploadedImages.length > 1) payload.images = uploadedImages;
+
+        // In business mode, attach brand context for prompt enrichment
+        if (isBusinessMode) {
+            payload.businessContext = {
+                name: businessProfile.name,
+                industry: businessProfile.industry,
+                usp: businessProfile.usp,
+                brandTone: businessProfile.brandTone,
+                brandColors: businessProfile.brandColors,
+                targetAudience: businessProfile.targetAudience,
+                priceRange: businessProfile.priceRange,
+                painPoints: businessProfile.painPoints,
+                emotionalTriggers: businessProfile.emotionalTriggers,
+                productPrice: businessProfile.productPrice || '',
+                originalPrice: businessProfile.originalPrice || '',
+                discount: businessProfile.discount || '',
+            };
+        }
 
         const resp = await fetch('/api/assemble', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
         });
-
         const data = await resp.json();
+
         if (data.error) throw new Error(data.error);
 
         assembledResults = data.results || [];
@@ -327,7 +500,12 @@ async function handleAssemble() {
         updateNicheDisplay();
 
         document.getElementById('generateBtn').disabled = assembledResults.length === 0;
-        document.getElementById('promptCount').textContent = `${assembledResults.length} prompt${assembledResults.length !== 1 ? 's' : ''}`;
+        const totalPrompts = assembledResults.reduce((sum, r) => sum + (r.allPrompts?.length || 1), 0);
+        document.getElementById('promptCount').textContent = `${totalPrompts} prompt${totalPrompts !== 1 ? 's' : ''}`;
+
+        if (isBusinessMode) {
+            showToast(`✨ Generated ${totalPrompts} AI prompts for ${businessProfile.name}`);
+        }
     } catch (err) {
         console.error('[assemble]', err);
         showToast('Assembly failed: ' + err.message);

@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
 import { assemblePrompt, assembleAllPrompts, getNicheKeys, normalizePlatform } from './prompt-engine.js';
+import { scrapeAndAnalyze } from './business-scraper.js';
+import { generateAllCategoryPrompts } from './prompt-generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -57,10 +59,14 @@ app.get('/api/prompts/:category', (req, res) => {
 // ── POST /api/assemble ──────────────────────────────────────────────────
 app.post('/api/assemble', async (req, res) => {
     try {
-        const { categories, niche, platform, contentType, title, description, image } = req.body;
+        const { categories, niche, platform, contentType, title, description, image, businessContext } = req.body;
 
         if (!categories?.length) {
             return res.status(400).json({ error: 'At least one category is required' });
+        }
+
+        if (businessContext) {
+            console.log(`[assemble] Business mode: "${businessContext.name}" (${businessContext.industry})`);
         }
 
         const results = [];
@@ -81,8 +87,8 @@ app.post('/api/assemble', async (req, res) => {
                 resolvedNiche = 'general';
             }
 
-            const prompt = assemblePrompt(config, resolvedNiche, platform, contentType, title, description, category);
-            const allPrompts = assembleAllPrompts(config, resolvedNiche, platform, contentType, title, description, category);
+            const prompt = assemblePrompt(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
+            const allPrompts = assembleAllPrompts(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
 
             results.push({
                 category,
@@ -97,6 +103,37 @@ app.post('/api/assemble', async (req, res) => {
         res.json({ results });
     } catch (err) {
         console.error('[assemble] Error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/scrape-business ───────────────────────────────────────────
+// Scrapes a website and returns a structured business profile.
+app.post('/api/scrape-business', async (req, res) => {
+    try {
+        const { url } = req.body;
+        if (!url) return res.status(400).json({ error: 'url is required' });
+        console.log(`[scrape-business] Analyzing: ${url}`);
+        const profile = await scrapeAndAnalyze(url);
+        res.json({ businessProfile: profile });
+    } catch (err) {
+        console.error('[scrape-business] Error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/generate-prompts ──────────────────────────────────────────
+// Generates AI-powered prompts for a business across selected categories.
+app.post('/api/generate-prompts', async (req, res) => {
+    try {
+        const { businessProfile, categories, platform, contentType } = req.body;
+        if (!businessProfile) return res.status(400).json({ error: 'businessProfile is required' });
+        if (!categories?.length) return res.status(400).json({ error: 'categories are required' });
+        console.log(`[generate-prompts] Generating for "${businessProfile.name}" — ${categories.join(', ')}`);
+        const results = await generateAllCategoryPrompts(businessProfile, categories, platform || 'instagram', contentType || 'image');
+        res.json({ results });
+    } catch (err) {
+        console.error('[generate-prompts] Error:', err);
         res.status(500).json({ error: err.message });
     }
 });
