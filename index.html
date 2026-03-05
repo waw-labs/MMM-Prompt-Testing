@@ -39,52 +39,6 @@
       <aside class="panel panel-controls">
         <h2 class="panel-title">Configuration</h2>
 
-        <!-- Business Profile (Collapsible) -->
-        <div class="control-group business-profile-section">
-          <div class="section-header" id="businessToggleHeader">
-            <label class="control-label">🏢 Business Profile</label>
-            <button class="collapse-toggle" id="businessCollapseBtn" title="Expand">▶</button>
-          </div>
-          <div class="business-body" id="businessBody" style="display:none;">
-            <div class="business-url-row">
-              <input type="url" id="businessUrl" class="text-input" placeholder="https://your-website.com" />
-              <button class="btn btn-sm btn-accent" id="analyzeBtn">🔍 Analyze</button>
-            </div>
-            <div class="business-loading" id="businessLoading" style="display:none;">
-              <div class="spinner small"></div>
-              <span>Scraping &amp; analyzing website...</span>
-            </div>
-            <div class="business-fields" id="businessFields" style="display:none;">
-              <div class="biz-field-row">
-                <label>Name</label>
-                <input type="text" id="bizName" class="text-input small" readonly />
-              </div>
-              <div class="biz-field-row">
-                <label>Industry</label>
-                <input type="text" id="bizIndustry" class="text-input small" readonly />
-              </div>
-              <div class="biz-field-row">
-                <label>USP</label>
-                <input type="text" id="bizUsp" class="text-input small" readonly />
-              </div>
-              <div class="biz-field-row">
-                <label>Audience</label>
-                <input type="text" id="bizAudience" class="text-input small" readonly />
-              </div>
-              <div class="biz-field-row">
-                <label>Tone</label>
-                <input type="text" id="bizTone" class="text-input small" readonly />
-              </div>
-              <div class="biz-summary-card" id="bizSummary"></div>
-              <div class="biz-products" id="bizProducts"></div>
-            </div>
-            <label class="toggle-checkbox" id="businessModeToggle" style="display:none;">
-              <input type="checkbox" id="useBusinessMode" checked />
-              <span>Use Business Context for prompts</span>
-            </label>
-          </div>
-        </div>
-
         <!-- Categories (checkboxes) -->
         <div class="control-group">
           <label class="control-label">Prompt Categories</label>
@@ -95,16 +49,14 @@
         <div class="control-group">
           <label class="control-label">Product Image</label>
           <div class="upload-zone" id="uploadZone">
-            <input type="file" id="imageInput" accept="image/*" multiple hidden />
+            <input type="file" id="imageInput" accept="image/*" hidden />
             <div class="upload-placeholder" id="uploadPlaceholder">
               <span class="upload-icon">📸</span>
-              <span>Drop images or click to browse (up to 14)</span>
+              <span>Drop image or click to browse</span>
             </div>
-            <div class="upload-preview-grid" id="uploadPreviewGrid" style="display:none;"></div>
-            <div class="upload-actions" id="uploadActions" style="display:none;">
-              <span class="upload-count" id="uploadCount"></span>
-              <button class="upload-add" id="addMoreImages" title="Add more">＋ Add</button>
-              <button class="upload-remove-all" id="removeAllImages" title="Remove all">✕ Clear</button>
+            <div class="upload-preview" id="uploadPreview" style="display:none;">
+              <img id="previewImg" alt="Product" />
+              <button class="upload-remove" id="removeImage" title="Remove">✕</button>
             </div>
           </div>
         </div>

@@ -2,42 +2,21 @@
     "schema_version": "2.1.0",
     "globals": {
         "core_frameworks": [
-            "BRAND_GUIDELINES — Complete visual identity system with logo, colors, typography, and usage rules",
-            "MOOD_BOARD — Curated visual inspiration board capturing brand's aesthetic, tone, and emotional direction",
-            "STATIONERY_SYSTEM — Business cards, letterheads, envelopes, and correspondence materials with cohesive branding",
-            "PACKAGING_MOCKUP — Product packaging design visualization on realistic 3D mockup surfaces",
-            "SOCIAL_MEDIA_KIT — Platform-specific branded templates for consistent social presence",
-            "SIGNAGE_ENVIRONMENTAL — Physical brand presence: storefront signs, vehicle wraps, indoor signage, wayfinding",
-            "MERCHANDISE_MOCKUP — Branded apparel, accessories, and promotional items showcasing brand identity",
-            "BRAND_STORY_VISUAL — Narrative-driven visual that communicates brand origin, mission, and values"
+            "BRAND_STORY",
+            "VISUAL_IDENTITY",
+            "MOOD_BOARD",
+            "LOGO_CONTEXT"
         ]
     },
     "platforms": {
-        "tiktok": {
-            "accepted_content_types": [
-                "image",
-                "video"
-            ],
-            "best_ad_frameworks": [
-                "BRAND_STORY_VISUAL",
-                "MOOD_BOARD"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "9:16"
-                ]
-            },
-            "creative_rules": "Behind-the-brand personality. Logo reveal moments. Brand aesthetic showcase. Authentic brand-building content that feels native to TikTok. Quick visual brand identity reveals. Process and design journey content. Full-screen 9:16 vertical."
-        },
         "meta": {
             "accepted_content_types": [
                 "image",
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "BRAND_GUIDELINES",
-                "STATIONERY_SYSTEM",
-                "PACKAGING_MOCKUP"
+                "BRAND_STORY",
+                "VISUAL_IDENTITY"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -45,38 +24,7 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Cohesive brand aesthetic across all materials. Professional logo showcase with proper clear space. Consistent color palette application. Brand system presentation quality. Clean sophisticated design. 4:5 for maximum mobile visibility."
-        },
-        "youtube": {
-            "accepted_content_types": [
-                "image"
-            ],
-            "best_ad_frameworks": [
-                "BRAND_GUIDELINES",
-                "SOCIAL_MEDIA_KIT"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "16:9"
-                ]
-            },
-            "creative_rules": "Channel branding and banner design quality. High-contrast brand colors that pop at small sizes. Bold brand typography. Clean professional brand showcase. Brand system overview in landscape format. 16:9 landscape."
-        },
-        "pinterest": {
-            "accepted_content_types": [
-                "image"
-            ],
-            "best_ad_frameworks": [
-                "MOOD_BOARD",
-                "PACKAGING_MOCKUP",
-                "STATIONERY_SYSTEM"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "2:3"
-                ]
-            },
-            "creative_rules": "Aspirational brand mood board aesthetic. Save-worthy brand identity pins. Color palette inspiration. Typography showcase. Brand design inspiration that drives saves and boards. 2:3 vertical pin format."
+            "creative_rules": "Cohesive brand aesthetic. Logo integration. Consistent color palette."
         },
         "instagram": {
             "accepted_content_types": [
@@ -84,9 +32,8 @@
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "BRAND_GUIDELINES",
-                "MOOD_BOARD",
-                "SOCIAL_MEDIA_KIT"
+                "VISUAL_IDENTITY",
+                "MOOD_BOARD"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -94,32 +41,72 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Feed-cohesive branding that maintains visual grid consistency. Aesthetic brand identity showcase. Polished brand system presentation. Clean design with brand personality. Brand guideline carousels perform exceptionally well. 4:5 portrait for feed."
+            "creative_rules": "Feed-cohesive branding. Aesthetic consistency. Brand personality visual."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "MOOD_BOARD",
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Aspirational brand mood board. Color palette showcase. Save-worthy brand aesthetic."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "BRAND_STORY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Brand personality showcase. Behind-the-brand feel."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "VISUAL_IDENTITY"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Channel branding. Banner or thumbnail branding."
         },
         "facebook": {
             "accepted_content_types": [
-                "image",
-                "carousel"
+                "image"
             ],
             "best_ad_frameworks": [
-                "BRAND_STORY_VISUAL",
-                "BRAND_GUIDELINES"
+                "BRAND_STORY",
+                "VISUAL_IDENTITY"
             ],
             "format_rules": {
                 "aspect_ratios": [
-                    "1:1",
-                    "4:5"
+                    "1:1"
                 ]
             },
-            "creative_rules": "Professional brand trust-building visuals. Community-facing brand identity. Cover photo and profile branding quality. Brand story visuals that drive shares. Clean professional design. 4:5 portrait or 1:1 square."
+            "creative_rules": "Brand profile visual. Cover photo quality. Trust-building brand design."
         },
         "x": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "BRAND_GUIDELINES",
-                "BRAND_STORY_VISUAL"
+                "VISUAL_IDENTITY"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -127,737 +114,72 @@
                     "1:1"
                 ]
             },
-            "creative_rules": "Clean brand header visual. Professional identity for maximum credibility. High-contrast brand showcase. Bold typography. Dark mode friendly brand design. 16:9 landscape for maximum tweet preview visibility."
+            "creative_rules": "Clean brand header. Professional identity visual."
         }
     },
     "niches": {
         "beauty_skincare": {
             "core_emotion": "elegance_and_trust",
             "visual_direction": {
-                "lighting": "soft elegant studio lighting, diffused warmth, f/4 for sophisticated softness",
+                "lighting": "soft elegant studio",
                 "colors": [
+                    "brand colors",
                     "rose gold",
-                    "cream",
-                    "soft blush",
-                    "deep burgundy",
-                    "pearl white"
+                    "cream"
                 ],
                 "scenarios": [
-                    "brand guidelines board",
-                    "packaging mockup",
-                    "stationery system",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "store signage mockup",
-                    "brand pattern showcase"
+                    "logo on product mockup",
+                    "brand color palette",
+                    "packaging design"
                 ]
             },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Elegant layout on cream background. Logo placement top-center with clear space rules. Color palette with 5 brand swatches and hex codes. Typography hierarchy: heading font, body font, accent font samples. Do/Don't logo usage examples. {{ .Description }}. Premium beauty brand guidelines aesthetic. Clean professional design system visualization.",
-                "Design a PACKAGING MOCKUP SHOWCASE for {{ .Title }}. Elegant product packaging on marble or linen surface. Primary packaging (bottle, tube, or jar) shows logo, brand colors, and typography in action. Secondary box packaging beside it. {{ .Description }}. Cohesive luxury beauty brand packaging system. Rose gold accents. Sophisticated material finishes.",
-                "Design a STATIONERY SYSTEM MOCKUP for {{ .Title }}. Business card (front and back), letterhead, envelope, and thank-you card arranged on soft surface. All items use brand logo, colors, and typography consistently. {{ .Description }}. Elegant beauty brand stationery. Premium paper textures and finishes.",
-                "Design a BRAND MOOD BOARD for {{ .Title }}. Curated collage of textures, colors, typography samples, lifestyle imagery, and brand adjectives. Words like 'Elegant', 'Radiant', 'Luminous' placed artfully. Brand color swatches integrated. {{ .Description }}. Save-worthy beauty brand inspiration board. Aspirational aesthetic.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Instagram post template, story template, highlight cover set, and profile picture treatment. All using brand colors, fonts, and design elements consistently. {{ .Description }}. Cohesive beauty brand social presence system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on light background, reversed logo on dark background, icon/mark only version, and horizontal wordmark version. Clean clear space around each. {{ .Description }}. Professional logo system presentation for beauty brand.",
-                "Design a STORE SIGNAGE MOCKUP for {{ .Title }}. Storefront sign, window decal, indoor shelf talker, and counter display card. All using brand identity consistently. {{ .Description }}. Luxury retail branding presentation. Premium material finishes.",
-                "Design a BRAND PATTERN AND TEXTURE SHOWCASE for {{ .Title }}. Custom brand pattern shown on various surfaces: tissue paper, box interior, shopping bag. Pattern uses brand icons or motifs in brand colors. {{ .Description }}. Sophisticated beauty brand pattern system."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Elegant logo animation on cream background. Color palette morph sequence. Typography reveal. Packaging mockup rotation. End with full brand system. {{ .Description }}.",
-                "Behind the brand design for {{ .Title }}. Mood board assembly sequence. Color selection process. Logo refinement journey. Final brand system reveal. {{ .Description }}.",
-                "Packaging unveil video for {{ .Title }}. Product packaging unboxing on elegant surface. Close-up of logo embossing, material textures, and brand details. {{ .Description }}."
-            ],
-            "carousel_prompt": "Brand identity carousel for {{ .Title }}. Slide 1: Logo on elegant background with brand name. Slide 2: Color palette with hex codes and swatches. Slide 3: Typography hierarchy showcase. Slide 4: Packaging mockup. Slide 5: Stationery system mockup. {{ .Description }}. Cohesive beauty brand guidelines.",
+            "master_prompt": "Design a brand identity visual for {{ .Title }}. Elegant brand mood board or logo mockup. Show the brand's visual identity: logo placement on clean surface, brand color palette swatches, typography sample, packaging mockup. {{ .Description }}. Premium beauty brand aesthetic. Cohesive and sophisticated. No product photography — this is about the BRAND itself.",
+            "video_prompt": "Brand identity reveal for {{ .Title }}. Logo animation. Color palette reveal. Packaging mockup. Brand story visual. {{ .Description }}.",
+            "carousel_prompt": "Brand identity system for {{ .Title }}. Slide 1: Logo on clean background. Slide 2: Brand color palette with hex codes. Slide 3: Typography showcase. Slide 4: Packaging mockup. {{ .Description }}. Cohesive brand guidelines aesthetic.",
             "caption_templates": [
-                "Introducing the visual identity of {{ .Title }}. Every detail crafted with intention. {{ .Description }}.",
-                "Behind every great beauty brand is a cohesive identity system. Meet {{ .Title }}. {{ .Description }}.",
-                "The colors, the fonts, the feeling. {{ .Title }} brand guidelines. {{ .Description }}.",
-                "From packaging to stationery — {{ .Title }} brand identity in every touchpoint. {{ .Description }}.",
-                "Brand mood board: {{ .Title }}. Elegant. Radiant. Intentional. {{ .Description }}."
+                "Introducing {{ .Title }} — our brand identity.",
+                "The colors, the feel, the essence of {{ .Title }}.",
+                "Brand guidelines for {{ .Title }}. {{ .Description }}."
             ],
             "platform_adaptation": {
-                "tiktok": "Quick brand identity reveal. Logo animation. Color palette showcase. Packaging close-ups. Authentic design process. 9:16.",
-                "meta": "Professional brand guidelines showcase. Logo and color system. Packaging mockup. Clean elegant design. 4:5.",
-                "pinterest": "Brand mood board pin. Color palette inspiration. Packaging design. 2:3 vertical. Save-worthy aesthetic.",
-                "instagram": "Feed-cohesive brand showcase. Guidelines carousel. Elegant typography. Packaging beauty shots. 4:5.",
-                "facebook": "Professional brand identity presentation. Trust-building brand system. Stationery showcase. 4:5.",
-                "youtube": "Brand guidelines overview in landscape. Logo system. Color palette. Typography. 16:9.",
-                "x": "Clean brand identity visual. Logo on professional background. Bold brand statement. 16:9."
+                "meta": "Clean logo showcase. Brand story visual.",
+                "instagram": "Cohesive feed branding. Color palette aesthetic.",
+                "pinterest": "Brand mood board. Inspiration pin."
             },
-            "product_rule": "brand identity focus — logo, colors, typography, packaging mockups, NOT product photography. This is about the BRAND SYSTEM."
-        },
-        "home_organization": {
-            "core_emotion": "calm_and_order",
-            "visual_direction": {
-                "lighting": "bright clean natural lighting, airy open feel, f/5.6 for crisp detail",
-                "colors": [
-                    "warm white",
-                    "natural wood",
-                    "sage green",
-                    "soft grey",
-                    "warm beige"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "packaging mockup",
-                    "label system",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "vehicle wrap mockup",
-                    "brand texture showcase"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Clean modern layout on white background. Logo centered with clear space rules. Color palette: 5 organized swatches with hex codes (warm neutrals and sage accents). Typography: clean sans-serif heading font and readable body font. Logo do/don't rules. {{ .Description }}. Calm organized brand system aesthetic.",
-                "Design a PACKAGING AND LABEL SYSTEM for {{ .Title }}. Product containers with cohesive labels showing logo, brand colors, typography. Box packaging, labels, and tags arranged in organized flat-lay. {{ .Description }}. Clean minimal home brand packaging. Natural materials and calm colors.",
-                "Design a STATIONERY SYSTEM MOCKUP for {{ .Title }}. Business card, letterhead, invoice template, and branded packing slip. All using clean brand identity with organized layout. {{ .Description }}. Professional home organization brand stationery. Warm neutral palette.",
-                "Design a BRAND MOOD BOARD for {{ .Title }}. Curated images of organized spaces, natural textures, clean lines. Brand keywords: 'Calm', 'Organized', 'Simple', 'Natural'. Color swatches integrated. Typography samples. {{ .Description }}. Save-worthy organization brand inspiration.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Instagram grid template with 'tip' posts, 'before/after' posts, and product showcases. Story template for organizing tips. Consistent brand fonts and colors. {{ .Description }}. Cohesive home brand social media system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on white, reversed on dark grey, icon-only version, and wordmark. Clean minimal presentation with ample clear space. {{ .Description }}. Professional logo system for home organization brand.",
-                "Design a VEHICLE WRAP AND SIGNAGE MOCKUP for {{ .Title }}. Delivery van wrap, storefront sign, and shelf label system. All using brand identity consistently. {{ .Description }}. Professional home organization brand environmental design.",
-                "Design a BRANDED TISSUE PAPER AND BAG MOCKUP for {{ .Title }}. Custom tissue paper pattern, branded shopping bag, and packaging tape with brand motifs. All in brand colors. {{ .Description }}. Premium unboxing experience design."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Logo on clean white surface. Color palette sequence. Typography reveal. Packaging label system showcase. {{ .Description }}.",
-                "Brand mood board assembly for {{ .Title }}. Organized images flowing into place. Color swatches appearing. Clean minimalist design process. {{ .Description }}.",
-                "Packaging system showcase for {{ .Title }}. Labels, boxes, and tags with brand identity. Close-up of cohesive design elements. {{ .Description }}."
-            ],
-            "carousel_prompt": "Brand identity carousel for {{ .Title }}. Slide 1: Logo on clean background. Slide 2: Color palette with warm neutrals. Slide 3: Typography system. Slide 4: Packaging label system. Slide 5: Stationery mockup. {{ .Description }}. Calm organized brand design.",
-            "caption_templates": [
-                "Introducing {{ .Title }} — a brand built on calm and order. {{ .Description }}.",
-                "Every label, every package, every touchpoint. {{ .Title }} brand identity system. {{ .Description }}.",
-                "The visual language of organization. {{ .Title }} brand guidelines. {{ .Description }}.",
-                "From packaging to social media — {{ .Title }} stays cohesive everywhere. {{ .Description }}.",
-                "Brand mood: calm, organized, intentional. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Quick brand identity reveal. Clean minimal aesthetic. Organized design process. Label showcase. 9:16.",
-                "meta": "Professional brand system showcase. Logo and colors. Packaging labels. Clean design. 4:5.",
-                "pinterest": "Organization brand mood board. Clean aesthetic pin. Packaging design. 2:3 vertical. Save-worthy.",
-                "instagram": "Feed-cohesive brand design. Guidelines carousel. Clean typography. Packaging showcase. 4:5.",
-                "facebook": "Professional brand identity. Trust-building design system. Stationery showcase. 4:5.",
-                "youtube": "Brand guidelines overview. Logo system. Color palette. Packaging system. 16:9.",
-                "x": "Clean brand visual. Logo on white. Organized brand identity. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, typography, packaging labels, NOT product photography. This is about the BRAND SYSTEM."
-        },
-        "fitness": {
-            "core_emotion": "power_and_motivation",
-            "visual_direction": {
-                "lighting": "dramatic high-contrast lighting, bold shadows, f/4 for striking sharpness",
-                "colors": [
-                    "bold black",
-                    "electric red",
-                    "neon green",
-                    "gunmetal grey",
-                    "white"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "gym signage mockup",
-                    "apparel mockup",
-                    "mood board",
-                    "supplement packaging",
-                    "social media kit",
-                    "logo showcase",
-                    "merchandise mockup"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Bold dark layout on black background. Logo with electric accent color. Color palette: 5 bold swatches with hex codes (blacks, greys, and neon accents). Typography: condensed bold heading font and clean body font. Usage rules. {{ .Description }}. High-energy fitness brand system.",
-                "Design a GYM SIGNAGE AND ENVIRONMENTAL MOCKUP for {{ .Title }}. Gym wall logo, entrance sign, mirror decal, and equipment branding. Bold brand colors on dark surfaces. {{ .Description }}. Powerful fitness facility branding. Motivational environment design.",
-                "Design an APPAREL AND MERCHANDISE MOCKUP for {{ .Title }}. T-shirt, hoodie, gym bag, and water bottle with brand logo and identity. Dynamic action-oriented placement. {{ .Description }}. Premium fitness merchandise line. Bold brand visibility.",
-                "Design a FITNESS BRAND MOOD BOARD for {{ .Title }}. Dynamic images of training, textures of equipment, bold typography samples. Brand words: 'Power', 'Grit', 'Unstoppable'. Intense color swatches. {{ .Description }}. High-energy fitness brand inspiration.",
-                "Design a PACKAGING SYSTEM for {{ .Title }}. Supplement tub, shaker bottle, shipping box, and sample packets with bold brand identity. Dark premium packaging with electric accent colors. {{ .Description }}. Competition-crushing fitness packaging.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Instagram workout post template, transformation post template, story template with bold text overlays. Consistent brand fonts and power colors. {{ .Description }}. Cohesive fitness brand social system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on dark background, reversed on white, icon-only mark, and horizontal wordmark. Bold athletic brand presentation. {{ .Description }}. Professional logo system for fitness brand.",
-                "Design a BRAND PATTERN AND GRAPHIC ELEMENTS SHOWCASE for {{ .Title }}. Custom geometric patterns, halftone textures, and graphic elements used across brand materials. Shown on packaging, apparel, and signage applications. {{ .Description }}. Dynamic fitness brand graphic system."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Dynamic logo animation on dark background. Electric color transitions. Bold typography reveal. Equipment and apparel mockup showcase. {{ .Description }}.",
-                "Gym branding walkthrough for {{ .Title }}. Virtual tour of branded gym space. Signage, wall graphics, equipment branding. Powerful brand presence. {{ .Description }}.",
-                "Merchandise line reveal for {{ .Title }}. Apparel and accessories showcase. Bold brand identity on every item. Dynamic presentation. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fitness brand identity carousel for {{ .Title }}. Slide 1: Bold logo on dark background. Slide 2: Electric color palette. Slide 3: Bold typography system. Slide 4: Apparel mockup. Slide 5: Gym signage mockup. {{ .Description }}. High-energy fitness brand.",
-            "caption_templates": [
-                "{{ .Title }} — a brand built for power. {{ .Description }}.",
-                "Every rep, every set, every touchpoint. {{ .Title }} brand identity. {{ .Description }}.",
-                "The visual language of strength. {{ .Title }} brand guidelines. {{ .Description }}.",
-                "From gym walls to gear — {{ .Title }} brand everywhere. {{ .Description }}.",
-                "Brand mood: powerful, relentless, unstoppable. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Dynamic brand reveal. Bold dark aesthetic. Equipment branding showcase. High-energy. 9:16.",
-                "meta": "Professional brand system. Bold logo showcase. Apparel mockup. Dark premium design. 4:5.",
-                "pinterest": "Fitness brand mood board. Bold aesthetic. Gym branding inspiration. 2:3 vertical.",
-                "instagram": "Feed-cohesive dark brand. Guidelines carousel. Apparel showcase. Bold typography. 4:5.",
-                "facebook": "Professional fitness brand. Trust-building identity system. Merchandise showcase. 4:5.",
-                "youtube": "Brand guidelines overview. Logo system. Gym signage. Apparel line. 16:9.",
-                "x": "Bold fitness brand visual. Logo on dark background. Power statement. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, typography, gym signage, apparel mockups, NOT workout photography. This is about the BRAND SYSTEM."
-        },
-        "tech_gadgets": {
-            "core_emotion": "innovation_and_precision",
-            "visual_direction": {
-                "lighting": "clean minimal studio lighting, crisp whites and dark contrasts, f/4 for precision",
-                "colors": [
-                    "clean white",
-                    "slate grey",
-                    "electric blue",
-                    "deep black",
-                    "accent cyan"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "device packaging mockup",
-                    "digital UI kit",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "trade show booth mockup",
-                    "app icon showcase"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Ultra-clean layout on white background with dark accents. Logo with tech-blue accent. Color palette: 5 precise swatches with hex codes. Typography: modern geometric heading font and clean system body font. Logo spacing grid. {{ .Description }}. Cutting-edge tech brand system. Apple/Google-tier design quality.",
-                "Design a DEVICE PACKAGING MOCKUP for {{ .Title }}. Minimal premium product box on clean surface. Logo placement, specs typography, unboxing sequence visualization. Inner tray and documentation insert. {{ .Description }}. Premium tech packaging like Apple or Samsung. Minimal, precise, premium.",
-                "Design a DIGITAL UI AND APP KIT for {{ .Title }}. App icon, splash screen, settings page, and notification style all using brand identity. Consistent color system and typography across digital touchpoints. {{ .Description }}. Cohesive tech product digital brand experience.",
-                "Design a TECH BRAND MOOD BOARD for {{ .Title }}. Clean geometry, circuit patterns, precision materials, minimal typography. Brand words: 'Precise', 'Innovative', 'Seamless'. Tech-blue color swatches. {{ .Description }}. Cutting-edge tech brand inspiration board.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Product launch post template, specs comparison template, story template for feature reveals. Consistent brand colors and clean tech typography. {{ .Description }}. Cohesive tech brand social media system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on white, reversed on dark, app icon version, and wordmark. Clean precise grid system showing logo construction. {{ .Description }}. Professional logo system for tech brand.",
-                "Design a TRADE SHOW BOOTH MOCKUP for {{ .Title }}. Exhibition stand with brand identity, banner display, product demo table, and branded backwall. Clean tech aesthetic. {{ .Description }}. Premium tech brand event presence.",
-                "Design a STATIONERY AND BUSINESS SYSTEM for {{ .Title }}. Business card with NFC chip icon, letterhead, presentation folder, and USB drive packaging. All in brand identity. {{ .Description }}. Premium tech brand stationery."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Precise logo animation. Grid construction overlay. Color palette shift. Device packaging mockup. Ultra-clean reveal. {{ .Description }}.",
-                "Packaging unboxing for {{ .Title }}. Premium tech box opening. Tray reveal. Documentation and accessories. Brand identity in every detail. {{ .Description }}.",
-                "Digital interface showcase for {{ .Title }}. App icon to full interface demo. Brand consistency across screens. Clean tech design. {{ .Description }}."
-            ],
-            "carousel_prompt": "Tech brand identity carousel for {{ .Title }}. Slide 1: Logo on clean background with construction grid. Slide 2: Precise color palette. Slide 3: Typography system. Slide 4: Device packaging mockup. Slide 5: App interface mockup. {{ .Description }}. Cutting-edge tech brand.",
-            "caption_templates": [
-                "{{ .Title }} — precision in every pixel. {{ .Description }}.",
-                "The brand identity behind the innovation. {{ .Title }}. {{ .Description }}.",
-                "Clean. Precise. Engineered. {{ .Title }} brand guidelines. {{ .Description }}.",
-                "From packaging to interface — {{ .Title }} brand consistency. {{ .Description }}.",
-                "Brand system: {{ .Title }}. Where technology meets design. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Quick brand reveal. Clean tech aesthetic. Packaging unboxing. App interface showcase. 9:16.",
-                "meta": "Professional tech brand system. Clean logo. Packaging. Digital interface. 4:5.",
-                "pinterest": "Tech brand mood board. Minimal design inspiration. Packaging pin. 2:3 vertical.",
-                "instagram": "Feed-cohesive tech design. Guidelines carousel. Packaging. Digital UI showcase. 4:5.",
-                "facebook": "Professional tech brand identity. Trust-building design. Packaging showcase. 4:5.",
-                "youtube": "Brand guidelines overview. Logo grid. Packaging. Digital system. 16:9.",
-                "x": "Clean tech brand visual. Logo on white. Innovation statement. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, typography, packaging, digital UI, NOT gadget photography. This is about the BRAND SYSTEM."
-        },
-        "pets": {
-            "core_emotion": "love_and_warmth",
-            "visual_direction": {
-                "lighting": "warm bright natural, golden warmth, f/2.8 soft",
-                "colors": [
-                    "warm brown",
-                    "cream",
-                    "golden",
-                    "terracotta",
-                    "soft green"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "packaging mockup",
-                    "tag and collar mockup",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "store signage",
-                    "brand pattern"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Warm layout on cream background. Playful yet professional logo with paw motif. Color palette: warm browns, cream, golden accents with hex codes. Typography: friendly rounded heading font, clean body font. {{ .Description }}. Heartwarming pet brand system.",
-                "Design a PACKAGING MOCKUP for {{ .Title }}. Pet product packaging: bag, box, and label on warm surface. Logo prominent, ingredient panel, playful brand illustrations. {{ .Description }}. Premium pet brand packaging with warm natural materials.",
-                "Design a PET ACCESSORIES MOCKUP for {{ .Title }}. Branded collar, tag, leash, and bandana with brand logo and colors. Arranged on warm background. {{ .Description }}. Adorable pet brand merchandise.",
-                "Design a BRAND MOOD BOARD for {{ .Title }}. Happy pets, warm textures, natural materials, playful typography. Words: 'Love', 'Care', 'Joy'. Brand color swatches. {{ .Description }}. Heartwarming pet brand inspiration.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Pet tips post template, product showcase template, story with pet-care badges. Consistent warm brand aesthetic. {{ .Description }}. Cohesive pet brand social system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on cream, reversed on brown, paw icon mark, wordmark. Warm friendly brand presentation. {{ .Description }}. Professional pet brand logo system.",
-                "Design a STORE SIGNAGE MOCKUP for {{ .Title }}. Pet shop storefront, window display, shelf label, and shopping bag. Warm inviting brand presence. {{ .Description }}. Premium pet retail branding.",
-                "Design a BRAND ILLUSTRATION SYSTEM for {{ .Title }}. Custom pet illustrations, paw print patterns, bone motifs used across materials. Shown on packaging, bags, stationery. {{ .Description }}. Charming pet brand illustration library."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Warm logo animation. Paw print transitions. Color palette. Packaging showcase. {{ .Description }}.",
-                "Packaging unboxing for {{ .Title }}. Pet product packaging reveal. Brand details close-up. Warm heartfelt design. {{ .Description }}.",
-                "Merchandise line for {{ .Title }}. Collars, tags, bandanas with brand identity. Adorable pet brand product showcase. {{ .Description }}."
-            ],
-            "carousel_prompt": "Pet brand identity carousel for {{ .Title }}. Slide 1: Logo on warm background. Slide 2: Color palette with warm tones. Slide 3: Typography system. Slide 4: Packaging mockup. Slide 5: Pet accessories mockup. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — a brand built with love. {{ .Description }}.",
-                "Every paw print tells a story. {{ .Title }} brand identity. {{ .Description }}.",
-                "Warm, caring, and always tail-wagging. {{ .Title }} brand guidelines. {{ .Description }}.",
-                "From packaging to pet tags — {{ .Title }} brand everywhere. {{ .Description }}.",
-                "Brand mood: loving, warm, joyful. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Cute brand reveal with pet elements. Warm aesthetic. Packaging showcase. 9:16.",
-                "meta": "Professional pet brand system. Warm logo. Packaging mockup. 4:5.",
-                "pinterest": "Pet brand mood board. Warm colors. Packaging inspiration. 2:3 vertical.",
-                "instagram": "Warm brand design. Guidelines carousel. Accessories showcase. 4:5.",
-                "facebook": "Warm pet brand identity. Trust-building packaging. 4:5.",
-                "youtube": "Brand overview. Logo. Colors. Packaging. Accessories. 16:9.",
-                "x": "Warm pet brand visual. Logo showcase. Heartfelt statement. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, typography, packaging, pet accessories branding, NOT pet photography"
-        },
-        "fashion_apparel": {
-            "core_emotion": "style_and_identity",
-            "visual_direction": {
-                "lighting": "clean editorial lighting, fashion studio quality, f/4",
-                "colors": [
-                    "noir black",
-                    "cream white",
-                    "camel",
-                    "muted sage",
-                    "dusty rose"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "hang tag and label mockup",
-                    "shopping bag mockup",
-                    "mood board",
-                    "lookbook template",
-                    "logo showcase",
-                    "store interior mockup",
-                    "brand texture showcase"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Fashion-forward layout on clean background. Elegant logo. Color palette: 5 curated fashion swatches with hex codes. Typography: editorial serif heading, modern sans body. {{ .Description }}. High-fashion brand system like Zara or COS.",
-                "Design a HANG TAG AND LABEL SYSTEM for {{ .Title }}. Woven labels, hang tags (front/back), care labels, and size labels. All with brand logo, fonts, and colors. {{ .Description }}. Premium fashion label system. Tactile material finishes.",
-                "Design a SHOPPING BAG AND TISSUE MOCKUP for {{ .Title }}. Branded shopping bag, tissue paper, sticker seal, and receipt. Fashion retail unboxing experience. {{ .Description }}. Luxury fashion bag design.",
-                "Design a FASHION BRAND MOOD BOARD for {{ .Title }}. Fabric textures, runway images, color swatches, typography. Words: 'Effortless', 'Modern', 'Bold'. {{ .Description }}. Fashion brand inspiration board.",
-                "Design a LOOKBOOK TEMPLATE for {{ .Title }}. Two spread layouts showing brand typography, image placement guides, and page numbering. Cohesive editorial grid system. {{ .Description }}. High-fashion lookbook design.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo, reversed, monogram/icon, and wordmark on hangtag. Fashion brand logo system. {{ .Description }}.",
-                "Design a STORE INTERIOR MOCKUP for {{ .Title }}. Storefront facade, interior wall logo, fitting room branding, and shopping bag display. {{ .Description }}. Modern fashion retail environment.",
-                "Design a BRAND FABRIC AND PATTERN SHOWCASE for {{ .Title }}. Custom brand pattern on fabric, lining, and dust bag. Pattern uses brand motif. {{ .Description }}. Fashion brand pattern library."
-            ],
-            "video_prompts": [
-                "Fashion brand reveal for {{ .Title }}. Elegant logo. Fabric textures. Tag close-ups. Shopping bag. Editorial feel. {{ .Description }}.",
-                "Shopping bag unboxing for {{ .Title }}. Tissue paper reveal. Hang tag close-up. Premium brand experience. {{ .Description }}.",
-                "Store concept for {{ .Title }}. Virtual walkthrough. Signage. Interior. Brand everywhere. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fashion brand carousel for {{ .Title }}. Slide 1: Logo on clean background. Slide 2: Color palette. Slide 3: Hang tag system. Slide 4: Shopping bag mockup. Slide 5: Store signage. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — where style meets identity. {{ .Description }}.",
-                "Every stitch, every tag, every detail. {{ .Title }} brand. {{ .Description }}.",
-                "The visual language of fashion. {{ .Title }} brand system. {{ .Description }}.",
-                "From hang tags to storefronts. {{ .Title }} everywhere. {{ .Description }}.",
-                "Brand mood: effortless, modern, intentional. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Fashion brand reveal. Tag close-ups. Shopping bag. Editorial feel. 9:16.",
-                "meta": "Professional fashion brand system. Logo. Tags. Bags. Clean design. 4:5.",
-                "pinterest": "Fashion mood board. Fabric textures. Tag design. 2:3 vertical.",
-                "instagram": "Feed-cohesive fashion. Guidelines. Lookbook template. Tags. 4:5.",
-                "facebook": "Professional fashion brand. Trust-building identity. Retail showcase. 4:5.",
-                "youtube": "Brand overview. Logo. Tags. Store concept. Lookbook. 16:9.",
-                "x": "Clean fashion brand visual. Editorial logo. Bold statement. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, hang tags, shopping bags, store design, NOT outfit photography"
-        },
-        "food_beverage": {
-            "core_emotion": "appetite_and_authenticity",
-            "visual_direction": {
-                "lighting": "warm bright food lighting, appetizing warmth, f/4",
-                "colors": [
-                    "rich brown",
-                    "warm cream",
-                    "fresh green",
-                    "appetizing red",
-                    "golden"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "food packaging mockup",
-                    "menu design",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "restaurant signage",
-                    "brand pattern"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Warm appetizing layout. Logo with food-related motif. Color palette: 5 warm rich swatches with hex codes. Typography: bold friendly heading, clean readable body. {{ .Description }}. Premium food brand system.",
-                "Design a FOOD PACKAGING SYSTEM for {{ .Title }}. Box, bag, label, and wrapper with cohesive brand identity. Ingredient panel area, nutrition facts placement. {{ .Description }}. Appetizing food packaging with warm brand presence.",
-                "Design a MENU AND CARD DESIGN for {{ .Title }}. Restaurant menu layout, table tent card, takeaway menu, and loyalty card. All in brand fonts, colors, and style. {{ .Description }}. Premium food brand print materials.",
-                "Design a FOOD BRAND MOOD BOARD for {{ .Title }}. Appetizing textures, ingredients, warm tones, rustic materials. Words: 'Fresh', 'Authentic', 'Crafted'. {{ .Description }}. Food brand inspiration board.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Recipe post template, special offer template, story menu template. Warm brand aesthetic. {{ .Description }}. Cohesive food brand social system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo, reversed, icon/emblem, and wordmark. Shown on packaging and signage context. {{ .Description }}. Professional food brand logo system.",
-                "Design a RESTAURANT SIGNAGE MOCKUP for {{ .Title }}. Storefront, A-frame sidewalk sign, window menu, and interior wall logo. Warm inviting brand environment. {{ .Description }}.",
-                "Design a BRAND PATTERN SHOWCASE for {{ .Title }}. Custom food icons pattern on wrapping paper, napkins, and cups. Pattern uses brand motifs. {{ .Description }}. Charming food brand pattern system."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Logo with appetizing background. Color palette. Packaging showcase. Menu design. {{ .Description }}.",
-                "Packaging showcase for {{ .Title }}. Food boxes and bags with brand identity. Close-up of label design. {{ .Description }}.",
-                "Restaurant signage walkthrough for {{ .Title }}. Storefront to interior. Brand everywhere. {{ .Description }}."
-            ],
-            "carousel_prompt": "Food brand carousel for {{ .Title }}. Slide 1: Logo on warm background. Slide 2: Color palette. Slide 3: Packaging system. Slide 4: Menu design. Slide 5: Signage mockup. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — crafted with care, from brand to bite. {{ .Description }}.",
-                "Every package tells our story. {{ .Title }} brand identity. {{ .Description }}.",
-                "Fresh, authentic, and always on brand. {{ .Title }}. {{ .Description }}.",
-                "From packaging to menus. {{ .Title }} brand system. {{ .Description }}.",
-                "Brand mood: appetizing, warm, authentic. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Appetizing brand reveal. Packaging close-ups. Menu design. Warm energy. 9:16.",
-                "meta": "Professional food brand. Logo. Packaging system. Menu design. 4:5.",
-                "pinterest": "Food brand mood board. Packaging design. Menu inspiration. 2:3 vertical.",
-                "instagram": "Warm food brand. Guidelines carousel. Packaging. Menu showcase. 4:5.",
-                "facebook": "Professional food brand identity. Packaging. Restaurant signage. 4:5.",
-                "youtube": "Brand overview. Logo. Packaging. Menu. Signage. 16:9.",
-                "x": "Warm food brand visual. Logo. Appetizing brand identity. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, packaging, menu design, signage, NOT food photography"
-        },
-        "health_wellness": {
-            "core_emotion": "vitality_and_trust",
-            "visual_direction": {
-                "lighting": "bright clean natural, soft calming, f/4",
-                "colors": [
-                    "sage green",
-                    "clean white",
-                    "soft blue",
-                    "warm sand",
-                    "earth brown"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "supplement packaging",
-                    "wellness app UI",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "clinic signage",
-                    "brand certificate"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Clean calming layout on white with sage accents. Logo with wellness motif. Color palette: 5 soothing swatches with hex codes. Typography: clean modern heading, readable medical-grade body font. {{ .Description }}. Trustworthy wellness brand system.",
-                "Design a WELLNESS PACKAGING SYSTEM for {{ .Title }}. Product containers, boxes, and information inserts with clean brand identity. Trust certifications area. {{ .Description }}. Clean professional wellness packaging.",
-                "Design a WELLNESS APP UI KIT for {{ .Title }}. App icon, dashboard screen, progress tracker, and notification style. Consistent calming brand colors and clean typography. {{ .Description }}. Cohesive wellness digital experience.",
-                "Design a WELLNESS BRAND MOOD BOARD for {{ .Title }}. Nature textures, calm spaces, clean ingredients, mindfulness imagery. Words: 'Vitality', 'Balance', 'Trust'. {{ .Description }}. Wellness brand inspiration.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Health tip template, product feature template, testimonial story template. Clean calming aesthetic. {{ .Description }}. Cohesive wellness brand social system.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on white, reversed on sage, leaf/wellness icon mark, wordmark. Clean professional trust presentation. {{ .Description }}.",
-                "Design a CLINIC AND OFFICE SIGNAGE MOCKUP for {{ .Title }}. Reception desk sign, door plaque, waiting room poster, and staff badge. Clean professional healthcare environment. {{ .Description }}.",
-                "Design a TRUST CERTIFICATE AND BADGE SYSTEM for {{ .Title }}. Certification badge, quality seal, professional endorsement frame, and guarantee card. All in brand identity. {{ .Description }}. Trust-building wellness brand materials."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Calming logo animation. Clean color palette. Packaging. App UI preview. {{ .Description }}.",
-                "Packaging showcase for {{ .Title }}. Clean wellness packaging. Trust certifications. Professional brand details. {{ .Description }}.",
-                "Office branding for {{ .Title }}. Clinic signage. Reception. Badges. Clean wellness environment. {{ .Description }}."
-            ],
-            "carousel_prompt": "Wellness brand carousel for {{ .Title }}. Slide 1: Logo on clean background. Slide 2: Calming color palette. Slide 3: Packaging system. Slide 4: App UI mockup. Slide 5: Office signage. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — wellness you can trust. {{ .Description }}.",
-                "Clean design for a healthier world. {{ .Title }} brand identity. {{ .Description }}.",
-                "Every touchpoint inspires confidence. {{ .Title }}. {{ .Description }}.",
-                "From packaging to app — {{ .Title }} stays cohesive. {{ .Description }}.",
-                "Brand mood: calm, trusted, vital. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Calming brand reveal. Clean aesthetic. Packaging. App preview. 9:16.",
-                "meta": "Professional wellness brand. Logo. Packaging. Trust badges. 4:5.",
-                "pinterest": "Wellness mood board. Calming aesthetic. Packaging design. 2:3 vertical.",
-                "instagram": "Clean wellness brand. Guidelines carousel. Packaging. App UI. 4:5.",
-                "facebook": "Professional wellness brand. Trust-building identity. Certifications. 4:5.",
-                "youtube": "Brand overview. Logo. Packaging. App. Office signage. 16:9.",
-                "x": "Clean wellness brand visual. Trust-focused. Professional. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, packaging, app UI, trust materials, NOT lifestyle photography"
-        },
-        "baby_kids": {
-            "core_emotion": "tenderness_and_safety",
-            "visual_direction": {
-                "lighting": "soft warm diffused, gentle nursery, f/4",
-                "colors": [
-                    "soft pastel blue",
-                    "gentle pink",
-                    "warm cream",
-                    "mint green",
-                    "natural wood"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "packaging mockup",
-                    "nursery signage",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "gift wrapping",
-                    "brand illustration"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Soft pastel layout. Gentle rounded logo. Color palette: 5 pastel swatches with hex codes. Typography: rounded friendly heading, gentle body font. {{ .Description }}. Tender baby brand system.",
-                "Design a BABY PACKAGING SYSTEM for {{ .Title }}. Soft-touch boxes, pouches, and labels with gentle brand identity. Safety badge areas. {{ .Description }}. Safe, gentle baby brand packaging.",
-                "Design a NURSERY AND RETAIL SIGNAGE MOCKUP for {{ .Title }}. Store display, shelf talker, product stand, and window decal. Soft gentle brand environment. {{ .Description }}.",
-                "Design a BABY BRAND MOOD BOARD for {{ .Title }}. Soft textures, nursery scenes, gentle materials. Words: 'Gentle', 'Safe', 'Love'. {{ .Description }}. Tender brand inspiration.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Parenting tip template, milestone card template, story template. Soft pastel brand aesthetic. {{ .Description }}.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo, reversed, baby icon mark, wordmark. Soft rounded presentation. {{ .Description }}.",
-                "Design a GIFT WRAPPING SYSTEM for {{ .Title }}. Gift box, wrapping paper, ribbon, and gift tag. Soft pastel brand identity throughout. {{ .Description }}. Premium baby gift experience.",
-                "Design a BRAND ILLUSTRATION SYSTEM for {{ .Title }}. Custom baby illustrations: animals, clouds, stars used across materials. Shown on packaging, cards, nursery art. {{ .Description }}."
-            ],
-            "video_prompts": [
-                "Baby brand reveal for {{ .Title }}. Gentle logo animation. Soft colors. Packaging showcase. Nursery setting. {{ .Description }}.",
-                "Gift unboxing for {{ .Title }}. Soft wrapping reveal. Gentle package opening. Brand details. {{ .Description }}.",
-                "Nursery branding for {{ .Title }}. Signage. Shelf design. Soft gentle environment. {{ .Description }}."
-            ],
-            "carousel_prompt": "Baby brand carousel for {{ .Title }}. Slide 1: Logo on pastel background. Slide 2: Soft color palette. Slide 3: Packaging. Slide 4: Gift wrapping. Slide 5: Nursery signage. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — gentle on everything, including design. {{ .Description }}.",
-                "Soft, safe, beautiful. {{ .Title }} brand identity. {{ .Description }}.",
-                "From packaging to nursery art. {{ .Title }} brand. {{ .Description }}.",
-                "Every touchpoint as gentle as our products. {{ .Title }}. {{ .Description }}.",
-                "Brand mood: tender, safe, joyful. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Gentle brand reveal. Soft pastels. Packaging. Gift unboxing. 9:16.",
-                "meta": "Professional baby brand. Logo. Packaging. Safety badges. 4:5.",
-                "pinterest": "Baby brand mood board. Pastel aesthetic. Nursery inspiration. 2:3 vertical.",
-                "instagram": "Soft pastel brand. Guidelines carousel. Packaging. Gift wrapping. 4:5.",
-                "facebook": "Professional baby brand. Trust-building. Safety-first identity. 4:5.",
-                "youtube": "Brand overview. Logo. Packaging. Gift system. Nursery signage. 16:9.",
-                "x": "Gentle baby brand visual. Soft professional identity. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, packaging, gift wrapping, illustrations, NOT baby photography"
-        },
-        "automotive": {
-            "core_emotion": "power_and_precision",
-            "visual_direction": {
-                "lighting": "dramatic studio, high contrast, f/4",
-                "colors": [
-                    "carbon black",
-                    "chrome silver",
-                    "racing red",
-                    "gunmetal",
-                    "electric blue"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "parts packaging",
-                    "garage signage",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "vehicle wrap",
-                    "merchandise"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Bold dark layout on carbon background. Aggressive logo with metallic finish. Color palette: 5 automotive swatches with hex codes. Typography: bold condensed heading, technical body font. {{ .Description }}. Powerful automotive brand system.",
-                "Design a PARTS PACKAGING SYSTEM for {{ .Title }}. Product box, inner tray, spec sheet, and QR-coded authenticity sticker. Bold brand identity on dark packaging. {{ .Description }}. Premium auto parts packaging.",
-                "Design a GARAGE AND SHOP SIGNAGE MOCKUP for {{ .Title }}. Shop front sign, bay banner, tool wall logo, and floor decal. Dark bold brand environment. {{ .Description }}.",
-                "Design an AUTOMOTIVE BRAND MOOD BOARD for {{ .Title }}. Metallic textures, engine details, speed blurs, precision tools. Words: 'Power', 'Precision', 'Performance'. {{ .Description }}.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Product showcase template, install guide template, spec comparison template. Bold dark brand aesthetic. {{ .Description }}.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on dark, reversed on light, badge emblem, wordmark. Metallic finish options. {{ .Description }}.",
-                "Design a VEHICLE WRAP MOCKUP for {{ .Title }}. Full vehicle wrap on van/truck. Bold brand presence with logo, colors, and contact info. Dynamic design. {{ .Description }}.",
-                "Design a BRANDED MERCHANDISE MOCKUP for {{ .Title }}. Cap, work shirt, metal keychain, and sticker sheet. Bold auto brand identity. {{ .Description }}."
-            ],
-            "video_prompts": [
-                "Automotive brand reveal for {{ .Title }}. Metallic logo animation. Engine sound design. Parts packaging. Bold reveal. {{ .Description }}.",
-                "Vehicle wrap showcase for {{ .Title }}. Van/truck with full brand wrap. 360 showcase. Bold presence. {{ .Description }}.",
-                "Garage branding for {{ .Title }}. Shop signage. Tool wall. Bay banners. Powerful environment. {{ .Description }}."
-            ],
-            "carousel_prompt": "Auto brand carousel for {{ .Title }}. Slide 1: Logo on dark background. Slide 2: Metallic color palette. Slide 3: Parts packaging. Slide 4: Vehicle wrap. Slide 5: Garage signage. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — engineered to impress. Brand identity. {{ .Description }}.",
-                "Bold, precise, powerful. {{ .Title }} brand system. {{ .Description }}.",
-                "From packaging to vehicle wraps. {{ .Title }} everywhere. {{ .Description }}.",
-                "The brand behind the performance. {{ .Title }}. {{ .Description }}.",
-                "Brand mood: powerful, precise, relentless. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold brand reveal. Metallic textures. Packaging. Vehicle wrap. 9:16.",
-                "meta": "Professional auto brand. Logo. Parts packaging. Vehicle wrap. 4:5.",
-                "pinterest": "Auto brand mood board. Metallic aesthetic. Packaging design. 2:3 vertical.",
-                "instagram": "Dark bold brand. Guidelines carousel. Packaging. Merch. 4:5.",
-                "facebook": "Professional auto brand. Trust-building. Parts packaging. 4:5.",
-                "youtube": "Brand overview. Logo. Packaging. Vehicle wrap. Signage. 16:9.",
-                "x": "Bold automotive brand. Metallic logo. Power statement. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, packaging, vehicle wraps, signage, NOT car photography"
-        },
-        "education_learning": {
-            "core_emotion": "growth_and_credibility",
-            "visual_direction": {
-                "lighting": "bright clean professional, even diffused, f/4",
-                "colors": [
-                    "deep navy",
-                    "warm white",
-                    "accent gold",
-                    "teal",
-                    "clean grey"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "course packaging",
-                    "certificate design",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "classroom signage",
-                    "brand stationery"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Professional layout on white with navy accents. Scholarly logo. Color palette: 5 authoritative swatches with hex codes. Typography: professional serif heading, clean sans body. {{ .Description }}. Credible education brand system.",
-                "Design a COURSE PACKAGING SYSTEM for {{ .Title }}. Course box, workbook cover, USB/card packaging, and welcome letter. Professional brand identity throughout. {{ .Description }}. Premium educational materials packaging.",
-                "Design a CERTIFICATE AND DIPLOMA DESIGN for {{ .Title }}. Certificate of completion, badge of achievement, printable diploma with seal. Professional brand fonts, colors, gold accents. {{ .Description }}. Prestigious credential design.",
-                "Design an EDUCATION BRAND MOOD BOARD for {{ .Title }}. Learning environments, professional imagery, clean design elements. Words: 'Expertise', 'Growth', 'Impact'. {{ .Description }}.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Course announcement template, student testimonial template, tip-of-the-day template. Professional brand aesthetic. {{ .Description }}.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo, reversed, academic seal, wordmark. Professional presentation with gold accents. {{ .Description }}.",
-                "Design a CLASSROOM AND EVENT SIGNAGE MOCKUP for {{ .Title }}. Room sign, podium banner, name badge, and event lanyard. Professional education brand environment. {{ .Description }}.",
-                "Design a PROFESSIONAL STATIONERY SYSTEM for {{ .Title }}. Business card, letterhead, enrollment form, and branded notepad. All with educational brand prestige. {{ .Description }}."
-            ],
-            "video_prompts": [
-                "Education brand reveal for {{ .Title }}. Professional logo. Colors. Certificate showcase. Course materials. {{ .Description }}.",
-                "Course materials unboxing for {{ .Title }}. Workbook. Certificate. Welcome kit. Brand details. {{ .Description }}.",
-                "Event branding for {{ .Title }}. Podium. Badges. Signage. Professional environment. {{ .Description }}."
-            ],
-            "carousel_prompt": "Education brand carousel for {{ .Title }}. Slide 1: Logo with academic seal. Slide 2: Color palette. Slide 3: Certificate design. Slide 4: Course packaging. Slide 5: Event signage. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — where learning meets design excellence. {{ .Description }}.",
-                "Credibility starts with consistency. {{ .Title }} brand system. {{ .Description }}.",
-                "From certificates to classrooms. {{ .Title }} brand identity. {{ .Description }}.",
-                "Professional, trusted, impactful. {{ .Title }}. {{ .Description }}.",
-                "Brand mood: authoritative, warm, growth-focused. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Professional brand reveal. Certificate showcase. Course materials. Clean. 9:16.",
-                "meta": "Education brand system. Logo. Certificates. Course packaging. 4:5.",
-                "pinterest": "Education mood board. Professional design. Certificate inspiration. 2:3 vertical.",
-                "instagram": "Professional education brand. Guidelines. Certificates. Materials. 4:5.",
-                "facebook": "Credible education brand. Trust-building identity. Certificates. 4:5.",
-                "youtube": "Brand overview. Logo. Certificates. Course materials. Events. 16:9.",
-                "x": "Professional education brand. Academic seal. Credible identity. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, certificates, course materials, signage, NOT classroom photography"
-        },
-        "supplements": {
-            "core_emotion": "strength_and_science",
-            "visual_direction": {
-                "lighting": "clean bright clinical, precise, f/4",
-                "colors": [
-                    "deep green",
-                    "clean white",
-                    "black",
-                    "gold accent",
-                    "navy"
-                ],
-                "scenarios": [
-                    "brand guidelines board",
-                    "tub packaging mockup",
-                    "label system",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "trade show booth",
-                    "brand certification"
-                ]
-            },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Clean scientific layout. Bold logo with shield or leaf motif. Color palette: 5 strong clean swatches with hex codes. Typography: bold modern heading, clean scientific body. {{ .Description }}. Science-backed supplement brand.",
-                "Design a SUPPLEMENT PACKAGING SYSTEM for {{ .Title }}. Tub, bottle, pouch, and sample packet with bold brand identity. Nutrition facts panel, certification badges. {{ .Description }}. Premium supplement packaging.",
-                "Design a LABEL DESIGN SYSTEM for {{ .Title }}. Front label, back nutrition panel, neck label, and cap seal. Consistent brand fonts, colors, and layout grid. {{ .Description }}. Professional supplement label system.",
-                "Design a SUPPLEMENT BRAND MOOD BOARD for {{ .Title }}. Scientific textures, clean labs, natural ingredients, strength imagery. Words: 'Tested', 'Pure', 'Proven'. {{ .Description }}.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Product launch template, ingredient callout template, stack recommendation template. Bold clean aesthetic. {{ .Description }}.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo, reversed, shield icon, and wordmark. Clean scientific brand presentation. {{ .Description }}.",
-                "Design a TRADE SHOW BOOTH MOCKUP for {{ .Title }}. Exhibition stand, banner, product display wall, branded table. Bold professional presence. {{ .Description }}.",
-                "Design a CERTIFICATION AND TRUST BADGE SYSTEM for {{ .Title }}. Third-party tested badge, GMP seal, quality guarantee card, and lab report template. All in brand identity. {{ .Description }}."
-            ],
-            "video_prompts": [
-                "Supplement brand reveal for {{ .Title }}. Bold logo animation. Clean colors. Tub packaging. Label system. {{ .Description }}.",
-                "Packaging showcase for {{ .Title }}. Tubs, bottles, pouches. Label close-ups. Brand consistency. {{ .Description }}.",
-                "Trade show booth for {{ .Title }}. Exhibition stand. Product display. Bold brand presence. {{ .Description }}."
-            ],
-            "carousel_prompt": "Supplement brand carousel for {{ .Title }}. Slide 1: Logo with shield badge. Slide 2: Color palette. Slide 3: Tub packaging. Slide 4: Label system. Slide 5: Certification badges. {{ .Description }}.",
-            "caption_templates": [
-                "{{ .Title }} — backed by science, built by design. {{ .Description }}.",
-                "Premium packaging for premium ingredients. {{ .Title }}. {{ .Description }}.",
-                "Every label, every badge, every detail. {{ .Title }} brand. {{ .Description }}.",
-                "Trusted identity for a trusted supplement. {{ .Title }}. {{ .Description }}.",
-                "Brand mood: scientific, bold, trustworthy. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold brand reveal. Packaging showcase. Label close-ups. Scientific energy. 9:16.",
-                "meta": "Professional supplement brand. Logo. Packaging. Certifications. 4:5.",
-                "pinterest": "Supplement brand mood board. Clean scientific. Packaging design. 2:3 vertical.",
-                "instagram": "Clean bold brand. Guidelines carousel. Packaging. Labels. 4:5.",
-                "facebook": "Professional supplement brand. Trust-building. Certifications. 4:5.",
-                "youtube": "Brand overview. Logo. Packaging. Labels. Trade show. 16:9.",
-                "x": "Bold supplement brand. Scientific precision. Trust badges. 16:9."
-            },
-            "product_rule": "brand identity focus — logo, colors, packaging, labels, certifications, NOT supplement photography"
+            "product_rule": "brand identity focus, logo and colors, not product shots"
         },
         "general": {
             "core_emotion": "identity_and_professionalism",
             "visual_direction": {
-                "lighting": "clean professional studio, even balanced, f/4",
+                "lighting": "clean professional",
                 "colors": [
                     "brand-specific",
-                    "complementary tones",
-                    "neutral base",
-                    "accent color",
-                    "dark contrast"
+                    "complementary tones"
                 ],
                 "scenarios": [
-                    "brand guidelines board",
-                    "stationery system",
-                    "packaging mockup",
-                    "mood board",
-                    "social media kit",
-                    "logo showcase",
-                    "signage mockup",
-                    "merchandise mockup"
+                    "logo mockup",
+                    "brand mood board",
+                    "stationery mockup",
+                    "color palette"
                 ]
             },
-            "master_prompts": [
-                "Design a BRAND GUIDELINES BOARD for {{ .Title }}. Professional layout. Logo centered with clear space rules and construction grid. Color palette: 5 brand swatches with hex codes. Typography: primary heading font and body font with hierarchy samples. Do/Don't usage examples. {{ .Description }}. Premium brand identity system. This must look like a real brand guidelines page from a design agency.",
-                "Design a STATIONERY SYSTEM MOCKUP for {{ .Title }}. Business card (front and back), A4 letterhead, #10 envelope, and compliment slip. All on clean surface showing cohesive brand identity with logo, colors, and typography. {{ .Description }}. Professional stationery system.",
-                "Design a PACKAGING MOCKUP SHOWCASE for {{ .Title }}. Primary product packaging, shipping box, and packing materials with brand logo and identity. Realistic 3D mockup on clean surface. {{ .Description }}. Premium packaging design presentation.",
-                "Design a BRAND MOOD BOARD for {{ .Title }}. Curated collage of textures, colors, imagery, and typography that capture brand essence. Brand adjectives placed artfully. Color swatches integrated. {{ .Description }}. Inspirational brand direction board.",
-                "Design a SOCIAL MEDIA KIT for {{ .Title }}. Instagram post template, story template, Facebook cover, Twitter/X header, and profile picture treatment. All using brand identity consistently. {{ .Description }}. Cohesive multi-platform brand presence.",
-                "Design a LOGO SHOWCASE for {{ .Title }}. Primary logo on light background, reversed on dark background, icon/mark only, horizontal wordmark. Clear space diagram. {{ .Description }}. Professional logo system presentation.",
-                "Design a SIGNAGE AND ENVIRONMENTAL MOCKUP for {{ .Title }}. Storefront sign, interior wall logo, window vinyl, and A-frame sidewalk sign. Brand identity in physical space. {{ .Description }}. Professional brand environment design.",
-                "Design a MERCHANDISE AND PROMOTIONAL MOCKUP for {{ .Title }}. T-shirt, tote bag, mug, and pen with brand logo and identity. Clean mockup presentation. {{ .Description }}. Brand merchandise line showcase."
-            ],
-            "video_prompts": [
-                "Brand identity reveal for {{ .Title }}. Logo animation. Color palette morph. Typography reveal. Stationery and packaging showcase. {{ .Description }}.",
-                "Brand system walkthrough for {{ .Title }}. Logo variations. Color usage. Typography. Stationery. Packaging. Signage. Complete system. {{ .Description }}.",
-                "Merchandise showcase for {{ .Title }}. Branded items rotating. Logo on multiple surfaces. Clean professional reveal. {{ .Description }}."
-            ],
-            "carousel_prompt": "Brand identity carousel for {{ .Title }}. Slide 1: Primary logo on clean background. Slide 2: Color palette with hex codes. Slide 3: Typography hierarchy. Slide 4: Stationery system. Slide 5: Packaging or signage mockup. {{ .Description }}. Professional brand guidelines.",
+            "master_prompt": "Design a professional brand identity visual for {{ .Title }}. Show the brand's visual system: logo on clean background, brand color palette, typography samples, stationery mockup (business card, letterhead), or packaging mockup. {{ .Description }}. This is a brand guidelines visualization. Clean, professional, cohesive. Use brand colors consistently throughout.",
+            "video_prompt": "Brand identity presentation for {{ .Title }}. Logo reveal. Color palette. Stationery mockups. Brand guidelines flow. {{ .Description }}.",
+            "carousel_prompt": "Brand identity system for {{ .Title }}. Slide 1: Primary logo on white. Slide 2: Logo on dark background (reversed). Slide 3: Color palette with swatches. Slide 4: Stationery or packaging mockup. {{ .Description }}. Professional brand guidelines.",
             "caption_templates": [
-                "Introducing {{ .Title }} — a cohesive brand identity system. {{ .Description }}.",
-                "Every detail, every touchpoint, every interaction. {{ .Title }} brand. {{ .Description }}.",
-                "The visual language of {{ .Title }}. Brand guidelines. {{ .Description }}.",
-                "From logo to stationery to signage — {{ .Title }} is consistent everywhere. {{ .Description }}.",
-                "Brand mood: professional, cohesive, intentional. {{ .Title }}. {{ .Description }}."
+                "Meet {{ .Title }} — our visual identity.",
+                "Every detail matters. {{ .Title }} brand system.",
+                "The look and feel of {{ .Title }}. {{ .Description }}."
             ],
             "platform_adaptation": {
-                "tiktok": "Quick brand reveal. Logo animation. Color palette. Stationery showcase. 9:16.",
-                "meta": "Professional brand system. Logo. Colors. Stationery. Packaging. 4:5.",
-                "pinterest": "Brand mood board pin. Color inspiration. Stationery showcase. 2:3 vertical. Save-worthy.",
-                "instagram": "Feed-cohesive brand. Guidelines carousel. Logo showcase. Stationery. 4:5.",
-                "facebook": "Professional brand identity. Trust-building. Stationery. Signage. 4:5.",
-                "youtube": "Brand guidelines overview. Logo. Colors. Typography. Stationery. 16:9.",
-                "x": "Clean brand identity visual. Professional logo. Bold brand statement. 16:9."
+                "meta": "Professional logo showcase. Brand system preview.",
+                "instagram": "Cohesive brand grid. Identity aesthetic.",
+                "pinterest": "Brand mood board pin. Inspiration board.",
+                "youtube": "Channel branding visual. Banner design.",
+                "facebook": "Brand cover photo. Professional identity.",
+                "x": "Clean brand header visual."
             },
-            "product_rule": "brand system visualization — logo, colors, typography, stationery, packaging, signage, NOT product photography. This is about the BRAND SYSTEM itself."
+            "product_rule": "brand system visualization, not product photography"
         }
     }
 }

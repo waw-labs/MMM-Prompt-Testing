@@ -2,34 +2,14 @@
     "schema_version": "2.1.0",
     "globals": {
         "core_frameworks": [
-            "ANNOUNCEMENT — Bold event reveal with date, time, location, and key details front and center",
-            "COUNTDOWN — Urgency-driven countdown timer design building excitement as event approaches",
-            "SAVE_THE_DATE — Elegant date reservation visual that makes audiences mark their calendars",
-            "LAUNCH_EVENT — Product or collection drop with exclusive hype and limited-time excitement",
-            "FLASH_SALE — Time-limited promotional event with bold urgency and deal-focused design",
-            "SEASONAL — Holiday, seasonal, or themed event tied to calendar moments and cultural events",
-            "WEBINAR_LIVE — Virtual event, live stream, or webinar promotion with speaker and topic focus",
-            "RSVP_INVITE — Formal invitation with RSVP action driving confirmed attendance"
+            "URGENCY",
+            "COUNTDOWN",
+            "ANNOUNCEMENT",
+            "SEASONAL",
+            "LAUNCH"
         ]
     },
     "platforms": {
-        "tiktok": {
-            "accepted_content_types": [
-                "image",
-                "video"
-            ],
-            "best_ad_frameworks": [
-                "COUNTDOWN",
-                "LAUNCH_EVENT",
-                "FLASH_SALE"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "9:16"
-                ]
-            },
-            "creative_rules": "Exciting event teaser energy. Bold text reveals. Countdown urgency. Quick date/time flash. Hype-building content native to TikTok. Full-screen vertical 9:16. Hook in first 0.5 seconds."
-        },
         "meta": {
             "accepted_content_types": [
                 "image",
@@ -37,9 +17,8 @@
                 "carousel"
             ],
             "best_ad_frameworks": [
-                "ANNOUNCEMENT",
-                "SAVE_THE_DATE",
-                "RSVP_INVITE"
+                "URGENCY",
+                "ANNOUNCEMENT"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -47,49 +26,16 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Bold event announcement with date/time prominent. Professional event marketing quality. Register/RSVP CTA button. Share-worthy design that drives event awareness. Clean bold typography. 4:5 portrait for maximum feed visibility."
-        },
-        "youtube": {
-            "accepted_content_types": [
-                "image",
-                "video"
-            ],
-            "best_ad_frameworks": [
-                "ANNOUNCEMENT",
-                "WEBINAR_LIVE"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "16:9"
-                ]
-            },
-            "creative_rules": "Event banner or countdown thumbnail quality. Speaker headshots for webinars. Bold date overlay. High-contrast event branding. Subscribe/notification bell integration. 16:9 landscape."
-        },
-        "pinterest": {
-            "accepted_content_types": [
-                "image"
-            ],
-            "best_ad_frameworks": [
-                "SEASONAL",
-                "SAVE_THE_DATE"
-            ],
-            "format_rules": {
-                "aspect_ratios": [
-                    "2:3"
-                ]
-            },
-            "creative_rules": "Aspirational event visual. Seasonal themed design. Save-worthy pin that inspires attendance. Beautiful typography with event details. 2:3 vertical pin format."
+            "creative_rules": "Bold event announcement. Date and time prominent. Urgency design elements. CTA to register or attend."
         },
         "instagram": {
             "accepted_content_types": [
                 "image",
-                "video",
                 "carousel"
             ],
             "best_ad_frameworks": [
                 "ANNOUNCEMENT",
-                "COUNTDOWN",
-                "LAUNCH_EVENT"
+                "COUNTDOWN"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -98,27 +44,68 @@
                     "9:16"
                 ]
             },
-            "creative_rules": "Eye-catching event graphic that stops the scroll. Date/time bold and unmissable. Feed-cohesive event branding. Swipe-for-details carousels. Story-ready countdown. 4:5 portrait or 1:1 square."
+            "creative_rules": "Eye-catching event graphic. Date/time bold. Consistent brand aesthetics. Swipe for details."
+        },
+        "tiktok": {
+            "accepted_content_types": [
+                "image",
+                "video"
+            ],
+            "best_ad_frameworks": [
+                "URGENCY",
+                "COUNTDOWN"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "9:16"
+                ]
+            },
+            "creative_rules": "Exciting event teaser. Countdown energy. Bold text reveals."
         },
         "facebook": {
             "accepted_content_types": [
                 "image",
-                "video",
-                "carousel"
+                "video"
             ],
             "best_ad_frameworks": [
                 "ANNOUNCEMENT",
-                "RSVP_INVITE",
-                "WEBINAR_LIVE"
+                "URGENCY"
             ],
             "format_rules": {
                 "aspect_ratios": [
                     "1:1",
-                    "4:5",
                     "16:9"
                 ]
             },
-            "creative_rules": "Event banner quality for Facebook Events. Share-worthy announcement design. RSVP/Interested CTA integration. Community-driven event feel. 4:5 portrait or 16:9 banner."
+            "creative_rules": "Event banner quality. Share-worthy announcement. RSVP CTA."
+        },
+        "youtube": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "ANNOUNCEMENT"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "16:9"
+                ]
+            },
+            "creative_rules": "Event banner or countdown thumbnail."
+        },
+        "pinterest": {
+            "accepted_content_types": [
+                "image"
+            ],
+            "best_ad_frameworks": [
+                "SEASONAL"
+            ],
+            "format_rules": {
+                "aspect_ratios": [
+                    "2:3"
+                ]
+            },
+            "creative_rules": "Seasonal event pin. Aspirational event visual."
         },
         "x": {
             "accepted_content_types": [
@@ -126,745 +113,82 @@
             ],
             "best_ad_frameworks": [
                 "ANNOUNCEMENT",
-                "COUNTDOWN"
+                "URGENCY"
             ],
             "format_rules": {
                 "aspect_ratios": [
-                    "16:9",
-                    "1:1"
+                    "16:9"
                 ]
             },
-            "creative_rules": "Bold announcement graphic optimized for timeline. Date and key details immediately visible. High-contrast event branding. Sharp professional design. 16:9 landscape for maximum tweet preview."
+            "creative_rules": "Bold announcement graphic. Date prominent. Event details clear."
         }
     },
     "niches": {
-        "beauty_skincare": {
-            "core_emotion": "glamour_and_exclusivity",
-            "visual_direction": {
-                "lighting": "soft elegant studio, warm glow, f/4 for luxe softness",
-                "colors": [
-                    "rose gold",
-                    "blush pink",
-                    "cream",
-                    "deep plum",
-                    "champagne"
-                ],
-                "scenarios": [
-                    "product launch event",
-                    "beauty masterclass",
-                    "seasonal sale",
-                    "VIP exclusive",
-                    "live tutorial",
-                    "countdown reveal",
-                    "collection drop",
-                    "anniversary celebration"
-                ]
-            },
-            "master_prompts": [
-                "Design a PRODUCT LAUNCH EVENT graphic for {{ .Title }}. Elegant rose gold and blush gradient background. Bold headline: 'NEW LAUNCH' with product silhouette. Date and time in elegant serif font. {{ .Description }}. 'Be the First to Try It' CTA. Luxury beauty launch event quality.",
-                "Design a BEAUTY MASTERCLASS EVENT graphic for {{ .Title }}. Elegant invitation style. 'EXCLUSIVE MASTERCLASS' headline. Expert name and topic. Date, time, platform details. {{ .Description }}. 'Reserve Your Spot' CTA. Professional beauty education event.",
-                "Design a SEASONAL BEAUTY SALE EVENT graphic for {{ .Title }}. Bold: 'GLOW SEASON SALE — UP TO 50% OFF'. Elegant design with seasonal elements. Sale dates prominent. {{ .Description }}. 'Shop the Sale' CTA. Luxurious beauty sale event.",
-                "Design a VIP EXCLUSIVE EVENT graphic for {{ .Title }}. Dark elegant background with gold accents. 'YOU ARE INVITED — VIP EARLY ACCESS'. Date and access code area. {{ .Description }}. 'Claim Your Access' CTA. Exclusive luxury beauty event.",
-                "Design a LIVE TUTORIAL EVENT graphic for {{ .Title }}. Split design: speaker/host photo area and event details. 'LIVE BEAUTY TUTORIAL' headline. Date, time, platform. {{ .Description }}. 'Set Your Reminder' CTA.",
-                "Design a COUNTDOWN REVEAL graphic for {{ .Title }}. Dramatic countdown clock showing days/hours/minutes. 'SOMETHING BIG IS COMING' teaser text. Blurred product silhouette. {{ .Description }}. 'Stay Tuned' CTA. Beauty brand countdown.",
-                "Design a COLLECTION DROP EVENT graphic for {{ .Title }}. Bold fashion-editorial style. 'THE NEW COLLECTION DROPS' with date. Limited edition badge. {{ .Description }}. 'Join the Waitlist' CTA. Hype-building beauty drop.",
-                "Design an ANNIVERSARY CELEBRATION EVENT graphic for {{ .Title }}. 'CELEBRATING [X] YEARS' with elegant gold confetti. Special anniversary discount. Date of celebration event. {{ .Description }}. 'Celebrate With Us' CTA."
-            ],
-            "video_prompts": [
-                "Product launch reveal video for {{ .Title }}. Dramatic slow reveal. Elegant transitions. Date text animation. CTA end card. {{ .Description }}.",
-                "Countdown teaser for {{ .Title }}. Ticking clock. Blurred reveals. Building excitement. Date flash. {{ .Description }}.",
-                "Beauty masterclass promo for {{ .Title }}. Expert intro. Topic preview. Registration CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Beauty event carousel for {{ .Title }}. Slide 1: Bold event announcement. Slide 2: What to expect. Slide 3: Speaker or product preview. Slide 4: Date, time, location. Slide 5: Register/RSVP CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Mark your calendars — {{ .Title }} is coming. {{ .Description }}. Save the date.",
-                "You are invited to something special. {{ .Title }}. {{ .Description }}. RSVP now.",
-                "The countdown begins. {{ .Title }} launches soon. {{ .Description }}. Stay tuned.",
-                "VIP access unlocked. {{ .Title }}. {{ .Description }}. Limited spots available.",
-                "Glow season is here. {{ .Title }}. {{ .Description }}. Shop the event."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Exciting product reveal teaser. Countdown energy. Quick date flash. Hype music. 9:16.",
-                "meta": "Elegant event banner. Date/time prominent. Rose gold aesthetic. Register CTA. 4:5.",
-                "pinterest": "Beautiful event save-the-date pin. Elegant design. Aspirational beauty event. 2:3.",
-                "instagram": "Eye-catching event card. Swipe for details. Elegant beauty aesthetic. 4:5.",
-                "facebook": "Event banner quality. RSVP CTA. Share-worthy beauty event announcement. 4:5.",
-                "youtube": "Event announcement banner. Speaker headshot for masterclass. Bold date. 16:9.",
-                "x": "Bold beauty event announcement. Date and key details. Elegant design. 16:9."
-            },
-            "product_rule": "event details front and center, date/time unmissable, urgency or exclusivity elements, elegant beauty aesthetic"
-        },
-        "home_organization": {
-            "core_emotion": "inspiration_and_efficiency",
-            "visual_direction": {
-                "lighting": "bright clean natural, airy, f/5.6",
-                "colors": [
-                    "warm white",
-                    "sage green",
-                    "soft grey",
-                    "natural wood",
-                    "warm beige"
-                ],
-                "scenarios": [
-                    "organizing workshop",
-                    "seasonal declutter",
-                    "warehouse sale",
-                    "live organizing session",
-                    "new collection launch",
-                    "spring cleaning event",
-                    "membership launch",
-                    "community challenge"
-                ]
-            },
-            "master_prompts": [
-                "Design an ORGANIZING WORKSHOP EVENT graphic for {{ .Title }}. Clean bright layout. 'ORGANIZING WORKSHOP' headline with clean icons. Date, time, location. Expert name. {{ .Description }}. 'Reserve Your Spot' CTA. Clean organized event design.",
-                "Design a SEASONAL DECLUTTER EVENT graphic for {{ .Title }}. 'SPRING DECLUTTER CHALLENGE — Join 10,000+ Organizers'. Calendar graphic. Before/after teaser. {{ .Description }}. 'Start Decluttering' CTA.",
-                "Design a WAREHOUSE SALE EVENT graphic for {{ .Title }}. Bold: 'WAREHOUSE CLEARANCE — UP TO 70% OFF'. Location and dates. Door-buster deals preview. {{ .Description }}. 'Shop the Sale' CTA. Clean sale event.",
-                "Design a LIVE ORGANIZING SESSION graphic for {{ .Title }}. Host photo area. 'LIVE: Organize Your [Space] in 30 Minutes'. Platform, date, time. {{ .Description }}. 'Set Reminder' CTA.",
-                "Design a NEW COLLECTION LAUNCH graphic for {{ .Title }}. Clean product teaser silhouettes. 'NEW ARRIVALS' with launch date. {{ .Description }}. 'Shop First' CTA. Clean organized launch event.",
-                "Design a SPRING CLEANING EVENT graphic for {{ .Title }}. Fresh seasonal design with clean green accents. 'SPRING CLEANING SALE'. Dates and deals. {{ .Description }}. 'Refresh Your Space' CTA.",
-                "Design a MEMBERSHIP LAUNCH EVENT graphic for {{ .Title }}. 'JOIN THE ORGANIZING COMMUNITY — Founding Members Get 30% Off'. Launch date. Benefits list. {{ .Description }}. 'Become a Member' CTA.",
-                "Design a COMMUNITY CHALLENGE EVENT graphic for {{ .Title }}. '30-DAY ORGANIZING CHALLENGE — Starts [Date]'. Daily task preview. Community badge. {{ .Description }}. 'Join the Challenge' CTA."
-            ],
-            "video_prompts": [
-                "Workshop promo for {{ .Title }}. Quick organized space reveals. Date text. Expert intro. CTA. {{ .Description }}.",
-                "Seasonal sale countdown for {{ .Title }}. Clean transitions. Deal teasers. Date flash. {{ .Description }}.",
-                "Challenge launch for {{ .Title }}. Before/after teaser. Community stats. Join CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Home event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: What you will learn/get. Slide 3: Expert or product preview. Slide 4: Date, time, details. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Your organized life starts here. {{ .Title }}. {{ .Description }}. Save your spot.",
-                "Join 10,000+ organizers at {{ .Title }}. {{ .Description }}. Spaces are limited.",
-                "The sale you have been waiting for. {{ .Title }}. {{ .Description }}. Mark the date.",
-                "Challenge accepted. {{ .Title }}. {{ .Description }}. Join us.",
-                "New season, new organization. {{ .Title }}. {{ .Description }}. Shop early."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Quick before/after space reveal. Challenge energy. Date flash. Join CTA. 9:16.",
-                "meta": "Clean event banner. Date prominent. Organized aesthetic. Register CTA. 4:5.",
-                "pinterest": "Seasonal event pin. Clean organizing aesthetic. Save-worthy. 2:3.",
-                "instagram": "Eye-catching event card. Clean design. Swipe for details. 4:5.",
-                "facebook": "Event banner. RSVP CTA. Community-driven organizing event. 4:5.",
-                "youtube": "Workshop or challenge banner. Expert headshot. Date overlay. 16:9.",
-                "x": "Bold organizing event. Date and details clear. Clean design. 16:9."
-            },
-            "product_rule": "event details prominent, date/time clear, clean organized design aesthetic, urgency or community elements"
-        },
-        "fitness": {
-            "core_emotion": "energy_and_challenge",
-            "visual_direction": {
-                "lighting": "dramatic high-energy, bold contrast, f/4",
-                "colors": [
-                    "bold black",
-                    "electric red",
-                    "neon green",
-                    "white",
-                    "gunmetal"
-                ],
-                "scenarios": [
-                    "fitness challenge launch",
-                    "flash sale",
-                    "live workout",
-                    "competition event",
-                    "gym opening",
-                    "boot camp",
-                    "membership drive",
-                    "transformation challenge"
-                ]
-            },
-            "master_prompts": [
-                "Design a FITNESS CHALLENGE LAUNCH graphic for {{ .Title }}. Bold dark background with electric accents. '30-DAY CHALLENGE — STARTS [DATE]'. Transformation stats teaser. {{ .Description }}. 'Join Now' CTA. High-energy fitness event.",
-                "Design a FLASH SALE EVENT graphic for {{ .Title }}. 'BEAST MODE SALE — 48 HOURS ONLY'. Bold red urgency banner. Sale prices. Countdown clock graphic. {{ .Description }}. 'Grab Your Deal' CTA.",
-                "Design a LIVE WORKOUT EVENT graphic for {{ .Title }}. Trainer photo area. 'LIVE WORKOUT — [Date] at [Time]'. Platform details. Workout type. {{ .Description }}. 'Set Your Alarm' CTA. Dynamic fitness event.",
-                "Design a COMPETITION EVENT graphic for {{ .Title }}. 'FITNESS SHOWDOWN — [Date]'. Prize pool display. Registration deadline. {{ .Description }}. 'Register to Compete' CTA. Bold competitive energy.",
-                "Design a GYM GRAND OPENING graphic for {{ .Title }}. 'GRAND OPENING — [Date]'. Free trial badge. Opening day specials. Location map icon. {{ .Description }}. 'Claim Free Pass' CTA.",
-                "Design a BOOT CAMP EVENT graphic for {{ .Title }}. 'OUTDOOR BOOT CAMP — [Dates]'. Intense training preview. Schedule grid. {{ .Description }}. 'Enroll Now — Limited Spots' CTA.",
-                "Design a MEMBERSHIP DRIVE EVENT graphic for {{ .Title }}. 'NEW YEAR, NEW YOU — Join Before [Date] and Save 40%'. Countdown urgency. Benefits list. {{ .Description }}. 'Lock In Your Rate' CTA.",
-                "Design a TRANSFORMATION CHALLENGE graphic for {{ .Title }}. 'BEFORE/AFTER CHALLENGE — $5K Prize Pool'. 90-day timeline graphic. Before/after silhouette. {{ .Description }}. 'Enter the Challenge' CTA."
-            ],
-            "video_prompts": [
-                "Challenge launch video for {{ .Title }}. High-energy montage. Date reveal. Join CTA. {{ .Description }}.",
-                "Flash sale countdown for {{ .Title }}. Ticking clock. Deal reveals. Urgency CTA. {{ .Description }}.",
-                "Live workout promo for {{ .Title }}. Trainer preview. Workout teaser. Date/time. CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fitness event carousel for {{ .Title }}. Slide 1: Bold announcement. Slide 2: Challenge details. Slide 3: Prizes or deals. Slide 4: Schedule. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Challenge accepted. {{ .Title }} starts soon. {{ .Description }}. Join now.",
-                "48 hours only. {{ .Title }}. {{ .Description }}. Do not miss this.",
-                "Train live with us. {{ .Title }}. {{ .Description }}. Set your reminder.",
-                "Your transformation starts at {{ .Title }}. {{ .Description }}. Register now.",
-                "Grand opening alert. {{ .Title }}. {{ .Description }}. Free passes available."
-            ],
-            "platform_adaptation": {
-                "tiktok": "High-energy challenge teaser. Bold reveals. Countdown music. Join CTA. 9:16.",
-                "meta": "Bold event banner. Date prominent. Electric colors. Register CTA. 4:5.",
-                "pinterest": "Fitness event inspiration. Challenge graphic. Bold design. 2:3.",
-                "instagram": "Eye-catching fitness event. Bold date. Swipe for details. 4:5.",
-                "facebook": "Fitness event banner. RSVP. Community challenge. Share-worthy. 4:5.",
-                "youtube": "Event banner. Trainer headshot. Bold date overlay. Competition energy. 16:9.",
-                "x": "Bold fitness event announcement. Date clear. High-energy design. 16:9."
-            },
-            "product_rule": "event details front and center, date/time bold, high-energy design, urgency elements"
-        },
-        "tech_gadgets": {
-            "core_emotion": "innovation_and_anticipation",
-            "visual_direction": {
-                "lighting": "clean minimal, tech-blue glow, f/4",
-                "colors": [
-                    "clean white",
-                    "slate grey",
-                    "electric blue",
-                    "deep black",
-                    "neon cyan"
-                ],
-                "scenarios": [
-                    "product launch event",
-                    "tech conference",
-                    "webinar",
-                    "flash sale",
-                    "early access",
-                    "pre-order event",
-                    "developer meetup",
-                    "demo day"
-                ]
-            },
-            "master_prompts": [
-                "Design a PRODUCT LAUNCH EVENT graphic for {{ .Title }}. Minimal dark background with tech-blue glow. Product silhouette teaser. 'LAUNCHING [DATE]' bold headline. {{ .Description }}. 'Be the First to Know' CTA. Apple-tier launch event quality.",
-                "Design a TECH CONFERENCE EVENT graphic for {{ .Title }}. 'TECH SUMMIT [YEAR]'. Speaker lineup grid. Date, location, virtual option. {{ .Description }}. 'Register Now' CTA. Professional tech event.",
-                "Design a WEBINAR EVENT graphic for {{ .Title }}. Clean layout. Speaker headshot area. Topic headline. Date, time, platform. Live Q&A badge. {{ .Description }}. 'Save Your Seat' CTA.",
-                "Design a TECH FLASH SALE graphic for {{ .Title }}. 'CYBER DEALS — 24 HOURS ONLY'. Product grid with slashed prices. Countdown timer. {{ .Description }}. 'Shop Now Before It Ends' CTA.",
-                "Design an EARLY ACCESS EVENT graphic for {{ .Title }}. 'EARLY ACCESS — [DATE]'. VIP/beta badge. Exclusive preview teaser. {{ .Description }}. 'Request Access' CTA. Exclusive tech event.",
-                "Design a PRE-ORDER EVENT graphic for {{ .Title }}. 'PRE-ORDER NOW — Ships [Date]'. Product hero silhouette. Limited quantity badge. {{ .Description }}. 'Pre-Order and Save' CTA.",
-                "Design a DEVELOPER MEETUP graphic for {{ .Title }}. Code-themed design. 'DEV MEETUP — [Date]'. Topics and speakers. Location or virtual. {{ .Description }}. 'RSVP Free' CTA.",
-                "Design a DEMO DAY EVENT graphic for {{ .Title }}. 'LIVE DEMO — See {{ .Title }} in Action'. Date, time. Interactive preview graphic. {{ .Description }}. 'Watch the Demo' CTA."
-            ],
-            "video_prompts": [
-                "Product launch teaser for {{ .Title }}. Minimal reveal. Glow effects. Date flash. CTA. {{ .Description }}.",
-                "Tech conference promo for {{ .Title }}. Speaker montage. Topic previews. Registration CTA. {{ .Description }}.",
-                "Flash sale countdown for {{ .Title }}. Product reveals. Price drops. Timer. CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Tech event carousel for {{ .Title }}. Slide 1: Launch announcement. Slide 2: Product preview or speakers. Slide 3: Features or topics. Slide 4: Date, time, details. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Something big is coming. {{ .Title }}. {{ .Description }}. Stay tuned.",
-                "The future launches on [date]. {{ .Title }}. {{ .Description }}. Be there.",
-                "24 hours only. {{ .Title }}. {{ .Description }}. Do not miss these deals.",
-                "Join the conversation. {{ .Title }}. {{ .Description }}. Register free.",
-                "See it first. {{ .Title }}. {{ .Description }}. Early access open."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Dramatic tech reveal. Glow effects. Date flash. Hype energy. 9:16.",
-                "meta": "Clean tech event banner. Product teaser. Date prominent. Register CTA. 4:5.",
-                "pinterest": "Tech event aesthetic. Launch preview pin. Clean design. 2:3.",
-                "instagram": "Minimal tech event card. Bold date. Swipe for specs. 4:5.",
-                "facebook": "Tech event banner. RSVP. Webinar registration. Professional. 4:5.",
-                "youtube": "Launch event banner. Product teaser. Speaker headshots. 16:9.",
-                "x": "Bold tech announcement. Clean minimal. Date and details. 16:9."
-            },
-            "product_rule": "event details prominent, tech-minimal aesthetic, anticipation and exclusivity, date/time clear"
-        },
-        "pets": {
-            "core_emotion": "joy_and_community",
-            "visual_direction": {
-                "lighting": "warm bright natural, golden warmth, f/2.8",
-                "colors": [
-                    "warm brown",
-                    "golden",
-                    "cream",
-                    "terracotta",
-                    "sky blue"
-                ],
-                "scenarios": [
-                    "pet adoption event",
-                    "seasonal sale",
-                    "pet photo contest",
-                    "product launch",
-                    "community meetup",
-                    "vaccination clinic",
-                    "pet birthday party",
-                    "charity walk"
-                ]
-            },
-            "master_prompts": [
-                "Design a PET ADOPTION EVENT graphic for {{ .Title }}. Warm loving design with paw prints. 'ADOPTION DAY — [Date]'. Adorable pet silhouettes. Location and time. {{ .Description }}. 'Find Your Best Friend' CTA.",
-                "Design a PET SEASONAL SALE graphic for {{ .Title }}. 'PAW-LIDAY SALE — UP TO 40% OFF'. Festive pet-themed design. Sale dates. {{ .Description }}. 'Shop the Sale' CTA. Warm sale event.",
-                "Design a PET PHOTO CONTEST graphic for {{ .Title }}. 'CUTEST PET CONTEST — Submit by [Date]'. Prize display. Entry rules. {{ .Description }}. 'Enter Your Pet' CTA. Fun pet event.",
-                "Design a PET PRODUCT LAUNCH graphic for {{ .Title }}. 'NEW ARRIVALS FOR YOUR BEST FRIEND'. Product teaser. Launch date. {{ .Description }}. 'Shop First' CTA. Warm launch event.",
-                "Design a PET COMMUNITY MEETUP graphic for {{ .Title }}. 'BARK IN THE PARK — [Date]'. Location, time, activities. {{ .Description }}. 'RSVP Free' CTA. Fun community event.",
-                "Design a PET WELLNESS CLINIC graphic for {{ .Title }}. 'FREE PET WELLNESS CHECK — [Date]'. Veterinary trust symbols. Location. {{ .Description }}. 'Book Your Slot' CTA.",
-                "Design a PET BIRTHDAY PARTY EVENT graphic for {{ .Title }}. 'PAWS AND CELEBRATE — Birthday Bash'. Festive pet-themed design. Date, time, treats. {{ .Description }}. 'Join the Party' CTA.",
-                "Design a PET CHARITY WALK graphic for {{ .Title }}. 'WALK FOR PAWS — [Date]'. Route map icon. Fundraising goal. Sponsor logos area. {{ .Description }}. 'Register Your Pack' CTA."
-            ],
-            "video_prompts": [
-                "Adoption event promo for {{ .Title }}. Adorable pet highlights. Date/location. Heartwarming CTA. {{ .Description }}.",
-                "Seasonal sale countdown for {{ .Title }}. Product reveals. Happy pet clips. Deal teasers. {{ .Description }}.",
-                "Photo contest launch for {{ .Title }}. Past winners. Entry instructions. Prize reveal. {{ .Description }}."
-            ],
-            "carousel_prompt": "Pet event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: What to expect. Slide 3: Activities or deals. Slide 4: Date, time, location. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Tails will be wagging at {{ .Title }}. {{ .Description }}. Save the date.",
-                "Your best friend deserves this. {{ .Title }}. {{ .Description }}. Join us.",
-                "The sale your pet has been waiting for. {{ .Title }}. {{ .Description }}.",
-                "Show us your cutest pet. {{ .Title }}. {{ .Description }}. Enter now.",
-                "Walk, play, celebrate. {{ .Title }}. {{ .Description }}. RSVP today."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Adorable pet teaser. Fun energy. Date flash. Join CTA. 9:16.",
-                "meta": "Warm event banner. Date prominent. Paw print design. RSVP CTA. 4:5.",
-                "pinterest": "Pet event inspiration pin. Warm aesthetic. Save-worthy. 2:3.",
-                "instagram": "Heartwarming event card. Swipe for details. Warm design. 4:5.",
-                "facebook": "Pet event banner. RSVP. Community meetup. Share-worthy. 4:5.",
-                "youtube": "Event banner. Adoption day or contest promo. Date overlay. 16:9.",
-                "x": "Fun pet event announcement. Date and details clear. Warm design. 16:9."
-            },
-            "product_rule": "event details prominent, warm pet-friendly design, date/time clear, community or urgency elements"
-        },
-        "fashion_apparel": {
-            "core_emotion": "exclusivity_and_hype",
-            "visual_direction": {
-                "lighting": "dramatic editorial, bold shadows, f/4",
-                "colors": [
-                    "noir black",
-                    "gold",
-                    "neon pink",
-                    "cream",
-                    "deep red"
-                ],
-                "scenarios": [
-                    "collection drop",
-                    "flash sale",
-                    "fashion show",
-                    "pop-up shop",
-                    "VIP invite",
-                    "sample sale",
-                    "collaboration launch",
-                    "season premiere"
-                ]
-            },
-            "master_prompts": [
-                "Design a COLLECTION DROP EVENT graphic for {{ .Title }}. Bold dramatic black and gold. 'THE DROP — [Date]'. Teaser silhouette of pieces. Limited edition count. {{ .Description }}. 'Join the Waitlist' CTA. Fashion hype event.",
-                "Design a FLASH SALE EVENT graphic for {{ .Title }}. 'FLASH SALE — 24 HOURS ONLY'. Bold urgency design. Top deals preview. Countdown clock. {{ .Description }}. 'Shop Now' CTA. Fashion urgency.",
-                "Design a FASHION SHOW EVENT graphic for {{ .Title }}. 'RUNWAY [SEASON] [YEAR]'. Dramatic editorial design. Date, venue, dress code. {{ .Description }}. 'Request Invite' CTA. High-fashion event.",
-                "Design a POP-UP SHOP EVENT graphic for {{ .Title }}. 'POP-UP — [City] [Dates]'. Location map pin. Exclusive items badge. {{ .Description }}. 'Visit Us' CTA. Fashion pop-up energy.",
-                "Design a VIP INVITATION EVENT graphic for {{ .Title }}. Dark elegant background. 'YOU ARE EXCLUSIVELY INVITED'. Gold foil effect text. Date, time, dress code. {{ .Description }}. 'RSVP' CTA.",
-                "Design a SAMPLE SALE EVENT graphic for {{ .Title }}. 'SAMPLE SALE — UP TO 80% OFF'. Location, dates, hours. First-come-first-served badge. {{ .Description }}. 'Get There Early' CTA.",
-                "Design a COLLABORATION LAUNCH graphic for {{ .Title }}. 'X COLLAB — Dropping [Date]'. Two brand logos. Limited edition badge. Product teaser. {{ .Description }}. 'Shop the Collab' CTA.",
-                "Design a SEASON PREMIERE EVENT graphic for {{ .Title }}. 'SPRING/SUMMER [YEAR] — Now Available'. Seasonal color palette. Collection preview. {{ .Description }}. 'Shop the New Season' CTA."
-            ],
-            "video_prompts": [
-                "Collection drop teaser for {{ .Title }}. Dramatic reveals. Date flash. Exclusive feel. CTA. {{ .Description }}.",
-                "Flash sale countdown for {{ .Title }}. Price drops. Deal reveals. Timer. Urgency CTA. {{ .Description }}.",
-                "Fashion show promo for {{ .Title }}. Runway clips. Designer intro. Date/venue. RSVP CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fashion event carousel for {{ .Title }}. Slide 1: Bold announcement. Slide 2: Collection or deal preview. Slide 3: Exclusive details. Slide 4: Date, time, location. Slide 5: RSVP/Shop CTA. {{ .Description }}.",
-            "caption_templates": [
-                "The drop is imminent. {{ .Title }}. {{ .Description }}. Mark your calendar.",
-                "24 hours. Once it is gone, it is gone. {{ .Title }}. {{ .Description }}.",
-                "You are on the list. {{ .Title }}. {{ .Description }}. RSVP now.",
-                "Limited edition. {{ .Title }}. {{ .Description }}. Join the waitlist.",
-                "New season energy. {{ .Title }}. {{ .Description }}. Shop first."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Dramatic drop teaser. Hype music. Quick reveals. Date flash. 9:16.",
-                "meta": "Bold fashion event. Date prominent. Exclusive design. Shop CTA. 4:5.",
-                "pinterest": "Fashion event inspiration. Editorial aesthetic. Save-worthy. 2:3.",
-                "instagram": "Hype fashion card. Swipe for drop details. Bold design. 4:5.",
-                "facebook": "Fashion event banner. RSVP. Collection preview. Share-worthy. 4:5.",
-                "youtube": "Fashion show or launch banner. High-contrast. Bold date. 16:9.",
-                "x": "Bold fashion announcement. Drop date clear. Exclusive energy. 16:9."
-            },
-            "product_rule": "event details prominent, exclusivity and hype, date/time dominant, fashion-forward design"
-        },
-        "food_beverage": {
-            "core_emotion": "celebration_and_craving",
-            "visual_direction": {
-                "lighting": "warm appetizing, golden hour, f/4",
-                "colors": [
-                    "rich brown",
-                    "warm cream",
-                    "fresh green",
-                    "appetizing red",
-                    "golden"
-                ],
-                "scenarios": [
-                    "restaurant opening",
-                    "food festival",
-                    "menu launch",
-                    "seasonal special",
-                    "tasting event",
-                    "cooking class",
-                    "holiday feast",
-                    "happy hour"
-                ]
-            },
-            "master_prompts": [
-                "Design a RESTAURANT GRAND OPENING graphic for {{ .Title }}. 'GRAND OPENING — [Date]'. Appetizing food silhouette. Location address. Opening specials. {{ .Description }}. 'Be Our Guest' CTA. Warm inviting event.",
-                "Design a FOOD FESTIVAL EVENT graphic for {{ .Title }}. 'FOOD FEST [YEAR] — [Dates]'. Multiple vendor badges. Location. Entertainment lineup. {{ .Description }}. 'Get Your Tickets' CTA.",
-                "Design a NEW MENU LAUNCH graphic for {{ .Title }}. 'NEW MENU — Available [Date]'. Appetizing dish teaser. Chef spotlight. {{ .Description }}. 'Reserve Your Table' CTA.",
-                "Design a SEASONAL SPECIAL EVENT graphic for {{ .Title }}. 'SUMMER MENU — Limited Time Only'. Seasonal ingredients visual. Available dates. {{ .Description }}. 'Try It Before It Is Gone' CTA.",
-                "Design a TASTING EVENT graphic for {{ .Title }}. 'EXCLUSIVE TASTING — [Date]'. Wine/food pairing preview. Limited seats count. {{ .Description }}. 'Reserve Your Seat' CTA.",
-                "Design a COOKING CLASS EVENT graphic for {{ .Title }}. 'COOK WITH US — [Date]'. Chef headshot area. Menu preview. Class time. {{ .Description }}. 'Book Your Spot' CTA.",
-                "Design a HOLIDAY FEAST EVENT graphic for {{ .Title }}. 'HOLIDAY DINNER — Book Now for [Holiday]'. Festive design. Prix fixe menu preview. {{ .Description }}. 'Make a Reservation' CTA.",
-                "Design a HAPPY HOUR EVENT graphic for {{ .Title }}. 'HAPPY HOUR — Every [Day] [Times]'. Drink specials. Appetizer deals. Location. {{ .Description }}. 'See You There' CTA."
-            ],
-            "video_prompts": [
-                "Grand opening promo for {{ .Title }}. Food showcase. Location reveal. Date. CTA. {{ .Description }}.",
-                "New menu teaser for {{ .Title }}. Dish reveals. Chef introduction. Launch date. {{ .Description }}.",
-                "Tasting event promo for {{ .Title }}. Pairing previews. Atmosphere teaser. RSVP CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Food event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: Menu or dish preview. Slide 3: Chef or experience. Slide 4: Date, time, location. Slide 5: Reserve CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Your table is waiting. {{ .Title }}. {{ .Description }}. Reserve now.",
-                "Taste something new. {{ .Title }}. {{ .Description }}. Limited time.",
-                "Doors open on [date]. {{ .Title }}. {{ .Description }}. Be there.",
-                "Cook, eat, celebrate. {{ .Title }}. {{ .Description }}. Book your spot.",
-                "The flavor event of the season. {{ .Title }}. {{ .Description }}. RSVP."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Appetizing quick reveals. Dish teasers. Date flash. CTA. 9:16.",
-                "meta": "Warm food event banner. Date prominent. Reserve CTA. 4:5.",
-                "pinterest": "Food event inspiration. Seasonal menu pin. Save-worthy. 2:3.",
-                "instagram": "Appetizing event card. Dish preview. Swipe for details. 4:5.",
-                "facebook": "Restaurant event banner. RSVP. Share-worthy food announcement. 4:5.",
-                "youtube": "Food event banner. Dish showcase. Chef headshot. Date overlay. 16:9.",
-                "x": "Bold food event. Date and venue clear. Appetizing design. 16:9."
-            },
-            "product_rule": "event details prominent, appetizing design, date/time/location clear, reservation urgency"
-        },
-        "health_wellness": {
-            "core_emotion": "vitality_and_empowerment",
-            "visual_direction": {
-                "lighting": "bright clean calming, natural, f/4",
-                "colors": [
-                    "sage green",
-                    "white",
-                    "soft blue",
-                    "warm sand",
-                    "earth tones"
-                ],
-                "scenarios": [
-                    "wellness retreat",
-                    "webinar",
-                    "product launch",
-                    "health challenge",
-                    "clinic opening",
-                    "detox program",
-                    "meditation session",
-                    "health summit"
-                ]
-            },
-            "master_prompts": [
-                "Design a WELLNESS RETREAT EVENT graphic for {{ .Title }}. Calming sage and white design. 'WELLNESS RETREAT — [Dates]'. Location, schedule preview. {{ .Description }}. 'Reserve Your Spot' CTA. Serene retreat event.",
-                "Design a HEALTH WEBINAR EVENT graphic for {{ .Title }}. Clean professional layout. Speaker photo area. 'LIVE: [Topic]'. Date, time, platform. {{ .Description }}. 'Register Free' CTA.",
-                "Design a WELLNESS PRODUCT LAUNCH graphic for {{ .Title }}. 'NEW LAUNCH — [Date]'. Product silhouette with benefit badges. {{ .Description }}. 'Be the First' CTA. Clean launch.",
-                "Design a HEALTH CHALLENGE EVENT graphic for {{ .Title }}. '21-DAY WELLNESS CHALLENGE — Starts [Date]'. Daily plan preview. Community count. {{ .Description }}. 'Join the Challenge' CTA.",
-                "Design a WELLNESS CLINIC OPENING graphic for {{ .Title }}. 'NOW OPEN — [Location]'. Services overview. Opening special. {{ .Description }}. 'Book Your Visit' CTA.",
-                "Design a DETOX PROGRAM EVENT graphic for {{ .Title }}. 'SPRING DETOX — [Dates]'. Program breakdown. What is included. {{ .Description }}. 'Start Your Detox' CTA.",
-                "Design a MEDITATION SESSION EVENT graphic for {{ .Title }}. 'GUIDED MEDITATION — Every [Day] at [Time]'. Calming design. Platform details. {{ .Description }}. 'Join Us' CTA.",
-                "Design a HEALTH SUMMIT EVENT graphic for {{ .Title }}. 'WELLNESS SUMMIT [YEAR]'. Speaker lineup. Topics. Venue/virtual. {{ .Description }}. 'Get Your Pass' CTA."
-            ],
-            "video_prompts": [
-                "Wellness retreat promo for {{ .Title }}. Serene atmosphere. Schedule preview. Registration CTA. {{ .Description }}.",
-                "Health challenge launch for {{ .Title }}. Daily plan teaser. Community energy. Join CTA. {{ .Description }}.",
-                "Webinar promo for {{ .Title }}. Speaker intro. Topic preview. Register CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Wellness event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: Program details. Slide 3: Speaker or schedule. Slide 4: Date, time, details. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Your wellness journey starts here. {{ .Title }}. {{ .Description }}. Save your spot.",
-                "21 days to transform. {{ .Title }}. {{ .Description }}. Join the challenge.",
-                "Learn from the experts. {{ .Title }}. {{ .Description }}. Register free.",
-                "Retreat, recharge, renew. {{ .Title }}. {{ .Description }}. Limited spaces.",
-                "New wellness destination. {{ .Title }}. {{ .Description }}. Book now."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Calming wellness teaser. Challenge energy. Quick details. Join CTA. 9:16.",
-                "meta": "Clean wellness event banner. Date prominent. Calming design. Register CTA. 4:5.",
-                "pinterest": "Wellness retreat pin. Calming aesthetic. Save-worthy. 2:3.",
-                "instagram": "Clean wellness card. Swipe for program details. Calming design. 4:5.",
-                "facebook": "Wellness event banner. RSVP. Community challenge. Share-worthy. 4:5.",
-                "youtube": "Wellness summit banner. Speaker headshots. Calming overlay. 16:9.",
-                "x": "Clean health event. Date and details clear. Professional design. 16:9."
-            },
-            "product_rule": "event details prominent, calming wellness aesthetic, date/time clear, trust and empowerment"
-        },
-        "baby_kids": {
-            "core_emotion": "joy_and_protection",
-            "visual_direction": {
-                "lighting": "soft warm diffused, gentle, f/4",
-                "colors": [
-                    "soft pastel blue",
-                    "gentle pink",
-                    "warm cream",
-                    "mint green",
-                    "lavender"
-                ],
-                "scenarios": [
-                    "baby expo",
-                    "seasonal sale",
-                    "parenting workshop",
-                    "first birthday party",
-                    "product launch",
-                    "playdate event",
-                    "milestone celebration",
-                    "holiday event"
-                ]
-            },
-            "master_prompts": [
-                "Design a BABY EXPO EVENT graphic for {{ .Title }}. Soft pastel design. 'BABY AND KIDS EXPO — [Dates]'. Activities, vendors, entertainment. Location. {{ .Description }}. 'Get Your Tickets' CTA.",
-                "Design a SEASONAL BABY SALE graphic for {{ .Title }}. 'LITTLE ONES SALE — UP TO 50% OFF'. Soft pastel urgency. Sale dates. Top deals. {{ .Description }}. 'Shop the Sale' CTA.",
-                "Design a PARENTING WORKSHOP graphic for {{ .Title }}. 'PARENTING WORKSHOP — [Topic]'. Expert photo area. Date, time, platform. {{ .Description }}. 'Reserve Free Seat' CTA.",
-                "Design a BIRTHDAY PARTY PACKAGE graphic for {{ .Title }}. 'FIRST BIRTHDAY PACKAGES — Book Now'. Celebration design. Package options. {{ .Description }}. 'Plan the Party' CTA.",
-                "Design a BABY PRODUCT LAUNCH graphic for {{ .Title }}. 'NEW FOR YOUR LITTLE ONE — [Date]'. Soft product teaser. Safety badges. {{ .Description }}. 'Shop First' CTA.",
-                "Design a PLAYDATE EVENT graphic for {{ .Title }}. 'COMMUNITY PLAYDATE — [Date]'. Activities, location, age range. {{ .Description }}. 'RSVP Free' CTA. Fun gentle event.",
-                "Design a MILESTONE CELEBRATION graphic for {{ .Title }}. 'CELEBRATE EVERY FIRST — Special Event [Date]'. Milestone badges. Activities. {{ .Description }}. 'Join the Celebration' CTA.",
-                "Design a HOLIDAY KIDS EVENT graphic for {{ .Title }}. 'HOLIDAY WONDERLAND — [Dates]'. Festive kid-friendly design. Activities, Santa/photos. {{ .Description }}. 'Get Tickets' CTA."
-            ],
-            "video_prompts": [
-                "Baby expo promo for {{ .Title }}. Fun activities preview. Date and location. Tickets CTA. {{ .Description }}.",
-                "Sale countdown for {{ .Title }}. Adorable product reveals. Deal teasers. Shop CTA. {{ .Description }}.",
-                "Parenting workshop promo for {{ .Title }}. Expert intro. Topic preview. Register CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Baby event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: Activities or deals. Slide 3: Details. Slide 4: Date, time, location. Slide 5: RSVP CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Little ones, big fun. {{ .Title }}. {{ .Description }}. Save the date.",
-                "The sale for growing families. {{ .Title }}. {{ .Description }}. Mark your calendar.",
-                "Learn, play, grow together. {{ .Title }}. {{ .Description }}. Free registration.",
-                "Celebrate every milestone. {{ .Title }}. {{ .Description }}. Join us.",
-                "Holiday magic for little ones. {{ .Title }}. {{ .Description }}. Get tickets."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Adorable kid moment teaser. Soft energy. Date flash. CTA. 9:16.",
-                "meta": "Soft baby event banner. Date prominent. Gentle design. RSVP CTA. 4:5.",
-                "pinterest": "Baby event inspiration. Soft pastel aesthetic. Save-worthy. 2:3.",
-                "instagram": "Gentle event card. Swipe for details. Pastel design. 4:5.",
-                "facebook": "Baby event banner. RSVP. Community-focused. Share-worthy. 4:5.",
-                "youtube": "Kids event banner. Activity preview. Soft overlay. 16:9.",
-                "x": "Gentle baby event. Date and details clear. Soft professional design. 16:9."
-            },
-            "product_rule": "event details prominent, soft gentle design, date/time clear, safety and joy elements"
-        },
-        "automotive": {
-            "core_emotion": "power_and_adrenaline",
-            "visual_direction": {
-                "lighting": "dramatic high-contrast, metallic sheen, f/4",
-                "colors": [
-                    "carbon black",
-                    "racing red",
-                    "chrome silver",
-                    "electric blue",
-                    "gunmetal"
-                ],
-                "scenarios": [
-                    "car show",
-                    "grand opening",
-                    "flash sale",
-                    "test drive event",
-                    "launch event",
-                    "track day",
-                    "service special",
-                    "auto expo"
-                ]
-            },
-            "master_prompts": [
-                "Design a CAR SHOW EVENT graphic for {{ .Title }}. Bold dramatic design. 'AUTO SHOW [YEAR] — [Dates]'. Featured vehicle silhouette. Venue. {{ .Description }}. 'Get Your Passes' CTA.",
-                "Design a GRAND OPENING graphic for {{ .Title }}. 'GRAND OPENING — [Date]'. Dealership or shop. Opening specials. Free giveaways. {{ .Description }}. 'Visit Us' CTA.",
-                "Design a FLASH SALE EVENT graphic for {{ .Title }}. 'PARTS BLOWOUT — 48 HOURS ONLY'. Bold red urgency. Top deals grid. Timer. {{ .Description }}. 'Shop Now' CTA.",
-                "Design a TEST DRIVE EVENT graphic for {{ .Title }}. 'FREE TEST DRIVE — [Date]'. Vehicle showcase. Location, times. {{ .Description }}. 'Book Your Drive' CTA.",
-                "Design a VEHICLE LAUNCH EVENT graphic for {{ .Title }}. 'UNVEILING [Model] — [Date]'. Dramatic vehicle silhouette reveal. Specs teaser. {{ .Description }}. 'Be There' CTA.",
-                "Design a TRACK DAY EVENT graphic for {{ .Title }}. 'TRACK DAY — [Date]'. Course map icon. Requirements. Registration limit. {{ .Description }}. 'Reserve Your Lap' CTA.",
-                "Design a SERVICE SPECIAL EVENT graphic for {{ .Title }}. 'SERVICE WEEK — [Dates]'. Maintenance deals grid. Free inspection badge. {{ .Description }}. 'Book Your Service' CTA.",
-                "Design an AUTO EXPO EVENT graphic for {{ .Title }}. 'AUTO EXPO [YEAR]'. Multiple brand logos area. Venue, dates. Ticket tiers. {{ .Description }}. 'Get Tickets' CTA."
-            ],
-            "video_prompts": [
-                "Car show promo for {{ .Title }}. Dramatic vehicle reveals. Engine sounds. Date flash. CTA. {{ .Description }}.",
-                "Flash sale countdown for {{ .Title }}. Parts reveals. Price drops. Timer. CTA. {{ .Description }}.",
-                "Launch event teaser for {{ .Title }}. Silhouette reveal. Specs flash. Date. CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Auto event carousel for {{ .Title }}. Slide 1: Bold announcement. Slide 2: Featured vehicles or deals. Slide 3: Event details. Slide 4: Date, venue. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Engines will roar. {{ .Title }}. {{ .Description }}. Save the date.",
-                "48 hours only. {{ .Title }}. {{ .Description }}. Do not miss this.",
-                "Take it for a spin. {{ .Title }}. {{ .Description }}. Book your drive.",
-                "The unveiling of the year. {{ .Title }}. {{ .Description }}. Be there.",
-                "Service your ride. {{ .Title }}. {{ .Description }}. Book now."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Dramatic engine rev. Reveal teaser. Date flash. Book CTA. 9:16.",
-                "meta": "Bold auto event banner. Date prominent. Metallic design. Register CTA. 4:5.",
-                "pinterest": "Auto event inspiration. Dramatic car pin. Bold design. 2:3.",
-                "instagram": "Bold auto event card. Dark metallic. Swipe for details. 4:5.",
-                "facebook": "Auto event banner. RSVP. Test drive registration. Share-worthy. 4:5.",
-                "youtube": "Auto show banner. Vehicle reveal. Bold date overlay. 16:9.",
-                "x": "Bold auto event. Metallic design. Date and venue clear. 16:9."
-            },
-            "product_rule": "event details prominent, bold dramatic design, date/time dominant, adrenaline and exclusivity"
-        },
-        "education_learning": {
-            "core_emotion": "growth_and_opportunity",
-            "visual_direction": {
-                "lighting": "bright clean professional, even, f/4",
-                "colors": [
-                    "deep navy",
-                    "white",
-                    "accent gold",
-                    "teal",
-                    "clean grey"
-                ],
-                "scenarios": [
-                    "course launch",
-                    "webinar",
-                    "enrollment period",
-                    "graduation event",
-                    "open house",
-                    "workshop",
-                    "conference",
-                    "scholarship deadline"
-                ]
-            },
-            "master_prompts": [
-                "Design a COURSE LAUNCH EVENT graphic for {{ .Title }}. Professional layout. 'NEW COURSE — Enroll by [Date]'. Curriculum preview. Instructor photo area. {{ .Description }}. 'Enroll Now' CTA.",
-                "Design an EDUCATION WEBINAR graphic for {{ .Title }}. 'FREE WEBINAR — [Topic]'. Speaker headshot area. Date, time, platform. Live Q&A badge. {{ .Description }}. 'Register Free' CTA.",
-                "Design an ENROLLMENT DEADLINE graphic for {{ .Title }}. 'LAST CHANCE — Enrollment Closes [Date]'. Countdown urgency. Course highlights. {{ .Description }}. 'Enroll Before Deadline' CTA.",
-                "Design a GRADUATION EVENT graphic for {{ .Title }}. 'GRADUATION CEREMONY — [Date]'. Elegant academic design. Guest RSVP. {{ .Description }}. 'RSVP Now' CTA.",
-                "Design an OPEN HOUSE EVENT graphic for {{ .Title }}. 'OPEN HOUSE — [Date]'. Campus or facility tour. Meet instructors. {{ .Description }}. 'Plan Your Visit' CTA.",
-                "Design a WORKSHOP EVENT graphic for {{ .Title }}. 'HANDS-ON WORKSHOP — [Topic]'. Limited seats count. Materials included badge. {{ .Description }}. 'Reserve Your Seat' CTA.",
-                "Design a CONFERENCE EVENT graphic for {{ .Title }}. 'EDUCATION SUMMIT [YEAR]'. Speaker lineup grid. Tracks preview. {{ .Description }}. 'Get Your Pass' CTA.",
-                "Design a SCHOLARSHIP DEADLINE graphic for {{ .Title }}. 'SCHOLARSHIP APPLICATIONS — Due [Date]'. Requirements checklist. Award amount. {{ .Description }}. 'Apply Now' CTA."
-            ],
-            "video_prompts": [
-                "Course launch promo for {{ .Title }}. Curriculum preview. Instructor intro. Enrollment CTA. {{ .Description }}.",
-                "Webinar promo for {{ .Title }}. Speaker intro. Topic teaser. Register CTA. {{ .Description }}.",
-                "Enrollment countdown for {{ .Title }}. Highlights. Deadline urgency. Enroll CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Education event carousel for {{ .Title }}. Slide 1: Event announcement. Slide 2: Curriculum or agenda. Slide 3: Instructor or speaker. Slide 4: Date, details. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "Your next chapter starts here. {{ .Title }}. {{ .Description }}. Enroll now.",
-                "Learn from the best. {{ .Title }}. {{ .Description }}. Register free.",
-                "Deadline approaching. {{ .Title }}. {{ .Description }}. Do not miss out.",
-                "Open doors, open minds. {{ .Title }}. {{ .Description }}. Plan your visit.",
-                "Invest in your future. {{ .Title }}. {{ .Description }}. Apply today."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Quick course preview. Tips teaser. Enrollment deadline flash. CTA. 9:16.",
-                "meta": "Professional education event. Date prominent. Speaker headshot. Register CTA. 4:5.",
-                "pinterest": "Education event inspiration. Course aesthetic. Save-worthy. 2:3.",
-                "instagram": "Clean education card. Swipe for curriculum. Professional design. 4:5.",
-                "facebook": "Education event banner. RSVP. Webinar registration. Community. 4:5.",
-                "youtube": "Conference or webinar banner. Speaker lineup. Professional. 16:9.",
-                "x": "Bold education event. Enrollment deadline. Professional design. 16:9."
-            },
-            "product_rule": "event details prominent, professional academic design, date/deadline dominant, credibility and opportunity"
-        },
-        "supplements": {
-            "core_emotion": "performance_and_exclusivity",
-            "visual_direction": {
-                "lighting": "clean bright clinical, precise, f/4",
-                "colors": [
-                    "deep green",
-                    "white",
-                    "black",
-                    "gold accent",
-                    "navy"
-                ],
-                "scenarios": [
-                    "product launch",
-                    "flash sale",
-                    "webinar",
-                    "challenge",
-                    "expo",
-                    "sample event",
-                    "subscription launch",
-                    "ambassador program"
-                ]
-            },
-            "master_prompts": [
-                "Design a SUPPLEMENT LAUNCH EVENT graphic for {{ .Title }}. Bold clean design. 'NEW FORMULA LAUNCH — [Date]'. Product silhouette. Science badges. {{ .Description }}. 'Be First to Try It' CTA.",
-                "Design a SUPPLEMENT FLASH SALE graphic for {{ .Title }}. 'STACK SALE — 48 HOURS ONLY'. Bold urgency. Bundle deals. Countdown. {{ .Description }}. 'Shop the Sale' CTA.",
-                "Design a NUTRITION WEBINAR graphic for {{ .Title }}. 'LIVE: Science Behind {{ .Title }}'. Expert headshot area. Date, time. {{ .Description }}. 'Register Free' CTA.",
-                "Design a SUPPLEMENT CHALLENGE graphic for {{ .Title }}. '30-DAY STACK CHALLENGE — Starts [Date]'. Daily protocol preview. Progress tracking. {{ .Description }}. 'Join the Challenge' CTA.",
-                "Design a SUPPLEMENT EXPO graphic for {{ .Title }}. 'FITEXPO [YEAR] — Visit Booth [#]'. Sampling badges. Location, dates. {{ .Description }}. 'See Us There' CTA.",
-                "Design a FREE SAMPLE EVENT graphic for {{ .Title }}. 'FREE SAMPLE DAY — [Date]'. Sample pack visual. Location or online details. {{ .Description }}. 'Claim Your Free Sample' CTA.",
-                "Design a SUBSCRIPTION LAUNCH graphic for {{ .Title }}. 'SUBSCRIBE AND SAVE — Launches [Date]'. Monthly delivery preview. Discount badge. {{ .Description }}. 'Join the Waitlist' CTA.",
-                "Design an AMBASSADOR PROGRAM LAUNCH graphic for {{ .Title }}. 'BECOME A BRAND AMBASSADOR — Apply by [Date]'. Perks list. Application badge. {{ .Description }}. 'Apply Now' CTA."
-            ],
-            "video_prompts": [
-                "Supplement launch reveal for {{ .Title }}. Product reveal. Science stats. Date flash. CTA. {{ .Description }}.",
-                "Flash sale countdown for {{ .Title }}. Stack deals. Price drops. Timer. CTA. {{ .Description }}.",
-                "Challenge launch for {{ .Title }}. Protocol preview. 30-day plan teaser. Join CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Supplement event carousel for {{ .Title }}. Slide 1: Launch announcement. Slide 2: Science or formula. Slide 3: Deals or challenge. Slide 4: Date, details. Slide 5: Register CTA. {{ .Description }}.",
-            "caption_templates": [
-                "The formula you have been waiting for. {{ .Title }}. {{ .Description }}. Mark the date.",
-                "48 hours only. {{ .Title }}. {{ .Description }}. Stack up now.",
-                "Learn the science. {{ .Title }}. {{ .Description }}. Register free.",
-                "30 days to transform. {{ .Title }}. {{ .Description }}. Join the challenge.",
-                "Free samples while supplies last. {{ .Title }}. {{ .Description }}. Claim yours."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold supplement reveal. Science stats. Countdown energy. CTA. 9:16.",
-                "meta": "Clean supplement event. Date prominent. Science badges. Register CTA. 4:5.",
-                "pinterest": "Supplement event pin. Clean scientific aesthetic. Save-worthy. 2:3.",
-                "instagram": "Bold supplement card. Science-backed. Swipe for details. 4:5.",
-                "facebook": "Supplement event banner. RSVP. Challenge community. Share-worthy. 4:5.",
-                "youtube": "Supplement event banner. Expert headshot. Science overlay. 16:9.",
-                "x": "Bold supplement event. Science-backed. Date and details clear. 16:9."
-            },
-            "product_rule": "event details prominent, clean scientific design, date/time clear, science credibility and urgency"
-        },
         "general": {
             "core_emotion": "excitement_and_urgency",
             "visual_direction": {
-                "lighting": "bold vibrant professional, high-energy, f/4",
+                "lighting": "bold vibrant",
                 "colors": [
                     "vibrant gradients",
                     "gold",
                     "electric blue",
-                    "deep purple",
-                    "crisp white"
+                    "hot pink"
                 ],
                 "scenarios": [
-                    "event announcement",
+                    "event banner",
                     "countdown graphic",
-                    "launch event",
-                    "flash sale",
-                    "seasonal promo",
-                    "webinar",
-                    "save the date",
-                    "grand opening"
+                    "launch announcement",
+                    "sale banner",
+                    "seasonal promo"
                 ]
             },
-            "master_prompts": [
-                "Design a BOLD EVENT ANNOUNCEMENT graphic for {{ .Title }}. Vibrant gradient background. Large bold headline. Date, time, location in clear hierarchy. {{ .Description }}. Excitement elements: confetti, stars, or bold shapes. 'Register Now' CTA. Professional event marketing quality.",
-                "Design a COUNTDOWN GRAPHIC for {{ .Title }}. Dramatic countdown clock showing days, hours, minutes. 'THE COUNTDOWN IS ON' headline. Event name and date below. {{ .Description }}. 'Set Your Reminder' CTA. Urgency-driven design.",
-                "Design a LAUNCH EVENT graphic for {{ .Title }}. 'LAUNCHING [DATE]' bold headline. Product or service teaser silhouette. Early access badge. {{ .Description }}. 'Be the First' CTA. Hype-building launch event.",
-                "Design a FLASH SALE EVENT graphic for {{ .Title }}. 'FLASH SALE — [HOURS] HOURS ONLY'. Bold urgency design with timer. Top deals grid. {{ .Description }}. 'Shop Before Time Runs Out' CTA.",
-                "Design a SEASONAL PROMO EVENT graphic for {{ .Title }}. Season-themed design with relevant colors and motifs. '[SEASON] EVENT — [Dates]'. Special offers. {{ .Description }}. 'Shop the Season' CTA.",
-                "Design a WEBINAR EVENT graphic for {{ .Title }}. Clean professional layout. Speaker headshot area. Topic headline. Date, time, platform details. {{ .Description }}. 'Save Your Seat' CTA.",
-                "Design a SAVE THE DATE graphic for {{ .Title }}. Elegant design with bold date display. Event name and preview. 'MARK YOUR CALENDAR'. {{ .Description }}. 'More Details Coming Soon' tease.",
-                "Design a GRAND OPENING EVENT graphic for {{ .Title }}. 'GRAND OPENING — [Date]'. Location display. Opening specials and giveaways. Ribbon-cutting visual. {{ .Description }}. 'Join the Celebration' CTA."
-            ],
-            "video_prompts": [
-                "Event announcement video for {{ .Title }}. Bold reveals. Date animation. Excitement build. CTA end card. {{ .Description }}.",
-                "Countdown teaser for {{ .Title }}. Ticking clock animation. Event details drop. Building urgency. CTA. {{ .Description }}.",
-                "Flash sale promo for {{ .Title }}. Deal reveals. Price drops animation. Timer. Shop CTA. {{ .Description }}."
-            ],
-            "carousel_prompt": "Event details carousel for {{ .Title }}. Slide 1: Bold event announcement with date. Slide 2: What to expect. Slide 3: Speakers, deals, or features. Slide 4: Date, time, location details. Slide 5: Registration CTA. {{ .Description }}. Consistent vibrant design.",
+            "master_prompt": "Design a bold event promotion graphic for {{ .Title }}. Vibrant eye-catching background with gradient or bold colors. Large bold event headline text. Date, time, and location details clearly displayed. {{ .Description }}. Urgency or excitement design elements (countdown, stars, confetti, or bold shapes). Clear CTA like 'Register Now', 'Save the Date', 'Don't Miss Out'. Professional event marketing quality.",
+            "video_prompt": "Event promo video for {{ .Title }}. Exciting reveal. Bold date/time text animations. Urgency countdown. CTA at end. {{ .Description }}.",
+            "carousel_prompt": "Event details carousel for {{ .Title }}. Slide 1: Bold event announcement with date. Slide 2: What to expect / speakers / lineup. Slide 3: Venue or platform details. Slide 4: Registration CTA. {{ .Description }}. Consistent vibrant design.",
             "caption_templates": [
-                "Mark your calendar — {{ .Title }} is coming. {{ .Description }}. Save the date.",
-                "Do not miss {{ .Title }}. {{ .Description }}. Limited spots available.",
-                "Announcing {{ .Title }}. {{ .Description }}. Register now.",
-                "The countdown is on. {{ .Title }}. {{ .Description }}. Set your reminder.",
-                "Doors open on [date]. {{ .Title }}. {{ .Description }}. Be there."
+                "🗓️ Mark your calendar — {{ .Title }} is coming! {{ .Description }}",
+                "🔥 Don't miss {{ .Title }}. Limited spots available. {{ .Description }}",
+                "🎉 Announcing {{ .Title }}! Save the date 👇 {{ .Description }}"
             ],
             "platform_adaptation": {
-                "tiktok": "Exciting teaser reveal. Bold text reveals. Countdown energy. Quick date flash. 9:16.",
-                "meta": "Bold event announcement. Date and time prominent. Register CTA. Vibrant design. 4:5.",
-                "pinterest": "Aspirational event pin. Seasonal or themed design. Save-worthy. 2:3.",
-                "instagram": "Eye-catching event card. Date bold. Swipe for details. Vibrant design. 4:5.",
-                "facebook": "Event banner quality. RSVP CTA. Share-worthy announcement. Community energy. 4:5.",
-                "youtube": "Event banner or countdown thumbnail. Bold date overlay. High-contrast. 16:9.",
-                "x": "Bold announcement graphic. Date and details immediately visible. Sharp design. 16:9."
+                "meta": "Bold announcement banner. Date prominent. Register CTA.",
+                "instagram": "Eye-catching event card. Swipe for details.",
+                "tiktok": "Exciting teaser reveal. Countdown energy.",
+                "facebook": "Event banner. RSVP CTA. Shareable.",
+                "youtube": "Event banner or countdown thumbnail.",
+                "x": "Bold announcement. Date and details."
             },
-            "product_rule": "event details front and center, date/time unmissable, urgency or excitement elements, bold professional design, clear CTA"
+            "product_rule": "event details front and center, urgency elements, bold design"
+        },
+        "fashion_apparel": {
+            "core_emotion": "exclusivity_and_hype",
+            "visual_direction": {
+                "lighting": "dramatic bold",
+                "colors": [
+                    "black",
+                    "gold",
+                    "neon"
+                ],
+                "scenarios": [
+                    "product launch",
+                    "flash sale",
+                    "collection drop"
+                ]
+            },
+            "master_prompt": "Design a bold fashion event or launch graphic for {{ .Title }}. Dramatic design with bold typography. Collection drop or flash sale announcement. Date and time prominent. {{ .Description }}. Exclusive feel with limited time urgency. Bold CTA. Fashion campaign quality.",
+            "video_prompt": "Fashion launch teaser for {{ .Title }}. Dramatic reveal. Bold date text. Exclusive feel. CTA. {{ .Description }}.",
+            "carousel_prompt": "Fashion launch carousel for {{ .Title }}. Slide 1: Bold drop announcement. Slide 2: Preview teaser. Slide 3: Date and time. Slide 4: CTA to shop. {{ .Description }}.",
+            "caption_templates": [
+                "🖤 {{ .Title }} drops soon. {{ .Description }}",
+                "The wait is almost over. {{ .Title }} ⏰",
+                "Mark your calendars 📅 {{ .Title }}. {{ .Description }}"
+            ],
+            "platform_adaptation": {
+                "meta": "Bold launch banner. Exclusive urgency.",
+                "instagram": "Hype campaign card. Drop date.",
+                "tiktok": "Dramatic reveal teaser."
+            },
+            "product_rule": "event/launch excitement, date prominent, exclusive feel"
         }
     }
 }

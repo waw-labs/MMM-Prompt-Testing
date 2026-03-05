@@ -3,17 +3,19 @@ let promptConfigs = {};
 let selectedProvider = 'gemini';
 let assembledResults = [];
 let selectedPromptIndex = -1;
-let selectedVariantIndex = 0;
-let uploadedImages = []; // array of base64 data URIs of uploaded product images
-let businessProfile = null; // scraped business profile object
+let uploadedImageBase64 = null; // base64 data URI of uploaded product image
 
 const CATEGORY_LABELS = {
     ads: 'Ads',
     social_posts: 'Social Posts',
+    product_photo: 'Product Photo',
     branding: 'Branding',
+    memes: 'Memes',
+    educational: 'Educational',
     event: 'Event',
     testimonial: 'Testimonial',
     stories: 'Stories',
+    email: 'Email',
     thumbnails: 'Thumbnails',
 };
 
@@ -22,9 +24,8 @@ const CATEGORY_LABELS = {
 const MODELS = {
     gemini: {
         image: [
-            { value: 'imagen-4.0-generate-001', label: 'Imagen 4.0', supportsImageRef: false, supportsMultiRef: false },
-            { value: 'gemini-3.1-flash-image-preview', label: 'Nano Banana 2 (4K, 14 refs)', supportsImageRef: true, supportsMultiRef: true },
-            { value: 'gemini-2.5-flash-image', label: 'Gemini 2.5 Flash Image', supportsImageRef: true, supportsMultiRef: false },
+            { value: 'imagen-4.0-generate-001', label: 'Imagen 4.0', supportsImageRef: false },
+            { value: 'gemini-2.5-flash-image', label: 'Gemini 2.5 Flash Image', supportsImageRef: true },
         ],
         video: [
             { value: 'veo-3.1-generate-preview', label: 'Veo 3.1', supportsImageRef: false },
@@ -33,10 +34,8 @@ const MODELS = {
     },
     openai: {
         image: [
-            { value: 'gpt-image-1.5', label: 'GPT Image 1.5 (multi-ref, region-aware)', supportsImageRef: true, supportsMultiRef: true },
-            { value: 'gpt-image-1', label: 'GPT Image 1 (4K)', supportsImageRef: true, supportsMultiRef: false },
-            { value: 'gpt-image-1-mini', label: 'GPT Image 1 Mini', supportsImageRef: true, supportsMultiRef: false },
-            { value: 'dall-e-3', label: 'DALL-E 3', supportsImageRef: false, supportsMultiRef: false },
+            { value: 'gpt-image-1', label: 'GPT Image 1', supportsImageRef: true },
+            { value: 'dall-e-3', label: 'DALL-E 3', supportsImageRef: false },
         ],
         video: [
             { value: 'sora-2', label: 'Sora 2', supportsImageRef: false },
@@ -112,297 +111,75 @@ function setupEventListeners() {
 
     // Generate
     document.getElementById('generateBtn').addEventListener('click', handleGenerate);
-
-    // Business profile
-    setupBusinessProfile();
 }
 
-// ── Business Profile ────────────────────────────────────────────────
-function setupBusinessProfile() {
-    const collapseBtn = document.getElementById('businessCollapseBtn');
-    const body = document.getElementById('businessBody');
-    const header = document.getElementById('businessToggleHeader');
-
-    // Toggle collapse
-    const toggleBody = () => {
-        const isOpen = body.style.display !== 'none';
-        body.style.display = isOpen ? 'none' : 'block';
-        collapseBtn.textContent = isOpen ? '▶' : '▼';
-    };
-    collapseBtn.addEventListener('click', toggleBody);
-    header.addEventListener('click', (e) => {
-        if (e.target !== collapseBtn) toggleBody();
-    });
-
-    // Analyze button
-    document.getElementById('analyzeBtn').addEventListener('click', analyzeWebsite);
-
-    // Enter key on URL input
-    document.getElementById('businessUrl').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') analyzeWebsite();
-    });
-}
-
-async function analyzeWebsite() {
-    const url = document.getElementById('businessUrl').value.trim();
-    if (!url) {
-        showToast('Enter a website URL');
-        return;
-    }
-
-    const loading = document.getElementById('businessLoading');
-    const fields = document.getElementById('businessFields');
-    const toggle = document.getElementById('businessModeToggle');
-    const analyzeBtn = document.getElementById('analyzeBtn');
-
-    loading.style.display = 'flex';
-    fields.style.display = 'none';
-    toggle.style.display = 'none';
-    analyzeBtn.disabled = true;
-    analyzeBtn.textContent = '⏳ Analyzing...';
-
-    try {
-        const resp = await fetch('/api/scrape-business', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url }),
-        });
-
-        const data = await resp.json();
-        if (data.error) throw new Error(data.error);
-
-        businessProfile = data.businessProfile;
-        const isProduct = businessProfile.pageType === 'product';
-
-        // Auto-expand the business section
-        document.getElementById('businessBody').style.display = 'block';
-        document.getElementById('businessCollapseBtn').textContent = '▼';
-
-        // Populate info fields
-        document.getElementById('bizName').value = businessProfile.name || '';
-        document.getElementById('bizIndustry').value = (businessProfile.industry || '').replace(/_/g, ' ');
-        document.getElementById('bizUsp').value = businessProfile.usp || '';
-        document.getElementById('bizAudience').value = businessProfile.targetAudience || '';
-        document.getElementById('bizTone').value = businessProfile.brandTone || '';
-
-        // Summary card with logo
-        const summaryEl = document.getElementById('bizSummary');
-        const typeIcon = isProduct ? '🛍️' : '🏢';
-        const typeLabel = isProduct ? 'Product Page' : 'Business Page';
-        const priceTag = isProduct && businessProfile.productPrice
-            ? `<span class="biz-price-tag">$${businessProfile.productPrice}</span>` : '';
-        const logoImg = businessProfile.logoBase64
-            ? `<img src="${businessProfile.logoBase64}" alt="Logo" class="biz-logo" />` : '';
-        summaryEl.innerHTML = `
-            <div class="biz-summary-with-logo">
-                ${logoImg}
-                <div>
-                    <div class="biz-type-badge">${typeIcon} ${typeLabel} ${priceTag}</div>
-                    <p>${businessProfile.summary || ''}</p>
-                </div>
-            </div>`;
-
-        // Products/services tags
-        const productsEl = document.getElementById('bizProducts');
-        const products = businessProfile.products || [];
-        if (products.length > 0) {
-            productsEl.innerHTML = `
-                <label>${isProduct ? 'Product' : 'Products/Services'}</label>
-                <div class="biz-product-tags">
-                    ${products.map(p => `<span class="biz-tag">${p}</span>`).join('')}
-                </div>`;
-        } else {
-            productsEl.innerHTML = '';
-        }
-
-        // ── Inject images into the upload zone ──
-        if (isProduct && businessProfile.productImagesBase64?.length > 0) {
-            // Product page: inject product images
-            uploadedImages = [...businessProfile.productImagesBase64];
-            if (window.__refreshImageGrid) window.__refreshImageGrid();
-            updateModelOptions();
-        } else if (businessProfile.logoBase64 && uploadedImages.length === 0) {
-            // Business page: inject logo
-            uploadedImages = [businessProfile.logoBase64];
-            if (window.__refreshImageGrid) window.__refreshImageGrid();
-            updateModelOptions();
-        }
-
-        // ── Auto-fill title & description ──
-        if (isProduct) {
-            // Product: use product-specific fields
-            document.getElementById('titleInput').value = businessProfile.productTitle || businessProfile.name || '';
-            document.getElementById('descriptionInput').value = businessProfile.productDescription || businessProfile.summary || '';
-        } else {
-            // Business: use business name/summary if fields are empty
-            if (!document.getElementById('titleInput').value.trim()) {
-                document.getElementById('titleInput').value = businessProfile.name || '';
-            }
-            if (!document.getElementById('descriptionInput').value.trim()) {
-                document.getElementById('descriptionInput').value = businessProfile.summary || '';
-            }
-        }
-
-        fields.style.display = 'block';
-        toggle.style.display = 'flex';
-
-        // Toast summary
-        const imgCount = isProduct ? (businessProfile.productImagesBase64?.length || 0) : 0;
-        const extras = [];
-        if (businessProfile.logoBase64) extras.push('📎 Logo');
-        if (imgCount > 0) extras.push(`🖼️ ${imgCount} product images`);
-        const extrasStr = extras.length ? ` | ${extras.join(' · ')}` : '';
-        showToast(`✅ ${businessProfile.name}${extrasStr}`);
-    } catch (err) {
-        console.error('[analyze]', err);
-        showToast('Analysis failed: ' + err.message);
-    } finally {
-        loading.style.display = 'none';
-        analyzeBtn.disabled = false;
-        analyzeBtn.textContent = '🔍 Analyze';
-    }
-}
-
-// ── Image Upload (Multi-Image) ──────────────────────────────────────
+// ── Image Upload ────────────────────────────────────────────────────
 function setupImageUpload() {
     const zone = document.getElementById('uploadZone');
     const input = document.getElementById('imageInput');
     const placeholder = document.getElementById('uploadPlaceholder');
-    const grid = document.getElementById('uploadPreviewGrid');
-    const actions = document.getElementById('uploadActions');
-    const countEl = document.getElementById('uploadCount');
-    const addBtn = document.getElementById('addMoreImages');
-    const clearBtn = document.getElementById('removeAllImages');
+    const preview = document.getElementById('uploadPreview');
+    const previewImg = document.getElementById('previewImg');
+    const removeBtn = document.getElementById('removeImage');
 
-    // Click to browse (only on placeholder)
+    // Click to browse
     zone.addEventListener('click', (e) => {
-        if (e.target.closest('.upload-actions') || e.target.closest('.img-remove-btn') || e.target.closest('.upload-preview-grid')) return;
+        if (e.target === removeBtn || e.target.closest('.upload-remove')) return;
         input.click();
     });
 
-    // Add more button
-    addBtn.addEventListener('click', (e) => { e.stopPropagation(); input.click(); });
-
-    // File selected (multiple)
+    // File selected
     input.addEventListener('change', () => {
-        if (input.files?.length) handleImageFiles(Array.from(input.files));
-        input.value = ''; // reset so same files can be re-added
+        if (input.files?.[0]) handleImageFile(input.files[0]);
     });
 
-    // Drag & drop (multiple)
+    // Drag & drop
     zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
     zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
     zone.addEventListener('drop', (e) => {
         e.preventDefault();
         zone.classList.remove('dragover');
-        const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
-        if (files.length) handleImageFiles(files);
+        const file = e.dataTransfer.files?.[0];
+        if (file && file.type.startsWith('image/')) handleImageFile(file);
     });
 
-    // Clear all
-    clearBtn.addEventListener('click', (e) => {
+    // Remove
+    removeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        uploadedImages = [];
-        refreshPreviewGrid();
-        updateModelOptions();
+        uploadedImageBase64 = null;
+        input.value = '';
+        placeholder.style.display = '';
+        preview.style.display = 'none';
+        updateModelOptions(); // re-evaluate model selection
     });
 
-    function handleImageFiles(files) {
-        const remaining = 14 - uploadedImages.length;
-        const toAdd = files.slice(0, remaining);
-        let loaded = 0;
-        toAdd.forEach(file => {
-            const reader = new FileReader();
-            reader.onload = () => {
-                uploadedImages.push(reader.result);
-                loaded++;
-                if (loaded === toAdd.length) {
-                    refreshPreviewGrid();
-                    updateModelOptions();
-                }
-            };
-            reader.readAsDataURL(file);
-        });
-        if (remaining <= 0) showToast('Maximum 14 reference images reached');
+    function handleImageFile(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            uploadedImageBase64 = reader.result; // data:image/...;base64,...
+            previewImg.src = uploadedImageBase64;
+            placeholder.style.display = 'none';
+            preview.style.display = '';
+            updateModelOptions(); // auto-select image-capable model
+        };
+        reader.readAsDataURL(file);
     }
-
-    function refreshPreviewGrid() {
-        if (uploadedImages.length === 0) {
-            grid.style.display = 'none';
-            actions.style.display = 'none';
-            placeholder.style.display = '';
-            return;
-        }
-        placeholder.style.display = 'none';
-        grid.style.display = 'grid';
-        actions.style.display = 'flex';
-        countEl.textContent = `${uploadedImages.length} image${uploadedImages.length > 1 ? 's' : ''}`;
-        grid.innerHTML = uploadedImages.map((src, i) => `
-            <div class="preview-thumb">
-                <img src="${src}" alt="Ref ${i + 1}" />
-                <button class="img-remove-btn" data-idx="${i}" title="Remove">✕</button>
-            </div>
-        `).join('');
-        grid.querySelectorAll('.img-remove-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                uploadedImages.splice(parseInt(btn.dataset.idx), 1);
-                refreshPreviewGrid();
-                updateModelOptions();
-            });
-        });
-    }
-    // expose for external use
-    window.__refreshImageGrid = refreshPreviewGrid;
 }
 
 function updateModelOptions() {
     const select = document.getElementById('modelSelect');
     const contentType = document.getElementById('contentTypeSelect').value;
     const mediaType = (contentType === 'video') ? 'video' : 'image';
-    const hasImage = uploadedImages.length > 0;
-    const multiImage = uploadedImages.length > 1;
+    const hasImage = !!uploadedImageBase64;
 
     let models = MODELS[selectedProvider]?.[mediaType] || [];
 
     if (hasImage) {
-        // Multi-image (>1) → show only multi-ref capable models from all providers
-        if (multiImage) {
-            const allMultiRef = [];
-            for (const [prov, provModels] of Object.entries(MODELS)) {
-                const capable = (provModels[mediaType] || []).filter(m => m.supportsMultiRef);
-                capable.forEach(m => allMultiRef.push({ ...m, provider: prov }));
-            }
-            if (allMultiRef.length > 0) {
-                select.innerHTML = allMultiRef.map(m => {
-                    const provLabel = m.provider === 'gemini' ? '🔵' : '🟢';
-                    return `<option value="${m.value}" data-provider="${m.provider}">${provLabel} ${m.label} ⭐</option>`;
-                }).join('');
-                // Auto-select provider of first option
-                const first = allMultiRef[0];
-                selectedProvider = first.provider;
-                document.querySelectorAll('.toggle-btn').forEach(b => {
-                    b.classList.toggle('active', b.dataset.provider === first.provider);
-                });
-                // Sync provider when model changes
-                select.onchange = () => {
-                    const opt = select.selectedOptions[0];
-                    if (opt?.dataset?.provider) {
-                        selectedProvider = opt.dataset.provider;
-                        document.querySelectorAll('.toggle-btn').forEach(b => {
-                            b.classList.toggle('active', b.dataset.provider === opt.dataset.provider);
-                        });
-                    }
-                };
-                showToast(`${uploadedImages.length} images → showing multi-ref models only`);
-                return;
-            }
-        }
-
-        // Single image → show all image-capable models
+        // Check if current provider has any image-capable model for this media type
         const capable = models.filter(m => m.supportsImageRef);
 
         if (capable.length > 0) {
+            // Show all models but auto-select the image-capable one
             select.innerHTML = models.map(m => {
                 const recommended = m.supportsImageRef ? ' ⭐ (uses your image)' : '';
                 return `<option value="${m.value}"${m.supportsImageRef ? ' selected' : ''}>${m.label}${recommended}</option>`;
@@ -416,6 +193,7 @@ function updateModelOptions() {
         const otherCapable = otherModels.filter(m => m.supportsImageRef);
 
         if (otherCapable.length > 0) {
+            // Auto-switch provider
             selectedProvider = otherProvider;
             document.querySelectorAll('.toggle-btn').forEach(b => {
                 b.classList.toggle('active', b.dataset.provider === otherProvider);
@@ -448,12 +226,8 @@ async function handleAssemble() {
         showToast('Select at least one category');
         return;
     }
-
-    const isBusinessMode = businessProfile && document.getElementById('useBusinessMode')?.checked;
-
-    // Business mode: skip title requirement, use AI-generated prompts
-    if (!isBusinessMode && !title) {
-        showToast('Enter a product title or analyze a business URL');
+    if (!title) {
+        showToast('Enter a product title');
         return;
     }
 
@@ -461,51 +235,25 @@ async function handleAssemble() {
     setBtnLoading(btn, true);
 
     try {
-        // Build the base payload — same endpoint for both modes
         const payload = { categories, platform, contentType, title, description };
-        if (uploadedImages.length > 0) payload.image = uploadedImages[0];
-        if (uploadedImages.length > 1) payload.images = uploadedImages;
-
-        // In business mode, attach brand context for prompt enrichment
-        if (isBusinessMode) {
-            payload.businessContext = {
-                name: businessProfile.name,
-                industry: businessProfile.industry,
-                usp: businessProfile.usp,
-                brandTone: businessProfile.brandTone,
-                brandColors: businessProfile.brandColors,
-                targetAudience: businessProfile.targetAudience,
-                priceRange: businessProfile.priceRange,
-                painPoints: businessProfile.painPoints,
-                emotionalTriggers: businessProfile.emotionalTriggers,
-                productPrice: businessProfile.productPrice || '',
-                originalPrice: businessProfile.originalPrice || '',
-                discount: businessProfile.discount || '',
-            };
-        }
+        if (uploadedImageBase64) payload.image = uploadedImageBase64;
 
         const resp = await fetch('/api/assemble', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
         });
-        const data = await resp.json();
 
+        const data = await resp.json();
         if (data.error) throw new Error(data.error);
 
         assembledResults = data.results || [];
         selectedPromptIndex = assembledResults.length > 0 ? 0 : -1;
-        selectedVariantIndex = 0;
         renderPromptResults();
         updateNicheDisplay();
 
         document.getElementById('generateBtn').disabled = assembledResults.length === 0;
-        const totalPrompts = assembledResults.reduce((sum, r) => sum + (r.allPrompts?.length || 1), 0);
-        document.getElementById('promptCount').textContent = `${totalPrompts} prompt${totalPrompts !== 1 ? 's' : ''}`;
-
-        if (isBusinessMode) {
-            showToast(`✨ Generated ${totalPrompts} AI prompts for ${businessProfile.name}`);
-        }
+        document.getElementById('promptCount').textContent = `${assembledResults.length} prompt${assembledResults.length !== 1 ? 's' : ''}`;
     } catch (err) {
         console.error('[assemble]', err);
         showToast('Assembly failed: ' + err.message);
@@ -526,44 +274,26 @@ function renderPromptResults() {
         return;
     }
 
-    container.innerHTML = assembledResults.map((r, catIdx) => {
-        const allPrompts = r.allPrompts || [{ index: 0, label: 'Default', prompt: r.prompt }];
-        const variantCards = allPrompts.map((v, vIdx) => {
-            const isSelected = catIdx === selectedPromptIndex && vIdx === selectedVariantIndex;
-            const truncated = v.prompt.length > 180 ? v.prompt.substring(0, 180) + '…' : v.prompt;
-            return `
-            <div class="variant-card ${isSelected ? 'selected' : ''}" 
-                 data-cat="${catIdx}" data-var="${vIdx}"
-                 onclick="window.__selectVariant(${catIdx}, ${vIdx})">
-              <div class="variant-header">
-                <span class="variant-label">${escapeHtml(v.label)}</span>
-                <div class="variant-actions">
-                  <button class="btn-tiny" onclick="event.stopPropagation(); window.__copyVariant(${catIdx}, ${vIdx})" title="Copy">📋</button>
-                  <button class="btn-tiny" onclick="event.stopPropagation(); window.__generateVariant(${catIdx}, ${vIdx})" title="Generate">🚀</button>
-                </div>
-              </div>
-              <pre class="variant-preview">${escapeHtml(truncated)}</pre>
-              ${isSelected ? `<pre class="variant-full">${escapeHtml(v.prompt)}</pre>` : ''}
-            </div>`;
-        }).join('');
-
-        return `
-    <div class="prompt-card" data-catindex="${catIdx}">
-      <div class="prompt-card-header">
+    container.innerHTML = assembledResults.map((r, i) => `
+    <div class="prompt-card ${i === selectedPromptIndex ? 'selected' : ''}" data-index="${i}">
+      <div class="prompt-card-header" onclick="window.__selectPrompt(${i})">
         <span class="prompt-card-title">
           ${CATEGORY_LABELS[r.category] || r.category}
         </span>
         <div class="prompt-card-meta">
           <span class="niche-badge detected">${r.niche}</span>
           <span class="niche-badge">${r.platform}</span>
-          <span class="badge">${allPrompts.length} variants</span>
         </div>
       </div>
-      <div class="variants-grid">
-        ${variantCards}
+      <div class="prompt-card-body">
+        <pre class="prompt-text">${escapeHtml(r.prompt)}</pre>
       </div>
-    </div>`;
-    }).join('');
+      <div class="prompt-card-actions">
+        <button class="btn-small" onclick="window.__copyPrompt(${i})">📋 Copy</button>
+        <button class="btn-small" onclick="window.__sendSingle(${i})">🚀 Generate</button>
+      </div>
+    </div>
+  `).join('');
 }
 
 function updateNicheDisplay() {
@@ -583,11 +313,8 @@ function updateNicheDisplay() {
 // ── Generate (Image/Video) ──────────────────────────────────────────
 async function handleGenerate() {
     if (!assembledResults.length) return;
-    const catIdx = selectedPromptIndex >= 0 ? selectedPromptIndex : 0;
-    const result = assembledResults[catIdx];
-    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
-    const varIdx = selectedVariantIndex >= 0 ? selectedVariantIndex : 0;
-    const prompt = allPrompts[varIdx]?.prompt || result?.prompt;
+    const idx = selectedPromptIndex >= 0 ? selectedPromptIndex : 0;
+    const prompt = assembledResults[idx]?.prompt;
     if (!prompt) return;
     await sendToAI(prompt);
 }
@@ -606,16 +333,13 @@ async function sendToAI(prompt) {
     </div>`;
 
     try {
-        const platform = document.getElementById('platformSelect')?.value || 'instagram';
         const payload = {
             prompt,
             provider: selectedProvider,
             model,
             contentType: contentType === 'video' ? 'video' : 'image',
-            platform,
         };
-        if (uploadedImages.length === 1) payload.referenceImage = uploadedImages[0];
-        if (uploadedImages.length > 1) payload.referenceImages = uploadedImages;
+        if (uploadedImageBase64) payload.referenceImage = uploadedImageBase64;
 
         const resp = await fetch('/api/generate', {
             method: 'POST',
@@ -642,7 +366,7 @@ function renderMediaResult(data) {
         const src = `data:${data.mimeType || 'image/png'};base64,${data.data}`;
         responseArea.innerHTML = `
       <div class="media-result">
-        <img src="${src}" alt="Generated image" class="generated-image" onclick="window.__openLightbox(this.src)" style="cursor:pointer" title="Click to view fullscreen" />
+        <img src="${src}" alt="Generated image" class="generated-image" />
         <div class="media-actions">
           <button class="btn-small" onclick="window.__downloadMedia('${src}', 'generated-image.png')">💾 Download</button>
           <span class="media-info">${data.provider} · ${data.model}</span>
@@ -670,34 +394,11 @@ function renderMediaResult(data) {
 }
 
 // ── Global Helpers ──────────────────────────────────────────────────
-window.__selectVariant = (catIdx, varIdx) => {
-    selectedPromptIndex = catIdx;
-    selectedVariantIndex = varIdx;
-    renderPromptResults();
-};
-
-window.__copyVariant = (catIdx, varIdx) => {
-    const result = assembledResults[catIdx];
-    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
-    const text = allPrompts[varIdx]?.prompt || '';
-    navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
-};
-
-window.__generateVariant = async (catIdx, varIdx) => {
-    selectedPromptIndex = catIdx;
-    selectedVariantIndex = varIdx;
-    renderPromptResults();
-    const result = assembledResults[catIdx];
-    const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
-    const prompt = allPrompts[varIdx]?.prompt;
-    if (prompt) await sendToAI(prompt);
-};
-
-// Legacy handlers (backward compat)
 window.__selectPrompt = (index) => {
     selectedPromptIndex = index;
-    selectedVariantIndex = 0;
-    renderPromptResults();
+    document.querySelectorAll('.prompt-card').forEach((card, i) => {
+        card.classList.toggle('selected', i === index);
+    });
 };
 
 window.__copyPrompt = (index) => {
@@ -707,8 +408,9 @@ window.__copyPrompt = (index) => {
 
 window.__sendSingle = async (index) => {
     selectedPromptIndex = index;
-    selectedVariantIndex = 0;
-    renderPromptResults();
+    document.querySelectorAll('.prompt-card').forEach((card, i) => {
+        card.classList.toggle('selected', i === index);
+    });
     const prompt = assembledResults[index]?.prompt;
     if (prompt) await sendToAI(prompt);
 };
@@ -719,33 +421,6 @@ window.__downloadMedia = (dataUrl, filename) => {
     a.download = filename;
     a.click();
 };
-
-/* ── Fullscreen Lightbox ────────────────────── */
-(function initLightbox() {
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close" aria-label="Close">✕</button>
-      <img id="lightbox-img" src="" alt="Preview" />
-      <button id="lightbox-download">💾 Download</button>
-    `;
-    document.body.appendChild(overlay);
-
-    const img = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const dlBtn = document.getElementById('lightbox-download');
-
-    function closeLightbox() { overlay.classList.remove('active'); }
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLightbox(); });
-    closeBtn.addEventListener('click', closeLightbox);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-    dlBtn.addEventListener('click', () => { window.__downloadMedia(img.src, 'generated-image.png'); });
-
-    window.__openLightbox = (src) => {
-        img.src = src;
-        overlay.classList.add('active');
-    };
-})();
 
 function escapeHtml(str) {
     const div = document.createElement('div');

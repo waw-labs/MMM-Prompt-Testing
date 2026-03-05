@@ -2,14 +2,11 @@
     "schema_version": "2.1.0",
     "globals": {
         "core_frameworks": [
-            "FACE_REACTION — Expressive human face with bold 3-word text overlay, proven highest CTR format",
-            "VS_COMPARISON — Split-screen comparison format creating instant curiosity about which is better",
-            "CURIOSITY_GAP — Blurred or hidden reveal element with teaser text that demands a click",
-            "LISTICLE_NUMBER — Giant bold number with topic text creating scannable value-promise thumbnails",
-            "BEFORE_AFTER — Split transformation visual with dramatic contrast that proves results",
-            "SHOCKING_STAT — Bold statistic or data point that challenges assumptions and demands attention",
-            "HOW_TO_RESULT — End-result showcase with 'HOW TO' or 'I MADE' text showing achievable outcome",
-            "STORY_HOOK — Narrative-driven thumbnail with emotional scene and cliffhanger text"
+            "CLICKBAIT",
+            "CURIOSITY_GAP",
+            "BOLD_STATEMENT",
+            "COMPARISON",
+            "REACTION"
         ]
     },
     "platforms": {
@@ -18,24 +15,23 @@
                 "image"
             ],
             "best_ad_frameworks": [
-                "FACE_REACTION",
-                "VS_COMPARISON",
-                "CURIOSITY_GAP"
+                "CLICKBAIT",
+                "CURIOSITY_GAP",
+                "REACTION"
             ],
             "format_rules": {
                 "aspect_ratios": [
                     "16:9"
                 ]
             },
-            "creative_rules": "Maximum CTR thumbnail. 1280x720 optimized. Bold text 3-5 words MAX. Expressive face or dramatic visual. High contrast colors. Text on left or right third, never center-blocked. Readable at mobile size. No small text. No clutter. Rule of thirds composition. This thumbnail must make someone STOP scrolling and CLICK."
+            "creative_rules": "Maximum click-through. Bold text with 3-4 words max. Expressive face or dramatic visual. High contrast. 1280x720 optimized."
         },
         "meta": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "BOLD_STATEMENT",
-                "HOW_TO_RESULT"
+                "BOLD_STATEMENT"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -43,16 +39,15 @@
                     "1:1"
                 ]
             },
-            "creative_rules": "Blog preview card or video cover. Clean headline design. Engaging topic visual. Professional content preview quality. Clear value proposition in 3-5 words."
+            "creative_rules": "Blog preview card. Clean headline design. Engaging cover image."
         },
         "instagram": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "FACE_REACTION",
-                "LISTICLE_NUMBER",
-                "HOW_TO_RESULT"
+                "BOLD_STATEMENT",
+                "CURIOSITY_GAP"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -60,7 +55,7 @@
                     "4:5"
                 ]
             },
-            "creative_rules": "Reel cover or carousel cover. Bold topic text that hooks. Feed-stopping visual. Consistent brand aesthetic. 4:5 portrait for maximum real estate."
+            "creative_rules": "Reel cover or post cover. Bold topic text. Engaging visual hook."
         },
         "tiktok": {
             "accepted_content_types": [
@@ -68,38 +63,35 @@
             ],
             "best_ad_frameworks": [
                 "CURIOSITY_GAP",
-                "FACE_REACTION",
-                "BEFORE_AFTER"
+                "REACTION"
             ],
             "format_rules": {
                 "aspect_ratios": [
                     "9:16"
                 ]
             },
-            "creative_rules": "Video cover frame. Bold hook text at top. Dramatic visual that demands swipe. Full-screen 9:16 vertical. Maximum scroll-stopping power."
+            "creative_rules": "Video cover frame. Bold hook text."
         },
         "pinterest": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "HOW_TO_RESULT",
-                "LISTICLE_NUMBER"
+                "BOLD_STATEMENT"
             ],
             "format_rules": {
                 "aspect_ratios": [
                     "2:3"
                 ]
             },
-            "creative_rules": "Blog cover pin or video pin cover. Compelling topic visual. Bold text overlay. Save-worthy design quality. 2:3 vertical pin format."
+            "creative_rules": "Blog cover pin. Compelling topic visual. Save-worthy design."
         },
         "facebook": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "SHOCKING_STAT",
-                "STORY_HOOK"
+                "BOLD_STATEMENT"
             ],
             "format_rules": {
                 "aspect_ratios": [
@@ -107,752 +99,119 @@
                     "1:1"
                 ]
             },
-            "creative_rules": "Blog share image or video preview. Article preview card quality. Engaging topic visual that drives clicks from feed. Share-worthy design."
+            "creative_rules": "Blog share image. Article preview card. Engaging topic visual."
         },
         "x": {
             "accepted_content_types": [
                 "image"
             ],
             "best_ad_frameworks": [
-                "SHOCKING_STAT",
-                "VS_COMPARISON"
+                "BOLD_STATEMENT",
+                "COMPARISON"
             ],
             "format_rules": {
                 "aspect_ratios": [
                     "16:9"
                 ]
             },
-            "creative_rules": "Twitter card image or thread header. Bold statement visual. Maximum timeline visibility. Sharp professional design. 16:9 landscape."
+            "creative_rules": "Twitter card image. Thread header. Bold topic visual."
         }
     },
     "niches": {
-        "beauty_skincare": {
-            "core_emotion": "transformation_curiosity",
-            "visual_direction": {
-                "lighting": "bright glowing beauty light, high contrast, f/2.8",
-                "colors": [
-                    "hot pink",
-                    "gold",
-                    "clean white",
-                    "deep plum",
-                    "red accent"
-                ],
-                "scenarios": [
-                    "transformation reveal",
-                    "product reaction",
-                    "routine result",
-                    "vs comparison",
-                    "shocking stat",
-                    "how-to result",
-                    "listicle",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Split composition: expressive shocked face placeholder on left, bold text on right: 'THIS CHANGED MY SKIN'. {{ .Description }}. Hot pink and white high-contrast. Product small in corner. 16:9. Maximum click-through.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split screen: 'CHEAP' vs 'EXPENSIVE' or 'DUPE vs ORIGINAL'. Two products face-off with VS badge. Bold text. {{ .Description }}. Red vs blue color split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Glowing skin close-up with key area blurred or circled. Text: 'THE SECRET IS...' with arrow pointing to hidden element. {{ .Description }}. High contrast. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant bold '7' or '10' number. Text: 'SKINCARE MISTAKES'. List-style visual with numbered items teased. {{ .Description }}. Pink and white. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'DAY 1' dull skin vs 'DAY 30' glowing skin. Dramatic contrast. Arrow or timeline between. Bold text: 'REAL RESULTS'. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Giant bold text: '92% GOT IT WRONG'. Surprised face placeholder. {{ .Description }}. Yellow warning accent on dark background. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. End-result glowing skin showcase. Text: 'HOW I FIXED MY SKIN'. Step numbers teased. {{ .Description }}. Clean bright. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Emotional scene: person looking at mirror placeholder. Text: 'I ALMOST GAVE UP...' Cliffhanger energy. {{ .Description }}. Dramatic lighting. 16:9."
-            ],
-            "video_prompts": [
-                "Animated thumbnail for {{ .Title }}. Face reaction reveal. Bold text animation. Skin transformation. Click-worthy. {{ .Description }}.",
-                "Before/after thumbnail animation for {{ .Title }}. Skin transformation sequence. Bold text. High contrast. {{ .Description }}.",
-                "Curiosity gap animation for {{ .Title }}. Blur reveal. Secret text. Building intrigue. {{ .Description }}."
-            ],
-            "carousel_prompt": "Beauty thumbnail series for {{ .Title }}. Each slide: different high-CTR thumbnail format — reaction, VS, before/after, listicle. {{ .Description }}. Bold text. High contrast.",
-            "caption_templates": [
-                "New video: {{ .Title }}. {{ .Description }}. Link in bio.",
-                "This one changes everything. {{ .Title }}. {{ .Description }}.",
-                "You need to see this. {{ .Title }}. {{ .Description }}.",
-                "The results shocked me. {{ .Title }}. {{ .Description }}.",
-                "Watch before you buy. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold hook text at top. Transformation tease. Reaction face. 9:16.",
-                "meta": "Blog preview card. Clean beauty headline. Engaging visual. 16:9.",
-                "pinterest": "Beauty tip pin cover. Bold text. Result showcase. 2:3.",
-                "instagram": "Reel cover. Bold transformation text. Glowing visual. 4:5.",
-                "facebook": "Article preview. Shocking stat or result. Click-worthy. 16:9.",
-                "youtube": "Maximum CTR. Face + bold text. High contrast. 3 words max. 16:9.",
-                "x": "Thread header. Bold beauty statement. Sharp design. 16:9."
-            },
-            "product_rule": "maximum click-through, bold 3-5 word text, dramatic visual, NO clutter, readable at mobile size"
-        },
-        "home_organization": {
-            "core_emotion": "satisfaction_curiosity",
-            "visual_direction": {
-                "lighting": "bright clean natural, high contrast, f/4",
-                "colors": [
-                    "clean white",
-                    "bold teal",
-                    "warm wood",
-                    "red accent",
-                    "yellow"
-                ],
-                "scenarios": [
-                    "space transformation",
-                    "hack reveal",
-                    "vs comparison",
-                    "listicle",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Shocked face placeholder pointing at organized space. Bold text: 'GAME CHANGER'. {{ .Description }}. Teal and white high contrast. 16:9. Maximum click-through.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: 'DOLLAR STORE' vs 'LUXURY' organization products. Bold VS badge. {{ .Description }}. Clean comparison design. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Beautifully organized pantry/closet with one area circled/arrowed. Text: 'THIS TRICK SAVES HOURS'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant bold '15' number. Text: 'ORGANZING HACKS'. Organized space background. {{ .Description }}. Bold clean. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: chaotic messy space vs perfectly organized. Bold text: 'SAME ROOM'. Dramatic contrast. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold text: 'YOU ARE WASTING 3 HOURS/WEEK'. Surprised face placeholder with cluttered background. {{ .Description }}. Yellow and black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Pinterest-perfect organized space. Text: 'HOW I ORGANIZED EVERYTHING'. Step indicators. {{ .Description }}. Bright clean. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Overwhelmed person in messy room placeholder. Text: 'I WAS DROWNING IN STUFF...' Emotional hook. {{ .Description }}. 16:9."
-            ],
-            "video_prompts": [
-                "Animated thumbnail for {{ .Title }}. Before/after space reveal. Bold text. High contrast. {{ .Description }}.",
-                "Organization hack reveal for {{ .Title }}. Curiosity gap animation. Trick tease. Bold text. {{ .Description }}.",
-                "Listicle thumbnail animation for {{ .Title }}. Number reveal. Hack preview. Click-worthy. {{ .Description }}."
-            ],
-            "carousel_prompt": "Organization thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold text. Clean high contrast.",
-            "caption_templates": [
-                "New video: {{ .Title }}. {{ .Description }}. Watch now.",
-                "This hack saves hours. {{ .Title }}. {{ .Description }}.",
-                "Before and after is INSANE. {{ .Title }}. {{ .Description }}.",
-                "15 hacks you need. {{ .Title }}. {{ .Description }}.",
-                "You are doing it wrong. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold hack text. Before/after tease. Clean visual. 9:16.",
-                "meta": "Blog preview. Organization tip headline. Clean design. 16:9.",
-                "pinterest": "Organization pin cover. Result showcase. Bold text. 2:3.",
-                "instagram": "Reel cover. Transformation text. Clean visual. 4:5.",
-                "facebook": "Article preview. Shocking stat. Hack promise. 16:9.",
-                "youtube": "Maximum CTR. Face + organized space. Bold 3 words. 16:9.",
-                "x": "Thread header. Bold organizing statement. Clean. 16:9."
-            },
-            "product_rule": "maximum click-through, bold 3-5 word text, space transformations, readable at mobile size"
-        },
-        "fitness": {
-            "core_emotion": "power_and_shock",
-            "visual_direction": {
-                "lighting": "dramatic high-contrast, bold shadows, f/4",
-                "colors": [
-                    "bold red",
-                    "black",
-                    "neon green",
-                    "yellow",
-                    "white"
-                ],
-                "scenarios": [
-                    "transformation",
-                    "workout reaction",
-                    "vs comparison",
-                    "listicle",
-                    "shocking stat",
-                    "challenge result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Intense face placeholder mid-lift or shocked expression. Bold text: 'I TRIED IT FOR 30 DAYS'. {{ .Description }}. Red and black high contrast. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two exercises, two supplements, or two methods. Big VS badge. Bold text. {{ .Description }}. Red vs blue split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Muscular physique with one area circled. Text: 'THIS ONE EXERCISE...' Arrow pointing. {{ .Description }}. Bold dark background. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant bold '5' number. Text: 'MISTAKES KILLING YOUR GAINS'. Gym background. {{ .Description }}. Red and black. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'WEEK 1' vs 'WEEK 12'. Body transformation silhouettes. Bold text: 'REAL TRANSFORMATION'. {{ .Description }}. High contrast. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '97% DO THIS WRONG'. Surprised face. Gym background. {{ .Description }}. Yellow warning on black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Impressive physique or PR achievement. Text: 'HOW I GOT SHREDDED'. Step numbers. {{ .Description }}. Bold. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Emotional gym moment placeholder. Text: 'I ALMOST QUIT...' Dramatic dark mood. {{ .Description }}. 16:9."
-            ],
-            "video_prompts": [
-                "Transformation thumbnail animation for {{ .Title }}. Before/after morph. Bold text. High energy. {{ .Description }}.",
-                "Workout reaction animation for {{ .Title }}. Intense face. Bold text reveal. Click-worthy. {{ .Description }}.",
-                "VS battle animation for {{ .Title }}. Split screen reveal. Winner suspense. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fitness thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold text. High contrast dark.",
-            "caption_templates": [
-                "New video: {{ .Title }}. {{ .Description }}. Watch now.",
-                "30-day results are IN. {{ .Title }}. {{ .Description }}.",
-                "You are doing this wrong. {{ .Title }}. {{ .Description }}.",
-                "The transformation is real. {{ .Title }}. {{ .Description }}.",
-                "5 mistakes killing your gains. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold hook text. Transformation tease. Intense energy. 9:16.",
-                "meta": "Blog preview. Fitness tip headline. Bold design. 16:9.",
-                "pinterest": "Workout pin cover. Result showcase. Bold text. 2:3.",
-                "instagram": "Reel cover. Transformation text. Bold dark. 4:5.",
-                "facebook": "Article preview. Shocking fitness stat. Click-worthy. 16:9.",
-                "youtube": "Maximum CTR. Face + bold text. High contrast. 3 words. 16:9.",
-                "x": "Thread header. Bold fitness statement. High contrast. 16:9."
-            },
-            "product_rule": "maximum click-through, bold text, transformation proof, dramatic contrast"
-        },
-        "tech_gadgets": {
-            "core_emotion": "shock_and_curiosity",
-            "visual_direction": {
-                "lighting": "dramatic tech-blue glow, high contrast, f/4",
-                "colors": [
-                    "electric blue",
-                    "red",
-                    "black",
-                    "neon cyan",
-                    "yellow"
-                ],
-                "scenarios": [
-                    "tech reveal",
-                    "vs comparison",
-                    "unboxing reaction",
-                    "listicle",
-                    "shocking stat",
-                    "teardown",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Shocked face placeholder holding tech product. Bold text: 'THIS CHANGES EVERYTHING'. {{ .Description }}. Blue glow on dark. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two competing products face-off. Product photos with specs. Big red VS badge. Bold text. {{ .Description }}. Blue vs red split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Product with key feature blurred or circled with arrow. Text: 'THEY HID THIS FEATURE'. {{ .Description }}. Dark tech blue. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant bold '10' number. Text: 'BEST GADGETS [YEAR]'. Product collage teased. {{ .Description }}. Blue and black. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: old setup vs new upgraded setup. Text: 'WORTH THE UPGRADE?' Dramatic contrast. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '$2000 vs $200'. Product comparison with price shock. {{ .Description }}. Yellow on black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Dream setup end-result. Text: 'ULTIMATE SETUP FOR $500'. Build components teased. {{ .Description }}. Clean tech. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Broken or failing tech scene placeholder. Text: 'IT DIED AFTER 1 WEEK...' Dramatic. {{ .Description }}. Dark. 16:9."
-            ],
-            "video_prompts": [
-                "Tech reveal animation for {{ .Title }}. Product unbox. Bold text. Dramatic glow. {{ .Description }}.",
-                "VS comparison animation for {{ .Title }}. Split screen battle. Winner reveal. {{ .Description }}.",
-                "Unboxing reaction animation for {{ .Title }}. Surprised face. Product reveal. {{ .Description }}."
-            ],
-            "carousel_prompt": "Tech thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold text. Tech blue contrast.",
-            "caption_templates": [
-                "This changes everything. {{ .Title }}. {{ .Description }}.",
-                "VS comparison you need to see. {{ .Title }}. {{ .Description }}.",
-                "10 best gadgets right now. {{ .Title }}. {{ .Description }}.",
-                "Is it worth $2000? {{ .Title }}. {{ .Description }}.",
-                "They do not want you to know this. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold tech reveal. Product close-up. Hook text. 9:16.",
-                "meta": "Blog preview. Tech comparison. Clean design. 16:9.",
-                "pinterest": "Tech guide pin. Product showcase. Bold text. 2:3.",
-                "instagram": "Reel cover. Unboxing reaction. Bold text. 4:5.",
-                "facebook": "Article preview. Price comparison shock. 16:9.",
-                "youtube": "Maximum CTR. Face + product. Bold 3 words. 16:9.",
-                "x": "Thread header. Bold tech take. VS format. 16:9."
-            },
-            "product_rule": "maximum clicks, dramatic reveals, VS comparisons, price shock, tech glow aesthetic"
-        },
-        "pets": {
-            "core_emotion": "cuteness_and_wonder",
-            "visual_direction": {
-                "lighting": "warm bright, high contrast, f/2.8",
-                "colors": [
-                    "warm golden",
-                    "red",
-                    "white",
-                    "sky blue",
-                    "green"
-                ],
-                "scenarios": [
-                    "pet reaction",
-                    "vs comparison",
-                    "hack reveal",
-                    "listicle",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Adorable pet face close-up with expressive eyes. Bold text: 'YOU WONT BELIEVE THIS'. {{ .Description }}. Warm high contrast. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two pet products or brands face-off. VS badge. Bold text. {{ .Description }}. Colorful split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Cute pet with circled/arrowed hidden detail. Text: 'VETS NEVER TELL YOU THIS'. {{ .Description }}. Bold on warm. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '7' number. Text: 'PET HACKS THAT WORK'. Happy pet. {{ .Description }}. Bold clean. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'RESCUE DAY' sad pet vs 'NOW' happy healthy pet. Text: 'SAME DOG'. {{ .Description }}. Heartwarming contrast. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '80% OF OWNERS DO THIS WRONG'. Concerned face with pet. {{ .Description }}. Yellow warning. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Happy well-groomed pet result. Text: 'PERFECT GROOMING AT HOME'. {{ .Description }}. Bright warm. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Emotional pet rescue scene placeholder. Text: 'WE FOUND HER ABANDONED...' {{ .Description }}. Dramatic warm. 16:9."
-            ],
-            "video_prompts": [
-                "Pet reaction thumbnail for {{ .Title }}. Cute reveal. Bold text. {{ .Description }}.",
-                "Before/after pet transformation for {{ .Title }}. Bold text. Heartwarming. {{ .Description }}.",
-                "VS pet product animation for {{ .Title }}. Split battle. Winner reveal. {{ .Description }}."
-            ],
-            "carousel_prompt": "Pet thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold text. Warm contrast.",
-            "caption_templates": [
-                "Your pet needs this. {{ .Title }}. {{ .Description }}.",
-                "7 hacks every pet owner needs. {{ .Title }}. {{ .Description }}.",
-                "Rescue to royalty. {{ .Title }}. {{ .Description }}.",
-                "Vets do not tell you this. {{ .Title }}. {{ .Description }}.",
-                "Watch the transformation. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Cute pet hook. Bold text. Reaction face. 9:16.",
-                "meta": "Pet tip preview. Warm design. 16:9.",
-                "pinterest": "Pet hack pin. Bold text. Cute visual. 2:3.",
-                "instagram": "Reel cover. Pet reaction. Bold text. 4:5.",
-                "facebook": "Article preview. Pet stat shock. 16:9.",
-                "youtube": "Maximum CTR. Pet face + bold text. 16:9.",
-                "x": "Thread header. Bold pet fact. 16:9."
-            },
-            "product_rule": "maximum click-through, cute pet visuals, bold text, emotional hooks"
-        },
-        "fashion_apparel": {
-            "core_emotion": "style_and_envy",
-            "visual_direction": {
-                "lighting": "editorial dramatic, high contrast, f/4",
-                "colors": [
-                    "noir black",
-                    "gold",
-                    "hot pink",
-                    "white",
-                    "red"
-                ],
-                "scenarios": [
-                    "style reveal",
-                    "vs comparison",
-                    "haul reaction",
-                    "listicle",
-                    "shocking price",
-                    "how-to style",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Fashion influencer face placeholder with outfit peek. Bold text: 'BEST HAUL EVER'. {{ .Description }}. Black and gold. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: '$20 OUTFIT' vs '$2000 OUTFIT'. Side by side style comparison. VS badge. {{ .Description }}. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Stunning outfit with brand label blurred. Text: 'THE DUPE THAT BROKE THE INTERNET'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '10' number. Text: 'OUTFITS FOR EVERY OCCASION'. Style grid teased. {{ .Description }}. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: basic outfit vs styled outfit. Text: 'SAME CLOTHES, DIFFERENT STYLING'. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '$15 LOOKS LIKE $500'. Shocked face. Outfit showcase. {{ .Description }}. Yellow on black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Perfect capsule wardrobe result. Text: 'WARDROBE IN 20 PIECES'. {{ .Description }}. Clean editorial. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Fashion disaster scene placeholder. Text: 'MY BIGGEST STYLE MISTAKE...' {{ .Description }}. Dramatic. 16:9."
-            ],
-            "video_prompts": [
-                "Haul reveal for {{ .Title }}. Bold text animation. Fashion. {{ .Description }}.",
-                "VS style battle for {{ .Title }}. Price reveal. Winner. {{ .Description }}.",
-                "Style transformation for {{ .Title }}. Before/after. Bold text. {{ .Description }}."
-            ],
-            "carousel_prompt": "Fashion thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold. Editorial.",
-            "caption_templates": [
-                "Best haul ever. {{ .Title }}. {{ .Description }}.",
-                "$15 looks like $500. {{ .Title }}. {{ .Description }}.",
-                "10 outfits you need. {{ .Title }}. {{ .Description }}.",
-                "Style mistake to avoid. {{ .Title }}. {{ .Description }}.",
-                "The dupe is unreal. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Fashion reveal. Bold text. Outfit tease. 9:16.",
-                "meta": "Style guide preview. Clean. 16:9.",
-                "pinterest": "Outfit pin cover. Editorial. Bold text. 2:3.",
-                "instagram": "Reel cover. Haul text. Fashion. 4:5.",
-                "facebook": "Style article. Price shock. 16:9.",
-                "youtube": "Maximum CTR. Face + outfit. 3 words. 16:9.",
-                "x": "Thread header. Bold style take. 16:9."
-            },
-            "product_rule": "maximum clicks, fashion editorial, bold price reveals, style transformations"
-        },
-        "food_beverage": {
-            "core_emotion": "craving_and_curiosity",
-            "visual_direction": {
-                "lighting": "warm dramatic food light, high contrast, f/4",
-                "colors": [
-                    "warm red",
-                    "golden",
-                    "rich brown",
-                    "yellow",
-                    "white"
-                ],
-                "scenarios": [
-                    "recipe reveal",
-                    "vs taste test",
-                    "food reaction",
-                    "listicle",
-                    "shocking fact",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Shocked/delighted face placeholder tasting food. Bold text: 'BEST THING I EVER ATE'. {{ .Description }}. Warm dramatic. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: '$1 MEAL' vs '$100 MEAL'. Food side by side. VS badge. Bold text. {{ .Description }}. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Stunning dish with secret ingredient circled. Text: 'THE SECRET INGREDIENT IS...' {{ .Description }}. Warm. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '5' number. Text: 'MINUTE MEALS'. Food collage. {{ .Description }}. Red and golden. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: raw ingredients vs stunning dish. Text: '30 MINUTES LATER'. {{ .Description }}. Warm contrast. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: 'THIS COSTS $3 TO MAKE'. Gourmet-looking dish. Shocked face. {{ .Description }}. Yellow. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Perfect finished dish beauty shot. Text: 'RESTAURANT QUALITY AT HOME'. Steam rising. {{ .Description }}. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Kitchen disaster scene placeholder. Text: 'I BURNED MY KITCHEN...' {{ .Description }}. Dramatic. 16:9."
-            ],
-            "video_prompts": [
-                "Recipe reveal for {{ .Title }}. Food beauty shot. Bold text. Warm. {{ .Description }}.",
-                "Taste test reaction for {{ .Title }}. Face expression. Bold text. {{ .Description }}.",
-                "VS food battle for {{ .Title }}. Price reveal. Winner. {{ .Description }}."
-            ],
-            "carousel_prompt": "Food thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold text. Warm appetizing.",
-            "caption_templates": [
-                "Best thing I ever made. {{ .Title }}. {{ .Description }}.",
-                "$3 gourmet meal. {{ .Title }}. {{ .Description }}.",
-                "5-minute meals you need. {{ .Title }}. {{ .Description }}.",
-                "The secret ingredient. {{ .Title }}. {{ .Description }}.",
-                "Restaurant quality at home. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Food reveal. Bold text. Reaction face. 9:16.",
-                "meta": "Recipe preview. Appetizing. 16:9.",
-                "pinterest": "Recipe pin cover. Food beauty. 2:3.",
-                "instagram": "Reel cover. Food reaction. Bold. 4:5.",
-                "facebook": "Recipe article. Price shock. 16:9.",
-                "youtube": "Maximum CTR. Face + food. Bold 3 words. 16:9.",
-                "x": "Thread header. Bold food take. 16:9."
-            },
-            "product_rule": "maximum appetite appeal, bold minimal text, warm dramatic, craving-inducing"
-        },
-        "health_wellness": {
-            "core_emotion": "urgency_and_hope",
-            "visual_direction": {
-                "lighting": "bright clean calming, high contrast, f/4",
-                "colors": [
-                    "sage green",
-                    "red warning",
-                    "white",
-                    "yellow",
-                    "deep blue"
-                ],
-                "scenarios": [
-                    "wellness reveal",
-                    "vs comparison",
-                    "myth busting",
-                    "listicle",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Concerned/surprised face placeholder. Bold text: 'DOCTORS WERE WRONG'. {{ .Description }}. Green and white contrast. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: healthy habit vs unhealthy habit. Bold VS. {{ .Description }}. Green vs red split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Health food/supplement with benefit area circled. Text: 'NOBODY TALKS ABOUT THIS'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '10' number. Text: 'HEALTH MYTHS EXPOSED'. {{ .Description }}. Bold clean. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'BEFORE' tired/unhealthy vs 'AFTER' vibrant healthy. Text: '30 DAYS LATER'. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '85% GET THIS WRONG'. Warning icon. {{ .Description }}. Red and yellow on dark. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Vibrant healthy lifestyle result. Text: 'HOW I FIXED MY HEALTH'. {{ .Description }}. Bright clean. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Struggling/sick person placeholder. Text: 'THE DIAGNOSIS CHANGED EVERYTHING...' {{ .Description }}. Dramatic. 16:9."
-            ],
-            "video_prompts": [
-                "Health myth bust for {{ .Title }}. Bold reveal. Stat flash. {{ .Description }}.",
-                "Before/after health for {{ .Title }}. Transformation. Bold text. {{ .Description }}.",
-                "VS health comparison for {{ .Title }}. Split battle. Winner. {{ .Description }}."
-            ],
-            "carousel_prompt": "Health thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold clean.",
-            "caption_templates": [
-                "Doctors were wrong about this. {{ .Title }}. {{ .Description }}.",
-                "85% get this wrong. {{ .Title }}. {{ .Description }}.",
-                "10 health myths debunked. {{ .Title }}. {{ .Description }}.",
-                "30 days changed everything. {{ .Title }}. {{ .Description }}.",
-                "The truth about {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Bold health hook. Myth bust. Warning. 9:16.",
-                "meta": "Health article preview. Clean. 16:9.",
-                "pinterest": "Wellness pin. Bold text. Clean. 2:3.",
-                "instagram": "Reel cover. Health fact. Bold. 4:5.",
-                "facebook": "Health article. Shocking stat. 16:9.",
-                "youtube": "Maximum CTR. Face + bold text. 16:9.",
-                "x": "Thread header. Bold health claim. 16:9."
-            },
-            "product_rule": "maximum clicks, health urgency, myth-busting, bold stats"
-        },
-        "baby_kids": {
-            "core_emotion": "protective_curiosity",
-            "visual_direction": {
-                "lighting": "warm bright gentle, soft contrast, f/4",
-                "colors": [
-                    "soft pink",
-                    "baby blue",
-                    "yellow warning",
-                    "white",
-                    "red"
-                ],
-                "scenarios": [
-                    "parenting hack",
-                    "vs comparison",
-                    "safety reveal",
-                    "listicle",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Parent shocked face placeholder with baby product. Bold text: 'WISH I KNEW SOONER'. {{ .Description }}. Warm bright. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two baby products, cheap vs premium. VS badge. Bold text. {{ .Description }}. Pink vs blue split. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Baby product with hidden feature circled. Text: 'MOST PARENTS MISS THIS'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '12' number. Text: 'BABY MUST-HAVES'. {{ .Description }}. Soft bold clean. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: parenting struggle vs solution. Text: 'THIS CHANGED EVERYTHING'. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: 'PEDIATRICIANS SAY STOP DOING THIS'. Warning icon. {{ .Description }}. Red and yellow. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Happy organized nursery result. Text: 'PERFECT NURSERY ON A BUDGET'. {{ .Description }}. Bright warm. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Exhausted parent placeholder. Text: 'FIRST YEAR IS THE HARDEST...' {{ .Description }}. Emotional. 16:9."
-            ],
-            "video_prompts": [
-                "Parenting hack reveal for {{ .Title }}. Bold text. Warm. {{ .Description }}.",
-                "VS baby product for {{ .Title }}. Split battle. Winner. {{ .Description }}.",
-                "Safety reveal for {{ .Title }}. Warning. Bold text. {{ .Description }}."
-            ],
-            "carousel_prompt": "Baby thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold gentle.",
-            "caption_templates": [
-                "Every parent needs this. {{ .Title }}. {{ .Description }}.",
-                "12 must-haves for baby. {{ .Title }}. {{ .Description }}.",
-                "Pediatricians say stop this. {{ .Title }}. {{ .Description }}.",
-                "Nursery on a budget. {{ .Title }}. {{ .Description }}.",
-                "Wish I knew sooner. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Parenting hack. Bold text. Warm. 9:16.",
-                "meta": "Parenting tip preview. Clean. 16:9.",
-                "pinterest": "Baby hack pin. Warm. Bold. 2:3.",
-                "instagram": "Reel cover. Parent hack. Bold. 4:5.",
-                "facebook": "Parenting article. Safety stat. 16:9.",
-                "youtube": "Maximum CTR. Parent face + bold. 16:9.",
-                "x": "Thread header. Bold parenting take. 16:9."
-            },
-            "product_rule": "maximum clicks, parenting urgency, safety hooks, warm aesthetic"
-        },
-        "automotive": {
-            "core_emotion": "adrenaline_and_shock",
-            "visual_direction": {
-                "lighting": "dramatic high-contrast, metallic, f/4",
-                "colors": [
-                    "carbon black",
-                    "racing red",
-                    "yellow warning",
-                    "chrome",
-                    "white"
-                ],
-                "scenarios": [
-                    "car reveal",
-                    "vs comparison",
-                    "mechanic secret",
-                    "listicle",
-                    "price shock",
-                    "how-to build",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Shocked face placeholder next to car. Bold text: 'I BOUGHT IT'. {{ .Description }}. Dark dramatic. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two cars face-off. Specs comparison. Big VS badge. Bold text. {{ .Description }}. Red vs blue. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Engine bay with hidden part circled. Text: 'MECHANICS HIDE THIS'. {{ .Description }}. Dark metallic. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '5' number. Text: 'MODS UNDER $100'. Car background. {{ .Description }}. Red and black. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: wrecked/stock car vs restored/modded. Text: 'SAME CAR'. {{ .Description }}. Dramatic contrast. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '$500 CAR vs $500,000 CAR'. Side by side. Price shock. {{ .Description }}. Yellow on black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Dream build completed. Text: 'BUILT FOR $5K'. {{ .Description }}. Dark dramatic. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Car crash/breakdown scene placeholder. Text: 'THE ENGINE BLEW UP...' {{ .Description }}. Dramatic dark. 16:9."
-            ],
-            "video_prompts": [
-                "Car reveal for {{ .Title }}. Engine rev. Bold text. Dramatic. {{ .Description }}.",
-                "VS car battle for {{ .Title }}. Split screen. Race. {{ .Description }}.",
-                "Build reveal for {{ .Title }}. Before/after. Bold text. {{ .Description }}."
-            ],
-            "carousel_prompt": "Auto thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold dark.",
-            "caption_templates": [
-                "I bought it. {{ .Title }}. {{ .Description }}.",
-                "$500 vs $500K car. {{ .Title }}. {{ .Description }}.",
-                "5 mods under $100. {{ .Title }}. {{ .Description }}.",
-                "Same car, new build. {{ .Title }}. {{ .Description }}.",
-                "The engine blew up. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Car reveal. Bold text. Engine rev. 9:16.",
-                "meta": "Car comparison preview. 16:9.",
-                "pinterest": "Car build pin. Bold. 2:3.",
-                "instagram": "Reel cover. Car reaction. 4:5.",
-                "facebook": "Car article. Price shock. 16:9.",
-                "youtube": "Maximum CTR. Face + car. Bold 3 words. 16:9.",
-                "x": "Thread header. Bold car take. 16:9."
-            },
-            "product_rule": "maximum clicks, car reveals, price shock, dramatic contrast"
-        },
-        "education_learning": {
-            "core_emotion": "growth_and_urgency",
-            "visual_direction": {
-                "lighting": "bright professional, high contrast, f/4",
-                "colors": [
-                    "deep navy",
-                    "gold",
-                    "red",
-                    "white",
-                    "teal"
-                ],
-                "scenarios": [
-                    "course reveal",
-                    "vs comparison",
-                    "career hack",
-                    "listicle",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Excited/shocked face placeholder with book or laptop. Bold text: 'THIS COURSE CHANGED MY LIFE'. {{ .Description }}. Navy and gold. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: 'DEGREE' vs 'SELF-TAUGHT'. Comparison format. VS badge. Bold text. {{ .Description }}. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Screen/book with key info blurred. Text: 'THE SKILL NOBODY TEACHES'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '7' number. Text: 'SKILLS THAT PAY'. {{ .Description }}. Gold and navy. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'BEGINNER' vs '6 MONTHS LATER'. Skill progression showcase. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '$0 TO $10K/MONTH'. Income reveal. Surprised face. {{ .Description }}. Yellow on dark. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Career success showcase. Text: 'HOW I LANDED MY DREAM JOB'. {{ .Description }}. Professional. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Struggling student placeholder. Text: 'I DROPPED OUT AND THEN...' {{ .Description }}. Dramatic. 16:9."
-            ],
-            "video_prompts": [
-                "Course reveal for {{ .Title }}. Bold text. Professional. {{ .Description }}.",
-                "VS education battle for {{ .Title }}. Split format. Winner. {{ .Description }}.",
-                "Career transformation for {{ .Title }}. Before/after. Bold. {{ .Description }}."
-            ],
-            "carousel_prompt": "Education thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold professional.",
-            "caption_templates": [
-                "This course changed everything. {{ .Title }}. {{ .Description }}.",
-                "$0 to $10K. {{ .Title }}. {{ .Description }}.",
-                "7 skills that pay. {{ .Title }}. {{ .Description }}.",
-                "Degree vs self-taught. {{ .Title }}. {{ .Description }}.",
-                "I dropped out and then... {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Career hack. Bold text. Income reveal. 9:16.",
-                "meta": "Course preview. Professional. 16:9.",
-                "pinterest": "Skill list pin. Bold. 2:3.",
-                "instagram": "Reel cover. Career text. Bold. 4:5.",
-                "facebook": "Education article. Income stat. 16:9.",
-                "youtube": "Maximum CTR. Face + bold text. 16:9.",
-                "x": "Thread header. Bold education take. 16:9."
-            },
-            "product_rule": "maximum clicks, income/career reveals, skill urgency, professional contrast"
-        },
-        "supplements": {
-            "core_emotion": "performance_shock",
-            "visual_direction": {
-                "lighting": "clean clinical, high contrast, f/4",
-                "colors": [
-                    "deep green",
-                    "red warning",
-                    "black",
-                    "gold",
-                    "white"
-                ],
-                "scenarios": [
-                    "supplement reveal",
-                    "vs comparison",
-                    "science expose",
-                    "listicle",
-                    "shocking stat",
-                    "result showcase",
-                    "before/after",
-                    "story hook"
-                ]
-            },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Intense face placeholder holding supplement. Bold text: 'THIS ACTUALLY WORKS'. {{ .Description }}. Green and black. 16:9.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split: two supplements or brands. Lab results comparison. VS badge. Bold text. {{ .Description }}. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Supplement label with ingredient circled. Text: 'THEY DO NOT WANT YOU TO READ THIS'. {{ .Description }}. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant '5' number. Text: 'SUPPLEMENTS THAT ACTUALLY WORK'. {{ .Description }}. Bold clinical. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split: 'BEFORE' low energy vs 'AFTER 30 DAYS' peak performance. {{ .Description }}. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Bold: '90% OF SUPPLEMENTS ARE FAKE'. Shocked face. Warning icon. {{ .Description }}. Red on black. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Peak performance physique/energy result. Text: 'MY STACK FOR $50/MONTH'. {{ .Description }}. Clean bold. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Sick/tired person placeholder. Text: 'I WAS SO DEPLETED...' {{ .Description }}. Dramatic dark. 16:9."
-            ],
-            "video_prompts": [
-                "Supplement reveal for {{ .Title }}. Lab test. Bold text. {{ .Description }}.",
-                "VS supplement battle for {{ .Title }}. Science data. Winner. {{ .Description }}.",
-                "Stack showcase for {{ .Title }}. Results. Bold text. {{ .Description }}."
-            ],
-            "carousel_prompt": "Supplement thumbnail series for {{ .Title }}. Each slide: different CTR format. {{ .Description }}. Bold clinical.",
-            "caption_templates": [
-                "This actually works. {{ .Title }}. {{ .Description }}.",
-                "90% of supplements are fake. {{ .Title }}. {{ .Description }}.",
-                "5 that actually work. {{ .Title }}. {{ .Description }}.",
-                "My $50 stack. {{ .Title }}. {{ .Description }}.",
-                "Lab tested truth. {{ .Title }}. {{ .Description }}."
-            ],
-            "platform_adaptation": {
-                "tiktok": "Supplement expose. Bold text. Lab data. 9:16.",
-                "meta": "Supplement guide. Clinical. 16:9.",
-                "pinterest": "Stack list pin. Bold. 2:3.",
-                "instagram": "Reel cover. Supplement fact. Bold. 4:5.",
-                "facebook": "Health article. Shocking stat. 16:9.",
-                "youtube": "Maximum CTR. Face + supplement. 16:9.",
-                "x": "Thread header. Bold supplement fact. 16:9."
-            },
-            "product_rule": "maximum clicks, science proof, lab data reveals, supplement expose energy"
-        },
         "general": {
             "core_emotion": "curiosity_and_clicks",
             "visual_direction": {
-                "lighting": "high contrast bold, dramatic, f/4",
+                "lighting": "high contrast bold",
                 "colors": [
-                    "bold red",
+                    "bold primary",
+                    "high contrast",
                     "yellow accent",
-                    "black",
-                    "white",
-                    "electric blue"
+                    "red accent"
                 ],
                 "scenarios": [
-                    "reaction face",
-                    "vs comparison",
-                    "curiosity gap",
-                    "listicle number",
-                    "shocking stat",
-                    "how-to result",
-                    "before/after",
-                    "story hook"
+                    "youtube thumbnail",
+                    "blog cover image",
+                    "podcast cover art",
+                    "article header"
                 ]
             },
-            "master_prompts": [
-                "Design a FACE REACTION THUMBNAIL for {{ .Title }}. Expressive shocked/excited face placeholder on left third. Bold text on right: 3-5 words maximum about {{ .Description }}. High contrast red/yellow on dark or light background. 16:9. This must make someone STOP and CLICK.",
-                "Design a VS COMPARISON THUMBNAIL for {{ .Title }}. Split-screen: two options or subjects in face-off format. Big red VS badge in center. Bold text labels. {{ .Description }}. High contrast. 16:9.",
-                "Design a CURIOSITY GAP THUMBNAIL for {{ .Title }}. Dramatic visual with key element blurred, circled, or partially hidden. Text: 3-word cliffhanger about {{ .Description }}. Arrow or circle pointing to hidden reveal. 16:9.",
-                "Design a LISTICLE NUMBER THUMBNAIL for {{ .Title }}. Giant bold number (5, 7, 10) dominates left side. Topic text on right: 3-4 words about {{ .Description }}. Related visuals. Bold clean. 16:9.",
-                "Design a BEFORE/AFTER THUMBNAIL for {{ .Title }}. Split design with clear contrast. 'BEFORE' vs 'AFTER' bold labels. Dramatic transformation showing {{ .Description }}. High contrast. 16:9.",
-                "Design a SHOCKING STAT THUMBNAIL for {{ .Title }}. Giant bold statistic or data point that challenges assumptions about {{ .Description }}. Surprised face placeholder. Yellow/red warning accents on dark. 16:9.",
-                "Design a HOW-TO RESULT THUMBNAIL for {{ .Title }}. Impressive end-result showcase. Text: 'HOW I...' or 'I MADE...' 3-5 words about {{ .Description }}. Achievement visual. Bold. 16:9.",
-                "Design a STORY HOOK THUMBNAIL for {{ .Title }}. Emotional or dramatic scene placeholder. Cliffhanger text: 3-5 words creating narrative suspense about {{ .Description }}. Dark dramatic mood. 16:9."
-            ],
-            "video_prompts": [
-                "Animated thumbnail for {{ .Title }}. Bold text kinetic reveal. Dramatic visual transition. Maximum click appeal. {{ .Description }}.",
-                "Before/after reveal animation for {{ .Title }}. Transformation morph. Bold text. High contrast. {{ .Description }}.",
-                "VS comparison animation for {{ .Title }}. Split screen battle. Winner reveal suspense. {{ .Description }}."
-            ],
-            "carousel_prompt": "Content cover series for {{ .Title }}. Each slide: bold thumbnail-style design for different topics about {{ .Description }}. High-contrast. Clickable. 3-5 word headlines per slide.",
+            "master_prompt": "Design a high-CTR thumbnail or cover image for {{ .Title }}. Bold high-contrast design. Large attention-grabbing text with 3-5 words maximum about {{ .Description }}. Dramatic visual element — expressive face, surprising comparison, or bold graphic. High contrast colors (red/yellow accents on dark or light background). This must make someone CLICK. YouTube thumbnail or blog cover quality. 16:9 format. Maximum visual impact.",
+            "video_prompt": "Animated thumbnail for {{ .Title }}. Bold text reveal. Dramatic visual transition. Maximum click appeal. {{ .Description }}.",
+            "carousel_prompt": "Content cover series for {{ .Title }}. Each slide: bold thumbnail-style design for different topics related to {{ .Description }}. High-contrast. Clickable. 3-5 word headlines per slide.",
             "caption_templates": [
-                "New video: {{ .Title }}. {{ .Description }}. Link in bio.",
-                "This one is worth the click. {{ .Title }}. {{ .Description }}.",
-                "You need to see this. {{ .Title }}. {{ .Description }}.",
-                "The results will shock you. {{ .Title }}. {{ .Description }}.",
-                "Everything you thought was wrong. {{ .Title }}. {{ .Description }}."
+                "New video: {{ .Title }} 🔥 {{ .Description }}",
+                "This one is worth the click 👆 {{ .Title }}",
+                "{{ .Title }} — you need to see this 👇 {{ .Description }}"
             ],
             "platform_adaptation": {
-                "tiktok": "Bold hook text at top. Dramatic tease. Full-screen reveal. 9:16.",
-                "meta": "Blog preview card. Clean engaging headline. Professional. 16:9.",
-                "pinterest": "Blog cover pin. Bold text. Save-worthy topic. 2:3.",
-                "instagram": "Reel cover or post cover. Bold topic text. Hook visual. 4:5.",
-                "facebook": "Blog share image. Engaging topic. Click-worthy. 16:9.",
-                "youtube": "Maximum CTR. Face + bold 3-word text. High contrast. Rule of thirds. 16:9.",
-                "x": "Twitter card image. Thread header. Bold statement visual. 16:9."
+                "youtube": "16:9 maximum CTR thumbnail. Bold 3-word text. Dramatic visual.",
+                "meta": "Blog preview card. Clean engaging headline.",
+                "instagram": "Reel cover. Bold topic text.",
+                "pinterest": "Blog cover pin. Compelling visual.",
+                "x": "Thread header image. Bold statement.",
+                "tiktok": "Video cover frame. Hook text."
             },
-            "product_rule": "maximum click-through, bold 3-5 word text ONLY, dramatic visual impact, readable at mobile, NO clutter, rule of thirds"
+            "product_rule": "maximum click-through, bold minimal text, dramatic visual impact"
+        },
+        "tech_gadgets": {
+            "core_emotion": "shock_and_curiosity_value",
+            "visual_direction": {
+                "lighting": "dramatic high contrast",
+                "colors": [
+                    "electric blue",
+                    "red",
+                    "black"
+                ],
+                "scenarios": [
+                    "tech reveal thumbnail",
+                    "vs comparison",
+                    "shocking stat"
+                ]
+            },
+            "master_prompt": "Design a tech YouTube thumbnail for {{ .Title }}. Dramatic high-contrast design. Bold text like 'GAME CHANGER' or 'vs' comparison format. Striking tech visual about {{ .Description }}. Red and blue accent colors on dark background. Expressive reaction or dramatic product reveal. Maximum click-through. 16:9.",
+            "video_prompt": "Tech thumbnail animation for {{ .Title }}. Dramatic reveal. Bold comparison text. High contrast. {{ .Description }}.",
+            "carousel_prompt": "Tech video cover series for {{ .Title }}. Each slide: bold thumbnail for different tech comparison or review topic about {{ .Description }}.",
+            "caption_templates": [
+                "This changes everything 🤯 {{ .Title }}",
+                "{{ .Title }} vs everything else 👀 {{ .Description }}",
+                "You're not ready for this {{ .Title }} review 🔥"
+            ],
+            "platform_adaptation": {
+                "youtube": "Dramatic tech reveal thumbnail. VS format.",
+                "instagram": "Tech reel cover. Bold reveal text.",
+                "x": "Thread header. Hot tech take."
+            },
+            "product_rule": "maximum clicks, dramatic reveals, comparison formats"
+        },
+        "food_beverage": {
+            "core_emotion": "craving_inducing",
+            "visual_direction": {
+                "lighting": "warm dramatic",
+                "colors": [
+                    "warm tones",
+                    "red",
+                    "golden"
+                ],
+                "scenarios": [
+                    "recipe thumbnail",
+                    "food reveal",
+                    "taste test comparison"
+                ]
+            },
+            "master_prompt": "Design a food content thumbnail for {{ .Title }}. Appetizing dramatic visual. Bold text with 3-5 words about {{ .Description }}. Food beauty shot with steam or drip effect. Warm color palette. Maximum appetite appeal and click-through. 16:9 or recipe cover format.",
+            "video_prompt": "Food thumbnail animation for {{ .Title }}. Appetizing reveal. Bold recipe text. Warm dramatic lighting. {{ .Description }}.",
+            "carousel_prompt": "Recipe cover series for {{ .Title }}. Each slide: appetizing thumbnail for different recipe related to {{ .Description }}. Bold text. Warm tones.",
+            "caption_templates": [
+                "You NEED to try this {{ .Title }} recipe 🤤",
+                "{{ .Title }} that broke the internet 🔥 {{ .Description }}",
+                "Wait for it... {{ .Title }} 😍"
+            ],
+            "platform_adaptation": {
+                "youtube": "Appetizing recipe thumbnail. Bold text.",
+                "pinterest": "Recipe pin cover. Warm aesthetic.",
+                "instagram": "Reel cover. Food beauty shot."
+            },
+            "product_rule": "maximum appetite appeal, bold minimal text, warm dramatic"
         }
     }
 }

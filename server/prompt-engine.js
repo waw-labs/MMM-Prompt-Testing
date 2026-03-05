@@ -57,7 +57,7 @@ const PLATFORM_STYLE_DIRECTIVES = {
 - Feed-cohesive design that fits a curated aesthetic grid
 - 4:5 portrait maximizes screen real estate on mobile
 - Bold sans-serif typography (Inter, Neue Haas, Montserrat style)
-- Clean full-bleed design — do NOT add any Instagram UI, icons, navigation bars, or status bars
+- Leave 15% bottom margin safe zone for caption overlay
 - Pastel-to-bold gradient backgrounds trending in 2025
 - Chunky carousel-friendly modular design if applicable
 - Think "save-worthy" — content people bookmark for later`,
@@ -74,7 +74,8 @@ const PLATFORM_STYLE_DIRECTIVES = {
 - Full-screen 9:16 vertical — use EVERY pixel of screen
 - Lo-fi authentic UGC feel — NOT polished corporate design
 - Bold Impact/compressed font text overlays with slight rotation
-- CRITICAL: Do NOT render any TikTok UI elements — no navigation bar, no Home/Friends/Profile buttons, no status bar, no hearts, no share icons, no comments. Generate ONLY the creative content itself as a clean standalone image.
+- Leave top 15% and bottom 20% clear for TikTok UI elements
+- Trending visual language: screen recordings, selfie-POV, text-over-video stills
 - Raw, unfiltered aesthetic beats professional production
 - Think "I stopped scrolling for this" energy`,
 
@@ -146,108 +147,16 @@ QUALITY REQUIREMENTS — AVOID THESE COMMON AI FAILURES:
 - NO watermarks, stock photo badges, or artificial borders
 - NO oversaturated neon colors unless explicitly requested
 - NO cluttered compositions — maintain clear visual hierarchy
-- NO generic clip-art style — everything must feel premium and intentional
-- CRITICAL: Do NOT add any social media app UI overlays, navigation bars, status bars, home buttons, like/share/comment icons, profile icons, or any platform interface elements. Generate ONLY the raw creative content as a clean standalone image. No phone frames, no app screenshots, no simulated social media interfaces.`;
+- NO generic clip-art style — everything must feel premium and intentional`;
 
 /**
  * Replace Go template variables {{ .Title }} and {{ .Description }} with actual values.
  */
-export function renderTemplate(text, title, description, businessContext) {
+export function renderTemplate(text, title, description) {
     if (!text) return '';
-    let result = text
+    return text
         .replace(/\{\{\s*\.Title\s*\}\}/g, title || '')
         .replace(/\{\{\s*\.Description\s*\}\}/g, description || '');
-
-    // If business context is available, replace hardcoded values with real data
-    if (businessContext) {
-        // Replace prices in the prompt with actual product price
-        if (businessContext.productPrice) {
-            // Replace generic price patterns: '$49.99', '$500', etc.
-            result = result.replace(/\$[\d,]+(?:\.\d{2})?/g, (match) => {
-                // Don't replace prices that are clearly comparison/context prices (very large like $500K, $10K)
-                const num = parseFloat(match.replace(/[$,]/g, ''));
-                if (num > 5000) return match; // keep large context numbers
-                return `$${businessContext.productPrice}`;
-            });
-        }
-
-        // Replace discount percentages with actual discount (if available)
-        if (businessContext.discount) {
-            result = result.replace(/\d+%\s*(?:OFF|off|Off)/g, `${businessContext.discount} OFF`);
-            result = result.replace(/Save\s+\d+%/gi, `Save ${businessContext.discount}`);
-        }
-
-        // Replace brand/product name references where the template uses generic labels
-        if (businessContext.name) {
-            // Replace generic brand references in headlines/CTAs
-            result = result.replace(/'THE COMPLETE (?:ROUTINE|KIT|SETUP|GEAR KIT|CARE KIT|OUTFIT|STACK|BUNDLE|LEARNING PATH|GARDEN KIT|DAILY STACK) —/gi,
-                `'THE COMPLETE ${businessContext.name.toUpperCase()} —`);
-        }
-    }
-
-    return result;
-}
-
-/**
- * Builds a BRAND IDENTITY prompt block from businessContext.
- * Returns empty string if no business context is provided.
- */
-function buildBrandBlock(businessContext) {
-    if (!businessContext) return '';
-
-    const parts = ['\n\nBRAND IDENTITY — Apply these brand guidelines to the creative:'];
-
-    if (businessContext.name) {
-        parts.push(`- Brand Name: "${businessContext.name}" — use this name in any text overlays, headlines, or CTAs`);
-    }
-
-    if (businessContext.brandColors?.length > 0) {
-        parts.push(`- Brand Colors: ${businessContext.brandColors.join(', ')} — use these as the PRIMARY color palette. Replace any generic colors in the design with these brand colors`);
-    }
-
-    if (businessContext.brandTone) {
-        parts.push(`- Brand Tone: ${businessContext.brandTone} — visual feel and copy must match`);
-    }
-
-    if (businessContext.productPrice) {
-        parts.push(`- Actual Product Price: $${businessContext.productPrice} — use this EXACT price in any price displays, sale graphics, or offer overlays`);
-    }
-
-    if (businessContext.originalPrice && businessContext.discount) {
-        parts.push(`- Sale Info: Original $${businessContext.originalPrice} → Now $${businessContext.productPrice} (${businessContext.discount} OFF) — use these exact numbers in sale/discount creatives`);
-    }
-
-    if (businessContext.usp) {
-        parts.push(`- USP: ${businessContext.usp} — weave into headlines and messaging`);
-    }
-
-    if (businessContext.targetAudience) {
-        parts.push(`- Target Audience: ${businessContext.targetAudience} — design should resonate with this demographic`);
-    }
-
-    if (businessContext.priceRange) {
-        const priceVisual = {
-            'budget': 'Accessible, value-focused visuals. Bold deals, bright colors',
-            'mid-range': 'Clean, polished design. Professional but approachable',
-            'premium': 'Elevated, sophisticated design. Rich textures, refined typography',
-            'luxury': 'Ultra-minimal, editorial quality. Lots of white space, serif fonts, muted tones',
-        };
-        parts.push(`- Price Positioning: ${businessContext.priceRange} — ${priceVisual[businessContext.priceRange] || 'professional quality'}`);
-    }
-
-    if (businessContext.painPoints?.length > 0) {
-        parts.push(`- Pain Points: ${businessContext.painPoints.join('; ')} — address these`);
-    }
-
-    if (businessContext.emotionalTriggers?.length > 0) {
-        parts.push(`- Emotional Hooks: ${businessContext.emotionalTriggers.join('; ')} — evoke these feelings`);
-    }
-
-    if (businessContext.industry) {
-        parts.push(`- Industry: ${businessContext.industry.replace(/_/g, ' ')} — ensure visual language is native to this space`);
-    }
-
-    return parts.join('\n');
 }
 
 /**
@@ -411,7 +320,7 @@ function selectPhotoStyle(niche, contentType) {
  * Given a prompt config, niche key, platform, content type, title, and description,
  * it assembles the full enriched prompt with photography-grade technical direction.
  */
-export function assemblePrompt(config, nicheKey, platform, contentType, title, description, category, businessContext) {
+export function assemblePrompt(config, nicheKey, platform, contentType, title, description, category) {
     if (!config) return `Design a professional social media visual for ${title}. ${description}.`;
 
     const niche = config.niches?.[nicheKey] || config.niches?.general;
@@ -437,7 +346,7 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
                 basePrompt = `Write a short punchy caption for ${title}. ${description}.`;
             }
             // For captions, return early (no enrichment)
-            return renderTemplate(basePrompt, title, description, businessContext);
+            return renderTemplate(basePrompt, title, description);
         default: // image
             if (niche.master_prompts?.length > 0) {
                 basePrompt = niche.master_prompts[Math.floor(Math.random() * niche.master_prompts.length)];
@@ -457,7 +366,7 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
     }
 
     // Step 2: Render template variables
-    basePrompt = renderTemplate(basePrompt, title, description, businessContext);
+    basePrompt = renderTemplate(basePrompt, title, description);
 
     // Step 3: Platform-specific aspect ratio & format directive
     const platformKey = normalizePlatform(platform);
@@ -506,104 +415,9 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
     // Step 9: Anti-artifact quality requirements
     const qualityBlock = ANTI_ARTIFACT;
 
-    // Step 10: Brand identity (if business context provided)
-    const brandBlock = buildBrandBlock(businessContext);
-
-    // Step 11: Assemble the full enriched prompt
+    // Step 10: Assemble the full enriched prompt
     return basePrompt + formatBlock + platformBlock + visualBlock +
-        (techBlock ? '\n\n' + techBlock : '') + catInstruction + brandBlock + qualityBlock;
-}
-
-/**
- * assembleAllPrompts — Returns ALL prompt variants for the resolved niche (not just one random pick).
- * Each variant is fully enriched with platform direction, visual direction, photography tech, and anti-artifact.
- * Returns an array of { index, label, prompt } objects.
- */
-export function assembleAllPrompts(config, nicheKey, platform, contentType, title, description, category, businessContext) {
-    if (!config) return [{ index: 0, label: 'Default', prompt: `Design a professional social media visual for ${title}. ${description}.` }];
-
-    const niche = config.niches?.[nicheKey] || config.niches?.general;
-    if (!niche) return [{ index: 0, label: 'Default', prompt: `Design a professional social media visual for ${title}. ${description}.` }];
-
-    // Determine which prompt array to use based on content type
-    let rawPrompts = [];
-    switch (contentType) {
-        case 'video':
-            rawPrompts = (niche.video_prompts?.length > 0 ? niche.video_prompts : [niche.video_prompt || '']).filter(Boolean);
-            break;
-        case 'carousel':
-            rawPrompts = [niche.carousel_prompt].filter(Boolean);
-            break;
-        case 'caption':
-            rawPrompts = (niche.caption_templates?.length > 0 ? niche.caption_templates : []).filter(Boolean);
-            // For captions, return early without enrichment
-            return rawPrompts.map((p, i) => ({
-                index: i,
-                label: `Caption ${i + 1}`,
-                prompt: renderTemplate(p, title, description, businessContext),
-            }));
-        default: // image
-            rawPrompts = (niche.master_prompts?.length > 0 ? niche.master_prompts : [niche.master_prompt || '']).filter(Boolean);
-            break;
-    }
-
-    if (rawPrompts.length === 0) {
-        rawPrompts = (niche.master_prompts?.length > 0 ? niche.master_prompts : [niche.master_prompt || '']).filter(Boolean);
-    }
-
-    // Build enrichment blocks (same for all variants)
-    const platformKey = normalizePlatform(platform);
-    const cfgKey = platformConfigKey(platform);
-    const mediaType = contentType === 'video' ? 'video' : (contentType === 'carousel' ? 'carousel' : 'image');
-    const aspectRatio = PLATFORM_ASPECT_RATIOS[platformKey]?.[mediaType] || '1:1 square (1080×1080px)';
-
-    let formatBlock = `\n\nFORMAT & DIMENSIONS:\n- Aspect ratio: ${aspectRatio}\n- Design MUST fill the entire canvas — no letterboxing or empty margins`;
-
-    const styleDirective = PLATFORM_STYLE_DIRECTIVES[platformKey] || '';
-    if (styleDirective) formatBlock += `\n\n${styleDirective}`;
-
-    let platformBlock = '';
-    const adaptation = niche.platform_adaptation?.[platformKey] || niche.platform_adaptation?.[cfgKey];
-    if (adaptation) platformBlock += `\n\nPLATFORM-SPECIFIC DIRECTION:\n${adaptation}`;
-
-    const platformConfig = config.platforms?.[platformKey] || config.platforms?.[cfgKey];
-    if (platformConfig) {
-        if (platformConfig.best_ad_frameworks?.length > 0)
-            platformBlock += `\n\nCONTENT FRAMEWORK: ${platformConfig.best_ad_frameworks.join(' or ')}`;
-        platformBlock += `\n\nPLATFORM CREATIVE RULES:\n${platformConfig.creative_rules || ''}`;
-    }
-
-    let visualBlock = '\n\nVISUAL DIRECTION:\n';
-    visualBlock += `- Lighting: ${niche.visual_direction?.lighting || 'standard'}\n`;
-    visualBlock += `- Color palette: ${(niche.visual_direction?.colors || []).join(', ')}\n`;
-    visualBlock += `- Product rule: ${niche.product_rule || ''}`;
-
-    const photoStyle = selectPhotoStyle(niche, contentType);
-    const techBlock = PHOTOGRAPHY_TECHNICAL[photoStyle] || '';
-    const catInstruction = categoryInstruction(category);
-    const qualityBlock = ANTI_ARTIFACT;
-
-    const enrichmentSuffix = formatBlock + platformBlock + visualBlock +
-        (techBlock ? '\n\n' + techBlock : '') + catInstruction + buildBrandBlock(businessContext) + qualityBlock;
-
-    // Label extraction: try to pull a short label from the prompt text
-    function extractLabel(prompt, index) {
-        // Try to extract the ad type from the prompt (e.g., "BEFORE/AFTER TRANSFORMATION AD", "SOCIAL PROOF AD")
-        const match = prompt.match(/(?:Design\s+(?:a|an)\s+)([A-Z][A-Z\s/\-]+(?:AD|STYLE|FORMAT|MOMENT|HERO|KIT|SPOTLIGHT|ROUTINE|STACK|PROOF|URGENCY|SALE|DROP|COMPARISON|REVIEW|BUNDLE|RESULT|EDGE|OUTCOME|TRUST))/i);
-        if (match) return match[1].trim().replace(/\s+AD$/i, '').replace(/\s+/g, ' ');
-        // Fallback
-        const typeLabels = { video: 'Video', carousel: 'Carousel', caption: 'Caption' };
-        return `${typeLabels[contentType] || 'Prompt'} ${index + 1}`;
-    }
-
-    return rawPrompts.map((raw, i) => {
-        const rendered = renderTemplate(raw, title, description, businessContext);
-        return {
-            index: i,
-            label: extractLabel(raw, i),
-            prompt: rendered + enrichmentSuffix,
-        };
-    });
+        (techBlock ? '\n\n' + techBlock : '') + catInstruction + qualityBlock;
 }
 
 /**
