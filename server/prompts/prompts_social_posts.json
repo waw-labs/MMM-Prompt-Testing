@@ -1,5 +1,5 @@
 {
-    "schema_version": "2.1.0",
+    "schema_version": "3.0.0",
     "globals": {
         "core_frameworks": [
             "ENGAGEMENT",
@@ -168,14 +168,256 @@
                 ]
             },
             "master_prompts": [
-                "Design a SATISFYING BEFORE/AFTER split-screen social post for {{ .Title }}. Left half: chaotic messy space photographed in flat unflattering light, clutter amplified and visually noisy. Right half: perfectly organized with product subtly present, shot with soft diffused window light at f/4, shallow depth of field, clean labels and aligned edges. Add a 3-part text hierarchy: (1) hook headline top: 'The Transformation Is Real 😮‍💨' (2) micro-proof subline: 'Same space. 10 minutes. Zero stress.' (3) tiny footer prompt: 'What area should I do next?'. Keep text minimal and high-contrast, avoid covering key visuals, respect platform safe-zones. {{ .Description }}. NO CTA. Scroll-stopping transformation content built for saves and comments.",
-                "Design a '5 ORGANIZATION HACKS YOU NEED' numbered tip card for {{ .Title }}. Use a clean 1-5 vertical stack with generous whitespace, each line: bold hack title + 1-sentence actionable instruction + tiny line icon. Include a tiny 'Why it works' micro-note under hacks #2 and #4 for credibility. Modern sans-serif bold typography (Inter/Montserrat style). Ensure readability at small preview sizes (mobile-first). Soft beige-to-white gradient background with subtle paper texture. Add a small 'Save this' cue as non-CTA utility microcopy (not sales). {{ .Description }}. NO CTA. Save-worthy educational infographic optimized for bookmarking.",
-                "Design a 'SPOT THE DIFFERENCE' interactive engagement post for {{ .Title }}. Two nearly identical organized spaces side by side; hide exactly 3 subtle differences that are easy enough to find in 10-20 seconds (label, item color, missing bin). Use bright even studio lighting and a consistent top-down or straight-on angle. Add bold headline: 'Can You Find All 3? 👀' plus a small timer cue '10 seconds… go'. Add a tiny answer-reveal strip at bottom: 'Comment \"DONE\" for the answers'. Keep it playful and non-sales. {{ .Description }}. NO CTA. Comment-driving engagement with clear visual game mechanics.",
-                "Design a 'MY MORNING ROUTINE' visual timeline post for {{ .Title }}. Clock icons with timestamps (6:00 AM → 7:30 AM). 5-6 steps in a left-to-right or top-to-bottom timeline; each step: time + icon + 4-6 word action. Add subtle 'routine logic' microtext: 'Start small → build momentum'. Make the layout airy, calming, and extremely scannable. Soft sage green and cream palette with a gentle gradient and rounded cards. Keep platform UI safe-zones clear. {{ .Description }}. NO CTA. Save-worthy routine content designed for screenshots and shares.",
-                "Design a '7-DAY DECLUTTER CHALLENGE' calendar grid post for {{ .Title }}. Create a 7-tile grid (Day 1-7) with one tiny achievable task per day, each with checkbox icon + time estimate (e.g., '5 min', '10 min'). Add a bold headline with 🗓️ emoji and a subline: 'Small wins > big cleanups'. Include a participation cue: 'Comment your Day 1 item'. Modern geometric design, soft neutral palette, crisp typography, high readability. {{ .Description }}. NO CTA. Community challenge content that drives participation and return visits.",
-                "Design a 'DRAWER REVEAL ✨' overhead flat-lay post for {{ .Title }}. Bird's-eye view of a perfectly organized drawer, shot at f/8 for edge-to-edge sharpness, diffused overhead lighting, aligned grid layout, labels consistent. Add minimal text overlay only: top hook 'Drawer Reveal ✨' and bottom micro-satisfaction line 'This scratches my brain in the best way'. Keep 80% visual, 20% text max. Respect safe-zones. {{ .Description }}. NO CTA. Satisfying visual content built for shares.",
-                "Design a 'WHAT I STOPPED BUYING' minimalism insight post for {{ .Title }}. Clean white background with a 2×3 grid of 4-6 items, each with a subtle ❌ badge. Use a bold contrarian headline: 'I Stopped Buying These (And My Home Got Calmer)'. Add a short reason under each item (3-5 words) focusing on clutter reduction. End with a discussion prompt: 'What would you add?'. Keep it honest, not preachy. {{ .Description }}. NO CTA. Discussion-sparking controversial content optimized for comments.",
-                "Design a 'ORGANIZE LIKE A PRO' comparison post for {{ .Title }}. Left: ❌ 'How most people do it' (messy piles, random bins, unlabeled). Right: ✅ 'The pro method' (zones, labels, consistent containers, frequency-based placement). Add 3 quick rules in a small sidebar: '1) Zone it 2) Label it 3) Maintain it'. Use bold labels, clear arrows, and strong contrast so it reads instantly. {{ .Description }}. NO CTA. Shareable tip content that feels immediately usable."
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "Before/After Transformation Split-Screen",
+                    "visual_description": {
+                        "subject": "Split-screen of a chaotic messy space vs perfectly organized space",
+                        "details": "Left half shows clutter, random items, visual noise in flat unflattering light. Right half shows aligned containers, clean labels, organized bins with {{ .Title }} subtly present",
+                        "environment": "Domestic interior — closet, pantry, or drawer",
+                        "style": "Photorealistic editorial with high production value",
+                        "color_palette": [
+                            "beige",
+                            "white",
+                            "light wood",
+                            "sage green",
+                            "warm cream"
+                        ]
+                    },
+                    "headline_text": "The Transformation Is Real 😮‍💨",
+                    "subheadline_text": "Same space. 10 minutes. Zero stress.",
+                    "design_elements": {
+                        "layout": "Vertical split-screen, 50/50",
+                        "font_style": "Bold modern sans-serif, high contrast",
+                        "text_hierarchy": "Hook headline top → micro-proof subline center → footer prompt bottom"
+                    },
+                    "composition": {
+                        "framing": "Straight-on or slight overhead angle, symmetrical split",
+                        "depth_of_field": "Shallow f/4 on organized side, flat on messy side",
+                        "camera_angle": "Eye-level"
+                    },
+                    "marketing_angle": "Transformation satisfaction — instant visual payoff",
+                    "engagement_hook": "What area should I do next? Comment below 👇",
+                    "tone": "Satisfying, motivational, relatable",
+                    "product_placement": "{{ .Title }} shown naturally in the organized side, not the hero — transformation is the hero. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "5 Organization Hacks Numbered Tip Card",
+                    "visual_description": {
+                        "subject": "Numbered vertical stack of 5 organization hacks with line icons",
+                        "details": "Each hack has bold title, 1-sentence instruction, and tiny line icon. Hacks #2 and #4 have a 'Why it works' micro-note for credibility",
+                        "environment": "Soft beige-to-white gradient background with subtle paper texture",
+                        "style": "Clean modern infographic design",
+                        "color_palette": [
+                            "beige",
+                            "white",
+                            "sage green",
+                            "warm cream"
+                        ]
+                    },
+                    "headline_text": "5 ORGANIZATION HACKS YOU NEED 🏠",
+                    "design_elements": {
+                        "layout": "Vertical numbered list 1-5 with generous whitespace",
+                        "font_style": "Modern sans-serif bold (Inter/Montserrat style)",
+                        "icons": "Tiny line icons per hack — drawer, label, bin, timer, basket",
+                        "text_hierarchy": "Headline top → numbered hacks → 'Save this' microcopy footer"
+                    },
+                    "composition": {
+                        "framing": "Centered vertical layout, mobile-first readability",
+                        "camera_angle": "N/A — graphic design"
+                    },
+                    "marketing_angle": "Practical value — actionable tips people screenshot",
+                    "engagement_hook": "Save this for your next weekend reset 📌",
+                    "tone": "Helpful, authoritative, clean",
+                    "product_placement": "{{ .Title }} referenced as a tool in hack #3. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "Spot The Difference Interactive Game",
+                    "visual_description": {
+                        "subject": "Two nearly identical organized spaces side by side with 3 hidden subtle differences",
+                        "details": "Differences are a changed label color, a missing bin, and a moved item — findable in 10-20 seconds",
+                        "environment": "Bright organized kitchen counter or shelf unit",
+                        "style": "Bright even studio photography, clean and satisfying",
+                        "color_palette": [
+                            "white",
+                            "beige",
+                            "light wood",
+                            "sage green"
+                        ]
+                    },
+                    "headline_text": "Can You Find All 3? 👀",
+                    "subheadline_text": "10 seconds… go ⏱️",
+                    "design_elements": {
+                        "layout": "Side-by-side comparison, equal sizing",
+                        "font_style": "Bold playful sans-serif",
+                        "text_hierarchy": "Challenge headline top → images center → answer reveal strip bottom"
+                    },
+                    "composition": {
+                        "framing": "Straight-on or top-down, consistent angle both sides",
+                        "depth_of_field": "Deep f/8 for full sharpness",
+                        "camera_angle": "Eye-level or overhead"
+                    },
+                    "marketing_angle": "Gamification — interactive content drives 3x more comments",
+                    "engagement_hook": "Comment 'DONE' for the answers 💬",
+                    "tone": "Playful, challenging, non-sales",
+                    "product_placement": "{{ .Title }} visible naturally in the organized scene. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "Morning Routine Visual Timeline",
+                    "visual_description": {
+                        "subject": "Clock-icon timeline from 6:00 AM to 7:30 AM with 5-6 organizational steps",
+                        "details": "Each step has time, icon, and 4-6 word action. Subtle 'routine logic' microtext: 'Start small → build momentum'",
+                        "environment": "Airy calming gradient background",
+                        "style": "Clean modern timeline infographic",
+                        "color_palette": [
+                            "sage green",
+                            "cream",
+                            "warm white"
+                        ]
+                    },
+                    "headline_text": "MY MORNING ROUTINE ☀️",
+                    "design_elements": {
+                        "layout": "Top-to-bottom timeline with rounded cards per step",
+                        "font_style": "Clean sans-serif, medium weight",
+                        "icons": "Clock, coffee, drawer, label, spray bottle, checkmark",
+                        "text_hierarchy": "Headline → timeline steps → save prompt footer"
+                    },
+                    "composition": {
+                        "framing": "Centered vertical flow, scannable at a glance",
+                        "camera_angle": "N/A — graphic design"
+                    },
+                    "marketing_angle": "Aspirational routine — people save routines they want to adopt",
+                    "engagement_hook": "Save this for tomorrow morning 📌",
+                    "tone": "Calm, aspirational, organized",
+                    "product_placement": "{{ .Title }} featured at the organizing step. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "7-Day Declutter Challenge Calendar",
+                    "visual_description": {
+                        "subject": "7-tile calendar grid (Day 1-7) with one achievable task per day and checkbox icons",
+                        "details": "Each day has a time estimate (5 min, 10 min). Color coded green → yellow → red for progressive difficulty. 3 milestone days and 1 rest day labeled",
+                        "environment": "Clean geometric background",
+                        "style": "Modern challenge calendar graphic",
+                        "color_palette": [
+                            "sage green",
+                            "warm yellow",
+                            "soft coral",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "7-DAY DECLUTTER CHALLENGE 🗓️",
+                    "subheadline_text": "Small wins > big cleanups",
+                    "design_elements": {
+                        "layout": "7-tile grid with consistent spacing and legend",
+                        "font_style": "Bold sans-serif, legible at small sizes",
+                        "icons": "Checkboxes, clock icons for time estimates",
+                        "text_hierarchy": "Challenge title → grid → participation CTA bottom"
+                    },
+                    "marketing_angle": "Community challenge — daily return engagement and accountability",
+                    "engagement_hook": "Comment your Day 1 item 💪",
+                    "tone": "Motivating, achievable, community-driven",
+                    "product_placement": "{{ .Title }} referenced on Day 4 as a tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "Satisfying Drawer Reveal Overhead Shot",
+                    "visual_description": {
+                        "subject": "Bird's-eye view of a perfectly organized drawer with aligned compartments and consistent labels",
+                        "details": "Every item aligned in a grid, labels matching, containers uniform. 80% visual, 20% text max",
+                        "environment": "Overhead view of a kitchen or bathroom drawer",
+                        "style": "Satisfying flat-lay photography, ASMR-visual quality",
+                        "color_palette": [
+                            "white",
+                            "beige",
+                            "light wood",
+                            "clear acrylic"
+                        ]
+                    },
+                    "headline_text": "Drawer Reveal ✨",
+                    "subheadline_text": "This scratches my brain in the best way",
+                    "design_elements": {
+                        "layout": "Full-bleed photo with minimal text overlay",
+                        "font_style": "Light elegant sans-serif, small"
+                    },
+                    "composition": {
+                        "framing": "Directly overhead flat-lay",
+                        "depth_of_field": "Deep f/8 for edge-to-edge sharpness",
+                        "camera_angle": "Top-down 90°"
+                    },
+                    "marketing_angle": "Visual satisfaction — satisfying content gets shared 2x more",
+                    "engagement_hook": "Tag someone who needs this in their life 😂",
+                    "tone": "Satisfying, aspirational, clean",
+                    "product_placement": "{{ .Title }} visible as an organizer element in the drawer. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "What I Stopped Buying — Minimalism Insight",
+                    "visual_description": {
+                        "subject": "Clean white background with a 2×3 grid of 4-6 household items, each with a subtle ❌ badge",
+                        "details": "Each item has a 3-5 word reason underneath focused on clutter reduction",
+                        "environment": "Minimal white studio background",
+                        "style": "Clean editorial grid, magazine-quality layout",
+                        "color_palette": [
+                            "white",
+                            "light grey",
+                            "soft sage",
+                            "muted coral"
+                        ]
+                    },
+                    "headline_text": "I Stopped Buying These (And My Home Got Calmer) 🚫",
+                    "design_elements": {
+                        "layout": "2×3 grid with consistent item sizing and ❌ badges",
+                        "font_style": "Bold contrarian headline, clean body text",
+                        "text_hierarchy": "Contrarian headline top → item grid with reasons → discussion prompt bottom"
+                    },
+                    "marketing_angle": "Contrarian opinion — controversial content drives 4x more comments",
+                    "engagement_hook": "What would you add to this list? 👇",
+                    "tone": "Honest, non-preachy, discussion-sparking",
+                    "product_placement": "{{ .Title }} NOT in the removed items — positioned as the alternative. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "home_organization",
+                    "concept": "Organize Like A Pro — Do This Not That Comparison",
+                    "visual_description": {
+                        "subject": "Side-by-side comparison: left shows common disorganized approach, right shows professional method",
+                        "details": "Left: ❌ messy piles, random bins, unlabeled. Right: ✅ zones, labels, consistent containers, frequency-based placement. 3 quick rules in sidebar",
+                        "environment": "Clean domestic interior — closet or pantry",
+                        "style": "Educational comparison with clear before/after contrast",
+                        "color_palette": [
+                            "beige",
+                            "white",
+                            "sage green",
+                            "warm cream"
+                        ]
+                    },
+                    "headline_text": "HOW MOST PEOPLE DO IT ❌ vs THE PRO METHOD ✅",
+                    "design_elements": {
+                        "layout": "Split comparison with sidebar rules panel",
+                        "font_style": "Bold labels, strong contrast",
+                        "icons": "Arrows for alignment, zone labels, checkmarks",
+                        "text_hierarchy": "Comparison headline → visual split → 3 rules sidebar → share prompt"
+                    },
+                    "composition": {
+                        "framing": "Symmetric split with clear visual divider",
+                        "camera_angle": "Eye-level straight-on"
+                    },
+                    "marketing_angle": "Authority positioning — practical expertise people trust and follow",
+                    "engagement_hook": "Which side is your closet right now? Be honest 😅",
+                    "tone": "Expert, practical, shareable",
+                    "product_placement": "{{ .Title }} shown in the 'pro method' side as a key tool. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Satisfying before/after organization transformation video for {{ .Title }}. Start with messy chaos. Quick cut to perfectly organized space. Bold text: 'Wait for it... 😮‍💨'. {{ .Description }}. NO CTA.",
@@ -221,14 +463,239 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'SKINCARE MYTH VS FACT' split-design post for {{ .Title }}. Left side: ❌ MYTH with subtle red tint, right side: ✅ FACT with subtle green tint. Use bold contrasting sans-serif text with a tight hook headline: 'Stop Believing This 👀'. Add 1-line myth, then 2-line fact with a simple mechanism (barrier, inflammation, hydration). Include a tiny credibility cue: 'Derm-style explanation' (no claims of being a doctor). Soft pastel pink background, clean margins, readable at small sizes. {{ .Description }}. NO CTA. Save-worthy education built to spark comments: 'Which one did you believe?'.",
-                "Design a 'YOUR AM/PM ROUTINE' visual guide for {{ .Title }}. Split into Morning ☀️ and Night 🌙. Show exact order with icons and arrows: cleanser → toner → serum → moisturizer → SPF (AM) and cleanser → treatment/serum → moisturizer (PM). Highlight {{ .Description }} at its step using a subtle glow ring and a micro-note 'wait 60s'. Add a tiny 'common mistake' callout bubble. Cream/blush gradient background with rounded cards, minimal clutter. {{ .Description }}. NO CTA. Screenshot-worthy routine guide made for saves.",
-                "Design a 'WHAT YOUR SKIN IS TELLING YOU' face map post for {{ .Title }}. Illustrated face outline with labeled zones (forehead, cheeks, chin, T-zone). Each zone: concern + likely trigger + one actionable tip. Feature {{ .Description }} as a supportive option in the appropriate zone with a gentle 'try this' phrasing (non-sales). Keep the layout super clean: 1 face + 5 labels max. Add footer prompt: 'Which zone is your problem area?'. {{ .Description }}. NO CTA. Viral educational content designed for comments and shares.",
-                "Design a 'INGREDIENT SPOTLIGHT 🔬' deep-dive card for {{ .Title }}. Large ingredient name in bold serif typography, with subtle molecular structure silhouette background. Include 3 sections: 'What it does' (3 bullets), 'Who it’s for' (3 skin types), 'How to use' (timing + pairing + avoid-mixing note). Benefits listed with ✓ checkmarks. Keep claims cautious and realistic. {{ .Description }}. NO CTA. Save-worthy ingredient education optimized for Pinterest-like clarity and IG saves.",
-                "Design a 'TEXTURE CHECK ✨' satisfying macro close-up post for {{ .Title }}. Macro photography of texture (creamy swirl/dewy drop/gel spread), shot at f/2.8 with ring light glow. Add ultra-minimal text: texture name + one benefit + 3-word vibe (e.g., 'silky, light, dewy'). Include a tiny prompt: 'Rate this texture 1-10'. Keep 90% visual. {{ .Description }}. NO CTA. Aesthetic scroll-stopper built for comments.",
-                "Design a 'SKINCARE ORDER MATTERS' numbered infographic for {{ .Title }}. Steps 1-6 showing correct application order with clean product silhouette icons; use arrows and spacing that read instantly. Highlight {{ .Description }} at its step with a bold outline and a micro-why line: 'thinnest → thickest'. Add a small 'wait time' legend (30s/60s). Soft gradient background, high readability. {{ .Description }}. NO CTA. Save-worthy guide made to be screenshotted.",
-                "Design a 'STOP DOING THIS TO YOUR SKIN ❌' warning-style post for {{ .Title }}. Bold red headline + 3-4 common mistakes with short consequences (dryness, irritation, breakouts) and quick fixes. Include one 'if you must, do this instead' box. Keep tone firm but helpful. Add a closing prompt: 'Which one are you guilty of?'. {{ .Description }}. NO CTA. Controversial save-worthy skincare content that sparks replies.",
-                "Design a 'GLASS SKIN IN 4 STEPS' aspirational post for {{ .Title }}. Dewy glass-skin texture background shot with soft beauty lighting and catchlight reflections. Overlay 4 steps with minimal text, each step includes an icon + 4-6 word instruction. Include a tiny realism note: 'Consistency > perfection'. Elegant serif + sans-serif typography mix, lots of whitespace. {{ .Description }}. NO CTA. Aspirational viral content built for saves."
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Skincare Myth vs Fact Split Design",
+                    "visual_description": {
+                        "subject": "Split design — left side ❌ MYTH with subtle red tint, right side ✅ FACT with subtle green tint",
+                        "details": "1-line myth statement vs 2-line fact with a simple biological mechanism (barrier, inflammation, hydration). Tiny credibility cue: 'Derm-style explanation'",
+                        "environment": "Soft pastel pink background, clean margins",
+                        "style": "Clean modern educational split-card design",
+                        "color_palette": [
+                            "pastel pink",
+                            "cream",
+                            "soft red tint",
+                            "soft green tint",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "Stop Believing This 👀",
+                    "design_elements": {
+                        "layout": "Vertical split, myth left / fact right",
+                        "font_style": "Bold contrasting sans-serif, high contrast",
+                        "icons": "❌ and ✅ badges",
+                        "text_hierarchy": "Hook headline top → myth/fact split center → comment prompt bottom"
+                    },
+                    "marketing_angle": "Myth-busting authority — education builds trust and saves",
+                    "engagement_hook": "Which one did you believe? Comment below 👇",
+                    "tone": "Authoritative, surprising, save-worthy",
+                    "product_placement": "{{ .Title }} referenced in the FACT side as a supporting solution. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "AM/PM Skincare Routine Visual Guide",
+                    "visual_description": {
+                        "subject": "Split into Morning ☀️ and Night 🌙 routine with exact product order using icons and arrows",
+                        "details": "AM: cleanser → toner → serum → moisturizer → SPF. PM: cleanser → treatment → moisturizer. {{ .Title }} highlighted with a subtle glow ring and 'wait 60s' micro-note",
+                        "environment": "Cream/blush gradient background with rounded cards",
+                        "style": "Clean modern routine infographic",
+                        "color_palette": [
+                            "cream",
+                            "blush pink",
+                            "rose gold",
+                            "soft white"
+                        ]
+                    },
+                    "headline_text": "YOUR AM/PM ROUTINE ☀️🌙",
+                    "design_elements": {
+                        "layout": "Two-column AM/PM with step arrows",
+                        "font_style": "Clean sans-serif, medium weight",
+                        "icons": "Sun, moon, product silhouettes, arrows, clock",
+                        "text_hierarchy": "Routine title → AM column → PM column → 'common mistake' callout bubble"
+                    },
+                    "marketing_angle": "Practical routine guide — screenshot-worthy reference content",
+                    "engagement_hook": "Save this for your nightstand 📌",
+                    "tone": "Helpful, clear, non-judgmental",
+                    "product_placement": "{{ .Title }} featured at its step with a glow highlight. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "What Your Skin Is Telling You — Face Map",
+                    "visual_description": {
+                        "subject": "Illustrated face outline with labeled zones — forehead, cheeks, chin, T-zone, jawline",
+                        "details": "Each zone: concern + likely trigger + one actionable tip. Max 5 labels, clean and uncluttered",
+                        "environment": "Soft pink minimal background",
+                        "style": "Clean medical-style illustration with warm aesthetic",
+                        "color_palette": [
+                            "pastel pink",
+                            "cream",
+                            "soft coral",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "Your Skin Is Communicating 👀",
+                    "design_elements": {
+                        "layout": "Central face diagram with radial label lines",
+                        "font_style": "Clean readable sans-serif",
+                        "icons": "Zone markers, small trigger icons",
+                        "text_hierarchy": "Headline → face map with labels → discussion prompt footer"
+                    },
+                    "marketing_angle": "Personalized diagnostic — people comment their problem area",
+                    "engagement_hook": "Which zone is YOUR problem area? Comment below 👇",
+                    "tone": "Educational, empathetic, community-building",
+                    "product_placement": "{{ .Title }} suggested in the appropriate zone with gentle 'try this' phrasing. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Ingredient Spotlight Deep-Dive Card",
+                    "visual_description": {
+                        "subject": "Large ingredient name in bold serif typography with subtle molecular structure silhouette background",
+                        "details": "3 sections: 'What it does' (3 bullets), 'Who it's for' (3 skin types), 'How to use' (timing + pairing + avoid-mixing note)",
+                        "environment": "Soft gradient background with molecule patterns",
+                        "style": "Premium educational card, science-meets-beauty aesthetic",
+                        "color_palette": [
+                            "cream",
+                            "rose gold",
+                            "soft white",
+                            "blush"
+                        ]
+                    },
+                    "headline_text": "INGREDIENT SPOTLIGHT 🔬",
+                    "design_elements": {
+                        "layout": "Hero ingredient name top → 3-section breakdown → save prompt",
+                        "font_style": "Elegant serif for ingredient name, clean sans-serif for info",
+                        "icons": "✓ checkmarks for benefits, skin type icons",
+                        "text_hierarchy": "Ingredient name large → sections with headers → 'Save this' footer"
+                    },
+                    "marketing_angle": "Science-backed education — ingredient knowledge builds product trust",
+                    "engagement_hook": "Save this ingredient guide 📌 You'll reference it later",
+                    "tone": "Scientific, trustworthy, premium",
+                    "product_placement": "{{ .Title }} mentioned as containing this ingredient. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Satisfying Texture Check Macro Close-Up",
+                    "visual_description": {
+                        "subject": "Macro close-up photography of satisfying skincare texture — creamy swirl, dewy drop, or gel spread",
+                        "details": "Shot at f/2.8 with ring light glow. Ultra-minimal text: texture name + one benefit + 3-word vibe. 90% visual content",
+                        "environment": "Clean surface with soft reflected light",
+                        "style": "Macro beauty photography, tactile and satisfying",
+                        "color_palette": [
+                            "cream",
+                            "pearl white",
+                            "dewy translucent",
+                            "rose gold highlights"
+                        ]
+                    },
+                    "headline_text": "Texture Check ✨",
+                    "subheadline_text": "Silky, light, dewy",
+                    "design_elements": {
+                        "layout": "Full-bleed macro photo with minimal floating text",
+                        "font_style": "Light elegant sans-serif, small and unobtrusive"
+                    },
+                    "composition": {
+                        "framing": "Extreme close-up, texture fills frame",
+                        "depth_of_field": "Shallow f/2.8 with ring light catchlight",
+                        "camera_angle": "45° or overhead"
+                    },
+                    "marketing_angle": "Sensory appeal — satisfying textures stop scrolling",
+                    "engagement_hook": "Rate this texture 1-10 👇",
+                    "tone": "Aesthetic, premium, satisfying",
+                    "product_placement": "{{ .Title }} is the product being shown. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Skincare Order Matters Numbered Infographic",
+                    "visual_description": {
+                        "subject": "Steps 1-6 showing correct skincare application order with clean product silhouette icons",
+                        "details": "Arrows and spacing that read instantly. {{ .Title }} highlighted at its step with bold outline and 'thinnest → thickest' micro-why line. 'Wait time' legend (30s/60s)",
+                        "environment": "Soft gradient background",
+                        "style": "Clean modern numbered infographic",
+                        "color_palette": [
+                            "cream",
+                            "pastel pink",
+                            "rose gold",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "SKINCARE ORDER MATTERS 💧",
+                    "design_elements": {
+                        "layout": "Vertical numbered steps 1-6 with arrows between",
+                        "font_style": "Clean bold sans-serif, high readability",
+                        "icons": "Product silhouettes, directional arrows, clock for wait times",
+                        "text_hierarchy": "Title → numbered steps with icons → wait time legend footer"
+                    },
+                    "marketing_angle": "Practical guide — people save and screenshot step-by-step content",
+                    "engagement_hook": "Screenshot this — your skin will thank you 📸",
+                    "tone": "Authoritative, practical, clean",
+                    "product_placement": "{{ .Title }} highlighted at its correct step in the routine. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Stop Doing This To Your Skin Warning Post",
+                    "visual_description": {
+                        "subject": "Bold red warning-style headline with 3-4 common skincare mistakes listed with consequences",
+                        "details": "Each mistake has: what you're doing wrong → what happens (dryness, irritation, breakouts) → quick fix. One 'if you must, do this instead' box",
+                        "environment": "Clean white background with subtle red accent border",
+                        "style": "Warning/alert card design with urgency",
+                        "color_palette": [
+                            "white",
+                            "coral red",
+                            "cream",
+                            "soft green for fixes"
+                        ]
+                    },
+                    "headline_text": "STOP DOING THIS TO YOUR SKIN ❌",
+                    "design_elements": {
+                        "layout": "Vertical list of mistakes with consequences and fixes",
+                        "font_style": "Bold warning headline, clean body text",
+                        "icons": "❌ for mistakes, ✅ for fixes, warning triangle",
+                        "text_hierarchy": "Warning headline → mistakes list → 'do this instead' box → guilt prompt"
+                    },
+                    "marketing_angle": "Fear-based correction — people engage with content that calls out mistakes",
+                    "engagement_hook": "Which one are you guilty of? Be honest 😅",
+                    "tone": "Firm but helpful, protective, not shaming",
+                    "product_placement": "{{ .Title }} positioned as the fix in the 'do this instead' box. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "beauty_skincare",
+                    "concept": "Glass Skin In 4 Steps Aspirational Post",
+                    "visual_description": {
+                        "subject": "Dewy glass-skin texture background with 4 floating step cards overlaid",
+                        "details": "Soft beauty lighting with catchlight reflections. Each step has icon + 4-6 word instruction. Tiny realism note: 'Consistency > perfection'",
+                        "environment": "Dewy luminous skin-texture background with soft light",
+                        "style": "Aspirational beauty editorial",
+                        "color_palette": [
+                            "pearl white",
+                            "dewy translucent",
+                            "soft pink",
+                            "rose gold"
+                        ]
+                    },
+                    "headline_text": "GLASS SKIN IN 4 STEPS ✨",
+                    "design_elements": {
+                        "layout": "Background texture photo with 4 floating step cards",
+                        "font_style": "Elegant serif + sans-serif mix, lots of whitespace",
+                        "icons": "Step number badges, dewdrop icons",
+                        "text_hierarchy": "Aspirational headline → 4 steps → realism disclaimer footer"
+                    },
+                    "composition": {
+                        "framing": "Background fills canvas, steps float over",
+                        "depth_of_field": "Shallow for dreamy background glow"
+                    },
+                    "marketing_angle": "Aspiration meets simplicity — achievable luxury drives saves",
+                    "engagement_hook": "Save this for your next skincare night 📌",
+                    "tone": "Aspirational, achievable, premium",
+                    "product_placement": "{{ .Title }} featured as step 2 or 3. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick GRWM skincare routine video for {{ .Title }}. POV application. Satisfying product textures captured with macro lens. Text overlay naming each step. {{ .Description }}. NO CTA.",
@@ -273,14 +740,225 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'DO THIS ✅ NOT THAT ❌' exercise form comparison for {{ .Title }}. Split layout: left shows incorrect form with red overlay and 2-3 clear error callouts, right shows correct form with green overlay and 2-3 correction cues. Add simple arrows for joint alignment and movement path. Include a micro-safety line: 'Protect your joints'. Use bold Impact-style typography, dark background with neon accents, ultra-readable at small sizes. {{ .Description }}. NO CTA. Save-worthy form guide designed for shares and bookmarks.",
-                "Design a 'WORKOUT OF THE DAY 🔥' social card for {{ .Title }}. Bold 'WOD' headline + time cap + equipment line. List 5-6 exercises with reps × sets in big bold numbers, include rest guidance and a 'scale option' mini box. Add a tiny 'screenshot this' microcopy (utility, not sales). Dark matte background with electric blue accent lines and clean spacing. {{ .Description }}. NO CTA. Screenshot-worthy workout people will save.",
-                "Design a '30-DAY CHALLENGE' calendar grid for {{ .Title }}. 5×6 grid, Day 1-30 with progressive difficulty; include 3 milestone days and 3 recovery days clearly labeled. Add a participation cue: 'Comment DAY 1 when you start'. Use color coding (green → yellow → red) with a legend. Keep typography bold and legible. {{ .Description }}. NO CTA. Community challenge that drives daily return engagement.",
-                "Design a 'GYM STARTER PACK 😂' meme grid for {{ .Title }}. 2×3 grid of relatable gym items/moments with short punchy captions; keep it universal, not niche-gatekeeping. Add one 'tag your friend' prompt line. Bold meme-style text, dark background, high contrast. {{ .Description }} featured naturally as a small element, not the headline. NO CTA. Shareable gym humor optimized for reposts.",
-                "Design a powerful MOTIVATIONAL QUOTE card for {{ .Title }}. One brutal-honest quote in huge compressed typography, with a secondary line that reframes it into action. Dark textured background (concrete/metal), subtle light streak, high contrast. Add a tiny footer: 'Save for the days you don’t feel like it'. {{ .Description }}. NO CTA. Share-worthy motivation built for saves.",
-                "Design a 'THESE 3 EXERCISES REPLACE EVERYTHING' revelation post for {{ .Title }}. Bold controversial headline + 3 exercises with muscle targets and 1 reason each (strength, stability, hypertrophy). Include a small 'if you only do one…' highlight. Use clean anatomical illustration style on dark high-contrast design. Add a discussion prompt: 'Agree or disagree?'. {{ .Description }}. NO CTA. Comment-bait education without being spammy.",
-                "Design a 'PROGRESSIVE OVERLOAD EXPLAINED' infographic for {{ .Title }}. Include a simple graph showing progression over weeks (weight/reps/sets), plus 4 rules: add reps, add load, add sets, improve form. Add a 'common mistake' box: 'adding weight too fast'. Use neon data points on a dark background, clean spacing, readable labels. {{ .Description }}. NO CTA. Education content meant to be saved and shared.",
-                "Design a 'REST DAY CHECKLIST ✓' recovery-focused post for {{ .Title }}. 6-8 recovery activities with checkbox icons, each with a short benefit (sleep, protein, steps, mobility, hydration). Include a calming dark blue/grey palette and a subhead: 'Recovery = gains'. Add a prompt: 'Which one will you do today?'. {{ .Description }}. NO CTA. Save-worthy recovery guide."
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Do This Not That Exercise Form Comparison",
+                    "visual_description": {
+                        "subject": "Split layout — left: incorrect exercise form with red overlay and 2-3 error callouts. Right: correct form with green overlay and correction cues",
+                        "details": "Arrows showing joint alignment and movement path. Micro-safety line: 'Protect your joints'",
+                        "environment": "Dark gym background with dramatic lighting",
+                        "style": "Athletic comparison graphic, high contrast",
+                        "color_palette": [
+                            "black",
+                            "neon red",
+                            "neon green",
+                            "steel grey"
+                        ]
+                    },
+                    "headline_text": "DO THIS ✅ NOT THAT ❌",
+                    "design_elements": {
+                        "layout": "Vertical split, wrong left / right correct",
+                        "font_style": "Bold Impact-style typography, ultra-readable",
+                        "icons": "❌ ✅ badges, joint alignment arrows",
+                        "text_hierarchy": "Headline → form comparison → safety note footer"
+                    },
+                    "marketing_angle": "Authority correction — form guides get saved and shared",
+                    "engagement_hook": "Tag someone who needs to see this 💪",
+                    "tone": "Direct, protective, expert",
+                    "product_placement": "{{ .Title }} shown as supporting equipment. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Workout Of The Day Card",
+                    "visual_description": {
+                        "subject": "Bold WOD headline with 5-6 exercises listed with reps × sets in big bold numbers",
+                        "details": "Time cap + equipment line at top. Rest guidance and a 'scale option' mini box included. 'Screenshot this' utility microcopy",
+                        "environment": "Dark matte background with electric blue accent lines",
+                        "style": "Athletic workout card, bold and scannable",
+                        "color_palette": [
+                            "matte black",
+                            "electric blue",
+                            "white",
+                            "steel grey"
+                        ]
+                    },
+                    "headline_text": "WORKOUT OF THE DAY 🔥",
+                    "design_elements": {
+                        "layout": "Header with time/equipment → exercise list → scale options box",
+                        "font_style": "Bold condensed sans-serif, large rep numbers",
+                        "icons": "Dumbbell, timer, muscle silhouettes",
+                        "text_hierarchy": "WOD headline → exercise list → scale options → screenshot prompt"
+                    },
+                    "marketing_angle": "Utility content — people screenshot workouts they actually do",
+                    "engagement_hook": "Screenshot this and do it today 📱",
+                    "tone": "Motivating, actionable, no-nonsense",
+                    "product_placement": "{{ .Title }} listed as optional equipment. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "30-Day Fitness Challenge Calendar",
+                    "visual_description": {
+                        "subject": "5×6 grid calendar, Day 1-30 with progressive difficulty exercises",
+                        "details": "3 milestone days highlighted, 3 recovery days labeled. Color coded green → yellow → red for difficulty. Legend included",
+                        "environment": "Dark background with clean grid lines",
+                        "style": "Modern challenge calendar graphic",
+                        "color_palette": [
+                            "black",
+                            "neon green",
+                            "warm yellow",
+                            "hot red",
+                            "steel grey"
+                        ]
+                    },
+                    "headline_text": "30-DAY CHALLENGE 💪",
+                    "subheadline_text": "Start today. No excuses.",
+                    "design_elements": {
+                        "layout": "5×6 grid with color-coded difficulty and legend",
+                        "font_style": "Bold condensed, legible at small sizes",
+                        "icons": "Checkboxes, flame for milestone days, recovery heart"
+                    },
+                    "marketing_angle": "Community accountability — challenges drive daily return visits",
+                    "engagement_hook": "Comment DAY 1 when you start 🔥",
+                    "tone": "Challenging, motivating, community-driven",
+                    "product_placement": "{{ .Title }} referenced on milestone days. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Gym Starter Pack Meme Grid",
+                    "visual_description": {
+                        "subject": "2×3 grid of relatable gym items/moments with short punchy captions",
+                        "details": "Universal relatable items — not niche-gatekeeping. One 'tag your friend' prompt line",
+                        "environment": "Dark background, high contrast meme-style",
+                        "style": "Meme grid format, casual and shareable",
+                        "color_palette": [
+                            "black",
+                            "white",
+                            "neon red accent"
+                        ]
+                    },
+                    "headline_text": "GYM STARTER PACK 😂",
+                    "design_elements": {
+                        "layout": "2×3 grid with short captions per tile",
+                        "font_style": "Bold meme-style Impact text"
+                    },
+                    "marketing_angle": "Humor virality — relatable gym memes get mass-shared",
+                    "engagement_hook": "Tag your gym buddy who does ALL of these 😂",
+                    "tone": "Funny, relatable, inclusive",
+                    "product_placement": "{{ .Title }} featured as small natural element, not the focus. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Powerful Motivational Quote Card",
+                    "visual_description": {
+                        "subject": "One brutal-honest motivational quote in huge compressed typography with a secondary action-reframing line",
+                        "details": "Dark textured background (concrete/metal grain), subtle diagonal light streak, maximum visual impact",
+                        "environment": "Dark textured concrete or metal background",
+                        "style": "High-contrast motivational poster, raw athletic energy",
+                        "color_palette": [
+                            "black",
+                            "dark grey",
+                            "white text",
+                            "subtle red accent"
+                        ]
+                    },
+                    "headline_text": "THE PAIN YOU FEEL TODAY IS THE STRENGTH YOU FEEL TOMORROW",
+                    "subheadline_text": "Show up anyway.",
+                    "design_elements": {
+                        "layout": "Centered text on textured dark background",
+                        "font_style": "Huge compressed bold typography, maximum contrast"
+                    },
+                    "marketing_angle": "Emotional resonance — motivation quotes get saved for hard days",
+                    "engagement_hook": "Save this for the days you don't feel like it 🔥",
+                    "tone": "Raw, honest, empowering",
+                    "product_placement": "{{ .Title }} as tiny footer brand association. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "These 3 Exercises Replace Everything — Contrarian Reveal",
+                    "visual_description": {
+                        "subject": "Bold controversial headline + 3 exercises displayed with muscle target diagrams and 1 reason each",
+                        "details": "Each exercise has: name, primary muscle target, reason (strength/stability/hypertrophy). 'If you only do one…' highlight on exercise #2. Clean anatomical illustration style",
+                        "environment": "Dark high-contrast background",
+                        "style": "Athletic education card with anatomical elements",
+                        "color_palette": [
+                            "black",
+                            "electric blue",
+                            "white",
+                            "steel grey"
+                        ]
+                    },
+                    "headline_text": "THESE 3 EXERCISES REPLACE EVERYTHING 🤯",
+                    "design_elements": {
+                        "layout": "3 exercise cards with muscle target diagrams",
+                        "font_style": "Bold condensed headline, clean sans-serif body",
+                        "icons": "Muscle group silhouettes, numbered badges"
+                    },
+                    "marketing_angle": "Contrarian authority — bold claims generate debate comments",
+                    "engagement_hook": "Agree or disagree? Drop your answer 👇",
+                    "tone": "Confident, contrarian, educational",
+                    "product_placement": "{{ .Title }} shown alongside exercise #1 as supporting gear. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Progressive Overload Explained Infographic",
+                    "visual_description": {
+                        "subject": "Simple ascending graph showing progression over weeks (weight/reps/sets) plus 4 overload rules",
+                        "details": "Rules: add reps, add load, add sets, improve form. 'Common mistake' callout box: 'adding weight too fast'. Neon data points on dark background",
+                        "environment": "Dark background with clean grid lines and neon data visualization",
+                        "style": "Data-driven fitness infographic",
+                        "color_palette": [
+                            "black",
+                            "neon green data points",
+                            "electric blue",
+                            "white labels"
+                        ]
+                    },
+                    "headline_text": "PROGRESSIVE OVERLOAD EXPLAINED 📈",
+                    "design_elements": {
+                        "layout": "Graph visualization top → 4 rules below → mistake callout box",
+                        "font_style": "Clean sans-serif, readable labels on dark background",
+                        "icons": "Graph line, weight plate, checkmarks"
+                    },
+                    "marketing_angle": "Science-backed education — data visuals get saved as reference",
+                    "engagement_hook": "Save this — you'll need it on your next plateau 📌",
+                    "tone": "Educational, data-driven, trustworthy",
+                    "product_placement": "{{ .Title }} referenced as a training tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fitness",
+                    "concept": "Rest Day Recovery Checklist",
+                    "visual_description": {
+                        "subject": "6-8 recovery activities with checkbox icons, each with a short benefit label",
+                        "details": "Activities: sleep 8hrs, protein intake, 10K steps, mobility work, hydration, foam rolling. Subhead: 'Recovery = gains'",
+                        "environment": "Calming dark blue/grey gradient background",
+                        "style": "Recovery-focused checklist, calmer energy than typical fitness content",
+                        "color_palette": [
+                            "dark navy",
+                            "cool grey",
+                            "soft blue",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "REST DAY CHECKLIST ✓",
+                    "subheadline_text": "Recovery = Gains",
+                    "design_elements": {
+                        "layout": "Vertical checklist with icons and benefit labels",
+                        "font_style": "Clean medium-weight sans-serif",
+                        "icons": "Checkboxes, sleep, water, muscle, stretch icons"
+                    },
+                    "marketing_angle": "Counter-culture fitness — rest content stands out in a 'grind' feed",
+                    "engagement_hook": "Which one will you do today? Comment below 👇",
+                    "tone": "Calm, supportive, science-backed",
+                    "product_placement": "{{ .Title }} listed as a recovery tool. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick exercise form tutorial for {{ .Title }}. Side-by-side: wrong ❌ vs right ✅. Bold text labels. Dramatic gym lighting. {{ .Description }}. NO CTA.",
@@ -326,14 +1004,193 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'HIDDEN FEATURE YOU DIDN'T KNOW 🤯' revelation post for {{ .Title }}. Use a curiosity-first hook headline + a 1-line payoff: 'It changes how you use it.' Show the feature with a clean illustration/screenshot mockup and a 3-step mini guide with icons. Include a tiny 'where to find it' locator cue. Dark premium background with electric blue glow accents, high contrast, minimal clutter. {{ .Description }}. NO CTA. Shareable tech knowledge optimized for saves and reposts.",
-                "Design a 'THIS VS THAT' side-by-side tech comparison for {{ .Title }}. Clean split layout with bold spec labels using actual numbers, plus a 'real-world meaning' line (e.g., 'faster export', 'clearer audio'). Add a clear winner indicator with 1 reason (not hype). Matte dark background with silver divider and accent highlights. {{ .Description }}. NO CTA. Discussion-driving comparison that invites comments: 'Which would you pick?'.",
-                "Design a 'SETUP TOUR 🖥️' bird's-eye desk showcase for {{ .Title }}. Overhead flat-lay shot at f/8, clean desk, perfect alignment. Use labeled callout lines for each item; keep labels short and consistent. Highlight {{ .Description }} with a brighter accent and a tiny 'why it matters' micro-note. Dark modern aesthetic, no clutter, safe-zones respected. NO CTA. Aspirational setup goals designed for saves.",
-                "Design a 'SPECS THAT ACTUALLY MATTER ✅ vs OVERRATED ❌' opinionated post for {{ .Title }}. List 4-5 specs with honest verdicts; include one contrarian pick to trigger discussion. Add a small 'depends on your use case' disclaimer to stay credible. Use bold typography, dark tech aesthetic, accent color coding, clean spacing for readability. {{ .Description }}. NO CTA. Comment-driving opinions that feel expert, not salesy.",
-                "Design a 'TECH EVOLUTION TIMELINE' post for {{ .Title }}. Horizontal timeline with clear year markers, 4-6 milestones max, each with one benefit improvement. Use bright accent nodes on a dark background. Add a headline hook: 'Look how fast this changed…'. Keep it clean and scannable, designed to be saved. {{ .Description }}. NO CTA. Shareable tech history that sparks nostalgia and debate.",
-                "Design a 'BATTERY LIFE TEST RESULTS 🔋' data visualization for {{ .Title }}. Create a bar chart comparing 3-5 real scenarios (streaming, gaming, calls, standby). Use bold numbers and a clear legend. Add a tiny 'test conditions' microtext for credibility. Dark background with green battery accent, clean gridlines, minimal clutter. {{ .Description }}. NO CTA. Save-worthy benchmark content people reference later.",
-                "Design a '5 SETTINGS YOU SHOULD CHANGE RIGHT NOW' tip card for {{ .Title }}. Numbered 1-5 with setting icons, each with a 1-line instruction + a 1-line benefit. Add a top hook: 'Do this in 60 seconds'. Keep text ultra legible, dark premium background with blue accents, strong spacing. {{ .Description }}. NO CTA. Actionable save-worthy content that invites 'Which one surprised you?'.",
-                "Design a 'UNPOPULAR TECH OPINION' hot-take post for {{ .Title }}. One bold controversial statement in huge typography, plus a 2-line justification and a question prompt: 'Agree or disagree?'. Minimal dark design, high contrast, meme-adjacent but premium. {{ .Description }}. NO CTA. Maximum comment engagement bait without looking spammy."
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Hidden Feature Revelation Post",
+                    "visual_description": {
+                        "subject": "Curiosity-first feature reveal with clean illustration/screenshot mockup and 3-step mini guide",
+                        "details": "Hook headline + 1-line payoff: 'It changes how you use it.' 3-step icons showing where to find the feature",
+                        "environment": "Dark premium background with electric blue glow accents",
+                        "style": "Premium tech revelation card, minimal clutter",
+                        "color_palette": [
+                            "dark charcoal",
+                            "electric blue",
+                            "white",
+                            "silver"
+                        ]
+                    },
+                    "headline_text": "HIDDEN FEATURE YOU DIDN'T KNOW 🤯",
+                    "design_elements": {
+                        "layout": "Hook headline → feature mockup → 3-step guide",
+                        "font_style": "Clean modern sans-serif, bright on dark"
+                    },
+                    "marketing_angle": "Discovery dopamine — hidden features get massive shares",
+                    "engagement_hook": "Tag someone who needs to know this 🤯",
+                    "tone": "Excited, insider-knowledge, shareable",
+                    "product_placement": "{{ .Title }} is the product with the hidden feature. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "This vs That Side-by-Side Comparison",
+                    "visual_description": {
+                        "subject": "Clean split layout with bold spec labels using actual numbers",
+                        "details": "Spec comparison with real numbers + plain-language benefits. Clear winner indicator with 1 reason",
+                        "environment": "Matte dark background with silver divider line",
+                        "style": "Tech comparison card, data-driven and honest",
+                        "color_palette": [
+                            "matte black",
+                            "silver",
+                            "electric blue accent",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "THIS vs THAT — HONEST COMPARISON",
+                    "design_elements": {
+                        "layout": "Vertical split with spec rows and winner indicator",
+                        "font_style": "Bold spec labels, clean body text"
+                    },
+                    "marketing_angle": "Honest comparison — drives debate and comments",
+                    "engagement_hook": "Which would you pick? Comment below 👇",
+                    "tone": "Objective, honest, discussion-sparking",
+                    "product_placement": "{{ .Title }} positioned fairly in comparison. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Setup Tour Bird's-Eye Desk Showcase",
+                    "visual_description": {
+                        "subject": "Overhead flat-lay of a perfectly organized tech desk setup with labeled callout lines",
+                        "details": "Shot at f/8, clean desk, perfect alignment. {{ .Title }} highlighted with brighter accent",
+                        "environment": "Dark modern desk surface, amber desk lamp glow",
+                        "style": "Aspirational flat-lay setup photography",
+                        "color_palette": [
+                            "dark wood",
+                            "matte black",
+                            "silver",
+                            "warm amber accent"
+                        ]
+                    },
+                    "headline_text": "SETUP TOUR 🖥️",
+                    "composition": {
+                        "framing": "Directly overhead flat-lay",
+                        "depth_of_field": "Deep f/8 for edge-to-edge sharpness",
+                        "camera_angle": "Top-down 90°"
+                    },
+                    "marketing_angle": "Aspirational lifestyle — setup tours get saved as goals",
+                    "engagement_hook": "Rate my setup 1-10 👇",
+                    "tone": "Aspirational, clean, tech-savvy",
+                    "product_placement": "{{ .Title }} highlighted as a key item. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Specs That Actually Matter vs Overrated",
+                    "visual_description": {
+                        "subject": "List of 4-5 specs with honest verdicts: ✅ MATTERS vs ❌ OVERRATED",
+                        "details": "One contrarian pick to trigger discussion. Small disclaimer for credibility",
+                        "environment": "Dark tech background with accent color coding",
+                        "style": "Opinionated tech opinion card",
+                        "color_palette": [
+                            "dark charcoal",
+                            "green",
+                            "red",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "SPECS THAT ACTUALLY MATTER ✅ vs OVERRATED ❌",
+                    "marketing_angle": "Contrarian opinion — hot takes drive massive comment debate",
+                    "engagement_hook": "Which one do you disagree with? Comment 👇",
+                    "tone": "Opinionated, expert, discussion-driving",
+                    "product_placement": "{{ .Title }} referenced as an example. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Tech Evolution Timeline",
+                    "visual_description": {
+                        "subject": "Horizontal timeline with year markers and 4-6 milestones with improvement benefits",
+                        "details": "Bright accent nodes on dark background. Hook: 'Look how fast this changed…'",
+                        "environment": "Dark background with glowing timeline nodes",
+                        "style": "Clean modern timeline infographic",
+                        "color_palette": [
+                            "dark charcoal",
+                            "electric blue nodes",
+                            "white labels"
+                        ]
+                    },
+                    "headline_text": "Look How Fast This Changed… 📱",
+                    "marketing_angle": "Nostalgia + progress — timelines spark debate and sharing",
+                    "engagement_hook": "Which year was the biggest leap? 👇",
+                    "tone": "Fascinating, nostalgic, shareable",
+                    "product_placement": "{{ .Title }} positioned at the latest milestone. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Battery Life Test Results Data Visualization",
+                    "visual_description": {
+                        "subject": "Bar chart comparing 3-5 real usage scenarios with bold hour numbers",
+                        "details": "Clear legend and tiny test conditions microtext for credibility",
+                        "environment": "Dark background with clean gridlines",
+                        "style": "Data benchmark visualization, credible and clean",
+                        "color_palette": [
+                            "dark charcoal",
+                            "battery green",
+                            "white",
+                            "grey gridlines"
+                        ]
+                    },
+                    "headline_text": "BATTERY LIFE TEST RESULTS 🔋",
+                    "marketing_angle": "Data-driven proof — benchmarks get saved as buying references",
+                    "engagement_hook": "Save this before your next upgrade 📌",
+                    "tone": "Data-driven, trustworthy, reference-worthy",
+                    "product_placement": "{{ .Title }} is the product being tested. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "5 Settings You Should Change Right Now",
+                    "visual_description": {
+                        "subject": "Numbered 1-5 settings with icons, each with 1-line instruction + 1-line benefit",
+                        "details": "Top hook: 'Do this in 60 seconds'. Ultra legible on dark background",
+                        "environment": "Dark premium background with blue accents",
+                        "style": "Actionable settings tip card",
+                        "color_palette": [
+                            "dark charcoal",
+                            "electric blue",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "5 SETTINGS TO CHANGE RIGHT NOW ⚙️",
+                    "subheadline_text": "Do this in 60 seconds",
+                    "marketing_angle": "Actionable utility — settings guides get screenshotted immediately",
+                    "engagement_hook": "Which one surprised you? 👇",
+                    "tone": "Practical, urgent, helpful",
+                    "product_placement": "{{ .Title }} is the device being configured. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "tech_gadgets",
+                    "concept": "Unpopular Tech Opinion Hot Take",
+                    "visual_description": {
+                        "subject": "One bold controversial tech statement in huge typography with 2-line justification",
+                        "details": "Minimal dark design, meme-adjacent but premium",
+                        "environment": "Dark minimal background, maximum text impact",
+                        "style": "Hot take opinion card, high contrast",
+                        "color_palette": [
+                            "black",
+                            "white text",
+                            "electric blue accent"
+                        ]
+                    },
+                    "headline_text": "UNPOPULAR TECH OPINION 🔥",
+                    "marketing_angle": "Controversy engagement — hot takes generate 5x more comments",
+                    "engagement_hook": "Agree or disagree? Comment your take 👇",
+                    "tone": "Bold, contrarian, debate-sparking",
+                    "product_placement": "{{ .Title }} referenced in the opinion. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick hidden feature reveal video for {{ .Title }}. Screen recording or close-up. Bold text: 'Wait it can do THIS?! 🤯'. Step-by-step demo. {{ .Description }}. NO CTA.",
@@ -379,14 +1236,190 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'SIGNS YOUR PET IS TELLING YOU SOMETHING' educational post for {{ .Title }}. 4-5 body language signals with cute illustrated icons; for each: the sign + what it might mean + one safe action. Add a warm headline hook: 'Your Pet Is Communicating 👀'. Keep it friendly and non-alarming. Warm cream background with golden accents, clean readable typography. Add footer prompt: 'Which one does your pet do?'. {{ .Description }}. NO CTA. Save-worthy pet education built for shares.",
-                "Design a 'PET PARENT BINGO 🐾' interactive grid post for {{ .Title }}. 5×5 bingo grid with relatable moments; ensure the squares are short and instantly readable. Add a header instruction: 'Screenshot + circle yours'. Include a playful footer prompt: 'How many did you get?'. Warm pastel design, bold fun typography, clean spacing. {{ .Description }}. NO CTA. Tag-and-share engagement optimized for comments.",
-                "Design a 'DO ✅ DON'T ❌' pet care guide for {{ .Title }}. Two-column layout with 4-5 items each; include one safety-critical 'DON’T' and its safe alternative. Use clear icons and short phrasing. Add a credibility cue line: 'Simple rules that prevent problems'. Warm clean background, high readability. {{ .Description }}. NO CTA. Save-worthy safety content designed for re-shares.",
-                "Design a 'BREED FACT FILE 🐾' educational card for {{ .Title }}. Breed name in bold + 4 mini sections: temperament, exercise needs, common quirks, best for (families/apartments/etc). Add a cute silhouette illustration and a small 'Did you know?' fact bubble. Warm pastel card design, clean layout. {{ .Description }}. NO CTA. Save-worthy breed guide people bookmark.",
-                "Design a 'CAPTION THIS 📸' engagement post for {{ .Title }}. Use an adorable pet photo with funny expression in warm golden-hour lighting (shot at f/2.8, shallow DOF). Add bold headline: 'Caption This 😭' and a small line: 'Funniest comment gets pinned'. Keep product subtle if present. {{ .Description }} shown naturally. NO CTA. Maximum comment engagement with simple game mechanics.",
-                "Design a 'THINGS YOUR VET WISHES YOU KNEW' authority post for {{ .Title }}. 5 pro tips in a numbered list; each tip: short instruction + short reason. Use a clean medical-authority layout with subtle stethoscope icon, but keep it warm and friendly. Add footer: 'Save this for later'. {{ .Description }}. NO CTA. Trust-building education built for shares.",
-                "Design a 'PET PERSONALITY QUIZ' interactive post for {{ .Title }}. Title: 'Is your pet a…' with 4 personality types; each type has 2 traits + one fun emoji. Add instructions: 'Pick the one that fits your pet'. Warm playful design, illustrated icons, clean spacing. Add comment prompt: 'Type 1/2/3/4'. {{ .Description }}. NO CTA. Comment-driving quiz content.",
-                "Design a 'MONTHLY PET CARE CHECKLIST' practical post for {{ .Title }}. Checklist items for grooming, nails, dental care, enrichment, parasite prevention, vet check reminders. Add a simple monthly calendar header and checkbox icons. Clean organized layout, warm palette, ultra readable. Footer prompt: 'What do you always forget?'. {{ .Description }}. NO CTA. Save-worthy reference."
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Signs Your Pet Is Telling You Something",
+                    "visual_description": {
+                        "subject": "4-5 pet body language signals with cute illustrated icons",
+                        "details": "Each sign: the behavior + what it might mean + one safe action. Warm, non-alarming",
+                        "environment": "Warm cream background with golden accents",
+                        "style": "Friendly educational pet card",
+                        "color_palette": [
+                            "cream",
+                            "golden",
+                            "warm brown",
+                            "soft green"
+                        ]
+                    },
+                    "headline_text": "Your Pet Is Communicating 👀",
+                    "design_elements": {
+                        "layout": "Vertical list with illustrated icons per signal",
+                        "font_style": "Warm friendly sans-serif"
+                    },
+                    "marketing_angle": "Pet empathy — body language content gets huge engagement",
+                    "engagement_hook": "Which one does your pet do? Comment below 👇",
+                    "tone": "Warm, educational, non-alarming",
+                    "product_placement": "{{ .Title }} mentioned as a care tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Pet Parent Bingo Interactive Grid",
+                    "visual_description": {
+                        "subject": "5×5 bingo grid with relatable pet parent moments",
+                        "details": "Squares are short and instantly readable. Header: 'Screenshot + circle yours'",
+                        "environment": "Warm pastel background",
+                        "style": "Fun interactive bingo card",
+                        "color_palette": [
+                            "warm pastel",
+                            "golden",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "PET PARENT BINGO 🐾",
+                    "marketing_angle": "Gamification — bingo cards drive screenshots and tags",
+                    "engagement_hook": "How many did you get? Comment your score 👇",
+                    "tone": "Playful, relatable, community",
+                    "product_placement": "{{ .Title }} in one bingo square naturally. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Do and Don't Pet Care Guide",
+                    "visual_description": {
+                        "subject": "Two-column layout: DO ✅ vs DON'T ❌ with 4-5 items each",
+                        "details": "One safety-critical DON'T highlighted with its safe alternative. Clear icons, short phrasing",
+                        "environment": "Warm clean background",
+                        "style": "Educational comparison card",
+                        "color_palette": [
+                            "cream",
+                            "soft green",
+                            "soft red",
+                            "warm brown"
+                        ]
+                    },
+                    "headline_text": "PET CARE DO'S AND DON'TS ✅❌",
+                    "marketing_angle": "Safety authority — pet safety content gets saved and reshared",
+                    "engagement_hook": "Share this with a pet parent who needs it 💛",
+                    "tone": "Protective, helpful, trustworthy",
+                    "product_placement": "{{ .Title }} in the DO column as a recommended tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Breed Fact File Educational Card",
+                    "visual_description": {
+                        "subject": "Breed name in bold + 4 mini sections: temperament, exercise needs, common quirks, best for",
+                        "details": "Cute breed silhouette illustration. 'Did you know?' fact bubble",
+                        "environment": "Warm pastel card background",
+                        "style": "Clean breed information card",
+                        "color_palette": [
+                            "cream",
+                            "golden",
+                            "warm brown",
+                            "soft blue"
+                        ]
+                    },
+                    "headline_text": "BREED FACT FILE 🐾",
+                    "marketing_angle": "Breed content drives engagement from proud pet owners",
+                    "engagement_hook": "Tag a {{ breed }} owner who relates 👇",
+                    "tone": "Fun, informative, breed-celebrating",
+                    "product_placement": "{{ .Title }} recommended for this breed type. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Caption This Engagement Photo",
+                    "visual_description": {
+                        "subject": "Adorable pet photo with funny expression in warm golden-hour lighting",
+                        "details": "Shot at f/2.8, shallow DOF. 'Funniest comment gets pinned' line",
+                        "environment": "Warm natural setting, golden hour",
+                        "style": "Authentic pet photography, warm and inviting",
+                        "color_palette": [
+                            "golden",
+                            "warm brown",
+                            "cream",
+                            "natural green"
+                        ]
+                    },
+                    "headline_text": "Caption This 😭",
+                    "composition": {
+                        "framing": "Medium shot, pet expression fills frame",
+                        "depth_of_field": "Shallow f/2.8 for pet isolation",
+                        "camera_angle": "Eye-level with pet"
+                    },
+                    "marketing_angle": "Caption contests generate 5x more comments than regular posts",
+                    "engagement_hook": "Drop your funniest caption below — winner gets pinned 📌",
+                    "tone": "Playful, funny, community-driven",
+                    "product_placement": "{{ .Title }} visible naturally if present. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Things Your Vet Wishes You Knew",
+                    "visual_description": {
+                        "subject": "5 pro vet tips in numbered list with short instruction + short reason each",
+                        "details": "Clean medical-authority layout with subtle stethoscope icon. Warm and friendly",
+                        "environment": "Clean warm background",
+                        "style": "Authority tip card, medical but approachable",
+                        "color_palette": [
+                            "cream",
+                            "soft green",
+                            "white",
+                            "warm brown"
+                        ]
+                    },
+                    "headline_text": "THINGS YOUR VET WISHES YOU KNEW 🩺",
+                    "marketing_angle": "Expert authority — vet tips get saves and trust",
+                    "engagement_hook": "Save this for later 📌",
+                    "tone": "Authoritative, warm, trustworthy",
+                    "product_placement": "{{ .Title }} referenced in tip #3. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Pet Personality Quiz Interactive Post",
+                    "visual_description": {
+                        "subject": "Title: 'Is your pet a…' with 4 personality types, each with 2 traits + one fun emoji",
+                        "details": "Instructions: 'Pick the one that fits your pet'. Comment prompt: 'Type 1/2/3/4'",
+                        "environment": "Warm playful background",
+                        "style": "Fun personality quiz card",
+                        "color_palette": [
+                            "warm pastel",
+                            "golden",
+                            "cream",
+                            "soft coral"
+                        ]
+                    },
+                    "headline_text": "WHAT TYPE IS YOUR PET? 🐾",
+                    "marketing_angle": "Personality quizzes drive massive comment participation",
+                    "engagement_hook": "Type 1, 2, 3, or 4 — which is your pet? 👇",
+                    "tone": "Fun, light, community-engaging",
+                    "product_placement": "{{ .Title }} referenced for one personality type. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "pets",
+                    "concept": "Monthly Pet Care Checklist",
+                    "visual_description": {
+                        "subject": "Checklist items for grooming, nails, dental, enrichment, parasite prevention, vet reminders",
+                        "details": "Monthly calendar header, checkbox icons, clean organized layout",
+                        "environment": "Warm palette background",
+                        "style": "Practical reference checklist card",
+                        "color_palette": [
+                            "cream",
+                            "warm brown",
+                            "soft green",
+                            "golden"
+                        ]
+                    },
+                    "headline_text": "MONTHLY PET CARE CHECKLIST ✓",
+                    "marketing_angle": "Practical checklists get screenshotted and saved as reminders",
+                    "engagement_hook": "What do you always forget? Comment below 👇",
+                    "tone": "Helpful, organized, practical",
+                    "product_placement": "{{ .Title }} as a recommended monthly care item. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Cute pet reaction video for {{ .Title }}. Pet trying something for first time. Adorable authentic reactions. Bold text overlays. Warm natural lighting. {{ .Description }}. NO CTA.",
@@ -432,14 +1465,181 @@
                 ]
             },
             "master_prompts": [
-                "Design an 'OUTFIT FORMULA' equation-style post for {{ .Title }}. Create a clean visual equation: Item A + Item B + Accessory = Complete Look. Use overhead flat-lay photography style (f/8, even lighting) with neutral background and consistent spacing. Add a micro-rule line: 'Balance volume + texture'. Keep typography modern and bold, labels short. Add footer prompt: 'Which part would you swap?'. {{ .Description }}. NO CTA. Save-worthy outfit blueprint made for bookmarks.",
-                "Design a 'WHAT TO WEAR TO...' 4-occasion guide for {{ .Title }}. Grid: Brunch, Office, Date Night, Casual — each with mini outfit suggestion and 2-item bullet list (top/bottom/shoes). Keep it clean, editorial, and readable. Add a small 'quick tip' callout: 'Repeat pieces, change accessories'. {{ .Description }}. NO CTA. Save-worthy style guide built for shares.",
-                "Design a 'STYLE MISTAKE ❌ VS STYLE FIX ✅' comparison for {{ .Title }}. Left: common error with a short reason why it fails. Right: elevated version with one styling principle (fit, proportion, layering). Use bold labels, clean editorial look, and clear visual contrast. Add comment prompt: 'Which one do you do?'. {{ .Description }}. NO CTA. Educational style content designed for engagement.",
-                "Design a '5 WAYS TO STYLE 1 PIECE' versatility post for {{ .Title }}. Grid of 5 looks using one hero item; each tile has an occasion label + 3-word vibe (e.g., 'clean, minimal, sharp'). Keep spacing consistent, fashion editorial aesthetic, minimal text, high readability. Add footer: 'Save this for later'. {{ .Description }}. NO CTA. Versatility showcase built for saves.",
-                "Design a 'CAPSULE WARDROBE ESSENTIALS ✓' checklist for {{ .Title }}. 8-10 essentials with checkboxes; group by category (tops, bottoms, layers, shoes). Add a small 'build your capsule in 10 mins' headline subline. Use neutral linen-texture background, elegant sans-serif typography, clear spacing. {{ .Description }} highlighted. NO CTA. Save-worthy wardrobe planning content.",
-                "Design a 'TREND ALERT 🔥' seasonal trend post for {{ .Title }}. Bold trend name headline + 3 ways to wear it with small visual examples. Add a micro-note: 'Keep one statement piece'. Clean modern editorial design, neutral palette with one accent. {{ .Description }}. NO CTA. Shareable trend content built for saves and comments.",
-                "Design a 'COLOR MATCHING GUIDE' educational post for {{ .Title }}. Use palette swatches with 4-6 combinations, each labeled with a simple rule (warm + warm, neutral + pop). Add a tiny 'safe combo' and 'bold combo' marker. Clean minimal design, high readability. {{ .Description }}. NO CTA. Save-worthy color theory for fashion.",
-                "Design a 'DRESS FOR YOUR BODY TYPE' inclusive guide for {{ .Title }}. 4 body type silhouettes with flattering tips focused on balance and comfort (no body shaming). Keep labels friendly and inclusive. Add footer prompt: 'Which tip helped you?'. Warm clean design, readable typography. {{ .Description }}. NO CTA. Save-worthy personalized style."
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Outfit Formula Equation Post",
+                    "visual_description": {
+                        "subject": "Visual equation: Item A + Item B + Accessory = Complete Look",
+                        "details": "Overhead flat-lay photography style at f/8, neutral background, consistent spacing. Micro-rule: 'Balance volume + texture'",
+                        "environment": "Neutral linen background, even lighting",
+                        "style": "Fashion flat-lay editorial",
+                        "color_palette": [
+                            "neutral tones",
+                            "cream",
+                            "warm camel",
+                            "crisp white"
+                        ]
+                    },
+                    "headline_text": "OUTFIT FORMULA 👗",
+                    "composition": {
+                        "framing": "Overhead flat-lay, items arranged in equation format",
+                        "depth_of_field": "Deep f/8 for item clarity"
+                    },
+                    "marketing_angle": "Blueprint content — outfit formulas get saved as wardrobe reference",
+                    "engagement_hook": "Which part would you swap? Comment below 👇",
+                    "tone": "Stylish, practical, editorial",
+                    "product_placement": "{{ .Title }} as a key piece in the equation. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "What To Wear To 4-Occasion Guide",
+                    "visual_description": {
+                        "subject": "4-quadrant grid: Brunch, Office, Date Night, Casual — each with mini outfit suggestion",
+                        "details": "2-item bullet list per occasion. 'Quick tip' callout: 'Repeat pieces, change accessories'",
+                        "environment": "Clean editorial background",
+                        "style": "Fashion occasion guide grid",
+                        "color_palette": [
+                            "neutral tones",
+                            "black and white",
+                            "warm camel"
+                        ]
+                    },
+                    "headline_text": "WHAT TO WEAR TO... 👔",
+                    "marketing_angle": "Occasion guides get saved — practical style reference content",
+                    "engagement_hook": "Which occasion do you need help with? 👇",
+                    "tone": "Helpful, editorial, versatile",
+                    "product_placement": "{{ .Title }} featured in 2+ occasion outfits. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Style Mistake vs Style Fix Comparison",
+                    "visual_description": {
+                        "subject": "Split: left ❌ common styling error, right ✅ elevated version",
+                        "details": "Short reason why it fails vs one styling principle fix (fit, proportion, layering)",
+                        "environment": "Clean editorial background, bold contrast",
+                        "style": "Fashion comparison card",
+                        "color_palette": [
+                            "black and white",
+                            "soft red tint",
+                            "soft green tint"
+                        ]
+                    },
+                    "headline_text": "STYLE MISTAKE ❌ VS STYLE FIX ✅",
+                    "marketing_angle": "Correction content — people save to avoid common errors",
+                    "engagement_hook": "Which one do you do? Be honest 😅",
+                    "tone": "Helpful, non-judgmental, educational",
+                    "product_placement": "{{ .Title }} shown in the fix side. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "5 Ways To Style 1 Piece Versatility Post",
+                    "visual_description": {
+                        "subject": "Grid of 5 looks using one hero item, each tile with occasion label + 3-word vibe",
+                        "details": "Consistent spacing, fashion editorial aesthetic, minimal text",
+                        "environment": "Clean neutral background per tile",
+                        "style": "Versatility showcase grid",
+                        "color_palette": [
+                            "neutral tones",
+                            "crisp white",
+                            "warm camel"
+                        ]
+                    },
+                    "headline_text": "5 WAYS TO STYLE 1 PIECE ✨",
+                    "marketing_angle": "Versatility showcases drive saves — proves product value",
+                    "engagement_hook": "Save this for later 📌 Which look is your favorite?",
+                    "tone": "Creative, inspiring, practical",
+                    "product_placement": "{{ .Title }} is the hero piece styled 5 ways. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Capsule Wardrobe Essentials Checklist",
+                    "visual_description": {
+                        "subject": "8-10 wardrobe essentials with checkboxes grouped by category: tops, bottoms, layers, shoes",
+                        "details": "Subhead: 'Build your capsule in 10 mins'. Neutral linen-texture background",
+                        "environment": "Neutral linen background",
+                        "style": "Clean wardrobe planning checklist",
+                        "color_palette": [
+                            "cream",
+                            "neutral tones",
+                            "warm camel",
+                            "crisp white"
+                        ]
+                    },
+                    "headline_text": "CAPSULE WARDROBE ESSENTIALS ✓",
+                    "marketing_angle": "Capsule content gets massive saves — wardrobe planning reference",
+                    "engagement_hook": "How many do you already have? Count and comment 👇",
+                    "tone": "Organized, aspirational, practical",
+                    "product_placement": "{{ .Title }} highlighted as essential #3. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Trend Alert Seasonal Post",
+                    "visual_description": {
+                        "subject": "Bold trend name headline + 3 ways to wear it with small visual examples",
+                        "details": "Micro-note: 'Keep one statement piece'. One accent color highlight",
+                        "environment": "Clean modern editorial background",
+                        "style": "Seasonal trend alert card",
+                        "color_palette": [
+                            "neutral tones",
+                            "seasonal palette accent",
+                            "black and white"
+                        ]
+                    },
+                    "headline_text": "TREND ALERT 🔥",
+                    "marketing_angle": "Trend content is time-sensitive and gets immediate engagement",
+                    "engagement_hook": "Would you wear this trend? Yes or no 👇",
+                    "tone": "Current, fashion-forward, editorial",
+                    "product_placement": "{{ .Title }} as a way to wear the trend. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Color Matching Guide Educational Post",
+                    "visual_description": {
+                        "subject": "Palette swatches with 4-6 color combinations labeled with simple rules",
+                        "details": "Rules like warm + warm, neutral + pop. 'Safe combo' and 'bold combo' markers",
+                        "environment": "Clean minimal background",
+                        "style": "Color theory fashion guide",
+                        "color_palette": [
+                            "varied swatches",
+                            "neutral background",
+                            "crisp white"
+                        ]
+                    },
+                    "headline_text": "COLOR MATCHING GUIDE 🎨",
+                    "marketing_angle": "Color theory saves — people reference this before getting dressed",
+                    "engagement_hook": "Save this for your next outfit 📌",
+                    "tone": "Educational, visual, practical",
+                    "product_placement": "{{ .Title }} shown in a color combo example. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "fashion_apparel",
+                    "concept": "Dress For Your Body Type Inclusive Guide",
+                    "visual_description": {
+                        "subject": "4 body type silhouettes with flattering tips focused on balance and comfort",
+                        "details": "Friendly, inclusive labels — no body shaming. Warm clean design",
+                        "environment": "Warm clean background",
+                        "style": "Inclusive body-positive style guide",
+                        "color_palette": [
+                            "warm tones",
+                            "cream",
+                            "soft rose",
+                            "neutral"
+                        ]
+                    },
+                    "headline_text": "STYLE TIPS FOR EVERY BODY ✨",
+                    "marketing_angle": "Inclusive content gets shared widely — body positivity drives saves",
+                    "engagement_hook": "Which tip helped you? Comment below 👇",
+                    "tone": "Inclusive, warm, empowering",
+                    "product_placement": "{{ .Title }} shown flattering multiple body types. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick outfit transition video for {{ .Title }}. Casual to dressed up. Bold text labeling each look. Fashion editorial lighting. {{ .Description }}. NO CTA.",
@@ -485,14 +1685,194 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'RECIPE IN 5 STEPS' visual card for {{ .Title }}. Numbered 1-5 with mini step icons; include prep time + cook time in a tiny header bar. Bold recipe title in modern serif typography. Keep steps short (6-10 words each). Add a micro tip bubble on step 3. Warm-toned linen-texture background, appetizing layout, high readability. {{ .Description }}. NO CTA. Save-worthy recipe content designed for screenshots.",
-                "Design a 'HEALTHY SWAP' before/after comparison for {{ .Title }}. Split: 'Instead of THIS ❌' vs 'Try THIS ✅'. Include bold macro/calorie comparison numbers and a 1-line taste reassurance: 'still hits the craving'. Use warm food photography style (f/2.8), clean modern layout. Add prompt: 'Which swap would you try?'. {{ .Description }}. NO CTA. Save-worthy nutrition tip built for shares.",
-                "Design a 'MEAL PREP GRID 🥗' organized layout for {{ .Title }}. 2×3 or 3×3 grid of meals in containers, each labeled with meal name + macros + storage note (fridge/freezer). Add a headline: 'This Week’s Prep' + small note: 'Save for Sunday'. Bright warm overhead lighting, clean spacing, readable labels. {{ .Description }}. NO CTA. Save-worthy meal planning.",
-                "Design a 'RATE THIS PLATE 1-10' engagement post for {{ .Title }}. Beautiful plated food shot at 45° angle, warm side lighting, shallow DOF at f/2.8. Add big rating headline + small prompt: 'Be brutally honest'. Keep text off the food. Add tiny footer: 'What would you add?'. {{ .Description }}. NO CTA. Comment-driving engagement.",
-                "Design a 'WHAT I EAT IN A DAY ☀️🌙' visual diary for {{ .Title }}. 4 meals with clock icons; each meal includes 1-sentence reason (energy, protein, cravings). Add a small disclaimer: 'not medical advice'. Keep layout clean, warm, modern. {{ .Description }}. NO CTA. Save-worthy daily guide content.",
-                "Design a '3-INGREDIENT HACK' simplicity post for {{ .Title }}. Three large ingredient images with + signs between them = final dish. Include a bold hook: 'Lazy but legendary'. Add a tiny 'takes 5 mins' badge. Clean white background with warm food photography. {{ .Description }}. NO CTA. Viral simplicity content optimized for shares.",
-                "Design a 'INGREDIENT SPOTLIGHT 🔬' nutrition card for {{ .Title }}. Hero ingredient large; include 4-5 benefits with icons, plus 'how to use' (3 quick ideas). Add a 'pairs well with' micro section. Clean warm aesthetic with green accent, high readability. {{ .Description }}. NO CTA. Educational food content built for saves.",
-                "Design a 'FRIDGE RESTOCK ✨' satisfying organization post for {{ .Title }}. Overhead organized fridge shot at f/8, bright even lighting; everything aligned and labeled. Add minimal text: 'Fridge Restock ✨' + micro line: 'This is your sign to reset'. Keep 85% visual. {{ .Description }}. NO CTA. Satisfying visual content designed for shares."
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Recipe In 5 Steps Visual Card",
+                    "visual_description": {
+                        "subject": "Numbered 1-5 recipe steps with mini step icons",
+                        "details": "Prep time + cook time header bar. Bold recipe title in modern serif. Steps 6-10 words each. Micro tip bubble on step 3",
+                        "environment": "Warm-toned linen-texture background",
+                        "style": "Clean recipe card, appetizing layout",
+                        "color_palette": [
+                            "warm linen",
+                            "rich brown",
+                            "cream",
+                            "golden"
+                        ]
+                    },
+                    "headline_text": "RECIPE IN 5 STEPS 🍳",
+                    "marketing_angle": "Recipe cards get screenshotted — ultimate save-worthy content",
+                    "engagement_hook": "Save this for tonight 📌",
+                    "tone": "Practical, appetizing, clear",
+                    "product_placement": "{{ .Title }} as a key ingredient or tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Healthy Swap Before After Comparison",
+                    "visual_description": {
+                        "subject": "Split: 'Instead of THIS ❌' vs 'Try THIS ✅' with macro/calorie comparison numbers",
+                        "details": "1-line taste reassurance: 'still hits the craving'. Warm food photography at f/2.8",
+                        "environment": "Clean modern food photography background",
+                        "style": "Nutrition swap comparison card",
+                        "color_palette": [
+                            "warm tones",
+                            "soft red",
+                            "soft green",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "HEALTHY SWAP ✅",
+                    "marketing_angle": "Swap content drives saves — practical nutrition at a glance",
+                    "engagement_hook": "Which swap would you try? Comment below 👇",
+                    "tone": "Encouraging, practical, non-judgmental",
+                    "product_placement": "{{ .Title }} as the healthy swap option. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Meal Prep Grid Organized Layout",
+                    "visual_description": {
+                        "subject": "2×3 or 3×3 grid of meals in containers, labeled with meal name + macros + storage note",
+                        "details": "Headline: 'This Week's Prep'. Note: 'Save for Sunday'. Bright warm overhead lighting",
+                        "environment": "Clean counter surface, bright overhead light",
+                        "style": "Organized meal prep photography",
+                        "color_palette": [
+                            "bright warm",
+                            "natural greens",
+                            "golden brown",
+                            "fresh white"
+                        ]
+                    },
+                    "headline_text": "MEAL PREP GRID 🥗",
+                    "composition": {
+                        "framing": "Overhead grid of containers",
+                        "depth_of_field": "Deep f/8 for all containers sharp"
+                    },
+                    "marketing_angle": "Meal prep grids drive Sunday saves — recurring engagement",
+                    "engagement_hook": "Save this for meal prep Sunday 📌",
+                    "tone": "Organized, practical, inspiring",
+                    "product_placement": "{{ .Title }} featured in multiple containers. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Rate This Plate Engagement Post",
+                    "visual_description": {
+                        "subject": "Beautiful plated food shot at 45° angle with warm side lighting",
+                        "details": "Shallow DOF at f/2.8. Text off the food. 'Be brutally honest' prompt",
+                        "environment": "Warm restaurant-style setting",
+                        "style": "Professional food photography",
+                        "color_palette": [
+                            "rich warm tones",
+                            "golden brown",
+                            "natural greens",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "RATE THIS PLATE 1-10 🍽️",
+                    "composition": {
+                        "framing": "45° food hero shot",
+                        "depth_of_field": "Shallow f/2.8 for appetizing bokeh"
+                    },
+                    "marketing_angle": "Rating posts generate 5x more comments than standard food posts",
+                    "engagement_hook": "Rate 1-10, be honest. What would you add? 👇",
+                    "tone": "Inviting, casual, community",
+                    "product_placement": "{{ .Title }} is the dish or key ingredient. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "What I Eat In A Day Visual Diary",
+                    "visual_description": {
+                        "subject": "4 meals with clock icons, each with 1-sentence reason (energy, protein, cravings)",
+                        "details": "Small disclaimer: 'not medical advice'. Clean, warm, modern layout",
+                        "environment": "Clean warm background",
+                        "style": "Daily food diary card",
+                        "color_palette": [
+                            "warm tones",
+                            "cream",
+                            "golden",
+                            "soft green"
+                        ]
+                    },
+                    "headline_text": "WHAT I EAT IN A DAY ☀️🌙",
+                    "marketing_angle": "Daily diet content gets saved as meal inspiration reference",
+                    "engagement_hook": "Which meal would you steal? Comment 👇",
+                    "tone": "Honest, balanced, non-preachy",
+                    "product_placement": "{{ .Title }} featured as one of the meals. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "3-Ingredient Hack Simplicity Post",
+                    "visual_description": {
+                        "subject": "Three large ingredient images with + signs = final dish photo",
+                        "details": "Hook: 'Lazy but legendary'. 'Takes 5 mins' badge. Clean white background",
+                        "environment": "Clean white minimalist background",
+                        "style": "Equation-style food hack card",
+                        "color_palette": [
+                            "white",
+                            "warm food tones",
+                            "golden brown"
+                        ]
+                    },
+                    "headline_text": "3-INGREDIENT HACK 🤯",
+                    "subheadline_text": "Lazy but legendary",
+                    "marketing_angle": "Simplicity content goes viral — low effort + great result = shares",
+                    "engagement_hook": "Tag someone who needs this in their life 👇",
+                    "tone": "Fun, simple, satisfying",
+                    "product_placement": "{{ .Title }} as one of the 3 ingredients. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Ingredient Spotlight Nutrition Card",
+                    "visual_description": {
+                        "subject": "Hero ingredient large with 4-5 benefits icons and 'how to use' section",
+                        "details": "'Pairs well with' micro section. Green accent for freshness",
+                        "environment": "Clean warm aesthetic background",
+                        "style": "Nutrition education card",
+                        "color_palette": [
+                            "natural green",
+                            "warm tones",
+                            "cream",
+                            "fresh white"
+                        ]
+                    },
+                    "headline_text": "INGREDIENT SPOTLIGHT 🔬",
+                    "marketing_angle": "Ingredient education gets saved as cooking reference",
+                    "engagement_hook": "Save this for your next grocery run 📌",
+                    "tone": "Educational, fresh, appetizing",
+                    "product_placement": "{{ .Title }} is the spotlight ingredient. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "food_beverage",
+                    "concept": "Fridge Restock Satisfying Organization Post",
+                    "visual_description": {
+                        "subject": "Overhead organized fridge shot at f/8, everything aligned and labeled",
+                        "details": "85% visual content. Micro line: 'This is your sign to reset'. Bright even lighting",
+                        "environment": "Clean organized fridge interior",
+                        "style": "Satisfying organization photography",
+                        "color_palette": [
+                            "bright white",
+                            "natural greens",
+                            "fresh reds",
+                            "clean blue"
+                        ]
+                    },
+                    "headline_text": "Fridge Restock ✨",
+                    "composition": {
+                        "framing": "Overhead or front-facing organized fridge",
+                        "depth_of_field": "Deep f/8 for full sharpness"
+                    },
+                    "marketing_angle": "Satisfying organization content stops scrolling and drives shares",
+                    "engagement_hook": "This is your sign to reset 🧊",
+                    "tone": "Satisfying, clean, aspirational",
+                    "product_placement": "{{ .Title }} prominently placed in the restock. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "30-second recipe video for {{ .Title }}. Overhead cooking hands. Bold text per step. Satisfying plating and final shot. Warm food lighting. {{ .Description }}. NO CTA.",
@@ -538,14 +1918,182 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'DAILY HABIT TRACKER' interactive post for {{ .Title }}. 7-day tracker grid with habit checkboxes; include a tiny legend: 'Do what you can'. Add a bold headline: 'Track Your Progress 📊' plus a micro-instruction: 'Screenshot + mark daily'. Keep design calm and clean with sage/white palette, high readability, minimal clutter. {{ .Description }}. NO CTA. Screenshot-and-use content designed for saves.",
-                "Design a 'HEALTH MYTH VS FACT' split-design post for {{ .Title }}. ❌ Myth on left vs ✅ Fact on right; keep claims cautious and realistic. Add a tiny 'why' line that explains the mechanism simply. Use clean modern design with strong contrast and readable type. Include a prompt: 'Which one surprised you?'. {{ .Description }}. NO CTA. Educational viral content optimized for shares. :contentReference[oaicite:4]{index=4}",
-                "Design a 'MORNING WELLNESS ROUTINE ☀️' timeline post for {{ .Title }}. 5-6 steps: 6:00 AM → 7:30 AM with clock icons. Each step has: icon + 4-6 word action + optional 1 micro benefit. Keep safe-zones clear, calming sage/blue gradient, rounded cards, airy layout. Add footer: 'Save this for tomorrow morning'. {{ .Description }}. NO CTA. Save-worthy routine guide built for bookmarking.",
-                "Design a '3 SIGNS YOU NEED TO...' attention post for {{ .Title }}. Bold warning-style headline + 3 symptoms with body-awareness icons; include one 'if severe, seek professional help' micro disclaimer. Add a small 'try this today' supportive box using {{ .Description }} without sales tone. Clean white background, high readability. NO CTA. Health awareness content designed for comments: 'Which one is you?'.",
-                "Design a 'SELF-CARE BINGO 🧘' interactive grid for {{ .Title }}. 4×4 bingo grid with achievable wellness activities; include 2 ultra-easy squares and 2 deeper squares for balance. Add instructions: 'Screenshot + circle your wins'. Place {{ .Description }} in one square naturally. Calming pastel design. NO CTA. Interactive shareable content optimized for community participation.",
-                "Design a 'BREATHE WITH ME 🧘' calming exercise post for {{ .Title }}. Visual breathing guide: Inhale 4s → Hold 4s → Exhale 6s with concentric circles and clear timing labels. Add a tiny microcopy: 'Do this for 60 seconds'. Calm gradient background, minimal text, high clarity. {{ .Description }}. NO CTA. Peaceful save-worthy content for shares.",
-                "Design a 'SCIENCE SAYS' evidence-based tip post for {{ .Title }}. Bold finding headline + one big highlighted stat/percentage + 2-line plain-English explanation. Keep tone grounded (no miracle claims). Clean clinical-but-warm design, high readability. Add prompt: 'Would you try this?'. {{ .Description }}. NO CTA. Authority-building education that earns saves. :contentReference[oaicite:5]{index=5}",
-                "Design a 'NIGHTTIME WIND-DOWN ROUTINE 🌙' step-by-step post for {{ .Title }}. 5 steps with moon/star icons; each step includes a time cue and one calming action. Use dark calming blue-to-indigo gradient, soft glow accents, readable typography. Add footer: 'Save for tonight'. {{ .Description }}. NO CTA. Save-worthy sleep hygiene guide."
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Daily Habit Tracker Interactive Post",
+                    "visual_description": {
+                        "subject": "7-day tracker grid with habit checkboxes",
+                        "details": "Tiny legend: 'Do what you can'. Micro-instruction: 'Screenshot + mark daily'",
+                        "environment": "Calm sage/white palette background",
+                        "style": "Clean interactive tracker card",
+                        "color_palette": [
+                            "sage green",
+                            "white",
+                            "soft blue",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "Track Your Progress 📊",
+                    "marketing_angle": "Screenshot utility — trackers drive daily return visits",
+                    "engagement_hook": "Screenshot this and start today 📱",
+                    "tone": "Calm, encouraging, practical",
+                    "product_placement": "{{ .Title }} as one of the tracked habits. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Health Myth vs Fact Split Design",
+                    "visual_description": {
+                        "subject": "Split: ❌ Myth left vs ✅ Fact right with 'why' mechanism explained",
+                        "details": "Claims cautious and realistic. Strong contrast, readable type",
+                        "environment": "Clean modern split-design background",
+                        "style": "Educational myth-busting card",
+                        "color_palette": [
+                            "white",
+                            "soft red tint",
+                            "soft green tint",
+                            "sage"
+                        ]
+                    },
+                    "headline_text": "HEALTH MYTH VS FACT 🧠",
+                    "marketing_angle": "Myth-busting drives saves and shares — education builds authority",
+                    "engagement_hook": "Which one surprised you? Comment below 👇",
+                    "tone": "Grounded, scientific, trustworthy",
+                    "product_placement": "{{ .Title }} referenced in the fact side. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Morning Wellness Routine Timeline",
+                    "visual_description": {
+                        "subject": "5-6 morning steps: 6:00 AM → 7:30 AM with clock icons",
+                        "details": "Each step: icon + 4-6 word action + 1 micro benefit. Airy layout",
+                        "environment": "Calming sage/blue gradient background, rounded cards",
+                        "style": "Morning routine timeline card",
+                        "color_palette": [
+                            "sage green",
+                            "soft blue",
+                            "warm sand",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "MORNING WELLNESS ROUTINE ☀️",
+                    "marketing_angle": "Morning routines are the most-saved wellness content format",
+                    "engagement_hook": "Save this for tomorrow morning 📌",
+                    "tone": "Calm, aspirational, achievable",
+                    "product_placement": "{{ .Title }} as step 3 in the routine. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "3 Signs You Need To — Attention Post",
+                    "visual_description": {
+                        "subject": "Bold warning-style headline + 3 symptoms with body-awareness icons",
+                        "details": "Disclaimer: 'if severe, seek professional help'. 'Try this today' supportive box",
+                        "environment": "Clean white background",
+                        "style": "Health awareness attention card",
+                        "color_palette": [
+                            "white",
+                            "soft coral",
+                            "sage green",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "3 SIGNS YOU NEED TO... 🚨",
+                    "marketing_angle": "Symptom awareness drives comments — 'which one is you?'",
+                    "engagement_hook": "Which one is you? Comment below 👇",
+                    "tone": "Empathetic, helpful, non-alarming",
+                    "product_placement": "{{ .Title }} in the 'try this today' box without sales tone. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Self-Care Bingo Interactive Grid",
+                    "visual_description": {
+                        "subject": "4×4 bingo grid with achievable wellness activities",
+                        "details": "2 ultra-easy squares, 2 deeper squares. Instructions: 'Screenshot + circle your wins'",
+                        "environment": "Calming pastel background",
+                        "style": "Interactive wellness bingo card",
+                        "color_palette": [
+                            "pastel green",
+                            "soft blue",
+                            "cream",
+                            "warm sand"
+                        ]
+                    },
+                    "headline_text": "SELF-CARE BINGO 🧘",
+                    "marketing_angle": "Bingo gamification drives screenshots, comments, and shares",
+                    "engagement_hook": "Screenshot and circle yours — share your score 👇",
+                    "tone": "Playful, achievable, community",
+                    "product_placement": "{{ .Title }} in one bingo square naturally. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Breathe With Me Calming Exercise",
+                    "visual_description": {
+                        "subject": "Visual breathing guide: Inhale 4s → Hold 4s → Exhale 6s with concentric circles",
+                        "details": "Clear timing labels. 'Do this for 60 seconds' microcopy. Minimal text",
+                        "environment": "Calm gradient background",
+                        "style": "Mindfulness breathing guide",
+                        "color_palette": [
+                            "soft blue gradient",
+                            "white",
+                            "sage green",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "BREATHE WITH ME 🧘",
+                    "marketing_angle": "Breathing exercises get saved and revisited — evergreen wellness content",
+                    "engagement_hook": "Save this for stressful moments 📌",
+                    "tone": "Peaceful, calming, supportive",
+                    "product_placement": "{{ .Title }} as a wellness companion. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Science Says Evidence-Based Tip Post",
+                    "visual_description": {
+                        "subject": "Bold finding headline + one big stat/percentage + 2-line plain-English explanation",
+                        "details": "Tone grounded, no miracle claims. Clean clinical-but-warm design",
+                        "environment": "Clean white/sage background",
+                        "style": "Evidence-based wellness card",
+                        "color_palette": [
+                            "white",
+                            "sage green",
+                            "soft blue",
+                            "earth tones"
+                        ]
+                    },
+                    "headline_text": "SCIENCE SAYS 🔬",
+                    "marketing_angle": "Data-backed claims build authority and earn saves",
+                    "engagement_hook": "Would you try this? Comment below 👇",
+                    "tone": "Grounded, evidence-based, trustworthy",
+                    "product_placement": "{{ .Title }} referenced as the studied product/habit. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "health_wellness",
+                    "concept": "Nighttime Wind-Down Routine Steps",
+                    "visual_description": {
+                        "subject": "5 steps with moon/star icons, each with time cue and calming action",
+                        "details": "Dark calming blue-to-indigo gradient, soft glow accents",
+                        "environment": "Dark calming blue-to-indigo gradient",
+                        "style": "Evening routine guide, calm energy",
+                        "color_palette": [
+                            "dark blue",
+                            "indigo",
+                            "soft gold stars",
+                            "cream text"
+                        ]
+                    },
+                    "headline_text": "NIGHTTIME WIND-DOWN 🌙",
+                    "marketing_angle": "Evening routines get saved for bedtime reference",
+                    "engagement_hook": "Save this for tonight 📌",
+                    "tone": "Calming, soothing, practical",
+                    "product_placement": "{{ .Title }} as step 3 in the wind-down. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick wellness tip video for {{ .Title }}. Calm morning setting. Bold text overlay benefit. Soft natural light. {{ .Description }}. NO CTA.",
@@ -591,14 +2139,182 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'MILESTONE CHART 👶' age-tracker post for {{ .Title }}. Age-based milestones (0-12 months) with cute simple icons; keep text short and reassuring (no pressure). Add a tiny note: 'Every baby is different'. Use bold age labels, pastel watercolor background, clean spacing. Add footer prompt: 'Which month are you on?'. {{ .Description }}. NO CTA. Save-worthy parenting reference made for screenshots.",
-                "Design a 'PARENTING HACK THAT SAVED MY LIFE 🙌' relatable post for {{ .Title }}. Bold hook headline + one golden tip featured large. Include a mini before/after comic strip (struggle → solution → calm). Add a tiny 'why it works' line to boost trust. Warm pastel background, friendly typography. {{ .Description }}. NO CTA. Shareable parenting wisdom designed for comments and tags.",
-                "Design a 'BABY SAFETY CHECKLIST ✓' room-by-room guide for {{ .Title }}. Checkbox items by room (nursery, kitchen, bathroom). Include 2 'most missed' items highlighted. Use clear icons, high readability, soft pastel blue/mint design. Add footer: 'Save this for later'. {{ .Description }}. NO CTA. Save-worthy safety reference optimized for shares.",
-                "Design a 'THINGS NOBODY TELLS NEW PARENTS 😅' honest list post for {{ .Title }}. 5 real truths with humor + empathy; each line short and relatable. Include one 'you’re doing great' reassurance line. Warm soft design, emoji accents, clean spacing. Add prompt: 'Which one surprised you?'. {{ .Description }}. NO CTA. Relatable tag-a-friend content.",
-                "Design a 'TANTRUM SURVIVAL KIT 😅' practical/humorous guide for {{ .Title }}. 5 techniques with illustrated icons; include 'what to say' micro scripts (3-6 words). Keep it calm, not shaming. Cheerful pastel design, bold headline. Add footer prompt: 'Which one works for you?'. {{ .Description }}. NO CTA. Save-worthy parenting tool content.",
-                "Design a 'AGE-APPROPRIATE ACTIVITIES' guide for {{ .Title }}. Grid of activities by age range; each activity has one goal (sensory, motor, bonding). Use cute icons, clean spacing, pastel palette. Add a 'low mess' badge on 2 items. {{ .Description }}. NO CTA. Save-worthy activity reference.",
-                "Design a 'PACK THE DIAPER BAG' checklist post for {{ .Title }}. Essentials with checkboxes + small category grouping (feeding, comfort, hygiene). Include 2 'emergency extras' highlighted. Clean mint/cream layout, ultra readable. Add footer: 'What do you always forget?'. {{ .Description }}. NO CTA. Practical save-worthy content.",
-                "Design a 'SLEEP SCHEDULE BY AGE' reference card for {{ .Title }}. Age ranges with nap + bedtime hours; include a small note: 'ranges, not rules'. Use calming blue/lavender palette, moon/sun icons, clean readable typography. Add prompt: 'How’s sleep going this week?'. {{ .Description }}. NO CTA. Save-worthy sleep guide."
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Milestone Chart Age Tracker",
+                    "visual_description": {
+                        "subject": "Age-based milestones 0-12 months with cute simple icons",
+                        "details": "Text short and reassuring. Note: 'Every baby is different'. Bold age labels",
+                        "environment": "Pastel watercolor background",
+                        "style": "Cute milestone tracker card",
+                        "color_palette": [
+                            "pastel blue",
+                            "soft yellow",
+                            "mint",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "MILESTONE CHART 👶",
+                    "marketing_angle": "Milestone charts get saved and checked weekly — high repeat value",
+                    "engagement_hook": "Which month are you on? Comment below 👇",
+                    "tone": "Warm, reassuring, supportive",
+                    "product_placement": "{{ .Title }} as a supporting product. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Parenting Hack That Saved My Life",
+                    "visual_description": {
+                        "subject": "Bold hook headline + one golden tip featured large with mini before/after comic strip",
+                        "details": "Struggle → solution → calm progression. 'Why it works' trust line",
+                        "environment": "Warm pastel background",
+                        "style": "Relatable parenting hack card",
+                        "color_palette": [
+                            "warm pastel",
+                            "soft yellow",
+                            "cream",
+                            "blush pink"
+                        ]
+                    },
+                    "headline_text": "PARENTING HACK THAT SAVED MY LIFE 🙌",
+                    "marketing_angle": "Relatable parenting hacks drive tags and shares",
+                    "engagement_hook": "Tag a parent who needs this 💛",
+                    "tone": "Relatable, helpful, empathetic",
+                    "product_placement": "{{ .Title }} as the solution element. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Baby Safety Checklist Room-by-Room",
+                    "visual_description": {
+                        "subject": "Checkbox items by room: nursery, kitchen, bathroom",
+                        "details": "2 'most missed' items highlighted. Clear icons, high readability",
+                        "environment": "Soft pastel blue/mint background",
+                        "style": "Safety checklist card",
+                        "color_palette": [
+                            "pastel blue",
+                            "mint",
+                            "cream",
+                            "soft yellow"
+                        ]
+                    },
+                    "headline_text": "BABY SAFETY CHECKLIST ✓",
+                    "marketing_angle": "Safety checklists get saved and shared to parent groups",
+                    "engagement_hook": "Save this for later 📌",
+                    "tone": "Protective, thorough, supportive",
+                    "product_placement": "{{ .Title }} as a recommended safety item. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Things Nobody Tells New Parents",
+                    "visual_description": {
+                        "subject": "5 real truths with humor + empathy, each line short and relatable",
+                        "details": "One 'you're doing great' reassurance line. Emoji accents",
+                        "environment": "Warm soft background",
+                        "style": "Honest relatable list card",
+                        "color_palette": [
+                            "cream",
+                            "blush pink",
+                            "soft yellow",
+                            "warm brown"
+                        ]
+                    },
+                    "headline_text": "THINGS NOBODY TELLS NEW PARENTS 😅",
+                    "marketing_angle": "Relatable content drives tag-a-friend engagement",
+                    "engagement_hook": "Which one surprised you? Tag a parent 👇",
+                    "tone": "Honest, funny, empathetic",
+                    "product_placement": "{{ .Title }} referenced naturally. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Tantrum Survival Kit Guide",
+                    "visual_description": {
+                        "subject": "5 techniques with illustrated icons and 'what to say' micro scripts (3-6 words)",
+                        "details": "Calm not shaming tone. Cheerful pastel design",
+                        "environment": "Cheerful pastel background",
+                        "style": "Practical parenting tool card",
+                        "color_palette": [
+                            "pastel blue",
+                            "soft yellow",
+                            "mint",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "TANTRUM SURVIVAL KIT 😅",
+                    "marketing_angle": "Practical parenting tools get saved and referenced in moments of need",
+                    "engagement_hook": "Which one works for you? Comment below 👇",
+                    "tone": "Supportive, practical, no-shame",
+                    "product_placement": "{{ .Title }} as a calming tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Age-Appropriate Activities Guide",
+                    "visual_description": {
+                        "subject": "Grid of activities by age range with one goal each (sensory, motor, bonding)",
+                        "details": "Cute icons, 'low mess' badge on 2 items",
+                        "environment": "Pastel palette background",
+                        "style": "Activity reference grid card",
+                        "color_palette": [
+                            "mint",
+                            "soft yellow",
+                            "pastel blue",
+                            "cream"
+                        ]
+                    },
+                    "headline_text": "AGE-APPROPRIATE ACTIVITIES 🎨",
+                    "marketing_angle": "Activity guides get saved by parents looking for daily ideas",
+                    "engagement_hook": "Which one will you try this week? 👇",
+                    "tone": "Fun, educational, practical",
+                    "product_placement": "{{ .Title }} used in one activity. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Pack The Diaper Bag Checklist",
+                    "visual_description": {
+                        "subject": "Essentials with checkboxes grouped: feeding, comfort, hygiene",
+                        "details": "2 'emergency extras' highlighted. Ultra readable layout",
+                        "environment": "Clean mint/cream background",
+                        "style": "Practical packing checklist card",
+                        "color_palette": [
+                            "mint",
+                            "cream",
+                            "soft yellow",
+                            "blush pink"
+                        ]
+                    },
+                    "headline_text": "PACK THE DIAPER BAG 🎒",
+                    "marketing_angle": "Packing checklists get screenshotted before every outing",
+                    "engagement_hook": "What do you always forget? Comment below 👇",
+                    "tone": "Organized, practical, helpful",
+                    "product_placement": "{{ .Title }} as a diaper bag essential. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "baby_kids",
+                    "concept": "Sleep Schedule By Age Reference Card",
+                    "visual_description": {
+                        "subject": "Age ranges with nap + bedtime hours, moon/sun icons",
+                        "details": "Note: 'ranges, not rules'. Calming blue/lavender palette",
+                        "environment": "Calming blue/lavender background",
+                        "style": "Sleep reference guide card",
+                        "color_palette": [
+                            "soft blue",
+                            "lavender",
+                            "cream",
+                            "warm yellow"
+                        ]
+                    },
+                    "headline_text": "SLEEP SCHEDULE BY AGE 🌙",
+                    "marketing_angle": "Sleep guides get saved and checked constantly by tired parents",
+                    "engagement_hook": "How's sleep going this week? Be honest 👇",
+                    "tone": "Calming, reassuring, non-judgmental",
+                    "product_placement": "{{ .Title }} as a sleep-time companion. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Relatable parenting moment video for {{ .Title }}. Authentic tired-parent humor. Bold text reactions. Warm home lighting. {{ .Description }}. NO CTA.",
@@ -644,14 +2360,182 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'CAR MAINTENANCE SCHEDULE' visual timeline for {{ .Title }}. Use mileage markers with icons for oil, tires, brakes, filters; include a small 'print/save this' micro line. Add one 'most ignored' service highlighted. Dark premium carbon-texture background, chrome accents, ultra readable typography. {{ .Description }}. NO CTA. Save-worthy car care reference designed for shares.",
-                "Design a 'FACT MOST DRIVERS DON'T KNOW 🤯' revelation post for {{ .Title }}. Bold shocking headline in compressed Impact font + a 1-line payoff. Include a tiny 'why it matters' line (safety/cost/longevity). Dark high-contrast design with chrome accent and clean spacing. {{ .Description }}. NO CTA. Shareable car knowledge optimized for comments: 'Did you know this?'.",
-                "Design a 'ESSENTIAL TOOL KIT' grid post for {{ .Title }}. 3×3 grid of tools with bold labels + one-line usage each. Include a small 'beginner vs advanced' tag on 2 tools. Dark industrial steel aesthetic, high contrast, readable at small sizes. {{ .Description }}. NO CTA. Save-worthy garage reference content.",
-                "Design a 'BEFORE YOU BUY USED ✓' inspection checklist for {{ .Title }}. 8 checkpoints with icons; include 2 'walk away' red flags highlighted. Dark premium design with warning-yellow accents, clean typography. Add footer prompt: 'What would you add?'. {{ .Description }}. NO CTA. Buyer's guide built for saves and shares.",
-                "Design a 'STRANGE SOUND DIAGNOSIS 🔊' guide post for {{ .Title }}. 4-5 sounds with onomatopoeia (SCREECH, RATTLE, CLICK) + likely cause + urgency label (LOW/MED/HIGH). Dark design with red warning accents, readable layout. Add micro disclaimer: 'If unsure, get it checked'. {{ .Description }}. NO CTA. Shareable diagnostic guide designed for comments.",
-                "Design a 'OIL TYPES EXPLAINED' educational post for {{ .Title }}. Chart comparing common viscosities with temperature ranges and typical use cases. Include a tiny 'check your manual' line. Dark technical design with clean gridlines and bold labels. {{ .Description }}. NO CTA. Save-worthy reference card content.",
-                "Design a 'DETAILING BEFORE/AFTER' transformation post for {{ .Title }}. Split-screen: dull paint vs showroom shine; dramatic rim lighting to show reflections. Add a punchy hook: 'This should be illegal 😮‍💨'. Include a 3-step mini process in tiny text. {{ .Description }}. NO CTA. Satisfying content built for shares.",
-                "Design a 'WINTER CAR KIT CHECKLIST ❄️' seasonal prep post for {{ .Title }}. List essentials with icons + one-line 'why'. Use dark design with ice-blue accents, bold seasonal headline, high readability. Add footer prompt: 'What do you keep in your trunk?'. {{ .Description }}. NO CTA. Seasonal save-worthy content."
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Car Maintenance Schedule Timeline",
+                    "visual_description": {
+                        "subject": "Mileage markers with icons for oil, tires, brakes, filters",
+                        "details": "'Print/save this' micro line. One 'most ignored' service highlighted",
+                        "environment": "Dark premium carbon-texture background",
+                        "style": "Premium maintenance timeline",
+                        "color_palette": [
+                            "deep black",
+                            "chrome silver",
+                            "racing red accent",
+                            "carbon grey"
+                        ]
+                    },
+                    "headline_text": "CAR MAINTENANCE SCHEDULE 🔧",
+                    "marketing_angle": "Maintenance schedules get printed and saved — long-term reference",
+                    "engagement_hook": "Save this — your car will thank you 📌",
+                    "tone": "Expert, practical, premium",
+                    "product_placement": "{{ .Title }} as a maintenance product. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Fact Most Drivers Don't Know",
+                    "visual_description": {
+                        "subject": "Bold shocking headline in compressed Impact font + 1-line payoff",
+                        "details": "'Why it matters' line (safety/cost/longevity). Chrome accent",
+                        "environment": "Dark high-contrast background",
+                        "style": "Revelation fact card",
+                        "color_palette": [
+                            "deep black",
+                            "chrome silver",
+                            "white",
+                            "midnight blue"
+                        ]
+                    },
+                    "headline_text": "FACT MOST DRIVERS DON'T KNOW 🤯",
+                    "marketing_angle": "Surprising facts drive comments and shares — 'did you know?'",
+                    "engagement_hook": "Did you know this? Comment below 👇",
+                    "tone": "Surprising, expert, shareable",
+                    "product_placement": "{{ .Title }} referenced in the fact. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Essential Tool Kit Grid Post",
+                    "visual_description": {
+                        "subject": "3×3 grid of tools with bold labels + one-line usage each",
+                        "details": "'Beginner vs advanced' tag on 2 tools",
+                        "environment": "Dark industrial steel background",
+                        "style": "Tool grid reference card",
+                        "color_palette": [
+                            "carbon grey",
+                            "chrome silver",
+                            "deep black",
+                            "racing red accent"
+                        ]
+                    },
+                    "headline_text": "ESSENTIAL TOOL KIT 🔧",
+                    "marketing_angle": "Tool guides get saved by garage enthusiasts",
+                    "engagement_hook": "What tool would you add? Comment 👇",
+                    "tone": "Knowledgeable, practical, enthusiast",
+                    "product_placement": "{{ .Title }} featured in the grid. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Before You Buy Used Inspection Checklist",
+                    "visual_description": {
+                        "subject": "8 checkpoints with icons, 2 'walk away' red flags highlighted",
+                        "details": "Warning-yellow accents, clean typography",
+                        "environment": "Dark premium background",
+                        "style": "Buyer's inspection checklist",
+                        "color_palette": [
+                            "deep black",
+                            "warning yellow",
+                            "chrome silver",
+                            "red"
+                        ]
+                    },
+                    "headline_text": "BEFORE YOU BUY USED ✓",
+                    "marketing_angle": "Buyer's checklists get saved before car shopping trips",
+                    "engagement_hook": "What would you add to this list? 👇",
+                    "tone": "Protective, practical, expert",
+                    "product_placement": "{{ .Title }} as an inspection tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Strange Sound Diagnosis Guide",
+                    "visual_description": {
+                        "subject": "4-5 sounds with onomatopoeia (SCREECH, RATTLE, CLICK) + likely cause + urgency label",
+                        "details": "Urgency: LOW/MED/HIGH. Disclaimer: 'If unsure, get it checked'",
+                        "environment": "Dark design with red warning accents",
+                        "style": "Diagnostic reference card",
+                        "color_palette": [
+                            "deep black",
+                            "racing red",
+                            "warning yellow",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "STRANGE SOUND DIAGNOSIS 🔊",
+                    "marketing_angle": "Diagnostic guides get saved and referenced when something sounds wrong",
+                    "engagement_hook": "Has your car made any of these? Comment 👇",
+                    "tone": "Helpful, diagnostic, safety-first",
+                    "product_placement": "{{ .Title }} as a diagnostic or repair tool. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Oil Types Explained Educational Post",
+                    "visual_description": {
+                        "subject": "Chart comparing common viscosities with temperature ranges and use cases",
+                        "details": "'Check your manual' line. Clean gridlines, bold labels",
+                        "environment": "Dark technical background",
+                        "style": "Technical education chart",
+                        "color_palette": [
+                            "deep black",
+                            "chrome silver",
+                            "golden amber",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "OIL TYPES EXPLAINED 🛢️",
+                    "marketing_angle": "Technical education builds trust and gets saved as reference",
+                    "engagement_hook": "What oil do you run? Comment below 👇",
+                    "tone": "Technical, trustworthy, educational",
+                    "product_placement": "{{ .Title }} as a recommended product. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Detailing Before After Transformation",
+                    "visual_description": {
+                        "subject": "Split-screen: dull paint vs showroom shine with dramatic rim lighting",
+                        "details": "Hook: 'This should be illegal'. 3-step mini process in tiny text",
+                        "environment": "Dramatic studio-style lighting on car surface",
+                        "style": "Satisfying transformation split",
+                        "color_palette": [
+                            "deep black",
+                            "chrome reflections",
+                            "warm orange light",
+                            "showroom white"
+                        ]
+                    },
+                    "headline_text": "DETAILING BEFORE/AFTER 😮‍💨",
+                    "marketing_angle": "Before/after transformations are the most-shared automotive content",
+                    "engagement_hook": "This should be illegal 😮‍💨 Tag a car lover",
+                    "tone": "Satisfying, impressive, premium",
+                    "product_placement": "{{ .Title }} as the detailing product used. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "automotive",
+                    "concept": "Winter Car Kit Checklist",
+                    "visual_description": {
+                        "subject": "List of winter essentials with icons + one-line 'why' each",
+                        "details": "Ice-blue accents, bold seasonal headline",
+                        "environment": "Dark design with ice-blue accents",
+                        "style": "Seasonal prep checklist",
+                        "color_palette": [
+                            "deep black",
+                            "ice blue",
+                            "chrome silver",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "WINTER CAR KIT CHECKLIST ❄️",
+                    "marketing_angle": "Seasonal checklists get shared before winter hits",
+                    "engagement_hook": "What do you keep in your trunk? Comment 👇",
+                    "tone": "Practical, seasonal, preparedness",
+                    "product_placement": "{{ .Title }} as a recommended winter kit item. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick car maintenance tip video for {{ .Title }}. Hands-on demo in garage. Bold step text overlays. {{ .Description }}. NO CTA.",
@@ -698,14 +2582,175 @@
                 ]
             },
             "master_prompts": [
-                "Design a 'DID YOU KNOW? 🤯' fact card for {{ .Title }}. Use a large bold fact headline (6-10 words) + one supporting stat + a 1-line plain-English explanation. Clean geometric background with brand accent color, high contrast, mobile-first readability. Add a footer prompt: 'Surprised?'. {{ .Description }}. NO CTA. Shareable knowledge content optimized for comments and shares. :contentReference[oaicite:6]{index=6}",
-                "Design a 'THIS OR THAT? 🤔' poll-style engagement post for {{ .Title }}. Clean split design with two bold options and a strong VS divider. Add a tiny instruction line: 'Comment A or B'. Keep options short and punchy. Modern design, high contrast, safe-zones respected. {{ .Description }}. NO CTA. Maximum comment engagement designed for fast decisions.",
-                "Design a 'TOP 5' numbered list post for {{ .Title }}. Bold numbers 1-5 with concise tips; each tip includes a 3-5 word title + a 1-line explanation. Add minimal line icons per item. Clean background with accent highlights, strong spacing, ultra-readable at small sizes. {{ .Description }}. NO CTA. Save-worthy list content designed for bookmarking.",
-                "Design a POWERFUL QUOTE CARD for {{ .Title }}. One bold statement in large modern serif × sans-serif mix, with a smaller supporting line that turns it into action. Minimal design with maximum impact, clean gradient/texture background, high contrast. Add micro footer: 'Save this'. {{ .Description }}. NO CTA. Share-worthy inspiration built for reposts.",
-                "Design a 'PROS ✅ VS CONS ❌' honest comparison post for {{ .Title }}. Two-column layout with 3-4 items each; include one 'depends' item to feel real. Balanced honest tone, clean split design with color coding, readable typography. Add prompt: 'Which side are you on?'. {{ .Description }}. NO CTA. Trust-building content that sparks discussion.",
-                "Design a 'STARTER PACK 😂' meme-style grid for {{ .Title }}. 2×3 grid of items defining a person/situation; keep captions short, punchy, and universal. Add a footer: 'Tag someone who fits this'. Clean fun design, bold meme text, high contrast. {{ .Description }}. NO CTA. Viral relatable humor designed for shares.",
-                "Design a 'THE TRUTH ABOUT...' myth-busting post for {{ .Title }}. Bold contrarian headline + 3 myths debunked with simple facts; include one 'what to do instead' line. Clean professional design, high readability, safe-zones respected. {{ .Description }}. NO CTA. Discussion-driving honest content optimized for comments.",
-                "Design a 'SAVE THIS FOR LATER 📌' ultimate resource post for {{ .Title }}. 6-8 actionable tips in a clean numbered grid; include one 'common mistake' callout. Bold headline, modern design with accent colors, ultra scannable layout. Add micro instruction: 'Screenshot this'. {{ .Description }}. NO CTA. Maximum saves engagement content."
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Did You Know Fact Card",
+                    "visual_description": {
+                        "subject": "Large bold fact headline (6-10 words) + one supporting stat + 1-line explanation",
+                        "details": "Clean geometric background with brand accent color. Mobile-first readability",
+                        "environment": "Clean geometric background",
+                        "style": "Fact card, shareable knowledge",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "brand accent",
+                            "white",
+                            "high contrast"
+                        ]
+                    },
+                    "headline_text": "DID YOU KNOW? 🤯",
+                    "marketing_angle": "Fact cards get shared — knowledge is the most universal engagement driver",
+                    "engagement_hook": "Surprised? Comment below 👇",
+                    "tone": "Informative, surprising, shareable",
+                    "product_placement": "{{ .Title }} as the subject of the fact. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "This Or That Poll-Style Post",
+                    "visual_description": {
+                        "subject": "Clean split design with two bold options and strong VS divider",
+                        "details": "Instruction: 'Comment A or B'. Options short and punchy",
+                        "environment": "Modern high-contrast background",
+                        "style": "Poll engagement card",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "brand accent",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "THIS OR THAT? 🤔",
+                    "marketing_angle": "Poll posts generate 3x more comments — easiest engagement format",
+                    "engagement_hook": "Comment A or B — no sitting on the fence 👇",
+                    "tone": "Fun, decisive, engaging",
+                    "product_placement": "{{ .Title }} as one of the options. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Top 5 Numbered List Post",
+                    "visual_description": {
+                        "subject": "Bold numbers 1-5 with concise tips, each with 3-5 word title + 1-line explanation",
+                        "details": "Minimal line icons per item. Strong spacing, ultra-readable",
+                        "environment": "Clean background with accent highlights",
+                        "style": "Numbered list card",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "brand accent",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "TOP 5 💡",
+                    "marketing_angle": "Numbered lists get saved — scannable format optimized for bookmarks",
+                    "engagement_hook": "Which one is your favorite? Comment the number 👇",
+                    "tone": "Concise, valuable, scannable",
+                    "product_placement": "{{ .Title }} as tip #1. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Powerful Quote Card",
+                    "visual_description": {
+                        "subject": "One bold statement in large modern serif × sans-serif mix with supporting action line",
+                        "details": "Minimal design, maximum impact. Clean gradient/texture background",
+                        "environment": "Clean gradient or textured background",
+                        "style": "Inspirational quote card",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "white",
+                            "brand accent"
+                        ]
+                    },
+                    "headline_text": "QUOTE OF THE DAY ✨",
+                    "marketing_angle": "Quote cards get reposted and shared — brand awareness amplifier",
+                    "engagement_hook": "Save this 📌",
+                    "tone": "Inspiring, bold, actionable",
+                    "product_placement": "{{ .Title }} as micro footer brand reference. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Pros vs Cons Honest Comparison",
+                    "visual_description": {
+                        "subject": "Two-column layout: ✅ Pros vs ❌ Cons with 3-4 items each",
+                        "details": "One 'depends' item for credibility. Balanced honest tone",
+                        "environment": "Clean split design with color coding",
+                        "style": "Honest comparison card",
+                        "color_palette": [
+                            "white",
+                            "soft green",
+                            "soft red",
+                            "neutral charcoal"
+                        ]
+                    },
+                    "headline_text": "PROS ✅ VS CONS ❌",
+                    "marketing_angle": "Honest pros/cons builds trust and sparks discussion",
+                    "engagement_hook": "Which side are you on? Comment below 👇",
+                    "tone": "Honest, balanced, discussion-driving",
+                    "product_placement": "{{ .Title }} compared honestly. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Starter Pack Meme Grid",
+                    "visual_description": {
+                        "subject": "2×3 grid of items defining a person/situation with short punchy captions",
+                        "details": "Universal and relatable. Footer: 'Tag someone who fits this'",
+                        "environment": "Clean fun design background",
+                        "style": "Meme-style starter pack grid",
+                        "color_palette": [
+                            "high contrast black and white",
+                            "brand accent"
+                        ]
+                    },
+                    "headline_text": "STARTER PACK 😂",
+                    "marketing_angle": "Starter pack memes are the most-shared humor format",
+                    "engagement_hook": "Tag someone who fits this perfectly 😂",
+                    "tone": "Funny, relatable, shareable",
+                    "product_placement": "{{ .Title }} as one grid item naturally. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "The Truth About Myth-Busting Post",
+                    "visual_description": {
+                        "subject": "Bold contrarian headline + 3 myths debunked with simple facts",
+                        "details": "One 'what to do instead' line. Clean professional design",
+                        "environment": "Clean professional background",
+                        "style": "Myth-busting authority card",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "white",
+                            "brand accent"
+                        ]
+                    },
+                    "headline_text": "THE TRUTH ABOUT... 🧠",
+                    "marketing_angle": "Myth-busting drives comments — people love correcting or debating",
+                    "engagement_hook": "Which myth did you believe? Comment 👇",
+                    "tone": "Honest, contrarian, educational",
+                    "product_placement": "{{ .Title }} as the truthful alternative. {{ .Description }}"
+                },
+                {
+                    "type": "social_media_post",
+                    "category": "general",
+                    "concept": "Save This For Later Ultimate Resource",
+                    "visual_description": {
+                        "subject": "6-8 actionable tips in clean numbered grid with one 'common mistake' callout",
+                        "details": "Bold headline, ultra scannable layout. 'Screenshot this' micro instruction",
+                        "environment": "Modern design with accent colors",
+                        "style": "Ultimate resource reference card",
+                        "color_palette": [
+                            "neutral charcoal",
+                            "brand accent",
+                            "white"
+                        ]
+                    },
+                    "headline_text": "SAVE THIS FOR LATER 📌",
+                    "marketing_angle": "Resource posts optimized for maximum saves — the #1 engagement metric",
+                    "engagement_hook": "Screenshot this — you'll need it later 📸",
+                    "tone": "Valuable, practical, comprehensive",
+                    "product_placement": "{{ .Title }} as tip #3 in the list. {{ .Description }}"
+                }
             ],
             "video_prompts": [
                 "Quick tip reveal video for {{ .Title }}. Bold text hook: 'You're doing this WRONG'. Quick correction reveal with confidence. {{ .Description }}. NO CTA.",

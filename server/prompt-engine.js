@@ -316,6 +316,90 @@ function selectPhotoStyle(niche, contentType) {
 }
 
 /**
+ * flattenStructuredPrompt — Converts a structured JSON prompt object into a flat
+ * text string optimized for AI image generation comprehension.
+ * If the input is already a string, it passes through unchanged (backward compat).
+ */
+function flattenStructuredPrompt(promptObj, title, description) {
+    if (typeof promptObj === 'string') return promptObj;
+    if (!promptObj || typeof promptObj !== 'object') return '';
+
+    const parts = [];
+
+    // 1. Concept + type
+    if (promptObj.concept) {
+        parts.push(`Create a ${promptObj.type || 'social_media_post'}: ${promptObj.concept}.`);
+    }
+
+    // 2. Visual description
+    const v = promptObj.visual_description;
+    if (v) {
+        let vis = 'VISUAL DESCRIPTION:';
+        if (v.subject) vis += `\n- Subject: ${v.subject}`;
+        if (v.details) vis += `\n- Details: ${v.details}`;
+        if (v.environment) vis += `\n- Environment: ${v.environment}`;
+        if (v.style) vis += `\n- Style: ${v.style}`;
+        if (v.color_palette?.length) vis += `\n- Color palette: ${v.color_palette.join(', ')}`;
+        parts.push(vis);
+    }
+
+    // 3. Headline + subheadline
+    if (promptObj.headline_text) {
+        parts.push(`HEADLINE TEXT ON IMAGE: "${promptObj.headline_text}"`);
+    }
+    if (promptObj.subheadline_text) {
+        parts.push(`SUBHEADLINE TEXT: "${promptObj.subheadline_text}"`);
+    }
+
+    // 4. Design elements
+    const d = promptObj.design_elements;
+    if (d) {
+        let des = 'DESIGN ELEMENTS:';
+        if (d.layout) des += `\n- Layout: ${d.layout}`;
+        if (d.font_style) des += `\n- Font: ${d.font_style}`;
+        if (d.icons) des += `\n- Icons: ${d.icons}`;
+        if (d.text_hierarchy) des += `\n- Text hierarchy: ${d.text_hierarchy}`;
+        parts.push(des);
+    }
+
+    // 5. Composition
+    const c = promptObj.composition;
+    if (c) {
+        let comp = 'COMPOSITION:';
+        if (c.framing) comp += `\n- Framing: ${c.framing}`;
+        if (c.depth_of_field) comp += `\n- Depth of field: ${c.depth_of_field}`;
+        if (c.camera_angle) comp += `\n- Camera angle: ${c.camera_angle}`;
+        parts.push(comp);
+    }
+
+    // 6. Marketing angle + tone
+    if (promptObj.marketing_angle) {
+        parts.push(`MARKETING ANGLE: ${promptObj.marketing_angle}`);
+    }
+    if (promptObj.tone) {
+        parts.push(`TONE: ${promptObj.tone}`);
+    }
+
+    // 7. Engagement hook
+    if (promptObj.engagement_hook) {
+        parts.push(`ENGAGEMENT HOOK: ${promptObj.engagement_hook}`);
+    }
+
+    // 8. Product placement
+    if (promptObj.product_placement) {
+        parts.push(`PRODUCT PLACEMENT: ${promptObj.product_placement}`);
+    }
+
+    // Inject title and description into the assembled text
+    let result = parts.join('\n\n');
+    result = result
+        .replace(/\{\{\s*\.Title\s*\}\}/g, title || '')
+        .replace(/\{\{\s*\.Description\s*\}\}/g, description || '');
+
+    return result;
+}
+
+/**
  * assemblePrompt — Enhanced with platform-specific technical direction.
  * Given a prompt config, niche key, platform, content type, title, and description,
  * it assembles the full enriched prompt with photography-grade technical direction.
@@ -349,7 +433,8 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
             return renderTemplate(basePrompt, title, description);
         default: // image
             if (niche.master_prompts?.length > 0) {
-                basePrompt = niche.master_prompts[Math.floor(Math.random() * niche.master_prompts.length)];
+                const selected = niche.master_prompts[Math.floor(Math.random() * niche.master_prompts.length)];
+                basePrompt = flattenStructuredPrompt(selected, title, description);
             } else {
                 basePrompt = niche.master_prompt || '';
             }
@@ -359,7 +444,8 @@ export function assemblePrompt(config, nicheKey, platform, contentType, title, d
     // Fallback to master prompt
     if (!basePrompt) {
         if (niche.master_prompts?.length > 0) {
-            basePrompt = niche.master_prompts[Math.floor(Math.random() * niche.master_prompts.length)];
+            const selected = niche.master_prompts[Math.floor(Math.random() * niche.master_prompts.length)];
+            basePrompt = flattenStructuredPrompt(selected, title, description);
         } else {
             basePrompt = niche.master_prompt || '';
         }
