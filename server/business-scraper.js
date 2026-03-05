@@ -1,32 +1,175 @@
 /**
  * business-scraper.js
  * AI-powered website scraper and business analyzer.
- * Detects page type (landing/homepage vs product page) and extracts
- * either a business profile or product details with images.
+ * Uses Scrapling (Python) as primary fetcher for anti-bot bypass,
+ * with fallback to Node.js HTTP fetch.
  */
+
+import { execFile } from 'child_process';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename_local = fileURLToPath(import.meta.url);
+const __dirname_local = dirname(__filename_local);
+
+/**
+ * Try to fetch using Scrapling (Python) for better anti-bot bypass.
+ * Returns the scraped data object or null if Scrapling is not available.
+ */
+async function fetchWithScrapling(url) {
+    const pythonPath = join(__dirname_local, 'scraper-env', 'bin', 'python3');
+    const scriptPath = join(__dirname_local, 'scrape.py');
+
+    return new Promise((resolve) => {
+        const proc = execFile(pythonPath, [scriptPath, url], {
+            timeout: 30000,
+            maxBuffer: 10 * 1024 * 1024, // 10MB
+        }, (error, stdout, stderr) => {
+            if (error) {
+                console.warn(`[scrapling] Process error: ${error.message}`);
+                resolve(null);
+                return;
+            }
+            if (stderr) {
+                console.log(`[scrapling] stderr: ${stderr.substring(0, 200)}`);
+            }
+            try {
+                const data = JSON.parse(stdout);
+                if (data.error) {
+                    console.warn(`[scrapling] Scraper error: ${data.error}`);
+                    resolve(null);
+                    return;
+                }
+                // Map Scrapling output to our expected format
+                const result = {
+                    url: data.url,
+                    html: '', // We don't need raw HTML since Scrapling already extracted data
+                    title: data.title || '',
+                    metaDescription: data.meta_description || '',
+                    metaKeywords: '',
+                    ogTitle: data.og_title || '',
+                    ogDescription: data.og_description || '',
+                    ogImage: data.og_image || '',
+                    ogType: data.og_type || '',
+                    jsonLd: data.json_ld || null,
+                    productPrice: data.product_price || '',
+                    bodyText: data.body_text || '',
+                    colors: data.colors || [],
+                    logoCandidates: data.logo_candidates || [],
+                    productImages: data.product_images || [],
+                };
+                console.log(`[scrapling] ✅ Fetched: ${data.html_length} chars, ${result.productImages.length} images, ${result.logoCandidates.length} logos`);
+                resolve(result);
+            } catch (e) {
+                console.warn(`[scrapling] JSON parse error: ${e.message}`);
+                resolve(null);
+            }
+        });
+    });
+}
 
 /**
  * Fetches and extracts text content + images from a website URL.
+ * Uses realistic browser headers and UA rotation to bypass basic bot detection.
  */
+
+const USER_AGENTS = [
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+];
+
 async function fetchWebsiteContent(url) {
     let normalizedUrl = url.trim();
     if (!normalizedUrl.startsWith('http')) normalizedUrl = `https://${normalizedUrl}`;
 
     console.log(`[scraper] Fetching: ${normalizedUrl}`);
 
-    const resp = await fetch(normalizedUrl, {
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml',
-        },
-        redirect: 'follow',
-        signal: AbortSignal.timeout(15000),
-    });
+    // Retry with different User-Agents on 403/429
+    let lastError = null;
+    for (let attempt = 0; attempt < USER_AGENTS.length; attempt++) {
+        try {
+            const ua = USER_AGENTS[attempt];
+            const resp = await fetch(normalizedUrl, {
+                headers: {
+                    'User-Agent': ua,
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+                    'Accept-Encoding': 'gzip, deflate, br',
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Sec-Ch-Ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+                    'Sec-Ch-Ua-Mobile': '?0',
+                    'Sec-Ch-Ua-Platform': '"macOS"',
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-Site': 'none',
+                    'Sec-Fetch-User': '?1',
+                    'Upgrade-Insecure-Requests': '1',
+                    'Referer': 'https://www.google.com/',
+                },
+                redirect: 'follow',
+                signal: AbortSignal.timeout(20000),
+            });
 
-    if (!resp.ok) throw new Error(`Failed to fetch ${normalizedUrl}: ${resp.status}`);
+            if (resp.ok) {
+                const html = await resp.text();
+                if (html.length < 500) {
+                    console.warn(`[scraper] Response too short (${html.length} chars), retrying...`);
+                    lastError = new Error('Response too short — likely a challenge page');
+                    continue;
+                }
+                console.log(`[scraper] ✅ Fetched OK (attempt ${attempt + 1}, ${html.length} chars)`);
+                return parseHtml(normalizedUrl, html);
+            }
 
-    const html = await resp.text();
+            // Retry on 403/429, fail on other errors
+            if (resp.status === 403 || resp.status === 429) {
+                console.warn(`[scraper] Got ${resp.status} on attempt ${attempt + 1}, trying different UA...`);
+                lastError = new Error(`HTTP ${resp.status}`);
+                // Small delay before retry
+                await new Promise(r => setTimeout(r, 500 + attempt * 500));
+                continue;
+            }
 
+            throw new Error(`Failed to fetch ${normalizedUrl}: ${resp.status}`);
+        } catch (err) {
+            if (err.message?.includes('Failed to fetch')) throw err;
+            lastError = err;
+            console.warn(`[scraper] Attempt ${attempt + 1} failed: ${err.message}`);
+        }
+    }
+
+    // All attempts failed — try Google Cache as last resort
+    try {
+        console.log('[scraper] All direct attempts failed, trying Google Cache...');
+        const cacheUrl = `https://webcache.googleusercontent.com/search?q=cache:${encodeURIComponent(normalizedUrl)}`;
+        const resp = await fetch(cacheUrl, {
+            headers: {
+                'User-Agent': USER_AGENTS[0],
+                'Accept': 'text/html',
+            },
+            redirect: 'follow',
+            signal: AbortSignal.timeout(15000),
+        });
+        if (resp.ok) {
+            const html = await resp.text();
+            if (html.length > 500) {
+                console.log(`[scraper] ✅ Got cached version (${html.length} chars)`);
+                return parseHtml(normalizedUrl, html);
+            }
+        }
+    } catch { /* ignore cache failures */ }
+
+    throw new Error(`Could not fetch ${normalizedUrl} after ${USER_AGENTS.length} attempts (last error: ${lastError?.message}). The site may have strong anti-bot protection.`);
+}
+
+/**
+ * Parse raw HTML into structured data.
+ */
+function parseHtml(normalizedUrl, html) {
     // ── Meta extraction ──
     const title = html.match(/<title[^>]*>(.*?)<\/title>/is)?.[1]?.trim() || '';
     const metaDesc = html.match(/<meta[^>]*name=["']description["'][^>]*content=["'](.*?)["']/is)?.[1]?.trim() || '';
@@ -81,16 +224,76 @@ async function fetchWebsiteContent(url) {
     const favicon = html.match(/<link[^>]*rel=["'](?:icon|shortcut icon)["'][^>]*href=["'](.*?)["']/is)?.[1];
     if (favicon) logoCandidates.push(favicon);
 
-    // ── Product images (all substantial images from the page) ──
+    // ── Product images (comprehensive: handles lazy-loading, data-src, JSON-LD, etc.) ──
     const allImageUrls = [];
-    const imgMatches = html.matchAll(/<img[^>]*src=["'](.*?)["'][^>]*/gi);
-    for (const m of imgMatches) allImageUrls.push(m[1]);
-    // Also srcset images
-    const srcsetMatches = html.matchAll(/srcset=["']([^"']+)["']/gi);
+
+    // 1. Regular src attributes
+    const imgSrcMatches = html.matchAll(/<img[^>]*\bsrc=["']([^"']+)["'][^>]*/gi);
+    for (const m of imgSrcMatches) allImageUrls.push(m[1]);
+
+    // 2. Lazy-loaded images: data-src, data-lazy-src, data-original, data-image, data-zoom-image
+    const lazySrcPatterns = [
+        /data-src=["']([^"']+)["']/gi,
+        /data-lazy-src=["']([^"']+)["']/gi,
+        /data-lazy=["']([^"']+)["']/gi,
+        /data-original=["']([^"']+)["']/gi,
+        /data-image=["']([^"']+)["']/gi,
+        /data-zoom-image=["']([^"']+)["']/gi,
+        /data-large[-_]?image=["']([^"']+)["']/gi,
+        /data-bg=["']([^"']+)["']/gi,
+        /data-srcset=["']([^"']+)["']/gi,
+    ];
+    for (const pattern of lazySrcPatterns) {
+        for (const m of html.matchAll(pattern)) {
+            // data-srcset contains multiple URLs
+            if (pattern.source.includes('srcset')) {
+                const urls = m[1].split(',').map(s => s.trim().split(/\s+/)[0]);
+                allImageUrls.push(...urls);
+            } else {
+                allImageUrls.push(m[1]);
+            }
+        }
+    }
+
+    // 3. srcset attributes (both regular and lazy)
+    const srcsetMatches = html.matchAll(/\bsrcset=["']([^"']+)["']/gi);
     for (const m of srcsetMatches) {
         const urls = m[1].split(',').map(s => s.trim().split(/\s+/)[0]);
         allImageUrls.push(...urls);
     }
+
+    // 4. <picture> <source> elements
+    const sourceMatches = html.matchAll(/<source[^>]*\bsrcset=["']([^"']+)["']/gi);
+    for (const m of sourceMatches) {
+        const urls = m[1].split(',').map(s => s.trim().split(/\s+/)[0]);
+        allImageUrls.push(...urls);
+    }
+
+    // 5. JSON-LD product images
+    if (jsonLd) {
+        const extractJsonLdImages = (obj) => {
+            if (!obj) return;
+            if (typeof obj === 'string' && /\.(jpg|jpeg|png|webp)/i.test(obj)) allImageUrls.push(obj);
+            if (Array.isArray(obj)) obj.forEach(extractJsonLdImages);
+            if (typeof obj === 'object') {
+                for (const key of ['image', 'images', 'thumbnailUrl', 'contentUrl', 'photo']) {
+                    if (obj[key]) extractJsonLdImages(obj[key]);
+                }
+                // Check @graph array
+                if (obj['@graph']) extractJsonLdImages(obj['@graph']);
+            }
+        };
+        extractJsonLdImages(jsonLd);
+    }
+
+    // 6. OG image (often the best product hero)
+    if (ogImage) allImageUrls.push(ogImage);
+
+    // 7. URLs embedded directly in inline styles or CSS background-image
+    const bgMatches = html.matchAll(/background(?:-image)?\s*:\s*url\(['"]?([^'")]+)['"]?\)/gi);
+    for (const m of bgMatches) allImageUrls.push(m[1]);
+
+    console.log(`[scraper] Raw image URLs found: ${allImageUrls.length}`);
 
     // Resolve and deduplicate URLs
     const baseUrl = new URL(normalizedUrl);
@@ -102,18 +305,20 @@ async function fetchWebsiteContent(url) {
     // Filter product images: exclude tiny icons, logos, tracking pixels, SVGs
     const productImages = resolvedImages.filter(url => {
         const lower = url.toLowerCase();
-        // Skip icons, logos, tracking, SVGs, tiny files
         if (lower.includes('logo')) return false;
-        if (lower.includes('icon')) return false;
+        if (lower.includes('icon') && !lower.includes('icon-')) return false;
         if (lower.includes('favicon')) return false;
         if (lower.includes('pixel')) return false;
         if (lower.includes('tracking')) return false;
-        if (lower.includes('badge')) return false;
+        if (lower.includes('badge') && !lower.includes('product')) return false;
         if (lower.includes('payment')) return false;
         if (lower.includes('sprite')) return false;
+        if (lower.includes('placeholder')) return false;
+        if (lower.includes('blank.')) return false;
+        if (lower.includes('spacer')) return false;
         if (lower.endsWith('.svg')) return false;
         if (lower.endsWith('.gif') && !lower.includes('product')) return false;
-        // Keep only substantial image URLs
+        // Prefer images with size indicators (large, zoom, hero, product)
         return true;
     });
 
@@ -264,10 +469,20 @@ Return ONLY valid JSON. No markdown wrapping.`;
 
 /**
  * Main entrypoint: scrape a website, detect type, and return structured data.
+ * Tries Scrapling (Python) first for anti-bot bypass, falls back to Node.js HTTP fetch.
  * Returns { pageType, ...profile/product data, logoBase64?, productImagesBase64? }
  */
 export async function scrapeAndAnalyze(url) {
-    const scrapedData = await fetchWebsiteContent(url);
+    // Try Scrapling first (better anti-bot bypass)
+    console.log(`[scrape-business] Analyzing: ${url}`);
+    let scrapedData = await fetchWithScrapling(url);
+
+    // Fall back to Node.js HTTP fetch if Scrapling fails
+    if (!scrapedData) {
+        console.log('[scrape-business] Scrapling unavailable or failed, using HTTP fetch...');
+        scrapedData = await fetchWebsiteContent(url);
+    }
+
     const profile = await analyzePageWithAI(scrapedData);
 
     // Download logo

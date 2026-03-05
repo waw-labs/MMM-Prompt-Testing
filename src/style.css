@@ -1154,3 +1154,139 @@ body {
   accent-color: var(--accent);
   cursor: pointer;
 }
+
+/* ── Carousel Section ──────────────────────────────────────────────── */
+.carousel-section {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(108, 92, 231, 0.05);
+}
+
+.carousel-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.carousel-model-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(108, 92, 231, 0.12);
+}
+
+.carousel-slides-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.carousel-slide-card {
+  border-left: 3px solid var(--accent) !important;
+}
+
+.carousel-slide-card .variant-label {
+  font-size: 12px;
+}
+
+.carousel-slide-card .variant-full {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* ── Carousel Generation Grid ──────────────────────────────────────── */
+.carousel-gen-header {
+  margin-bottom: 16px;
+}
+
+.carousel-gen-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.carousel-gen-header h3 span {
+  color: var(--accent);
+}
+
+.carousel-gen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.carousel-gen-slot {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+
+.carousel-gen-slot.generating {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.carousel-gen-slot.done {
+  border-color: var(--green);
+}
+
+.carousel-gen-slot.failed {
+  border-color: #ff4757;
+}
+
+.carousel-gen-slot-header {
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.carousel-gen-slot-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  gap: 8px;
+}
+
+.carousel-gen-status {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.carousel-gen-img {
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.carousel-gen-slot-actions {
+  padding: 6px 0 0;
+  text-align: center;
+}
+
+.carousel-gen-error {
+  font-size: 12px;
+  color: #ff4757;
+  text-align: center;
+}
+
+.carousel-gen-footer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}

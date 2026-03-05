@@ -104,8 +104,13 @@ function setupEventListeners() {
         });
     });
 
-    // Content type change → update model list
-    document.getElementById('contentTypeSelect').addEventListener('change', updateModelOptions);
+    // Content type change → update model list + carousel slide count visibility
+    document.getElementById('contentTypeSelect').addEventListener('change', () => {
+        updateModelOptions();
+        const ct = document.getElementById('contentTypeSelect').value;
+        const group = document.getElementById('carouselSlideCountGroup');
+        if (group) group.style.display = ct === 'carousel' ? '' : 'none';
+    });
 
     // Assemble
     document.getElementById('assembleBtn').addEventListener('click', handleAssemble);
@@ -463,6 +468,9 @@ async function handleAssemble() {
     try {
         // Build the base payload — same endpoint for both modes
         const payload = { categories, platform, contentType, title, description };
+        if (contentType === 'carousel') {
+            payload.carouselSlideCount = parseInt(document.getElementById('carouselSlideCount')?.value || '5', 10);
+        }
         if (uploadedImages.length > 0) payload.image = uploadedImages[0];
         if (uploadedImages.length > 1) payload.images = uploadedImages;
 
@@ -528,6 +536,40 @@ function renderPromptResults() {
 
     container.innerHTML = assembledResults.map((r, catIdx) => {
         const allPrompts = r.allPrompts || [{ index: 0, label: 'Default', prompt: r.prompt }];
+
+        // Carousel slides section (if present)
+        let carouselSection = '';
+        if (r.carouselSlides?.length) {
+            const slideCards = r.carouselSlides.map((slide, sIdx) => {
+                const truncated = slide.prompt.length > 160 ? slide.prompt.substring(0, 160) + '…' : slide.prompt;
+                return `
+                <div class="variant-card carousel-slide-card" data-cat="${catIdx}" data-slide="${sIdx}"
+                     onclick="this.classList.toggle('expanded')">
+                  <div class="variant-header">
+                    <span class="variant-label">🎠 ${escapeHtml(slide.label)}</span>
+                    <div class="variant-actions">
+                      <button class="btn-tiny" onclick="event.stopPropagation(); navigator.clipboard.writeText(assembledResults[${catIdx}].carouselSlides[${sIdx}].prompt); showToast('Slide ${sIdx + 1} copied!')" title="Copy">📋</button>
+                    </div>
+                  </div>
+                  <pre class="variant-preview">${escapeHtml(truncated)}</pre>
+                  <pre class="variant-full" style="display:none">${escapeHtml(slide.prompt)}</pre>
+                </div>`;
+            }).join('');
+
+            carouselSection = `
+            <div class="carousel-section">
+              <div class="carousel-section-header">
+                <span class="carousel-model-badge">🎠 ${escapeHtml(r.carouselModel || 'Carousel')}</span>
+                <span class="badge">${r.carouselSlides.length} slides</span>
+                <button class="btn-tiny" onclick="event.stopPropagation(); const txt = assembledResults[${catIdx}].carouselSlides.map((s,i) => 'SLIDE '+(i+1)+': '+s.prompt).join('\\n\\n---\\n\\n'); navigator.clipboard.writeText(txt); showToast('All slides copied!')" title="Copy All Slides">📋 Copy All</button>
+              </div>
+              <div class="carousel-slides-grid">
+                ${slideCards}
+              </div>
+            </div>`;
+        }
+
+        // Standard variant cards
         const variantCards = allPrompts.map((v, vIdx) => {
             const isSelected = catIdx === selectedPromptIndex && vIdx === selectedVariantIndex;
             const truncated = v.prompt.length > 180 ? v.prompt.substring(0, 180) + '…' : v.prompt;
@@ -559,11 +601,27 @@ function renderPromptResults() {
           <span class="badge">${allPrompts.length} variants</span>
         </div>
       </div>
+      ${carouselSection}
       <div class="variants-grid">
         ${variantCards}
       </div>
     </div>`;
     }).join('');
+
+    // Add click-to-expand for carousel slides
+    document.querySelectorAll('.carousel-slide-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const preview = card.querySelector('.variant-preview');
+            const full = card.querySelector('.variant-full');
+            if (full.style.display === 'none') {
+                full.style.display = 'block';
+                preview.style.display = 'none';
+            } else {
+                full.style.display = 'none';
+                preview.style.display = 'block';
+            }
+        });
+    });
 }
 
 function updateNicheDisplay() {
@@ -585,12 +643,131 @@ async function handleGenerate() {
     if (!assembledResults.length) return;
     const catIdx = selectedPromptIndex >= 0 ? selectedPromptIndex : 0;
     const result = assembledResults[catIdx];
+    const contentType = document.getElementById('contentTypeSelect').value;
+
+    // Carousel mode: generate each slide sequentially
+    if (contentType === 'carousel' && result?.carouselSlides?.length) {
+        await handleCarouselGenerate(result.carouselSlides);
+        return;
+    }
+
+    // Standard single generation
     const allPrompts = result?.allPrompts || [{ prompt: result?.prompt }];
     const varIdx = selectedVariantIndex >= 0 ? selectedVariantIndex : 0;
     const prompt = allPrompts[varIdx]?.prompt || result?.prompt;
     if (!prompt) return;
     await sendToAI(prompt);
 }
+
+/**
+ * Generates carousel slides one-by-one, showing progress in a grid.
+ */
+async function handleCarouselGenerate(carouselSlides) {
+    const btn = document.getElementById('generateBtn');
+    const responseArea = document.getElementById('responseArea');
+
+    setBtnLoading(btn, true);
+
+    // Build initial progress grid with empty slots
+    responseArea.innerHTML = `
+    <div class="carousel-gen-header">
+      <h3>🎠 Generating Carousel — <span id="carouselGenProgress">0</span>/${carouselSlides.length} slides</h3>
+    </div>
+    <div class="carousel-gen-grid" id="carouselGenGrid">
+      ${carouselSlides.map((slide, i) => `
+        <div class="carousel-gen-slot" id="carouselSlot${i}">
+          <div class="carousel-gen-slot-header">${escapeHtml(slide.label)}</div>
+          <div class="carousel-gen-slot-body">
+            <div class="spinner"></div>
+            <span class="carousel-gen-status">Waiting...</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+
+    const model = document.getElementById('modelSelect').value;
+    const platform = document.getElementById('platformSelect')?.value || 'instagram';
+    const generatedImages = [];
+
+    // Generate each slide sequentially
+    for (let i = 0; i < carouselSlides.length; i++) {
+        const slide = carouselSlides[i];
+        const slot = document.getElementById(`carouselSlot${i}`);
+
+        // Update status to "Generating..."
+        slot.querySelector('.carousel-gen-status').textContent = 'Generating...';
+        slot.classList.add('generating');
+
+        try {
+            const payload = {
+                prompt: slide.prompt,
+                provider: selectedProvider,
+                model,
+                contentType: 'image',
+                platform,
+            };
+            if (uploadedImages.length === 1) payload.referenceImage = uploadedImages[0];
+            if (uploadedImages.length > 1) payload.referenceImages = uploadedImages;
+
+            const resp = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            const data = await resp.json();
+
+            if (data.error) throw new Error(data.error);
+
+            if (data.type === 'image' && data.data) {
+                const src = `data:${data.mimeType || 'image/png'};base64,${data.data}`;
+                generatedImages.push({ src, label: slide.label, index: i });
+                slot.classList.remove('generating');
+                slot.classList.add('done');
+                slot.querySelector('.carousel-gen-slot-body').innerHTML = `
+                  <img src="${src}" alt="${escapeHtml(slide.label)}" class="carousel-gen-img" 
+                       onclick="window.__openLightbox(this.src)" style="cursor:pointer" title="Click to view fullscreen" />
+                  <div class="carousel-gen-slot-actions">
+                    <button class="btn-tiny" onclick="window.__downloadMedia('${src}', 'carousel-slide-${i + 1}.png')">💾</button>
+                  </div>`;
+            } else {
+                throw new Error('Unexpected response');
+            }
+        } catch (err) {
+            slot.classList.remove('generating');
+            slot.classList.add('failed');
+            slot.querySelector('.carousel-gen-slot-body').innerHTML = `
+              <div class="carousel-gen-error">❌ ${escapeHtml(err.message)}</div>`;
+        }
+
+        // Update progress counter
+        document.getElementById('carouselGenProgress').textContent = String(i + 1);
+    }
+
+    // Add "Download All" button at the end
+    if (generatedImages.length > 0) {
+        const downloadAllBtn = document.createElement('div');
+        downloadAllBtn.className = 'carousel-gen-footer';
+        downloadAllBtn.innerHTML = `
+          <button class="btn-small" onclick="window.__downloadAllCarousel()" id="downloadAllCarouselBtn">
+            💾 Download All ${generatedImages.length} Slides
+          </button>
+          <span class="media-info">${generatedImages.length}/${carouselSlides.length} generated</span>`;
+        responseArea.appendChild(downloadAllBtn);
+
+        // Store for download-all
+        window.__carouselImages = generatedImages;
+    }
+
+    setBtnLoading(btn, false);
+}
+
+// Download all carousel images
+window.__downloadAllCarousel = () => {
+    const images = window.__carouselImages || [];
+    images.forEach(({ src, index }) => {
+        window.__downloadMedia(src, `carousel-slide-${index + 1}.png`);
+    });
+};
 
 async function sendToAI(prompt) {
     const model = document.getElementById('modelSelect').value;

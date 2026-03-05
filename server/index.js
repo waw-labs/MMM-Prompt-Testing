@@ -4,9 +4,10 @@ import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
-import { assemblePrompt, assembleAllPrompts, getNicheKeys, normalizePlatform } from './prompt-engine.js';
+import { assemblePrompt, assembleAllPrompts, assembleCarouselSlides, refinePromptWithAI, getNicheKeys, normalizePlatform } from './prompt-engine.js';
 import { scrapeAndAnalyze } from './business-scraper.js';
 import { generateAllCategoryPrompts } from './prompt-generator.js';
+import { resolveSubniche } from './subniche-generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -59,7 +60,7 @@ app.get('/api/prompts/:category', (req, res) => {
 // ── POST /api/assemble ──────────────────────────────────────────────────
 app.post('/api/assemble', async (req, res) => {
     try {
-        const { categories, niche, platform, contentType, title, description, image, businessContext } = req.body;
+        const { categories, niche, platform, contentType, title, description, image, businessContext, carouselSlideCount } = req.body;
 
         if (!categories?.length) {
             return res.status(400).json({ error: 'At least one category is required' });
@@ -80,15 +81,66 @@ app.post('/api/assemble', async (req, res) => {
 
             let resolvedNiche = niche;
             if (!resolvedNiche) {
-                resolvedNiche = await classifyNicheViaAI(title, description, getNicheKeys(config), image);
+                if (businessContext) {
+                    // Business mode: detect specific subniche via AI
+                    // Auto-generates new niche entry if it doesn't exist
+                    resolvedNiche = await resolveSubniche(businessContext, promptConfigs, category);
+                    businessContext.resolvedNiche = resolvedNiche;
+                    console.log(`[assemble] Subniche resolved: "${resolvedNiche}" for "${businessContext.name}"`);
+                } else {
+                    resolvedNiche = await classifyNicheViaAI(title, description, getNicheKeys(config), image);
+                }
             }
 
             if (!config.niches?.[resolvedNiche]) {
                 resolvedNiche = 'general';
             }
 
-            const prompt = assemblePrompt(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
-            const allPrompts = assembleAllPrompts(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
+            let prompt = assemblePrompt(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
+            let allPrompts = assembleAllPrompts(config, resolvedNiche, platform, contentType, title, description, category, businessContext);
+
+            // For carousel content type, also generate per-slide prompts
+            let carouselData = null;
+            if (contentType === 'carousel') {
+                const slideCount = Math.min(Math.max(carouselSlideCount || 5, 3), 10);
+                carouselData = assembleCarouselSlides(config, resolvedNiche, platform, slideCount, title, description, category, businessContext);
+            }
+
+            // ── AI Creative Strategist (business mode only) ──────────
+            // Send each prompt to Gemini with Google Search to research
+            // current trends and generate optimized, winning prompts
+            if (businessContext) {
+                // Inject platform so strategist can research platform-specific trends
+                businessContext.platform = normalizePlatform(platform);
+                console.log(`[strategist] 🔍 Researching trends & optimizing ${allPrompts.length} prompts for "${businessContext.name}" on ${platform}...`);
+
+                // Optimize main prompt + all variants in parallel
+                const refinePromises = [
+                    refinePromptWithAI(prompt, businessContext),
+                    ...allPrompts.map(v =>
+                        refinePromptWithAI(v.prompt, businessContext).then(refined => ({ ...v, prompt: refined }))
+                    ),
+                ];
+
+                // Optimize carousel slides too if present
+                if (carouselData?.slides?.length) {
+                    const carouselRefinePromises = carouselData.slides.map(slide =>
+                        refinePromptWithAI(slide.prompt, businessContext).then(refined => ({ ...slide, prompt: refined }))
+                    );
+                    const [refinedMain, ...refinedVariants] = await Promise.all(refinePromises);
+                    const refinedCarouselSlides = await Promise.all(carouselRefinePromises);
+
+                    prompt = refinedMain;
+                    allPrompts = refinedVariants;
+                    carouselData = { ...carouselData, slides: refinedCarouselSlides };
+                } else {
+                    const [refinedMain, ...refinedVariants] = await Promise.all(refinePromises);
+                    prompt = refinedMain;
+                    allPrompts = refinedVariants;
+                }
+
+                console.log(`[strategist] ✅ AI trend research & optimization complete for "${businessContext.name}"`);
+            }
 
             results.push({
                 category,
@@ -97,6 +149,7 @@ app.post('/api/assemble', async (req, res) => {
                 contentType,
                 prompt,
                 allPrompts,
+                ...(carouselData && { carouselModel: carouselData.model, carouselSlides: carouselData.slides }),
             });
         }
 
